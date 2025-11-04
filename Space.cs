@@ -2,6 +2,9 @@
  */
 
 class Space : Node {
+  
+  private Item? item;
+  
   public Space (String name) : base(name)
   {
   }
@@ -20,5 +23,31 @@ class Space : Node {
   
   public override Space FollowEdge (string direction) {
     return (Space) (base.FollowEdge(direction));
+  }
+  
+  //Magnus: Places the item on a space
+  public void PlaceItem(Item item)
+  {
+  	this.item = item;
+  }
+  
+  //Magnus: Returns true if the space holds an item
+  public bool ItemCheck()
+  {
+  	return item != null;
+  }
+  
+  //Magnus: returns the item without removing it
+  public Item? GetItem()
+  {
+  	return item;
+  }
+  
+  //Magnus: Picks up the item and removes it
+  public Item CollectItem()
+  {
+  	Item collected = item!;
+  	item = null;
+  	return collected;
   }
 }

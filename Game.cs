@@ -14,6 +14,8 @@ class Game {
     registry.Register("bye", cmdExit);
     registry.Register("go", new CommandGo());
     registry.Register("help", new CommandHelp(registry));
+    //Magnus: Command for picking up items
+    registry.Register("pickup", new CommandPickUp()); 
   }
   
   static void Main (string[] args) {
