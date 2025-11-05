@@ -19,6 +19,6 @@ class Space : Node {
   }
   
   public override Space FollowEdge (string direction) {
-    return (Space) (base.FollowEdge(direction));
+    return (this.HasEdge(direction) ? (Space) (base.FollowEdge(direction)) : null);
   }
 }
