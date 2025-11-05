@@ -21,7 +21,7 @@ class Node {
 	  return edges.ContainsKey(name);
   }
   
-  public virtual Node FollowEdge (string direction) {
+  public virtual Node? FollowEdge (string direction) {
     return edges[direction];
   }
 }

@@ -23,6 +23,7 @@ class Game {
     context.GetCurrent().Welcome();
     
     while (context.IsDone()==false) {
+	Console.WriteLine("\nWhat would you like to do?");
       Console.Write("> ");
       string? line = Console.ReadLine();
       if (line!=null) registry.Dispatch(line);
