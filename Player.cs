@@ -3,7 +3,7 @@
 
 public class Player
 {
-    // --- PROPERTIES ---
+    // Nicholas --- PROPERTIES ---
     // Dette lader andre klasser LÆSE værdierne, 
     // men kun denne klasse kan ÆNDRE dem.
     public string Name { get; private set; }
@@ -16,7 +16,7 @@ public class Player
     {
         this.Name = name;
         this.MaxHP = maxhp;
-        this.HP = maxhp; // Start med fuldt liv
+        this.HP = maxhp; // Nicholas: Start med fuldt liv
     }
 
 

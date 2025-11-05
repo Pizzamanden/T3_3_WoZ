@@ -14,6 +14,7 @@ class Game {
     registry.Register("bye", cmdExit);
     registry.Register("go", new CommandGo());
     registry.Register("help", new CommandHelp(registry));
+    registry.Register("attack", new CommandUseAttackMove());
   }
   
   static void Main (string[] args) {
@@ -23,6 +24,12 @@ class Game {
     context.GetCurrent().Welcome();
     
     while (context.IsDone()==false) {
+      if (context.Player.IsAlive() == false)
+      {
+        Console.WriteLine("Du er blevet besejret i kampen. Game Over!");
+        context.MakeDone();
+        continue;
+      }
       Console.Write("> ");
       string? line = Console.ReadLine();
       if (line!=null) registry.Dispatch(line);
