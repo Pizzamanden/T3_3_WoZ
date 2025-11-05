@@ -28,7 +28,10 @@ public class Monster
 
         Console.WriteLine($"{Name} takes {amount} damage! HP is now {HP}/{MaxHp}.");
     }
-
+ public bool IsAlive()
+    {
+        return HP > 0;
+    }
 
 
 }
