@@ -21,12 +21,12 @@ class CommandTalk : BaseCommand, ICommand {
         }
 
         string commandInput = parameters[0];
-        string npcKey = current.GetNPC().GetName();
+        string npcKey = current.GetNPC()!.GetName();
         //Checks if the user's input matches the keyword
         //If yes, the item is collected and removed from the room. 
         if (commandInput == npcKey)
         {
-            NPC currentNPC = current.GetNPC();
+            NPC currentNPC = current.GetNPC()!;
             Console.WriteLine(currentNPC.GetDialoguePrompt());
         }
         else

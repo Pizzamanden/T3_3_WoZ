@@ -8,8 +8,8 @@ class CommandExploreRoom : BaseCommand, ICommand
     public void Execute(Context context, string command, string[] parameters)
     {
         Space current = context.GetCurrent();
-        Item item = current.GetItem();
-        NPC npc = current.GetNPC();
+        Item item = current.GetItem()!;
+        NPC npc = current.GetNPC()!;
 
         //show items
         if (item == null)
