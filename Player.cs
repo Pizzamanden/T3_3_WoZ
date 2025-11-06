@@ -10,6 +10,8 @@ public class Player
     public int HP { get; private set; }
     public int MaxHP { get; private set; }
 
+    public int AttackDamage { get; set; } = 15; // Nicholas: Standard angrebsskade
+
     // --- CONSTRUCTOR ---
     // Denne metode kører, når en ny Player laves
     public Player(string name, int maxhp)

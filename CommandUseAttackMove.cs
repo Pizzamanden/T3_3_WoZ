@@ -47,14 +47,14 @@ class CommandUseAttackMove : BaseCommand, ICommand
 
         // Nicholas: Monsteret angribes og den rapporterer tilbage hvor meget liv monsteret har tilbage
         monster.TakeDamage(playerDamage);
-        Console.WriteLine($"{monster.Name} har {monster.Health} HP tilbage.");
+        Console.WriteLine($"{monster.Name} har {monster.HP} HP tilbage.");
 
         // Nicholas: Monsteret angriber tilbage, hvis det stadig er i live
         if (monster.IsAlive())
         {
             Console.WriteLine($"{monster.Name} angriber tilbage!");
-            context.Player.TakeDamage(monster.AttackDamage);
-            Console.WriteLine($"Du har {context.Player.Health} HP tilbage.");
+            context.GetPlayer().TakeDamage(monster.AttackDamage);
+            Console.WriteLine($"Du har {context.GetPlayer().HP} HP tilbage.");
         }
         else
         {

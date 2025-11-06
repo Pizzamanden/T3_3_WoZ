@@ -9,6 +9,10 @@ class Context {
   
   public Player player { get; private set; }
   
+  public Player GetPlayer()
+  {
+    return player;
+  }
 
   public Context (Space node) {
     current = node;

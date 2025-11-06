@@ -2,9 +2,11 @@
  */
 
 class Space : Node {
+   public Monster? CurrentMonster { get; set; }
   public Space (String name) : base(name)
-  {
-  }
+    {
+        
+    }
   
   public void Welcome () {
     Console.WriteLine("You are now at "+name);

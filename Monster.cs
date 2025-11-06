@@ -9,6 +9,8 @@ public class Monster
     public string Name { get; private set; }
     public int HP { get; private set; }
     public int MaxHp { get; private set; }
+    public string Weakness { get; set; } = "fire"; // Nicholas: Standard svaghed
+    public int AttackDamage { get; set; } = 10; // Nicholas: Standard angrebsskade
 
     // Denne metode køres når et nyt Monster laves
     public Monster(string name, int maxHp)
@@ -16,6 +18,8 @@ public class Monster
         this.Name = name;
         this.MaxHp = maxHp;
         this.HP = maxHp;
+        this.Weakness = "fire";
+        this.AttackDamage = 10;
     }
 
     /*
