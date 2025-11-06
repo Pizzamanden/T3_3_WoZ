@@ -5,8 +5,23 @@ class Context {
   Space current;
   bool done = false;
   
+  //Magnus: Inventory list to store multiple items
+  private List<Item> inventory = new List<Item>();
+  
   public Context (Space node) {
     current = node;
+  }
+
+  //Magnus: Adding a pickup up item to the inventory
+  public void InventoryAdd(Item item)
+  {
+    inventory.Add(item);
+  }
+
+  //Magnus: Returning the inventory
+  public List<Item> GetInventory()
+  {
+    return inventory;
   }
   
   public Space GetCurrent() {
