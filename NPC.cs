@@ -5,14 +5,40 @@ class NPC
     string name;
     string description;
     List<string> dialogueList;
+    int currentDialoguePrompt;
 
     public NPC(string nameval, string descriptionval, List<string> dialogueListval)
     {
         name = nameval;
         description = descriptionval;
         dialogueList = dialogueListval;
+        currentDialoguePrompt = 0;
     }
 
+    public string GetDialoguePrompt()
+    {
+        string currentPrompt = "";
+        Console.WriteLine(dialogueList.Count);
+        Console.WriteLine(currentDialoguePrompt);
+        if (currentDialoguePrompt < dialogueList.Count)
+        {
+            currentPrompt = dialogueList[currentDialoguePrompt];
+        } else
+        {
+            currentPrompt = "That's all the information I have for you";
+        }
+        currentDialoguePrompt++;
+        return currentPrompt;
+    }
+
+    public string GetName()
+    {
+        return name;
+    }
+    public string GetDescription()
+    {
+        return description;
+    }
 
     /* 
 
@@ -24,7 +50,7 @@ class NPC
         "This is the plastic monster. You can defeat him by recycling the trash he's attacking you with."
     };
 
-    npc1 = new NPC("NPC 1", "Example description for NPC 1", dialogueListNPC1);
+    NPC npc1 = new NPC("NPC 1", "Example description for NPC 1", dialogueListNPC1);
 
     */
 }
