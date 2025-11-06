@@ -13,14 +13,14 @@ class CommandUseAttackMove : BaseCommand, ICommand
     {
         Monster? monster = context.GetCurrent().CurrentMonster;
 
-        // Check if there is a monster to attack
-        if (monster == null || !monster.IsAlive()) // Using !monster.IsAlive() is more standard than == false
+        // Nicholas: Tjek om der er et monster at angribe
+        if (monster == null || !monster.IsAlive()) // Når man bruger kommandoen og der ikke er noget monster
         {
             Console.WriteLine("Der er ingen fjende at angribe her.");
             return;
         }
 
-        // Check if an attack name was provided
+        // Nicholas : Tjek om spilleren har angrebsmuligheder
         if (parameters.Length < 1)
         {
             Console.WriteLine("Brug: useattackmove <move_name>");
@@ -30,9 +30,9 @@ class CommandUseAttackMove : BaseCommand, ICommand
         string attackType = parameters[0];
         Console.WriteLine($"Du bruger {attackType} mod {monster.Name}!");
 
-        // --- All logic below was incorrectly placed outside the Execute method ---
+        // Nicholas: Tjek om angrebstypen er gyldig
 
-        // Calculate player damage
+        // Nicholas: Bestem skaden baseret på angrebstypen og monsterets svaghed
         int playerDamage = 10;
 
         if (attackType == monster.Weakness)
@@ -45,11 +45,11 @@ class CommandUseAttackMove : BaseCommand, ICommand
             Console.WriteLine("Det var ikke særlig effektivt.");
         }
 
-        // Apply damage and report monster health
+        // Nicholas: Monsteret angribes og den rapporterer tilbage hvor meget liv monsteret har tilbage
         monster.TakeDamage(playerDamage);
         Console.WriteLine($"{monster.Name} har {monster.Health} HP tilbage.");
 
-        // Check if monster survives and attacks back
+        // Nicholas: Monsteret angriber tilbage, hvis det stadig er i live
         if (monster.IsAlive())
         {
             Console.WriteLine($"{monster.Name} angriber tilbage!");
