@@ -4,6 +4,9 @@
 class Space : Node {
 	private NPC? npc;
 
+  
+  private Item? item;
+  
 	public Space (String name) : base(name)
 	{
 			
@@ -26,11 +29,13 @@ class Space : Node {
 		return (Space)(base.FollowEdge(direction));
 	}
 
+	//Yarik: Places npc in a space
 	public void PlaceNPC(NPC npc)
 	{
 		this.npc = npc;
 	}
-		public bool NPCCheck()
+	//Yarik: Checks if npc is in a space
+	public bool NPCCheck()
 	{
 		return npc != null;
 	}
@@ -40,4 +45,30 @@ class Space : Node {
 	{
 		return npc;
 	}
+  
+  //Magnus: Places the item on a space
+  public void PlaceItem(Item item)
+  {
+  	this.item = item;
+  }
+  
+  //Magnus: Returns true if the space holds an item
+  public bool ItemCheck()
+  {
+  	return item != null;
+  }
+  
+  //Magnus: returns the item without removing it
+  public Item? GetItem()
+  {
+  	return item;
+  }
+  
+  //Magnus: Picks up the item and removes it
+  public Item CollectItem()
+  {
+  	Item collected = item!;
+  	item = null;
+  	return collected;
+  }
 }
