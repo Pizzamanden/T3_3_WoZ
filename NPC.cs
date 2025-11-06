@@ -18,8 +18,6 @@ class NPC
     public string GetDialoguePrompt()
     {
         string currentPrompt = "";
-        Console.WriteLine(dialogueList.Count);
-        Console.WriteLine(currentDialoguePrompt);
         if (currentDialoguePrompt < dialogueList.Count)
         {
             currentPrompt = dialogueList[currentDialoguePrompt];
