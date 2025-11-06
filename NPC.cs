@@ -15,8 +15,8 @@ class NPC
 
 
     /* 
-    
-    Exmample call:
+
+    Example use:
 
     List<string> dialogueListNPC1 = new List<string>
     {
