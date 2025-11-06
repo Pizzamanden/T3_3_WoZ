@@ -1,3 +1,4 @@
+// Dummy template
 class DummySE : IEvent{
 	
 	// Method which does the events intended behavior
@@ -6,6 +7,9 @@ class DummySE : IEvent{
 	}
 }
 
+/*
+	An event for displaying one (1) textblock.
+*/
 class TextSE : IEvent{
 	
 	private string textToDisplay;

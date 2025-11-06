@@ -6,11 +6,6 @@ class Space : Node {
 	private List<IEvent> eventsWelcome;
 	//private List<IEvent> eventsGoodbye;
 	
-  public Space (String name, List<IEvent> eventsWelcome) : base(name)
-  {
-	  this.eventsWelcome = eventsWelcome;
-  }
-  
   public Space (String name) : base(name)
   {
 	  this.eventsWelcome = new List<IEvent>();
