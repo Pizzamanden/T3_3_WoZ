@@ -18,9 +18,4 @@ class Zone
             SpaceList.Add(space);
         }
     }
-
-    public override string ToString()
-    {
-        return $"{name}: {description}";
-    }
 }
