@@ -1,4 +1,5 @@
 // Dummy template
+using System.Text;
 class DummySE : IEvent{
 	
 	// Method which does the events intended behavior
@@ -116,4 +117,17 @@ class PickUpSE : IEvent{
 	public void Trigger(){
 		registry.GetCommand(CommandNames.CommandPickup).Execute(context, CommandNames.CommandPickup, itemName);
 	}
+}
+
+class DisplayMonsterSE : IEvent{
+	
+	public void Trigger(){
+		Console.OutputEncoding = Encoding.UTF8;
+		string art = @"
+dadad               dadawdwd ⠿⠿⠿⠿⠿
+daddd
+		";
+		Console.WriteLine(art);
+	}
+	
 }

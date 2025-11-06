@@ -25,6 +25,7 @@ class World {
 	cave.AddWelcomeEvent(new TextSE("Cave is spoopy.\n I cry in cavs.\n Hold my hands?"));
 	cave.AddWelcomeEvent(new TextSE("You hold hands for 4 seconds, but then you piss pants. \n Very cringe, you should go."));
     cave.AddWelcomeEvent(new ExitsListSE(cave));
+	cave.AddWelcomeEvent(new DisplayMonsterSE());
 	
 	
     this.entry = entry;

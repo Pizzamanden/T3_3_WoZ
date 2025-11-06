@@ -1,5 +1,6 @@
 /* Main class for launching the game
  */
+using System.Text;
 
 class Game {
   static Context  context  = new Context();
@@ -19,6 +20,7 @@ class Game {
   }
   
   static void Main (string[] args) {
+	Console.OutputEncoding = Encoding.UTF8;
     Console.WriteLine("Welcome to the World of Zuul!");
     
     InitRegistry();
