@@ -5,8 +5,8 @@ class Context {
   Space current;
   bool done = false;
   
-  public Context (Space node) {
-    current = node;
+  public Context () {
+    
   }
   
   public Space GetCurrent() {
@@ -30,6 +30,10 @@ class Context {
   
   public bool IsDone () {
     return done;
+  }
+  
+  public void SetEntry(Space entry){
+	  this.current = entry;
   }
 }
 

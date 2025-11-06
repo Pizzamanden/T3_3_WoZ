@@ -2,10 +2,12 @@
  */
 
 class Game {
-  static World    world    = new World();
-  static Context  context  = new Context(world.GetEntry());
+  static Context  context  = new Context();
   static ICommand fallback = new CommandUnknown();
   static Registry registry = new Registry(context, fallback);
+  static World    world    = new World(registry);
+  
+  
   
   private static void InitRegistry () {
     ICommand cmdExit = new CommandExit();
@@ -20,6 +22,7 @@ class Game {
     Console.WriteLine("Welcome to the World of Zuul!");
     
     InitRegistry();
+	context.SetEntry(world.GetEntry());
     context.GetCurrent().Welcome();
     
     while (context.IsDone()==false) {

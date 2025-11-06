@@ -3,16 +3,13 @@
 
 class World {
   Space entry;
+  Registry registry;
   
-  public World () {
+  public World (Registry registry) {
+	  this.registry = registry; // Access to registry for SpaceEvents
     Space entry    = new Space("Entry");
     Space corridor = new Space("Corridor");
-	
-	List<IEvent> caveWelcomeEvents = new List<IEvent>();
-	caveWelcomeEvents.Add(new TextSE("Cave is spoopy.\n I cry in cavs.\n Hold my hands?"));
-	caveWelcomeEvents.Add(new TextSE("You hold hands for 4 seconds, but then you piss pants. \n Very cringe, you should go."));
-    Space cave     = new Space("Cave", caveWelcomeEvents);
-    
+    Space cave     = new Space("Cave");
 	Space pit      = new Space("Darkest Pit");
     Space outside  = new Space("Outside");
     
@@ -22,7 +19,14 @@ class World {
     cave.AddEdge("south", outside);
     pit.AddEdge("door", cave);
     outside.AddEdge("door", cave);
-    
+	
+	
+	// Add welcome events to the cave
+	cave.AddWelcomeEvent(new TextSE("Cave is spoopy.\n I cry in cavs.\n Hold my hands?"));
+	cave.AddWelcomeEvent(new TextSE("You hold hands for 4 seconds, but then you piss pants. \n Very cringe, you should go."));
+    cave.AddWelcomeEvent(new ExitsListSE(cave));
+	
+	
     this.entry = entry;
   }
   
