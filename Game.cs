@@ -14,6 +14,10 @@ class Game {
     registry.Register("bye", cmdExit);
     registry.Register("go", new CommandGo());
     registry.Register("help", new CommandHelp(registry));
+    //Yarik: Command for talking to npcs
+    registry.Register("talk", new CommandTalk());
+    //Yarik: Command for exploring the room
+    registry.Register("explore", new CommandExploreRoom());
     //Magnus: Command for picking up items
     registry.Register("pickup", new CommandPickUp()); 
     //Magnus: Command for checking your inventory
