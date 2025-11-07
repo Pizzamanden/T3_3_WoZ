@@ -12,11 +12,12 @@ class Node {
   public String GetName () {
     return name;
   }
-  
-  public void AddEdge (string name, Node node) {
+
+  public void AddEdge(string name, Node node)
+  {
     edges.Add(name, node);
   }
-  
+
   public virtual Node FollowEdge (string direction) {
     return edges[direction];
   }
