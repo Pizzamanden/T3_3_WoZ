@@ -18,6 +18,11 @@ class World {
     pit.AddEdge("door", cave);
     outside.AddEdge("door", cave);
     
+    //Magnus: Adding keys and weapons to spaces
+    entry.PlaceItem(new Item("Key part 1", "key"));
+    pit.PlaceItem(new Item("Key part 2", "key"));
+    corridor.PlaceItem(new Item("Weapon part 1", "weapon"));
+    
     this.entry = entry;
   }
   
