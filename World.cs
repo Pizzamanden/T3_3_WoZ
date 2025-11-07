@@ -30,6 +30,7 @@ class World {
         R1.AddEdge("west", R2);
         R1.AddEdge("south", R9);
         R1.AddEdge("east", R6);
+        R2.AddEdge("east", R1);
         R2.AddEdge("north", R3);
         R2.AddEdge("west", R4);
         R3.AddEdge("south", R2);
