@@ -2,12 +2,14 @@
  */
 
 class Space : Node {
-  
-  private Item? item;
-  
-  public Space (String name) : base(name)
-  {
-  }
+
+  public Zone zone;
+
+    public Space(Zone zone, string name) : base(name)
+    {
+        this.zone = zone;
+        zone.AddSpace(this); // registrerer rummet i zonen
+    }
   
   public void Welcome () {
     Console.WriteLine("You are now at "+name);
