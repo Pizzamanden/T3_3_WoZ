@@ -3,7 +3,8 @@
 
 class Space : Node {
 
-  public Zone zone;
+    public Zone zone;
+    private Item? item;
 
     public Space(Zone zone, string name) : base(name)
     {
