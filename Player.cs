@@ -11,6 +11,8 @@ public class Player
     public int MaxHP { get; private set; }
 
     public int AttackDamage { get; set; } = 15; // Nicholas: Standard angrebsskade
+	
+	public Dictionary<string, Attack> AttackList { get; set;} = new Dictionary<string, Attack>();
 
     // --- CONSTRUCTOR ---
     // Denne metode kører, når en ny Player laves
@@ -50,7 +52,47 @@ public class Player
     {
         return HP > 0;
     }
-
+	
+	/*
+	*	Method for checking if an attack exists
+	*/
+	public bool HasAttack(string name){
+		return AttackList.ContainsKey(name);
+	}
+	
+	/*
+	*	Method for adding an attack to the player.
+	*	Returns true if the attack was added
+	*	Returns false if either the attack is null, or if an attack by that name already exists
+	*/
+	public bool AddAttack(Attack attack){
+		if(attack == null) return false; // Return false if attack is null
+		if(AttackList.ContainsKey(attack.Name)){
+			return false; // Return false if an attack with the same name already exists
+		} else {
+			AttackList.Add(attack.Name, attack);
+			return true; // Return true since it should have been added
+		}
+	}
+	
+	/*
+	*	Method for removing an attack from the player.
+	*	Returns true if the attack was removed
+	*	Returns false if either the attack is null, or if an attack by that name didnt exist
+	*/
+	public bool RemoveAttack(Attack attack){
+		if(attack == null) return false; // Return false if attack is null
+		return AttackList.Remove(attack.Name); // This method cannot throw that one exception, no check should be needed
+	}
+	
+	/*
+	*	Method for removing an attack from the player using its name.
+	*	Returns true if the attack was removed
+	*	Returns false if an attack by that name didnt exist
+	*/
+	public bool RemoveAttack(string name){
+		return AttackList.Remove(name); // This method cannot throw that one exception, no check should be needed
+	}
    
 }
 

@@ -12,6 +12,10 @@ class Context {
   public Context (Space node) {
     current = node;
     Player = new Player("Bro", 100);
+	
+	// Peter: Add all player default attacks
+	Player.AddAttack(new Attack("fists", 5, "physical"));
+	Player.AddAttack(new Attack("torch", 5, "fire"));
   }
   
   public Space GetCurrent() {
