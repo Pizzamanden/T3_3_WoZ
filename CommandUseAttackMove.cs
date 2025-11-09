@@ -11,7 +11,7 @@ class CommandUseAttackMove : BaseCommand, ICommand
 
     public void Execute(Context context, string command, string[] parameters)
     {
-        Monster? monster = context.GetCurrent().CurrentMonster;
+        Monster? monster = context.GetCurrent().Monster;
 
         // Nicholas: Tjek om der er et monster at angribe
         if (monster == null || !monster.IsAlive()) // Når man bruger kommandoen og der ikke er noget monster
@@ -33,11 +33,10 @@ class CommandUseAttackMove : BaseCommand, ICommand
         // Nicholas: Tjek om angrebstypen er gyldig
 
         // Nicholas: Bestem skaden baseret på angrebstypen og monsterets svaghed
-        int playerDamage = 10;
+        //int playerDamage = 10;
 
         if (attackType == monster.Weakness)
         {
-            playerDamage *= 2;
             Console.WriteLine("Det var super effektivt!");
         }
         else
@@ -46,7 +45,7 @@ class CommandUseAttackMove : BaseCommand, ICommand
         }
 
         // Nicholas: Monsteret angribes og den rapporterer tilbage hvor meget liv monsteret har tilbage
-        monster.TakeDamage(playerDamage);
+        monster.TakeDamage(context.GetPlayer().AttackDamage * (attackType == monster.Weakness ? 2 : 1));
         Console.WriteLine($"{monster.Name} har {monster.HP} HP tilbage.");
 
         // Nicholas: Monsteret angriber tilbage, hvis det stadig er i live
@@ -55,11 +54,14 @@ class CommandUseAttackMove : BaseCommand, ICommand
             Console.WriteLine($"{monster.Name} angriber tilbage!");
             context.GetPlayer().TakeDamage(monster.AttackDamage);
             Console.WriteLine($"Du har {context.GetPlayer().HP} HP tilbage.");
+			if(!context.GetPlayer().IsAlive()){
+				Console.WriteLine("You died.");
+			}
         }
         else
         {
             Console.WriteLine($"Du har besejret {monster.Name}!");
-            context.GetCurrent().CurrentMonster = null; 
+            context.GetCurrent().Monster = null; 
         }
     } 
 } 

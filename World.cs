@@ -17,6 +17,9 @@ class World {
     cave.AddEdge("south", outside);
     pit.AddEdge("door", cave);
     outside.AddEdge("door", cave);
+	
+	
+	entry.Monster = new Monster("Slime", 30, "rocks");
     
     this.entry = entry;
   }

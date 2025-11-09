@@ -2,7 +2,7 @@
  */
 
 class Space : Node {
-   public Monster? CurrentMonster { get; set; }
+   public Monster? Monster { get; set; }
   public Space (String name) : base(name)
     {
         

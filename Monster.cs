@@ -13,12 +13,12 @@ public class Monster
     public int AttackDamage { get; set; } = 10; // Nicholas: Standard angrebsskade
 
     // Denne metode køres når et nyt Monster laves
-    public Monster(string name, int maxHp)
+    public Monster(string name, int maxHp, string weakness = "fire")
     {
         this.Name = name;
         this.MaxHp = maxHp;
         this.HP = maxHp;
-        this.Weakness = "fire";
+        this.Weakness = weakness;
         this.AttackDamage = 10;
     }
 
