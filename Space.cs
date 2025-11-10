@@ -21,13 +21,29 @@ class Space : Node {
     foreach (String exit in exits) {
       Console.WriteLine(" - "+exit);
     }
+	
+	// Check if a welcome event has been set
+	if(eventsWelcome.Count > 0){
+		foreach (IEvent e in eventsWelcome){
+			e.Trigger();
+		}
+	}
+	
   }
   
   public void Goodbye () {
+	  // Check if a goodbye event has been set
   }
   
-  public override Space FollowEdge (string direction) {
-    return (Space) (base.FollowEdge(direction));
+  
+  public override Space? FollowEdge (string direction) {
+    return (this.HasEdge(direction) ? (Space) (base.FollowEdge(direction)!) : null);
+  }
+  
+  // Add an event to this space, which will trigger inside the Welcome() method
+  // The order of adding events matter, first added is first played
+  public void AddWelcomeEvent(IEvent e){
+	this.eventsWelcome.Add(e);
   }
 
 	//Yarik: Places npc in a space

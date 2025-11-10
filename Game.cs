@@ -1,11 +1,14 @@
 /* Main class for launching the game
  */
+using System.Text;
 
 class Game {
-  static World    world    = new World();
-  static Context  context  = new Context(world.GetEntry());
+  static Context  context  = new Context();
   static ICommand fallback = new CommandUnknown();
   static Registry registry = new Registry(context, fallback);
+  static World    world    = new World(registry);
+  
+  
   
   private static void InitRegistry () {
     ICommand cmdExit = new CommandExit();
@@ -26,9 +29,11 @@ class Game {
   }
   
   static void Main (string[] args) {
+	Console.OutputEncoding = Encoding.UTF8;
     Console.WriteLine("Welcome to the World of Zuul!");
     
     InitRegistry();
+	context.SetEntry(world.GetEntry());
     context.GetCurrent().Welcome();
     
     while (context.IsDone()==false) {

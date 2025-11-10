@@ -3,6 +3,7 @@
 
 class World {
   Space entry;
+  Registry registry;
   
   public World () {
 
