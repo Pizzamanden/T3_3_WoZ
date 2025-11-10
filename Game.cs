@@ -14,6 +14,7 @@ class Game {
     registry.Register("bye", cmdExit);
     registry.Register("go", new CommandGo());
     registry.Register("help", new CommandHelp(registry));
+<<<<<<< HEAD
     //Yarik: Command for talking to npcs
     registry.Register("talk", new CommandTalk());
     //Yarik: Command for exploring the room
@@ -22,6 +23,9 @@ class Game {
     registry.Register("pickup", new CommandPickUp()); 
     //Magnus: Command for checking your inventory
     registry.Register("inventory", new CommandCheckInventory());
+=======
+    registry.Register("attack", new CommandUseAttackMove());
+>>>>>>> origin/NHS_player
   }
   
   static void Main (string[] args) {
@@ -31,6 +35,12 @@ class Game {
     context.GetCurrent().Welcome();
     
     while (context.IsDone()==false) {
+      if (context.Player.IsAlive() == false)
+      {
+        Console.WriteLine("Du er blevet besejret i kampen. Game Over!");
+        context.MakeDone();
+        continue;
+      }
       Console.Write("> ");
       string? line = Console.ReadLine();
       if (line!=null) registry.Dispatch(line);

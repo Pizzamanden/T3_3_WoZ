@@ -5,6 +5,7 @@ class World {
   Space entry;
   
   public World () {
+<<<<<<< HEAD
 
     Zone startzone    = new Zone("Start", "Starting zone");
     Zone turism = new Zone("Turism", "The zone with Tourism trash!");
@@ -69,5 +70,29 @@ class World {
     public Space GetEntry () {
         return entry;
     }
+=======
+    Space entry    = new Space("Entry");
+    Space corridor = new Space("Corridor");
+    Space cave     = new Space("Cave");
+    Space pit      = new Space("Darkest Pit");
+    Space outside  = new Space("Outside");
+    
+    entry.AddEdge("door", corridor);
+    corridor.AddEdge("door", cave);
+    cave.AddEdge("north", pit);
+    cave.AddEdge("south", outside);
+    pit.AddEdge("door", cave);
+    outside.AddEdge("door", cave);
+	
+	
+	entry.Monster = new Monster("Slime", 30, "fire");
+    
+    this.entry = entry;
+  }
+  
+  public Space GetEntry () {
+    return entry;
+  }
+>>>>>>> origin/NHS_player
 }
 

@@ -2,6 +2,7 @@
 */
 
 class Space : Node {
+<<<<<<< HEAD
 
 
     public Zone zone;
@@ -12,6 +13,12 @@ class Space : Node {
     {
         this.zone = zone;
         zone.AddSpace(this); // registrerer rummet i zonen
+=======
+   public Monster? Monster { get; set; }
+  public Space (String name) : base(name)
+    {
+        
+>>>>>>> origin/NHS_player
     }
   
   public void Welcome () {

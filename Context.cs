@@ -1,15 +1,27 @@
 /* Context class to hold all context relevant to a session.
  */
 
+using System.Security;
+
 class Context {
   Space current;
   bool done = false;
   
+<<<<<<< HEAD
   //Magnus: Inventory list to store multiple items
   private List<Item> inventory = new List<Item>();
   
+=======
+  public Player Player { get; private set; }
+
+>>>>>>> origin/NHS_player
   public Context (Space node) {
     current = node;
+    Player = new Player("Bro", 100);
+	
+	// Peter: Add all player default attacks
+	Player.AddAttack(new Attack("fists", 5, "physical"));
+	Player.AddAttack(new Attack("torch", 5, "fire"));
   }
 
   //Magnus: Adding a pickup up item to the inventory
