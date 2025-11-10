@@ -2,23 +2,16 @@
 */
 
 class Space : Node {
-<<<<<<< HEAD
-
 
     public Zone zone;
     private Item? item;
     private NPC? npc;
+    public Monster? Monster { get; set; }
 
     public Space(Zone zone, string name) : base(name)
     {
         this.zone = zone;
         zone.AddSpace(this); // registrerer rummet i zonen
-=======
-   public Monster? Monster { get; set; }
-  public Space (String name) : base(name)
-    {
-        
->>>>>>> origin/NHS_player
     }
   
   public void Welcome () {

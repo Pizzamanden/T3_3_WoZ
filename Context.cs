@@ -6,15 +6,11 @@ using System.Security;
 class Context {
   Space current;
   bool done = false;
-  
-<<<<<<< HEAD
-  //Magnus: Inventory list to store multiple items
-  private List<Item> inventory = new List<Item>();
-  
-=======
-  public Player Player { get; private set; }
 
->>>>>>> origin/NHS_player
+    //Magnus: Inventory list to store multiple items
+    private List<Item> inventory = new List<Item>();
+ 
+  public Player Player { get; private set; }
   public Context (Space node) {
     current = node;
     Player = new Player("Bro", 100);

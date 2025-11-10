@@ -14,18 +14,15 @@ class Game {
     registry.Register("bye", cmdExit);
     registry.Register("go", new CommandGo());
     registry.Register("help", new CommandHelp(registry));
-<<<<<<< HEAD
     //Yarik: Command for talking to npcs
     registry.Register("talk", new CommandTalk());
     //Yarik: Command for exploring the room
     registry.Register("explore", new CommandExploreRoom());
     //Magnus: Command for picking up items
-    registry.Register("pickup", new CommandPickUp()); 
-    //Magnus: Command for checking your inventory
-    registry.Register("inventory", new CommandCheckInventory());
-=======
+    registry.Register("pickup", new CommandPickUp());
+        //Magnus: Command for checking your inventory
+        registry.Register("inventory", new CommandCheckInventory());
     registry.Register("attack", new CommandUseAttackMove());
->>>>>>> origin/NHS_player
   }
   
   static void Main (string[] args) {
