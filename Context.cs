@@ -4,8 +4,8 @@
 using System.Security;
 
 class Context {
-  Space current;
-  bool done = false;
+    protected Space current;
+    protected bool done = false;
 
     //Magnus: Inventory list to store multiple items
     private List<Item> inventory = new List<Item>();

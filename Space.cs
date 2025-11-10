@@ -9,7 +9,7 @@ class Space : Node {
     public Monster? Monster { get; set; }
 
     private List<IEvent> eventsWelcome = new List<IEvent>();
-    //private List<IEvent> eventsGoodbye = new List<IEvent>();
+    private List<IEvent> eventsGoodbye = new List<IEvent>();
 
     public Space(Zone zone, string name) : base(name)
     {
@@ -26,12 +26,16 @@ class Space : Node {
     }
 	
 	// Check if a welcome event has been set
-	if(eventsWelcome.Count > 0){
-		foreach (IEvent e in eventsWelcome){
-			e.Trigger();
-		}
-	}
-	
+	/*foreach (IEvent e in eventsWelcome){
+		e.Trigger();
+	}*/
+        
+    while(eventsWelcome.Count > 0)
+        {
+            eventsWelcome[0].Trigger();
+            eventsWelcome.RemoveAt(0);
+        }
+
   }
   
   public void Goodbye () {
@@ -43,14 +47,18 @@ class Space : Node {
     return (this.HasEdge(direction) ? (Space) (base.FollowEdge(direction)!) : null);
   }
   
-  // Add an event to this space, which will trigger inside the Welcome() method
-  // The order of adding events matter, first added is first played
-  public void AddWelcomeEvent(IEvent e){
-	this.eventsWelcome.Add(e);
-  }
+    // Add an event to this space, which will trigger inside the Welcome() method
+    // The order of adding events matter, first added is first played
+    public void AddWelcomeEvent(IEvent e){
+	    this.eventsWelcome.Add(e);
+    }
+    public void AddGoodbyeEvent(IEvent e)
+    {
+        this.eventsGoodbye.Add(e);
+    }
 
-	//Yarik: Places npc in a space
-	public void PlaceNPC(NPC npc)
+    //Yarik: Places npc in a space
+    public void PlaceNPC(NPC npc)
 	{
 		this.npc = npc;
 	}

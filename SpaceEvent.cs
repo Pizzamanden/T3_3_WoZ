@@ -10,13 +10,14 @@ class DummySE : IEvent{
 
 /*
 	An event for displaying one (1) textblock.
+	
 */
 class TextSE : IEvent{
 	
 	private string displayText;
     private string actionText;
 
-    public TextSE(string displayText, string actionText){
+    public TextSE(string displayText, string actionText = "Press enter to continue"){
         this.displayText = displayText;
 		this.actionText = actionText;
 
@@ -28,9 +29,9 @@ class TextSE : IEvent{
 		Console.WriteLine(displayText);
 		Console.Write($"\n> {actionText}");
 		Console.ReadLine();
-		Console.WriteLine("\n");
-		Console.SetCursorPosition(0, Console.CursorTop - 1);
-		ClearCurrentConsoleLine();
+		Console.WriteLine("");
+		//Console.SetCursorPosition(0, Console.CursorTop - 1);
+		//ClearCurrentConsoleLine();
 	}
 	
 	public static void ClearCurrentConsoleLine()
@@ -123,6 +124,12 @@ class PickUpSE : IEvent{
 	}
 }
 
+/*
+	An event which could display some monster
+	Currently it just staticly displays text, but we could always make some monster archetypes, like Slime.
+	Then you could make more clones of this class and call them DisplaySlimeEvent.
+	I donnu about the UTF8 encoding, i cannot get it to work
+ */
 class DisplayMonsterSE : IEvent{
 	
 	public void Trigger(){
