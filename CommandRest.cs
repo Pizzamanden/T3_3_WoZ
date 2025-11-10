@@ -9,7 +9,7 @@ class CommandRest : BaseCommand, ICommand {
     public void Execute (Context context, string command, string[] parameters) {
         Monster? monster = context.GetCurrent().Monster;
 
-        if (monster == null || !monster.IsAlive()) // Når man bruger kommandoen og der ikke er noget monster
+        if (monster == null || !monster.IsAlive())
         {
             context.Player.Heal(10);
         }

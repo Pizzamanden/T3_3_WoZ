@@ -3,19 +3,19 @@
 
 class Space : Node {
 
-    public Zone zone;
-    private Item? item;
-    private NPC? npc;
-    public Monster? Monster { get; set; }
+  public Zone zone;
+  private Item? item;
+  private NPC? npc;
+  public Monster? Monster { get; set; }
 
-    private List<IEvent> eventsWelcome = new List<IEvent>();
-    private List<IEvent> eventsGoodbye = new List<IEvent>();
+  private List<IEvent> eventsWelcome = new List<IEvent>();
+  private List<IEvent> eventsGoodbye = new List<IEvent>();
 
-    public Space(Zone zone, string name) : base(name)
-    {
-        this.zone = zone;
-        zone.AddSpace(this); // registrerer rummet i zonen
-    }
+  public Space(Zone zone, string name) : base(name)
+  {
+      this.zone = zone;
+      zone.AddSpace(this); // registrerer rummet i zonen
+  }
   
   public void Welcome () {
     Console.WriteLine("You are now at "+name+"\n");
@@ -47,26 +47,26 @@ class Space : Node {
     return (this.HasEdge(direction) ? (Space) (base.FollowEdge(direction)!) : null);
   }
   
-    // Add an event to this space, which will trigger inside the Welcome() method
-    // The order of adding events matter, first added is first played
-    public void AddWelcomeEvent(IEvent e){
-	    this.eventsWelcome.Add(e);
-    }
-    public void AddGoodbyeEvent(IEvent e)
-    {
-        this.eventsGoodbye.Add(e);
-    }
+  // Add an event to this space, which will trigger inside the Welcome() method
+  // The order of adding events matter, first added is first played
+  public void AddWelcomeEvent(IEvent e){
+    this.eventsWelcome.Add(e);
+  }
+  public void AddGoodbyeEvent(IEvent e)
+  {
+      this.eventsGoodbye.Add(e);
+  }
 
     //Yarik: Places npc in a space
     public void PlaceNPC(NPC npc)
 	{
 		this.npc = npc;
 	}
-	//Yarik: Checks if npc is in a space
-	public bool NPCCheck()
-	{
-		return npc != null;
-	}
+  //Yarik: Checks if npc is in a space
+  public bool NPCCheck()
+  {
+    return npc != null;
+  }
 
 	//Yarik: returns the item without removing it
 	public NPC? GetNPC()
