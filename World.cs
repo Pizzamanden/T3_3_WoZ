@@ -5,7 +5,7 @@ class World {
   Space entry;
   Registry registry;
   
-  public World () {
+  public World (Registry registry) {
 
     Zone startzone    = new Zone("Start", "Starting zone");
     Zone turism = new Zone("Turism", "The zone with Tourism trash!");
@@ -63,6 +63,17 @@ class World {
 
         // Peter: Monster adding
         R1.Monster = new Monster("Slime", 30, "fire");
+
+
+        // Peter: SpaceEvent tests
+        R2.AddWelcomeEvent(new TextSE(
+            "Cave is spoopy.\n I cry in cavs.\n Hold my hands?",
+            "Press enter to eat ass... "));
+        R2.AddWelcomeEvent(new TextSE(
+            "You hold hands for 4 seconds, but then you piss pants. \n Very cringe, you should go.",
+            "Press enter to but hole... "));
+        R2.AddWelcomeEvent(new ExitsListSE(R2));
+        R2.AddWelcomeEvent(new TextSE("You hold hands for 4 seconds, but then you piss pants. \n Very cringe, you should go.", "lmao"));
 
         this.entry = R1;
     }

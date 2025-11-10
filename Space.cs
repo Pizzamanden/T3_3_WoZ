@@ -8,6 +8,9 @@ class Space : Node {
     private NPC? npc;
     public Monster? Monster { get; set; }
 
+    private List<IEvent> eventsWelcome = new List<IEvent>();
+    //private List<IEvent> eventsGoodbye = new List<IEvent>();
+
     public Space(Zone zone, string name) : base(name)
     {
         this.zone = zone;
@@ -15,7 +18,7 @@ class Space : Node {
     }
   
   public void Welcome () {
-    Console.WriteLine("You are now at "+name);
+    Console.WriteLine("You are now at "+name+"\n");
     HashSet<string> exits = edges.Keys.ToHashSet();
     Console.WriteLine("Current exits are:");
     foreach (String exit in exits) {

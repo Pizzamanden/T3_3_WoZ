@@ -11,8 +11,7 @@ class Context {
     private List<Item> inventory = new List<Item>();
  
   public Player Player { get; private set; }
-  public Context (Space node) {
-    current = node;
+  public Context () {
     Player = new Player("Bro", 100);
 	
 	// Peter: Add all player default attacks

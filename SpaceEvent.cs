@@ -13,18 +13,22 @@ class DummySE : IEvent{
 */
 class TextSE : IEvent{
 	
-	private string textToDisplay;
-	
-	public TextSE(string text){
-		textToDisplay = text;
-	}
+	private string displayText;
+    private string actionText;
+
+    public TextSE(string displayText, string actionText){
+        this.displayText = displayText;
+		this.actionText = actionText;
+
+    }
 	
 	// Method which does the events intended behavior
 	// https://stackoverflow.com/questions/8946808/can-console-clear-be-used-to-only-clear-a-line-instead-of-whole-console
 	public void Trigger(){
-		Console.WriteLine(textToDisplay);
-		Console.Write("\nPress enter key to continue... ");
+		Console.WriteLine(displayText);
+		Console.Write($"\n> {actionText}");
 		Console.ReadLine();
+		Console.WriteLine("\n");
 		Console.SetCursorPosition(0, Console.CursorTop - 1);
 		ClearCurrentConsoleLine();
 	}
