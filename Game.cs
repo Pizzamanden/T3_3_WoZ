@@ -26,6 +26,7 @@ class Game {
         //Magnus: Command for checking your inventory
         registry.Register("inventory", new CommandCheckInventory());
     registry.Register("attack", new CommandUseAttackMove());
+    registry.Register("directions", new CommandDirections());
   }
   
   static void Main (string[] args) {
