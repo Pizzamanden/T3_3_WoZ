@@ -27,6 +27,7 @@ class Game {
         registry.Register("inventory", new CommandCheckInventory());
     registry.Register("attack", new CommandUseAttackMove());
     registry.Register("directions", new CommandDirections());
+    registry.Register("rest", new CommandRest());
   }
   
   static void Main (string[] args) {
