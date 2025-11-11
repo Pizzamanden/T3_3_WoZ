@@ -28,6 +28,7 @@ class Game {
     registry.Register("attack", new CommandUseAttackMove());
     registry.Register("directions", new CommandDirections());
     registry.Register("rest", new CommandRest());
+    registry.Register("map", new CommandMap());
   }
   
   static void Main (string[] args) {
