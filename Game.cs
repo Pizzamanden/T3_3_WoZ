@@ -46,7 +46,7 @@ class Game {
         context.MakeDone();
         continue;
       }
-      Console.Write("> ");
+      Console.Write("\n> ");
       string? line = Console.ReadLine();
       if (line!=null) registry.Dispatch(line);
     }
