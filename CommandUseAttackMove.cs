@@ -60,9 +60,9 @@ class CommandUseAttackMove : BaseCommand, ICommand
         }
         else
         {
-            Console.WriteLine($"Du har besejret {monster.Name}!");
+            monster.OnMonsterDeath();
 			// Peter: Drop an item if the monster should drop an item
-			//context.GetCurrent().Monster.DropItem(context.GetCurrent());
+			context.GetCurrent().Monster.DropItem(context.GetCurrent());
 			// Then remove it from the Space
             context.GetCurrent().Monster = null; 
         }
