@@ -18,18 +18,8 @@ class Space : Node {
     }
   
   public void Welcome () {
-    Console.WriteLine("You are now at "+name+"\n");
-    HashSet<string> exits = edges.Keys.ToHashSet();
-    Console.WriteLine("Current exits are:");
-    foreach (String exit in exits) {
-      Console.WriteLine(" - "+exit);
-    }
-	
-	// Check if a welcome event has been set
-	/*foreach (IEvent e in eventsWelcome){
-		e.Trigger();
-	}*/
-        
+    this.AddWelcomeEvent(new ExitsListSE(this));
+	    
     while(eventsWelcome.Count > 0)
         {
             eventsWelcome[0].Trigger();

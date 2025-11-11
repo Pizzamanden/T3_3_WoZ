@@ -17,7 +17,7 @@ class TextSE : IEvent{
 	private string displayText;
     private string actionText;
 
-    public TextSE(string displayText, string actionText = "Press enter to continue"){
+    public TextSE(string displayText, string actionText = "Press enter to continue..."){
         this.displayText = displayText;
 		this.actionText = actionText;
 
@@ -58,7 +58,7 @@ class ExitsListSE : IEvent{
 	
 	public void Trigger(){
 		HashSet<string> exits = space.GetEdges();
-		Console.WriteLine("Current exits are:");
+		Console.WriteLine("Current options are:");
 		foreach (String exit in exits) {
 		  Console.WriteLine(" - "+exit);
 		}

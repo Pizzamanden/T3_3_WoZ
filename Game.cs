@@ -30,7 +30,7 @@ class Game {
   
   static void Main (string[] args) {
 	Console.OutputEncoding = Encoding.UTF8;
-    Console.WriteLine("Welcome to the World of Zuul!");
+    // Console.WriteLine("");
     
     InitRegistry();
 	context.SetEntry(world.GetEntry());
