@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-public class Monster
+class Monster
 {
      // Nicholas : PROPERTIES ---
     // Dette lader andre klasser LÆSE værdierne, 
@@ -11,17 +11,18 @@ public class Monster
     public int MaxHp { get; private set; }
     public string Weakness { get; set; } = "fire"; // Nicholas: Standard svaghed
     public int AttackDamage { get; set; } = 10; // Nicholas: Standard angrebsskade
-	//private Item itemToDrop;
+	public Item itemToDrop;
+    public string deathText;
 
     // Denne metode køres når et nyt Monster laves
-    public Monster(string name, int maxHp, string weakness = "fire")
+    public Monster(string name, int maxHp, Item item, string weakness, string deathText)
     {
         this.Name = name;
         this.MaxHp = maxHp;
         this.HP = maxHp;
         this.Weakness = weakness;
-        this.AttackDamage = 10;
-		//this.itemToDrop = itemToDrop;
+		this.itemToDrop = item;
+        this.deathText = deathText;
     }
 
     /*
@@ -50,11 +51,16 @@ public class Monster
     {
         return HP > 0;
     }
+
+    public void OnMonsterDeath(){
+        Console.WriteLine($"\n{this.deathText}");
+        
+    }
 	
 	// Peter: Drop the set item on the monsters space
-	/*public void DropItem(Space space){
+	public void DropItem(Space space){
 		space.PlaceItem(this.itemToDrop);
-	}*/
+	}
 
 
 }
