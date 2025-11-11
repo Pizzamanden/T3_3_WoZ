@@ -31,7 +31,7 @@ class CommandMap : BaseCommand, ICommand
 
     -----------------------------------------------------------
                  [Start] = Start   [Room] = Room
-                 [Comb] = Combat   [Boss] = Boss
+                 [Comb] = Combat   [Boss] = Boss ☠
     ";
 
         Console.Write(map);
