@@ -7,16 +7,15 @@ class Context {
   Space current;
   bool done = false;
   
-  public Player player { get; private set; }
-  
-  public Player GetPlayer()
-  {
-    return player;
-  }
+  public Player Player { get; private set; }
 
   public Context (Space node) {
     current = node;
-    player = new Player("Bro", 100);
+    Player = new Player("Bro", 100);
+	
+	// Peter: Add all player default attacks
+	Player.AddAttack(new Attack("fists", 5, "physical"));
+	Player.AddAttack(new Attack("torch", 5, "fire"));
   }
   
   public Space GetCurrent() {
