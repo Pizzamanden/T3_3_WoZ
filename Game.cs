@@ -35,6 +35,7 @@ class Game {
 	Console.OutputEncoding = Encoding.UTF8;
     // Console.WriteLine("");
     
+    Console.Clear();
     InitRegistry();
 	context.SetEntry(world.GetEntry());
     context.GetCurrent().Welcome();
