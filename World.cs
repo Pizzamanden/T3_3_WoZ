@@ -62,7 +62,7 @@ class World {
 
 
         // Peter: Monster adding
-        R1.Monster = new Monster("Slime", 30, "fire");
+        R1.Monster = new Monster("Slime", 30, null, "fire", "Oh no, I died.");
 
 
         // Peter: SpaceEvent tests
