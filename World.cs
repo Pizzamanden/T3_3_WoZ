@@ -3,7 +3,7 @@
 
 class World {
   Space entry;
-  Registry registry;
+  Registry? registry;
   
   public World (Registry registry) {
 

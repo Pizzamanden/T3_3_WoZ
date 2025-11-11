@@ -4,7 +4,7 @@
 using System.Security;
 
 class Context {
-    protected Space current;
+    protected Space? current;
     protected bool done = false;
 
     //Magnus: Inventory list to store multiple items
@@ -32,11 +32,11 @@ class Context {
   }
   
   public Space GetCurrent() {
-    return current;
+    return current!;
   }
   
   public void Transition (string direction) {
-    Space? next = current.FollowEdge(direction);
+    Space? next = current!.FollowEdge(direction);
     if (next==null) {
       Console.WriteLine("You are confused, and walk in a circle looking for '"+direction+"'. In the end you give up 😩");
     } else {

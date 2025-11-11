@@ -42,6 +42,12 @@ class Monster
         // Giver feedback til konsollen
         Console.WriteLine($"{Name} takes {amount} damage! HP is now {HP}/{MaxHp}.");
     }
+
+    public void Heal()
+    {
+        HP = MaxHp;
+        Console.WriteLine($"You fled the battle! {Name} is now fully recovered. HP is now {HP}/{MaxHp}.");
+    }
     
      /*
     * metode til at tjekke, om Monstret er i live.
