@@ -40,7 +40,7 @@ class CommandUseAttackMove : BaseCommand, ICommand
         }
         Attack attack = context.Player.AttackList[attackType.ToLower()];
 
-        Console.WriteLine($"You use {attack.Name} against {monster.Name}!");
+        Console.WriteLine($"\nYou use {attack.Name} against {monster.Name}!");
 
         if (attack.Type == monster.Weakness)
         { // Monster is weak to this!
@@ -49,18 +49,12 @@ class CommandUseAttackMove : BaseCommand, ICommand
 
         // Nicholas: The monster is attacked and it reports back how much HP the monster has left
         monster.TakeDamage(attack.Damage * (attack.Type == monster.Weakness ? 2 : 1));
-        Console.WriteLine($"{monster.Name} got {monster.HP} HP left.");
 
         // Nicholas: The monster strikes back if it is still alive
         if (monster.IsAlive())
         {
-            Console.WriteLine($"{monster.Name} Strikes back!");
+            Console.WriteLine($"\n{monster.Name} Strikes back!");
             context.Player.TakeDamage(monster.AttackDamage);
-            Console.WriteLine($"You have got {context.Player.HP} HP Left.");
-            if (!context.Player.IsAlive())
-            {
-                Console.WriteLine("You died.");
-            }
         }
         else
         {

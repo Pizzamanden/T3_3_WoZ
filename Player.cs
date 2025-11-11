@@ -40,7 +40,7 @@ public class Player
         }
 
         // Giver feedback til konsollen
-        Console.WriteLine($"{Name} takes {amount} damage! HP is now {HP}/{MaxHP}.");
+        Console.WriteLine($"{Name} take {amount} damage! HP is now {HP}/{MaxHP}.\n");
     }
 
     public void Heal(int amount)
@@ -48,12 +48,12 @@ public class Player
         if (HP + amount >= MaxHP)
         {
             HP = MaxHP;
-            Console.WriteLine($"{Name} is now fully rested. HP is now {HP}/{MaxHP}.");
+            Console.WriteLine($"\n{Name} is now fully rested. HP is now {HP}/{MaxHP}.");
         }
         else
         {
             HP += amount;
-            Console.WriteLine($"{Name} rests for an hour and replenishes {amount} HP! HP is now {HP}/{MaxHP}.");
+            Console.WriteLine($"\n{Name} rests for an hour and replenishes {amount} HP! HP is now {HP}/{MaxHP}.");
         }
     }
 
