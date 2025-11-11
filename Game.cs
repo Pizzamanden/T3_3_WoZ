@@ -39,7 +39,7 @@ class Game {
     while (context.IsDone()==false) {
       if (context.Player.IsAlive() == false)
       {
-        Console.WriteLine("Du er blevet besejret i kampen. Game Over!");
+        Console.WriteLine("YOU DIED");
         context.MakeDone();
         continue;
       }
