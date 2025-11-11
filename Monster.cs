@@ -11,8 +11,8 @@ class Monster
     public int MaxHp { get; private set; }
     public string Weakness { get; set; } = "fire"; // Nicholas: Standard svaghed
     public int AttackDamage { get; set; } = 10; // Nicholas: Standard angrebsskade
-	public Item itemToDrop;
-    public string deathText;
+	public Item? itemToDrop;
+    public string deathText = "You defeated the enemy!";
 
     // Denne metode køres når et nyt Monster laves
     public Monster(string name, int maxHp, Item item, string weakness, string deathText)
