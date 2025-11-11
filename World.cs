@@ -99,8 +99,8 @@ class World {
         R3.Monster = new Monster (
           "turle", 
           20, 
-          new Item("keypiece", 
-          "Key Piece"), 
+          new Item("Key Piece", 
+          "key"), 
           "acid",
           "Finally being freed from those nets. The turtle begins to calm down. It opens \nits mouth, revealing a key piece to you, placed on its tongue.\n\nYou contact HQ, telling them it's safe for the crew to come in and take care \nof the rest.\n\nYou also relay to them the importance of using chemicals to break down old \nfishing gear."
         );
@@ -130,8 +130,8 @@ class World {
         R5.Monster = new Monster (
           "turle", 
           20, 
-          new Item("keypiece", 
-          "Key Piece"), 
+          new Item("Key Piece", 
+          "key"), 
           "recycle",
           "After finally throwing the last parts of the mascot into the correct bins. All \nthere's left now is a key piece of the ground.\n\nYou contact HQ, telling them it's safe for the crew to come in and take care of the rest. \n\nYou also relay to them the importance of disposing trash in the correct \ngarbage bins."
         );
@@ -164,8 +164,8 @@ class World {
         R7.Monster = new Monster (
           "villains", 
           20, 
-          new Item("keypiece", 
-          "Key Piece"), 
+          new Item("Key Piece", 
+          "key"), 
           "cut",
           "With the monsters finally defeated. You see a key piece sticking out from \ninside Bottle Boy's bottle cap. \n\nYou pick up the key piece, and contact HQ telling them it's safe for the crew \nto come in, and take care of the rest. \n\nYou also relay to them the importance of shredding plastic into smaller \npieces. Before it can be melted down and reused."
         );
@@ -189,8 +189,8 @@ class World {
         R8.Monster = new Monster (
           "mysterious figure", 
           20, 
-          new Item("keypiece", 
-          "Key Piece"), 
+          new Item("Key Piece", 
+          "key"), 
           "fire",
           "With not much more than a crisp on the ground, you see a key piece sticking \nout from the ashes. \n\nYou pick up the key piece, and contact HQ, telling them it's safe for the crew \nto come in, and take care of the rest. \n\nYou also relay to them the importance of burning cigarette waste."
         );
