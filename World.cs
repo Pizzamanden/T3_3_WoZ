@@ -32,6 +32,7 @@ class World {
     S5.AddEdge("north", S1);
     S6.AddEdge("north", S5);
 
+    //Trash Land Rooms
     Space TL_S1 = new Space(trashland, "TL_S1 MiniBoss");
     Space TL_S2 = new Space(trashland, "TL_S2");
     Space TL_S3 = new Space(trashland, "TL_S3 Combat");
@@ -46,6 +47,7 @@ class World {
     TL_S5.AddEdge("north", TL_S6);
     TL_S6.AddEdge("east", TL_S1);
 
+    //Docks Rooms
     Space D_S1 = new Space(docks, "D_S1");
     Space D_S2 = new Space(docks, "D_S2 Combat");
     Space D_S3 = new Space(docks, "D_S3 NPC");
@@ -64,6 +66,7 @@ class World {
     D_S5.AddEdge("east", D_S4);
     D_S6.AddEdge("south", D_S5);
 
+    //Mall Rooms
     Space M_S1 = new Space(docks, "M_S1 NPC");
     Space M_S2 = new Space(docks, "M_S2 Combat");
     Space M_S3 = new Space(docks, "M_S3");
@@ -82,6 +85,7 @@ class World {
     M_S5.AddEdge("south", M_S4);
     M_S6.AddEdge("west", M_S5);
 
+    //City Rooms
     Space C_S1 = new Space(docks, "C_S1 Miniboss");
     Space C_S2 = new Space(docks, "C_S2 NPC");
     Space C_S3 = new Space(docks, "C_S3");
@@ -99,8 +103,18 @@ class World {
     C_S5.AddEdge("east", C_S6);
     C_S6.AddEdge("west", C_S5);
 
+    //ZONE TRANSITIONS
+    S2.AddEdge("north", D_S1);
+    D_S1.AddEdge("south", S2);
+    S3.AddEdge("south", TL_S1);
+    TL_S1.AddEdge("north", S3);
+    S4.AddEdge("north", M_S1);
+    M_S1.AddEdge("south", S4);
+    S4.AddEdge("east", C_S1);
+    C_S1.AddEdge("west", S4);
+
         //Magnus: Adding keys and weapons to spaces
-        R1.PlaceItem(new Item("Key part 1", "key"));
+        //S1.PlaceItem(new Item("Key part 1", "key"));
 
         /*
         //Yarik: Adding NPCs to spaces
@@ -118,24 +132,24 @@ class World {
         */
 
         // Mikkel: Added text, dialouge, monsters, monster-death-dialoug
-        R1.AddWelcomeEvent(new TextSE("\n\"We're about to reach Trash Island!\" the pilot says, \"I hope you're as good \nas they say you are. This won't be an easy mission. But with all that trash \ngathering like this and those monsters appearing, something bad was bound \nto happen sooner or later.\""));
-        R1.AddWelcomeEvent(new TextSE("\"It's too dangerous for our cleaning crew to step foot on the island as is. \nAnd even if they could, they wouldn't even know how to handle all that trash.\""));
-        R1.AddWelcomeEvent(new TextSE("\"That's why we need an expert like you, to swoop in, eliminate those \nmonsters and figure out a proper way to handle the trash in the process. \nThen our team can take care of the rest.\""));
-        R1.AddWelcomeEvent(new TextSE("\"See that big Tower to the south? According to our intel, that's where the one \nresponsible resides. It doesn't matter how many other monsters you defeat, \nif you don't take care of the one in that tower, more of those things will just appear...\""));
-        R1.AddWelcomeEvent(new TextSE("\"You can't just waltz on in however, the gate is locked and you'll need 4 parts of a key, each given to one of the 4 Trash Guardians.\""));
-        R1.AddWelcomeEvent(new TextSE("\"Given that you're the best janitor the UN headquarters had on hand, \nI'm sure it'll be a walk in the park to you. Good luck champ.\"", "Press enter to jump..."));
+        S1.AddWelcomeEvent(new TextSE("\n\"We're about to reach Trash Island!\" the pilot says, \"I hope you're as good \nas they say you are. This won't be an easy mission. But with all that trash \ngathering like this and those monsters appearing, something bad was bound \nto happen sooner or later.\""));
+        S1.AddWelcomeEvent(new TextSE("\"It's too dangerous for our cleaning crew to step foot on the island as is. \nAnd even if they could, they wouldn't even know how to handle all that trash.\""));
+        S1.AddWelcomeEvent(new TextSE("\"That's why we need an expert like you, to swoop in, eliminate those \nmonsters and figure out a proper way to handle the trash in the process. \nThen our team can take care of the rest.\""));
+        S1.AddWelcomeEvent(new TextSE("\"See that big Tower to the south? According to our intel, that's where the one \nresponsible resides. It doesn't matter how many other monsters you defeat, \nif you don't take care of the one in that tower, more of those things will just appear...\""));
+        S1.AddWelcomeEvent(new TextSE("\"You can't just waltz on in however, the gate is locked and you'll need 4 parts of a key, each given to one of the 4 Trash Guardians.\""));
+        S1.AddWelcomeEvent(new TextSE("\"Given that you're the best janitor the UN headquarters had on hand, \nI'm sure it'll be a walk in the park to you. Good luck champ.\"", "Press enter to jump..."));
 
-        R1.AddWelcomeEvent(new TextSE("You land in a big pile of trash, saving both yourself and your cleaning cart \nfrom an early GAME OVER screen. The only tools at your disposal are the \nusual cleaning supplies you have in your cart, as well as a walkie talkie."));
-        this.entry = R1;
-
-
-
-        R2.AddWelcomeEvent(new TextSE("\nOn your way west, you pass by the island docks to your north. The sudden \nsmell of rotting fish comes across you like a wave."));
+        S1.AddWelcomeEvent(new TextSE("You land in a big pile of trash, saving both yourself and your cleaning cart \nfrom an early GAME OVER screen. The only tools at your disposal are the \nusual cleaning supplies you have in your cart, as well as a walkie talkie."));
+        this.entry = S1;
 
 
 
-        R3.AddWelcomeEvent(new TextSE("\nYou make your way to the docks, holding your fingers tight around your \nnose. The entire place feels haunted, and you get caught in multiple nets as \nyou make your way around the place."));
-        R3.AddWelcomeEvent(new TextSE("As you approach the pier, something begins to rise from the ocean. An \nenormous sea turtle that crushes the harbor as it lumbers towards you. Its \nmovements slowed down by the countless fishing nets that envelop its body."));
+        S2.AddWelcomeEvent(new TextSE("\nOn your way west, you pass by the island docks to your north. The sudden \nsmell of rotting fish comes across you like a wave."));
+
+
+
+        D_S1.AddWelcomeEvent(new TextSE("\nYou make your way to the docks, holding your fingers tight around your \nnose. The entire place feels haunted, and you get caught in multiple nets as \nyou make your way around the place."));
+        D_S1.AddWelcomeEvent(new TextSE("As you approach the pier, something begins to rise from the ocean. An \nenormous sea turtle that crushes the harbor as it lumbers towards you. Its \nmovements slowed down by the countless fishing nets that envelop its body."));
         // R3 NPC dialouge
         List<string> dialogueListNPC1 = new List<string>
         {
@@ -144,10 +158,10 @@ class World {
             "\nRealizing you can't win, you decide to run, and manage to escape around a \nbuilding. Trying to think of a plan, you take a look back at the beast, and see \nit's still attacking everything around it indiscriminately. \n\nYou realize it wasn't attacking you out of spite. More likely, being stuck \nin those nets, was what made it lash out in anger. So you reach for the \nchemicals in your cart, mixing them into a concoction strong enough to melt \nthe nets. \n\n(Pretend you got a new attack here)"
         };
 
-        R3.PlaceNPC(new NPC("turtle", "Example description for NPC 1", dialogueListNPC1));
+        D_S3.PlaceNPC(new NPC("turtle", "Example description for NPC 1", dialogueListNPC1));
         // Add text when combat begins...
         // Added monster and death-dialouge
-        R3.Monster = new Monster (
+        D_S6.Monster = new Monster (
           "turle", 
           20, 
           new Item("Key Piece", 
@@ -155,9 +169,9 @@ class World {
           "acid",
           "Finally being freed from those nets. The turtle begins to calm down. It opens \nits mouth, revealing a key piece to you, placed on its tongue.\n\nYou contact HQ, telling them it's safe for the crew to come in and take care \nof the rest.\n\nYou also relay to them the importance of using chemicals to break down old \nfishing gear."
         );
+  }
 
-
-
+/* 
         R4.AddWelcomeEvent(new TextSE("\nAs you continue along the road west, you're surprised to find a long line of \npeople in front of you. Looking for where the line starts, you face south, and \nwonder how the travel poster neglected to make any mention of the theme \npark located on the island.", "Press enter to skip line..."));
         R4.AddWelcomeEvent(new TextSE("As you pass the people in line, you notice that they aren't people at all. \nLooking like the insides of trash bins that came to life. These monsters \nresemble large, dull minded tourists, fit with dirty clothes and hats."));
 
@@ -273,7 +287,7 @@ class World {
           "",
           "With the Sea Devil reduced to not much more than a puddle on the ground, \nyou reach for your walkie talkie, to report your success. \n\n\"I knew you could do it!\", the pilot yells, unnecessarily loud, \"The cleaning crews are setting foot on the island as we speak. Ready to begin cleaning this whole place up, just as you instructed. I'm coming to pick you up now...\" \n\nBefore going you grab the mop from your cleaning cart. And the last thing \nyou see, before you sweep up the remnants of the Sea Devil, is your own \nself reflection...\n\nThe End"
         );
-    }
+    } */
 
   public Space GetEntry () {
     return entry;
