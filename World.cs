@@ -7,46 +7,97 @@ class World {
   
   public World (Registry registry) {
 
-    Zone startzone    = new Zone("Start", "Starting zone");
-    Zone turism = new Zone("Turism", "The zone with Tourism trash!");
-    Zone fishing = new Zone("Fishing", "The zone with all the fishing gear");
-    Zone plastic = new Zone("plastic", "The plastic zone!");
-    Zone ziggeretzone = new Zone("Zigarettes", "The zone with ziggerets!");
-    Zone finalboss = new Zone("Final boss", "The final boss!");
+    Zone tower = new Zone("Tower", "Starting zone");
+    Zone trashland = new Zone("Trash Land", "The zone with Tourism trash!");
+    Zone docks = new Zone("Docks", "The zone with all the fishing gear");
+    Zone mall = new Zone("Mall", "The plastic zone!");
+    Zone city = new Zone("City", "The zone with ziggerets!");
 
+    //Tower Rooms
+    Space S1  = new Space(tower, "S1 Start");
+    Space S2  = new Space(tower, "S2");
+    Space S3  = new Space(tower, "S3 NPC");
+    Space S4  = new Space(tower, "S4 NPC");
+    Space S5  = new Space(tower, "S5");
+    Space S6  = new Space(tower, "S6");
 
-    Space R1  = new Space(startzone, "dropzone");
-    Space R2  = new Space(fishing,"Køgebugt motorway");
-    Space R3  = new Space(fishing,"Brøndby Strand");
-    Space R4  = new Space(turism,"Road to turism");
-    Space R5  = new Space(turism,"Turism trash place");
-    Space R6  = new Space(plastic, "Plastic pathway");
-    Space R7  = new Space(plastic, "Plastic palace");
-    Space R8  = new Space(ziggeretzone, "Ziggzone");
-    Space R9  = new Space(finalboss, "The wasteway");
-    Space R10 = new Space(finalboss, "Slagelse");
+    S1.AddEdge("west", S2);
+    S1.AddEdge("south", S5);
+    S1.AddEdge("east", S4);
+    S2.AddEdge("west", S3);
+    S2.AddEdge("east", S1);
+    S3.AddEdge("east", S2);
+    S4.AddEdge("west", S3);
+    S5.AddEdge("south", S6);
+    S5.AddEdge("north", S1);
+    S6.AddEdge("north", S5);
 
+    Space TL_S1 = new Space(trashland, "TL_S1 MiniBoss");
+    Space TL_S2 = new Space(trashland, "TL_S2");
+    Space TL_S3 = new Space(trashland, "TL_S3 Combat");
+    Space TL_S4 = new Space(trashland, "TL_S4 NPC");
+    Space TL_S5 = new Space(trashland, "TL_S5 Combat");
+    Space TL_S6 = new Space(trashland, "TL_S6");
 
+    TL_S1.AddEdge("east", TL_S2);
+    TL_S2.AddEdge("south", TL_S3);
+    TL_S3.AddEdge("west", TL_S4);
+    TL_S4.AddEdge("west", TL_S5);
+    TL_S5.AddEdge("north", TL_S6);
+    TL_S6.AddEdge("east", TL_S1);
 
-        R1.AddEdge("west", R2);
-        R1.AddEdge("south", R9);
-        R1.AddEdge("east", R6);
-        R2.AddEdge("east", R1);
-        R2.AddEdge("north", R3);
-        R2.AddEdge("west", R4);
-        R3.AddEdge("south", R2);
-        R4.AddEdge("south", R5);
-        R4.AddEdge("east", R2);
-        R5.AddEdge("north", R4);
-        R6.AddEdge("west", R1);
-        R6.AddEdge("north", R7);
-        R6.AddEdge("east", R8);
-        R7.AddEdge("south", R6);
-        R8.AddEdge("west", R6);
-        R9.AddEdge("north", R1);
-        R9.AddEdge("south", R10);
-        R10.AddEdge("north", R9);
+    Space D_S1 = new Space(docks, "D_S1");
+    Space D_S2 = new Space(docks, "D_S2 Combat");
+    Space D_S3 = new Space(docks, "D_S3 NPC");
+    Space D_S4 = new Space(docks, "D_S4 Combat");
+    Space D_S5 = new Space(docks, "D_S5");
+    Space D_S6 = new Space(docks, "D_S6 Miniboss");
 
+    D_S1.AddEdge("east", D_S2);
+    D_S2.AddEdge("east", D_S3);
+    D_S2.AddEdge("west", D_S1);
+    D_S1.AddEdge("west", D_S4);
+    D_S3.AddEdge("west", D_S2);
+    D_S4.AddEdge("west", D_S5);
+    D_S4.AddEdge("east", D_S1);
+    D_S5.AddEdge("north", D_S6);
+    D_S5.AddEdge("east", D_S4);
+    D_S6.AddEdge("south", D_S5);
+
+    Space M_S1 = new Space(docks, "M_S1 NPC");
+    Space M_S2 = new Space(docks, "M_S2 Combat");
+    Space M_S3 = new Space(docks, "M_S3");
+    Space M_S4 = new Space(docks, "M_S4 Combat");
+    Space M_S5 = new Space(docks, "M_S5");
+    Space M_S6 = new Space(docks, "M_S6 Miniboss");
+
+    M_S1.AddEdge("east", M_S2);
+    M_S2.AddEdge("north", M_S3);
+    M_S1.AddEdge("west", M_S4);
+    M_S4.AddEdge("north", M_S5);
+    M_S5.AddEdge("east", M_S6);
+    M_S2.AddEdge("west", M_S1);
+    M_S3.AddEdge("south", M_S2);
+    M_S4.AddEdge("east", M_S3);
+    M_S5.AddEdge("south", M_S4);
+    M_S6.AddEdge("west", M_S5);
+
+    Space C_S1 = new Space(docks, "C_S1 Miniboss");
+    Space C_S2 = new Space(docks, "C_S2 NPC");
+    Space C_S3 = new Space(docks, "C_S3");
+    Space C_S4 = new Space(docks, "C_S4 Combat");
+    Space C_S5 = new Space(docks, "C_S5");
+    Space C_S6 = new Space(docks, "C_S6 Combat");
+
+    C_S1.AddEdge("east", C_S2);
+    C_S2.AddEdge("north", C_S3);
+    C_S2.AddEdge("west", C_S1);
+    C_S3.AddEdge("east", C_S4);
+    C_S4.AddEdge("west", C_S3);
+    C_S2.AddEdge("south", C_S5);
+    C_S5.AddEdge("north", C_S2);
+    C_S5.AddEdge("east", C_S6);
+    C_S6.AddEdge("west", C_S5);
 
         //Magnus: Adding keys and weapons to spaces
         R1.PlaceItem(new Item("Key part 1", "key"));
