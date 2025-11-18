@@ -1,11 +1,14 @@
 /* Main class for launching the game
  */
+using System.Text;
 
 class Game {
-  static World    world    = new World();
-  static Context  context  = new Context(world.GetEntry());
+  static Context  context  = new Context();
   static ICommand fallback = new CommandUnknown();
   static Registry registry = new Registry(context, fallback);
+  static World    world    = new World(registry);
+  
+  
   
   private static void InitRegistry () {
     ICommand cmdExit = new CommandExit();
@@ -14,23 +17,37 @@ class Game {
     registry.Register("bye", cmdExit);
     registry.Register("go", new CommandGo());
     registry.Register("help", new CommandHelp(registry));
+    //Yarik: Command for talking to npcs
+    registry.Register("talk", new CommandTalk());
+    //Yarik: Command for exploring the room
+    registry.Register("explore", new CommandExploreRoom());
+    //Magnus: Command for picking up items
+    registry.Register("pickup", new CommandPickUp());
+        //Magnus: Command for checking your inventory
+        registry.Register("inventory", new CommandCheckInventory());
     registry.Register("attack", new CommandUseAttackMove());
+    registry.Register("directions", new CommandDirections());
+    registry.Register("rest", new CommandRest());
+    registry.Register("map", new CommandMap());
   }
   
   static void Main (string[] args) {
-    Console.WriteLine("Welcome to the World of Zuul!");
+	Console.OutputEncoding = Encoding.UTF8;
+    // Console.WriteLine("");
     
+    Console.Clear();
     InitRegistry();
+	context.SetEntry(world.GetEntry());
     context.GetCurrent().Welcome();
     
     while (context.IsDone()==false) {
       if (context.Player.IsAlive() == false)
       {
-        Console.WriteLine("Du er blevet besejret i kampen. Game Over!");
+        Console.WriteLine("YOU DIED");
         context.MakeDone();
         continue;
       }
-      Console.Write("> ");
+      Console.Write("\n> ");
       string? line = Console.ReadLine();
       if (line!=null) registry.Dispatch(line);
     }

@@ -17,7 +17,15 @@ class Node {
     edges.Add(name, node);
   }
   
-  public virtual Node FollowEdge (string direction) {
+  public bool HasEdge(string name){
+	  return edges.ContainsKey(name);
+  }
+  
+  public HashSet<string> GetEdges(){
+	  return edges.Keys.ToHashSet();
+  }
+  
+  public virtual Node? FollowEdge (string direction) {
     return edges[direction];
   }
 }
