@@ -7,6 +7,8 @@ class Context {
     protected Space? current;
     protected bool done = false;
 
+    private Dictionary<string, bool> flags = new Dictionary<string, bool>();
+
     //Magnus: Inventory list to store multiple items
     private List<Item> inventory = new List<Item>();
  
@@ -56,6 +58,16 @@ class Context {
   
   public void SetEntry(Space entry){
 	  this.current = entry;
+  }
+
+    /* Peter
+        Set and get flags
+    */
+  public void SetFlag(string flag, bool value = true){
+    flags[flag] = value;
+  }
+  public bool GetFlag(string flag){
+    return (flags.ContainsKey(flag) ? flags[flag] : false);
   }
 }
 
