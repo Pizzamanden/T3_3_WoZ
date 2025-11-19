@@ -17,6 +17,10 @@ class Node {
     edges.Add(name, node);
   }
   
+  public void RemoveEdge (string name) {
+    edges.Remove(name);
+  }
+
   public bool HasEdge(string name){
 	  return edges.ContainsKey(name);
   }

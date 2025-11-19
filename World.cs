@@ -10,8 +10,8 @@ class World {
     Zone startzone    = new Zone("Start", "Starting zone");
     Zone turism = new Zone("Turism", "The zone with Tourism trash!");
     Zone fishing = new Zone("Fishing", "The zone with all the fishing gear");
-    Zone plastic = new Zone("plastic", "The plastic zone!");
-    Zone ziggeretzone = new Zone("Zigarettes", "The zone with ziggerets!");
+    Zone plastic = new Zone("Plastic", "The plastic zone!");
+    Zone ciggeretzone = new Zone("Cigarettes", "The zone with ziggerets!");
     Zone finalboss = new Zone("Final boss", "The final boss!");
 
 
@@ -22,7 +22,7 @@ class World {
     Space R5  = new Space(turism,"Turism trash place");
     Space R6  = new Space(plastic, "Plastic pathway");
     Space R7  = new Space(plastic, "Plastic palace");
-    Space R8  = new Space(ziggeretzone, "Ziggzone");
+    Space R8  = new Space(ciggeretzone, "ciggzone");
     Space R9  = new Space(finalboss, "The wasteway");
     Space R10 = new Space(finalboss, "Slagelse");
 
@@ -102,7 +102,8 @@ class World {
           new Item("Key Piece", 
           "key"), 
           "acid",
-          "Finally being freed from those nets. The turtle begins to calm down. It opens \nits mouth, revealing a key piece to you, placed on its tongue.\n\nYou contact HQ, telling them it's safe for the crew to come in and take care \nof the rest.\n\nYou also relay to them the importance of using chemicals to break down old \nfishing gear."
+          "Finally being freed from those nets. The turtle begins to calm down. It opens \nits mouth, revealing a key piece to you, placed on its tongue.\n\nYou contact HQ, telling them it's safe for the crew to come in and take care \nof the rest.\n\nYou also relay to them the importance of using chemicals to break down old \nfishing gear.", 
+          fishing
         );
 
 
@@ -133,7 +134,8 @@ class World {
           new Item("Key Piece", 
           "key"), 
           "recycle",
-          "After finally throwing the last parts of the mascot into the correct bins. All \nthere's left now is a key piece of the ground.\n\nYou contact HQ, telling them it's safe for the crew to come in and take care of the rest. \n\nYou also relay to them the importance of disposing trash in the correct \ngarbage bins."
+          "After finally throwing the last parts of the mascot into the correct bins. All \nthere's left now is a key piece of the ground.\n\nYou contact HQ, telling them it's safe for the crew to come in and take care of the rest. \n\nYou also relay to them the importance of disposing trash in the correct \ngarbage bins.", 
+          turism
         );
         
 
@@ -167,8 +169,8 @@ class World {
           new Item("Key Piece", 
           "key"), 
           "cut",
-          "With the monsters finally defeated. You see a key piece sticking out from \ninside Bottle Boy's bottle cap. \n\nYou pick up the key piece, and contact HQ telling them it's safe for the crew \nto come in, and take care of the rest. \n\nYou also relay to them the importance of shredding plastic into smaller \npieces. Before it can be melted down and reused."
-        );
+          "With the monsters finally defeated. You see a key piece sticking out from \ninside Bottle Boy's bottle cap. \n\nYou pick up the key piece, and contact HQ telling them it's safe for the crew \nto come in, and take care of the rest. \n\nYou also relay to them the importance of shredding plastic into smaller \npieces. Before it can be melted down and reused.",
+          plastic);
 
 
 
@@ -192,8 +194,8 @@ class World {
           new Item("Key Piece", 
           "key"), 
           "fire",
-          "With not much more than a crisp on the ground, you see a key piece sticking \nout from the ashes. \n\nYou pick up the key piece, and contact HQ, telling them it's safe for the crew \nto come in, and take care of the rest. \n\nYou also relay to them the importance of burning cigarette waste."
-        );
+          "With not much more than a crisp on the ground, you see a key piece sticking \nout from the ashes. \n\nYou pick up the key piece, and contact HQ, telling them it's safe for the crew \nto come in, and take care of the rest. \n\nYou also relay to them the importance of burning cigarette waste.",
+          ciggeretzone);
 
         R9.AddWelcomeEvent(new TextSE("\nIn front of you stands a large tower. As you walk up to its gate, you see 4 \nkey slots in the door. "));
         // Add text if try to enter tower, without full key
@@ -220,7 +222,8 @@ class World {
           30, 
           null, 
           "",
-          "With the Sea Devil reduced to not much more than a puddle on the ground, \nyou reach for your walkie talkie, to report your success. \n\n\"I knew you could do it!\", the pilot yells, unnecessarily loud, \"The cleaning crews are setting foot on the island as we speak. Ready to begin cleaning this whole place up, just as you instructed. I'm coming to pick you up now...\" \n\nBefore going you grab the mop from your cleaning cart. And the last thing \nyou see, before you sweep up the remnants of the Sea Devil, is your own \nself reflection...\n\nThe End"
+          "With the Sea Devil reduced to not much more than a puddle on the ground, \nyou reach for your walkie talkie, to report your success. \n\n\"I knew you could do it!\", the pilot yells, unnecessarily loud, \"The cleaning crews are setting foot on the island as we speak. Ready to begin cleaning this whole place up, just as you instructed. I'm coming to pick you up now...\" \n\nBefore going you grab the mop from your cleaning cart. And the last thing \nyou see, before you sweep up the remnants of the Sea Devil, is your own \nself reflection...\n\nThe End",
+          finalboss
         );
     }
 

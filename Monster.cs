@@ -15,7 +15,8 @@ class Monster
     public string deathText = "You defeated the enemy!";
 
     // Denne metode køres når et nyt Monster laves
-    public Monster(string name, int maxHp, Item item, string weakness, string deathText)
+    // Troels: Tilføjer monsteret til zonen når det bliver lavet
+    public Monster(string name, int maxHp, Item item, string weakness, string deathText, Zone zone)
     {
         this.Name = name;
         this.MaxHp = maxHp;
@@ -23,6 +24,7 @@ class Monster
         this.Weakness = weakness;
 		this.itemToDrop = item;
         this.deathText = deathText;
+        zone.AddMonster(this); //Troels: registrerer monsteret i zonen
     }
 
     /*
