@@ -227,6 +227,8 @@ class World {
         );
     }
 
+    
+
   public Space GetEntry () {
     return entry;
   }

@@ -34,6 +34,18 @@ class Zone
             MonsterList.Add(monster);
         }
     }
+// Troels: Tjekker om zonen er færdiggjort
+    public bool ZoneDone(Zone zone, string key)
+    {
+        if (zone.HasMonsters() == true && GetInventory.Contains(key) == false)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
 
     public void AddSpace(Space space)
     {
