@@ -1,0 +1,15 @@
+/Users/troelsmathiesen/Documents/Uni/Semesterprojekt/git/bin/Debug/net8.0/cs
+/Users/troelsmathiesen/Documents/Uni/Semesterprojekt/git/bin/Debug/net8.0/cs.deps.json
+/Users/troelsmathiesen/Documents/Uni/Semesterprojekt/git/bin/Debug/net8.0/cs.runtimeconfig.json
+/Users/troelsmathiesen/Documents/Uni/Semesterprojekt/git/bin/Debug/net8.0/cs.dll
+/Users/troelsmathiesen/Documents/Uni/Semesterprojekt/git/bin/Debug/net8.0/cs.pdb
+/Users/troelsmathiesen/Documents/Uni/Semesterprojekt/git/obj/Debug/net8.0/cs.GeneratedMSBuildEditorConfig.editorconfig
+/Users/troelsmathiesen/Documents/Uni/Semesterprojekt/git/obj/Debug/net8.0/cs.AssemblyInfoInputs.cache
+/Users/troelsmathiesen/Documents/Uni/Semesterprojekt/git/obj/Debug/net8.0/cs.AssemblyInfo.cs
+/Users/troelsmathiesen/Documents/Uni/Semesterprojekt/git/obj/Debug/net8.0/cs.csproj.CoreCompileInputs.cache
+/Users/troelsmathiesen/Documents/Uni/Semesterprojekt/git/obj/Debug/net8.0/cs.dll
+/Users/troelsmathiesen/Documents/Uni/Semesterprojekt/git/obj/Debug/net8.0/refint/cs.dll
+/Users/troelsmathiesen/Documents/Uni/Semesterprojekt/git/obj/Debug/net8.0/cs.pdb
+/Users/troelsmathiesen/Documents/Uni/Semesterprojekt/git/obj/Debug/net8.0/cs.genruntimeconfig.cache
+/Users/troelsmathiesen/Documents/Uni/Semesterprojekt/git/obj/Debug/net8.0/ref/cs.dll
+/Users/troelsmathiesen/Documents/Uni/Semesterprojekt/git/obj/Debug/net8.0/cs.sourcelink.json
