@@ -4,6 +4,12 @@
 class World {
   Space entry;
   Registry? registry;
+
+  //Magnus: defining key fields to be used by other classes
+  public static Item Key1;
+  public static Item Key2;
+  public static Item Key3;
+  public static Item Key4;
   
   public World (Registry registry) {
 
@@ -146,15 +152,17 @@ class World {
       S_S4_NPC.AddEdge("east", C_S1_MiniBoss);
       C_S1_MiniBoss.AddEdge("west", S_S4_NPC);
     }
-
     
-
-
         //Magnus: Adding keys and weapons to spaces
-        C_S1_MiniBoss.PlaceItem(new Item("Key1", "key"));
-        D_S6_MiniBoss.PlaceItem(new Item("Key2", "key"));
-        M_S6_MiniBoss.PlaceItem(new Item("Key3", "key"));
-        TL_S1_MiniBoss.PlaceItem(new Item("Key4", "key"));
+        Key1 = new Item("Key1", "key");
+        Key2 = new Item("Key2", "key");
+        Key3 = new Item("Key3", "key");
+        Key4 = new Item("Key4", "key");
+        
+        C_S1_MiniBoss.PlaceItem(Key1);
+        D_S6_MiniBoss.PlaceItem(Key2);
+        M_S6_MiniBoss.PlaceItem(Key3);
+        TL_S1_MiniBoss.PlaceItem(Key4);
 
         /*
         //Yarik: Adding NPCs to spaces
