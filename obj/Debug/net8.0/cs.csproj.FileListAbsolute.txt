@@ -1,0 +1,15 @@
+/mnt/c/Users/Bruger/T3.3/obj/Debug/net8.0/cs.GeneratedMSBuildEditorConfig.editorconfig
+/mnt/c/Users/Bruger/T3.3/obj/Debug/net8.0/cs.AssemblyInfoInputs.cache
+/mnt/c/Users/Bruger/T3.3/obj/Debug/net8.0/cs.AssemblyInfo.cs
+/mnt/c/Users/Bruger/T3.3/obj/Debug/net8.0/cs.csproj.CoreCompileInputs.cache
+/mnt/c/Users/Bruger/T3.3/obj/Debug/net8.0/cs.sourcelink.json
+/mnt/c/Users/Bruger/T3.3/bin/Debug/net8.0/cs
+/mnt/c/Users/Bruger/T3.3/bin/Debug/net8.0/cs.deps.json
+/mnt/c/Users/Bruger/T3.3/bin/Debug/net8.0/cs.runtimeconfig.json
+/mnt/c/Users/Bruger/T3.3/bin/Debug/net8.0/cs.dll
+/mnt/c/Users/Bruger/T3.3/bin/Debug/net8.0/cs.pdb
+/mnt/c/Users/Bruger/T3.3/obj/Debug/net8.0/cs.dll
+/mnt/c/Users/Bruger/T3.3/obj/Debug/net8.0/refint/cs.dll
+/mnt/c/Users/Bruger/T3.3/obj/Debug/net8.0/cs.pdb
+/mnt/c/Users/Bruger/T3.3/obj/Debug/net8.0/cs.genruntimeconfig.cache
+/mnt/c/Users/Bruger/T3.3/obj/Debug/net8.0/ref/cs.dll
