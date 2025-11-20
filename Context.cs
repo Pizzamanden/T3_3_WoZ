@@ -19,7 +19,7 @@ class Context {
 	Player.AddAttack(new Attack("torch", 5, "fire"));
   }
 
-  //Magnus: Adding a pickup up item to the inventory
+  //Magnus: Adding an item to the inventory
   public void InventoryAdd(Item item)
   {
     inventory.Add(item);

@@ -49,7 +49,11 @@ class World {
 
 
         //Magnus: Adding keys and weapons to spaces
-        R1.PlaceItem(new Item("Key part 1", "key"));
+        C_S1_MiniBoss.PlaceItem(new Item("Key1", "key"));
+        D_S6_MiniBoss.PlaceItem(new Item("Key2", "key"));
+        M_S6_MiniBoss.PlaceItem(new Item("Key3", "key"));
+        TL_S1_MiniBoss.PlaceItem(new Item("Key4", "key"));
+        
 
         /*
         //Yarik: Adding NPCs to spaces
