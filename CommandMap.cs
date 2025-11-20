@@ -127,7 +127,7 @@ class CommandMap : BaseCommand, ICommand
         sb.AppendLine("                └──────┬───────┘    └───────────────┘");
         sb.AppendLine("                       │");
         sb.AppendLine("┌────────────────┐  ┌──┴──────────┐");
-        sb.AppendLine("│C_S1 Miniboss   │──│  C_S2 NPC   │");
+        sb.AppendLine("│C_S1 MiniBoss   │──│  C_S2 NPC   │");
         sb.AppendLine("└────────────────┘  └────┬────────┘");
         sb.AppendLine("                         │");
         sb.AppendLine("                ┌────────┴──────────┐    ┌───────────────┐");
@@ -152,7 +152,7 @@ class CommandMap : BaseCommand, ICommand
         sb.AppendLine("  └──────┬────────┘");
         sb.AppendLine("         │");
         sb.AppendLine("┌────────┴───────┐ ┌─────────────┐ ┌──────────────┐ ┌─────────────┐ ┌────────────┐");
-        sb.AppendLine("│     D_S5       │-│D_S4 Combat  │-│    D_S1      │-│D_S2 Combat  │-│ D_S3 NPC   │");
+        sb.AppendLine("│     D_S5       │-│D_S4 Combat  │-│    D_S1      │-│D_S2 Combat  │-│ D_S3 Npc   │");
         sb.AppendLine("└────────────────┘ └─────────────┘ └──────────────┘ └─────────────┘ └────────────┘");
         sb.AppendLine("  -----------------------------------------------------------------------");
         sb.AppendLine("   [NPC] = Non-Player Character   [Combat] = Combat Room");
@@ -176,7 +176,7 @@ class CommandMap : BaseCommand, ICommand
         sb.AppendLine("  └────────────┘   └──────┬───────┘");
         sb.AppendLine("                          │");
         sb.AppendLine("  ┌────────────┐   ┌──────┴───────┐");
-        sb.AppendLine("  │M_S1  NPC   │───│M_S2 Combat   │");
+        sb.AppendLine("  │M_S1 NPC    │───│M_S2 Combat   │");
         sb.AppendLine("  └────────────┘   └──────────────┘");
         sb.AppendLine("  -----------------------------------------------------------------------");
         sb.AppendLine("   [NPC] = Non-Player Character   [Combat] = Combat Room");
@@ -194,9 +194,9 @@ class CommandMap : BaseCommand, ICommand
     sb.AppendLine("  -------------------------------------------------------------------");
     sb.AppendLine("  ┌──────────┐     ┌──────────────┐       ┌───────────┐");
     sb.AppendLine("  │  TL_S6   │────>│TL_S1 MiniBoss│──────>│   TL_S2   │");
-    sb.AppendLine("  └──────────┘     └──────────────┘       └─────┬─────┘");
-    sb.AppendLine("                                                │     ");
-    sb.AppendLine("  ┌────────────┐    ┌──────────────┐    ┌───────┴──────┐");
+    sb.AppendLine("  └─────┬────┘     └──────────────┘       └─────┬─────┘");
+    sb.AppendLine("        │                                       │     ");
+    sb.AppendLine("  ┌─────┴──────┐    ┌──────────────┐    ┌───────┴──────┐");
     sb.AppendLine("  │TL_S5 Combat│<───│ TL_S4 NPC    │<───│TL_S3 Combat  │");
     sb.AppendLine("  └────────────┘    └──────────────┘    └──────────────┘");
     sb.AppendLine("  -------------------------------------------------------------------");
