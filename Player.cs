@@ -14,6 +14,8 @@ public class Player
 	
 	public Dictionary<string, Attack> AttackList { get; set;} = new Dictionary<string, Attack>();
 
+    bool isInCombat = false;
+
     // --- CONSTRUCTOR ---
     // Denne metode kører, når en ny Player laves
     public Player(string name, int maxhp)
@@ -21,6 +23,7 @@ public class Player
         this.Name = name;
         this.MaxHP = maxhp;
         this.HP = maxhp; // Nicholas: Start med fuldt liv
+        this.isInCombat = isInCombat;
     }
 
 
