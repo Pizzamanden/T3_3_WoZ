@@ -34,18 +34,16 @@ class Zone
             MonsterList.Add(monster);
         }
     }
-// Troels: Tjekker om zonen er færdiggjort
-    public bool ZoneDone(Zone zone, string key)
+// Troels: Tjekker om zonen er færdiggjort og fjerner en edge hvis betingelserne er opfyldt
+/*
+public void ZoneDone(Zone zone, Item item, Context context, Space space, string egdeName)
+{
+    if (!zone.HasMonsters() && context.GetInventory().Any(i => i.GetName() == item.GetName()))
     {
-        if (zone.HasMonsters() == true && GetInventory.Contains(key) == false)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        space.RemoveEdge(egdeName);
     }
+}
+*/
 
     public void AddSpace(Space space)
     {
