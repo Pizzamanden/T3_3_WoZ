@@ -14,7 +14,7 @@ public class Player
 	
 	public Dictionary<string, Attack> AttackList { get; set;} = new Dictionary<string, Attack>();
 
-    bool isInCombat = false;
+    public bool isInCombat = false;
 
     // --- CONSTRUCTOR ---
     // Denne metode kører, når en ny Player laves

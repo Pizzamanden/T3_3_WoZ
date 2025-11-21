@@ -7,25 +7,16 @@ class CommandGo : BaseCommand, ICommand {
     }
 
     public void Execute(Context context, string command, string[] parameters) {
+        if (context.Player.isInCombat)
+        {
+            Console.WriteLine("The monster is blocking the path. Try the command 'retreat' to go back.");
+            return;
+        }
+
         if (GuardEq(parameters, 1))
         {
             Console.WriteLine("I don't seem to know where that is 🤔");
             return;
-        }
-
-/*         if (context.GetCurrent().Monster)
-        {
-            Monster? monster = context.GetCurrent().Monster;
-            if (monster != null || monster!.IsAlive())
-            {
-                monster.Heal();
-            }
-        } */
-
-        Monster? monster = context.GetCurrent().Monster;
-        if (monster != null && monster!.IsAlive())
-        {
-            monster.Heal();
         }
         
         //Checking for keys before entering the tower section of the map
@@ -45,5 +36,13 @@ class CommandGo : BaseCommand, ICommand {
         }
 
         context.Transition(parameters[0]);
+        Monster? monster = context.GetCurrent().Monster;
+        if (monster != null && monster!.IsAlive())
+        {
+            context.Player.isInCombat = true;
+        } else
+        {
+            context.Player.isInCombat = false;
+        }
     }
 }

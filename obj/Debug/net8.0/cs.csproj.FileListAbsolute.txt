@@ -28,3 +28,18 @@
 /home/magnus/WorldofZuul/projekt/obj/Debug/net8.0/cs.pdb
 /home/magnus/WorldofZuul/projekt/obj/Debug/net8.0/cs.genruntimeconfig.cache
 /home/magnus/WorldofZuul/projekt/obj/Debug/net8.0/ref/cs.dll
+C:\Users\yaros\Desktop\Uni\Semesterproject\Trash Island\obj\Debug\net8.0\cs.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yaros\Desktop\Uni\Semesterproject\Trash Island\obj\Debug\net8.0\cs.AssemblyInfoInputs.cache
+C:\Users\yaros\Desktop\Uni\Semesterproject\Trash Island\obj\Debug\net8.0\cs.AssemblyInfo.cs
+C:\Users\yaros\Desktop\Uni\Semesterproject\Trash Island\obj\Debug\net8.0\cs.csproj.CoreCompileInputs.cache
+C:\Users\yaros\Desktop\Uni\Semesterproject\Trash Island\obj\Debug\net8.0\cs.sourcelink.json
+C:\Users\yaros\Desktop\Uni\Semesterproject\Trash Island\obj\Debug\net8.0\cs.dll
+C:\Users\yaros\Desktop\Uni\Semesterproject\Trash Island\obj\Debug\net8.0\refint\cs.dll
+C:\Users\yaros\Desktop\Uni\Semesterproject\Trash Island\obj\Debug\net8.0\cs.pdb
+C:\Users\yaros\Desktop\Uni\Semesterproject\Trash Island\bin\Debug\net8.0\cs.exe
+C:\Users\yaros\Desktop\Uni\Semesterproject\Trash Island\bin\Debug\net8.0\cs.deps.json
+C:\Users\yaros\Desktop\Uni\Semesterproject\Trash Island\bin\Debug\net8.0\cs.runtimeconfig.json
+C:\Users\yaros\Desktop\Uni\Semesterproject\Trash Island\bin\Debug\net8.0\cs.dll
+C:\Users\yaros\Desktop\Uni\Semesterproject\Trash Island\bin\Debug\net8.0\cs.pdb
+C:\Users\yaros\Desktop\Uni\Semesterproject\Trash Island\obj\Debug\net8.0\cs.genruntimeconfig.cache
+C:\Users\yaros\Desktop\Uni\Semesterproject\Trash Island\obj\Debug\net8.0\ref\cs.dll
