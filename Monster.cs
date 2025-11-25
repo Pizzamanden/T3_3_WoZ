@@ -13,11 +13,9 @@ class Monster
     public int AttackDamage { get; set; } = 10; // Nicholas: Standard angrebsskade
 	public Item? itemToDrop;
     public string deathText = "You defeated the enemy!";
-    public Zone zone;
 
     // Denne metode køres når et nyt Monster laves
-    // Troels: Tilføjer monsteret til zonen når det bliver lavet
-    public Monster(string name, int maxHp, Item item, string weakness, string deathText, Zone zone)
+    public Monster(string name, int maxHp, Item item, string weakness, string deathText)
     {
         this.Name = name;
         this.MaxHp = maxHp;
@@ -25,8 +23,6 @@ class Monster
         this.Weakness = weakness;
 		this.itemToDrop = item;
         this.deathText = deathText;
-        this.zone = zone;
-        zone.AddMonster(this); //Troels: registrerer monsteret i zonen
     }
 
     /*
@@ -64,6 +60,7 @@ class Monster
 
     public void OnMonsterDeath(){
         Console.WriteLine($"\n{this.deathText}");
+        
     }
 	
 	// Peter: Drop the set item on the monsters space
