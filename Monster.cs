@@ -60,7 +60,6 @@ class Monster
 
     public void OnMonsterDeath(){
         Console.WriteLine($"\n{this.deathText}");
-        
     }
 	
 	// Peter: Drop the set item on the monsters space

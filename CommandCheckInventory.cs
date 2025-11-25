@@ -7,6 +7,12 @@ class CommandCheckInventory : BaseCommand, ICommand
     }
     public void Execute(Context context, string command, string[] parameters)
     {
+        if (context.Player.isInCombat)
+        {
+            Console.WriteLine("You don't have time to check your inventory.");
+            return;
+        }
+
         List<Item> items = context.GetInventory();
 
         if (items.Count == 0)
