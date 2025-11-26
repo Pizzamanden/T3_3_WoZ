@@ -9,6 +9,9 @@ obj/
 # dotenv files
 .env
 
+# Solution files
+*.sln
+
 # User-specific files
 *.rsuser
 *.suo
@@ -485,3 +488,5 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+/obj/Debug/net8.0/cs.AssemblyInfo.cs
+/obj/Debug/net8.0/cs.AssemblyInfoInputs.cache
