@@ -124,7 +124,7 @@ class World {
 
     // TrashLand zone edges
     {
-      TL_S1_MiniBoss.AddEdge("west", TL_S2);
+      TL_S1_MiniBoss.AddEdge("east", TL_S2);
       TL_S2.AddEdge("south", TL_S3_Combat);
       TL_S3_Combat.AddEdge("west", TL_S4_NPC);
       TL_S4_NPC.AddEdge("west", TL_S5_Combat);
@@ -178,6 +178,14 @@ class World {
         // Peter: Monster adding
         S_S1_Start.Monster = new Monster("Slime", 30, "fire");
         */
+
+        TL_S1_MiniBoss.Monster = new Monster (
+          "Test Boss", 
+          30, 
+          null, 
+          "",
+          "With the Sea Devil reduced to not much more than a puddle on the ground, \nyou reach for your walkie talkie, to report your success. \n\n\"I knew you could do it!\", the pilot yells, unnecessarily loud, \"The cleaning crews are setting foot on the island as we speak. Ready to begin cleaning this whole place up, just as you instructed. I'm coming to pick you up now...\" \n\nBefore going you grab the mop from your cleaning cart. And the last thing \nyou see, before you sweep up the remnants of the Sea Devil, is your own \nself reflection...\n\nThe End"
+        );
 
         // Mikkel: Added text, dialouge, monsters, monster-death-dialoug
         S_S1_Start.AddWelcomeEvent(new TextSE("\n\"We're about to reach Trash Island!\" the pilot says, \"I hope you're as good \nas they say you are. This won't be an easy mission. But with all that trash \ngathering like this and those monsters appearing, something bad was bound \nto happen sooner or later.\""));

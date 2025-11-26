@@ -15,7 +15,7 @@ class Monster
     public string deathText = "You defeated the enemy!";
 
     // Denne metode køres når et nyt Monster laves
-    public Monster(string name, int maxHp, Item item, string weakness, string deathText)
+    public Monster(string name, int maxHp, Item? item, string weakness, string deathText)
     {
         this.Name = name;
         this.MaxHp = maxHp;
@@ -60,12 +60,11 @@ class Monster
 
     public void OnMonsterDeath(){
         Console.WriteLine($"\n{this.deathText}");
-        
     }
 	
 	// Peter: Drop the set item on the monsters space
 	public void DropItem(Space space){
-		space.PlaceItem(this.itemToDrop);
+		space.PlaceItem(this.itemToDrop!);
 	}
 
 
