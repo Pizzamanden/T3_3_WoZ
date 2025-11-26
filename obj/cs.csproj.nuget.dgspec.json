@@ -1,26 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/Users/troelsmathiesen/Documents/Uni/Semesterprojekt/git/cs.csproj": {}
+    "D:\\Desktop Folders\\Documents\\Uni\\Git repos\\1_T3.3_WoZ\\cs.csproj": {}
   },
   "projects": {
-    "/Users/troelsmathiesen/Documents/Uni/Semesterprojekt/git/cs.csproj": {
+    "D:\\Desktop Folders\\Documents\\Uni\\Git repos\\1_T3.3_WoZ\\cs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/troelsmathiesen/Documents/Uni/Semesterprojekt/git/cs.csproj",
+        "projectUniqueName": "D:\\Desktop Folders\\Documents\\Uni\\Git repos\\1_T3.3_WoZ\\cs.csproj",
         "projectName": "cs",
-        "projectPath": "/Users/troelsmathiesen/Documents/Uni/Semesterprojekt/git/cs.csproj",
-        "packagesPath": "/Users/troelsmathiesen/.nuget/packages/",
-        "outputPath": "/Users/troelsmathiesen/Documents/Uni/Semesterprojekt/git/obj/",
+        "projectPath": "D:\\Desktop Folders\\Documents\\Uni\\Git repos\\1_T3.3_WoZ\\cs.csproj",
+        "packagesPath": "C:\\Users\\Peter\\.nuget\\packages\\",
+        "outputPath": "D:\\Desktop Folders\\Documents\\Uni\\Git repos\\1_T3.3_WoZ\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Software\\VisualStudio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/troelsmathiesen/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Peter\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
         },
         "frameworks": {
           "net8.0": {
@@ -59,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
