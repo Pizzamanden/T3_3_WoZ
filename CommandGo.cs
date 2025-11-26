@@ -44,53 +44,41 @@ class CommandGo : BaseCommand, ICommand {
             }
         }
         //Troels: Checking for keys before entering cleared zones
-        if (context.GetCurrent().GetName() == "S4 NPC" && parameters[0] == "east")
+        //Peter: Modified to extract the repeating code and converting it into a helper method instead
+        if (HasCleared(context, "S4 NPC", parameters[0], "north", World.Key3))
         {
-            List<Item> inventory = context.GetInventory();
-
-            if (inventory.Contains(World.Key1))
-                  
-            {
-                Console.WriteLine(
-                    "You have cleared this zone for monsters and the cleaning crews are doing their job.");
-                return;
-            }
+            return;
         }
-        if (context.GetCurrent().GetName() == "S2" && parameters[0] == "north")
+        if (HasCleared(context, "S4 NPC", parameters[0], "east", World.Key1))
         {
-            List<Item> inventory = context.GetInventory();
-
-            if (inventory.Contains(World.Key2))
-                  
-            {
-                Console.WriteLine(
-                    "You have cleared this zone for monsters and the cleaning crews are doing their job.");
-                return;
-            }
-        }if (context.GetCurrent().GetName() == "S4 NPC" && parameters[0] == "north")
-        {
-            List<Item> inventory = context.GetInventory();
-
-            if (inventory.Contains(World.Key3))
-                  
-            {
-                Console.WriteLine(
-                    "You have cleared this zone for monsters and the cleaning crews are doing their job.");
-                return;
-            }
+            return;
         }
-        if (context.GetCurrent().GetName() == "S3 NPC" && parameters[0] == "south")
+        if (HasCleared(context, "S2", parameters[0], "north", World.Key2))
         {
-            List<Item> inventory = context.GetInventory();
-
-            if (inventory.Contains(World.Key4))
-                  
-            {
-                Console.WriteLine(
-                    "You have cleared this zone for monsters and the cleaning crews are doing their job.");
-                return;
-            }
+            return;
+        }
+        if (HasCleared(context, "S3 NPC", parameters[0], "south", World.Key4))
+        {
+            return;
         }
         context.Transition(parameters[0]);
         }
+
+    private bool HasCleared(Context context, string currentSpace, string param, string direction, Item item)
+    {
+        if (context.GetCurrent().GetName() == currentSpace && param == direction)
+        {
+            List<Item> inventory = context.GetInventory();
+
+            if (inventory.Contains(item))
+
+            {
+                Console.WriteLine(
+                    "You have cleared this zone for monsters and the cleaning crews are doing their job.");
+                return true;
+            }
+        }
+        return false;
+    }
+
     }
