@@ -3,6 +3,7 @@
 
 class CommandUnknown : BaseCommand, ICommand {
   public void Execute (Context context, string command, string[] parameters) {
-    Console.WriteLine("Woopsie, I don't understand '"+command+"' 😕. Please use command \"help\" to list all available commands!");
+    // Mikkel: Changed "command not found" text
+    Console.WriteLine("Command: '"+command+"' not found, for list of available commands, type 'help'.");
   }
 }

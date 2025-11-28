@@ -30,6 +30,8 @@ class Game {
     registry.Register("rest", new CommandRest());
     registry.Register("map", new CommandMap());
     registry.Register("retreat", new CommandRetreat());
+    //Mikkel: Command for checking player HP
+    registry.Register("status", new CommandStatus());
   }
   
   static void Main (string[] args) {
@@ -38,14 +40,16 @@ class Game {
     
     Console.Clear();
     InitRegistry();
-	context.SetEntry(world.GetEntry());
+	  context.SetEntry(world.GetEntry());
     context.GetCurrent().Welcome();
     
     while (context.IsDone()==false) {
       if (context.Player.IsAlive() == false)
       {
-        Console.WriteLine("YOU DIED");
-        context.MakeDone();
+        //Mikkel: Made so you respawn in previous room if character dies
+        Console.WriteLine("YOU DIED, and wake up in the previous room full of vigour");
+        context.Respawn();
+        context.Player.FullHeal();
         continue;
       }
       Console.Write("\n> ");

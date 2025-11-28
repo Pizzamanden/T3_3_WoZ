@@ -49,15 +49,20 @@ class Context {
   }
 
   public void Retreat()
+  {
+    if(current.GetName() == "TL_S1 MiniBoss")
     {
-      if(current.GetName() == "TL_S1 MiniBoss")
-      {
-        previous = current!.FollowEdge("east"); 
-      }
-      current.Goodbye();
-      current = previous;
-      current.Welcome();
+      previous = current!.FollowEdge("east"); 
     }
+    current.Goodbye();
+    current = previous;
+    current.Welcome();
+  }
+
+  public void Respawn()
+  {
+    current = previous;
+  }
   
   public void MakeDone () {
     done = true;
