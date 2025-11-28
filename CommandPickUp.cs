@@ -25,7 +25,12 @@ class CommandPickUp : BaseCommand, ICommand
 			Console.WriteLine("There's nothing to pick up here");
 			return;
 		}
-		
+		//Troels: Checks if there is a monster in the room and if it's alive
+		if (current.GetMonster().IsAlive())
+		{
+			Console.WriteLine("You cannot pick up items while a monster is present!");
+			return;
+		}
 		string commandInput = parameters[0];
 		string itemKey = current.GetItem()!.GetKeyword();
 		//Checks if the user's input matches the keyword
