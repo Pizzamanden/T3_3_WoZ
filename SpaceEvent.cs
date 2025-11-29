@@ -8,6 +8,14 @@ class DummySE : IEvent{
 	}
 }
 
+class ClearConsoleSE : IEvent{
+	
+	// Method which does the events intended behavior
+	public void Trigger(){
+		Console.WriteLine("Dummy event");
+	}
+}
+
 /*
 	An event for displaying one (1) textblock.
 	
@@ -60,7 +68,7 @@ class ExitsListSE : IEvent{
 		HashSet<string> exits = space.GetEdges();
 		Console.WriteLine("Current options are:");
 		foreach (String exit in exits) {
-		  Console.WriteLine(" - "+exit);
+			Console.WriteLine(" - "+exit);
 		}
 	}
 }

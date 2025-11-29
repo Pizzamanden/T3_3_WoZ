@@ -15,9 +15,9 @@ class Context {
   public Context () {
     Player = new Player("You", 100);
 	
-	// Peter: Add all player default attacks
-	Player.AddAttack(new Attack("fists", 10, "physical"));
-	Player.AddAttack(new Attack("torch", 5, "fire"));
+    // Peter: Add all player default attacks
+    Player.AddAttack(new Attack("fists", 10, "physical"));
+    Player.AddAttack(new Attack("torch", 5, "fire"));
   }
 
   //Magnus: Adding an item to the inventory
@@ -39,7 +39,7 @@ class Context {
   public void Transition (string direction) {
     Space? next = current!.FollowEdge(direction);
     if (next==null) {
-      Console.WriteLine("You are confused, and walk in a circle looking for '"+direction+"'. In the end you give up 😩");
+      Console.WriteLine("You cannot go '"+direction+"' from here.");
     } else {
       previous = current;
       current.Goodbye();

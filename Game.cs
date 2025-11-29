@@ -47,9 +47,11 @@ class Game {
       if (context.Player.IsAlive() == false)
       {
         //Mikkel: Made so you respawn in previous room if character dies
-        Console.WriteLine("YOU DIED, and wake up in the previous room full of vigour");
+        Console.Clear();
         context.Respawn();
         context.Player.FullHeal();
+        new CommandMap().ShowMap(context.GetCurrent());
+        Console.WriteLine("\nYOU DIED, and wake up in the previous room full of vigour");
         continue;
       }
       Console.Write("\n> ");

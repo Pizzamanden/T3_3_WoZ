@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 class CommandGo : BaseCommand, ICommand {
     public CommandGo () {
-        description = "Follow an exit";
+        description = "Follow an exit: Type \"go <direction>\" to follow a direction.";
     }
 
     public void Execute(Context context, string command, string[] parameters) {
@@ -57,7 +57,7 @@ class CommandGo : BaseCommand, ICommand {
             return;
         }
 
-
+        context.Transition(parameters[0]);
         Monster? monster = context.GetCurrent().Monster;
         if (monster != null && monster!.IsAlive())
         {
@@ -66,7 +66,7 @@ class CommandGo : BaseCommand, ICommand {
         {
             context.Player.isInCombat = false;
         }
-        context.Transition(parameters[0]);
+
     }
 
     private bool HasCleared(Context context, string currentSpace, string param, string direction, Item item)
