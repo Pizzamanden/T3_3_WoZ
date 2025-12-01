@@ -62,6 +62,7 @@ class Context {
   public void Respawn()
   {
     current = previous;
+    Player.isInCombat = false;
   }
   
   public void MakeDone () {

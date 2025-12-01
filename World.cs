@@ -181,7 +181,7 @@ class World {
 
         S_S2.Monster = new Monster (
           "Test Boss", 
-          20, 
+          9999999, 
           null, 
           "",
           "wtf man you killed me",
