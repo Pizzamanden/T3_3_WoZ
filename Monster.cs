@@ -62,11 +62,11 @@ class Monster
 
     public void OnMonsterDeath(Space space){
         Console.WriteLine($"\n{this.deathText}");
-        space.RunWelcomeEvents();
         if (FlagToSet != "")
         {
             Flags.SetFlag(FlagToSet);
         }
+        space.RunWelcomeEvents();
     }
 	
 	// Peter: Drop the set item on the monsters space

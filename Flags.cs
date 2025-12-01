@@ -6,6 +6,7 @@ static class Flags
 
     static Flags(){
         flagdict.Add(S1_slime_dead, false);
+        flagdict.Add(S2_mime_dead, false);
     }
 
     /*

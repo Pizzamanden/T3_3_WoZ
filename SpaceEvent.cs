@@ -12,6 +12,33 @@ class DummySE : IEvent{
 	}
 }
 
+class SpawnMonsterSE : IEvent{
+    private string flagToCheck;
+	private Monster monster;
+	private Space space;
+
+	public SpawnMonsterSE(string flagToCheck, Monster monsterToSpawn, Space spaceToSpawnIn) 
+    {
+        this.flagToCheck = flagToCheck;
+		this.monster = monsterToSpawn;
+		this.space = spaceToSpawnIn;
+    }
+	
+	public bool CanRun()
+    {
+        if (flagToCheck == "")
+        {
+            return true;
+        }
+        return Flags.GetFlag(flagToCheck);
+    }
+
+    public void Trigger()
+	{
+		space.Monster = monster;
+	}
+}
+
 class ClearConsoleSE : IEvent{
 	
 	// Method which does the events intended behavior

@@ -190,13 +190,12 @@ class World {
 
         entry = S_S1_Start;
 
-        S_S1_Start.AddWelcomeEvent(new TextSE("", "", "", "\n\"We're about to reach Trash Island!\" the pilot says, \"I hope you're as good \nas they say you are. This won't be an easy mission. But with all that trash \ngathering like this and those monsters appearing, something bad was bound \nto happen sooner or later.\""));
-        S_S1_Start.AddWelcomeEvent(new TextSE("", "", "", "\"It's too dangerous for our cleaning crew to step foot on the island as is. \nAnd even if they could, they wouldn't even know how to handle all that trash.\""));
-        S_S1_Start.AddWelcomeEvent(new TextSE("", "", "", "\"That's why we need an expert like you, to swoop in, eliminate those \nmonsters and figure out a proper way to handle the trash in the process. \nThen our team can take care of the rest.\""));
-        S_S1_Start.AddWelcomeEvent(new TextSE("", "", "", "\"See that big Tower to the south? According to our intel, that's where the one \nresponsible resides. It doesn't matter how many other monsters you defeat, \nif you don't take care of the one in that tower, more of those things will just appear...\""));
-        S_S1_Start.AddWelcomeEvent(new TextSE("", "", "", "\"You can't just waltz on in however, the gate is locked and you'll need 4 parts of a key, each given to one of the 4 Trash Guardians.\""));
+
         S_S1_Start.AddWelcomeEvent(new TextSE("Press enter to jump...", "", "", "\"Given that you're the best janitor the UN headquarters had on hand, \nI'm sure it'll be a walk in the park to you. Good luck champ.\""));
         
+
+
+
         S_S1_Start.AddWelcomeEvent(new TextSE("Press enter to test if this shit works...",
         Flags.S1_slime_dead,
         "",
@@ -210,9 +209,11 @@ class World {
 
 
         S_S2.AddWelcomeEvent(new TextSE("Press enter to suck my nuts...",
-        "",
         Flags.S2_mime_dead,
+        "",
         "\nsomething something you won i guess"));
+
+        S_S5.AddWelcomeEvent(new SpawnMonsterSE(Flags.S2_mime_dead, new Monster("Henrik", 20, null, "physical", "you failed", ""), S_S5));
     }
 
   public Space GetEntry () {
