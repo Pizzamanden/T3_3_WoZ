@@ -25,13 +25,7 @@ class Space : Node {
         new CommandMap().ShowMap(this);
     }
 
-    // this.AddWelcomeEvent(new ExitsListSE(this));
-	    
-    while(eventsWelcome.Count > 0)
-    {
-        eventsWelcome[0].Trigger();
-        eventsWelcome.RemoveAt(0);
-    }
+    RunWelcomeEvents();
 
     if (this.name == "S1-Start")
     {
@@ -53,7 +47,23 @@ class Space : Node {
 	  // Check if a goodbye event has been set
   }
   
-  
+  public void RunWelcomeEvents()
+  {
+      while(eventsWelcome.Count > 0)
+      {
+          if (eventsWelcome[0].CanRun())
+          {
+              eventsWelcome[0].Trigger();
+              eventsWelcome.RemoveAt(0);                
+          }
+          else
+          {
+              break;
+          }
+      }
+  }
+
+
   public override Space? FollowEdge (string direction) {
     return (this.HasEdge(direction) ? (Space) (base.FollowEdge(direction)!) : null);
   }
@@ -122,7 +132,7 @@ class Space : Node {
   	return collected;
   }
 
-  public void ExitList(Space space)
+  static public void ExitList(Space space)
   {
     HashSet<string> exits = space.GetEdges();
 		Console.WriteLine("Current options are:");

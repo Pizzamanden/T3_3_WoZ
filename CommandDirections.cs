@@ -5,6 +5,6 @@ class CommandDirections : BaseCommand, ICommand {
     }
     public void Execute (Context context, string command, string[] parameters) {
         Space current = context.GetCurrent();
-        current.Welcome();
+        Space.ExitList(current);
     }
 }

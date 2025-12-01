@@ -12,9 +12,9 @@ class Game {
   
   private static void InitRegistry () {
     ICommand cmdExit = new CommandExit();
-    registry.Register("exit", cmdExit);
+    // registry.Register("exit", cmdExit);
     registry.Register("quit", cmdExit);
-    registry.Register("bye", cmdExit);
+    // registry.Register("bye", cmdExit);
     registry.Register("go", new CommandGo());
     registry.Register("help", new CommandHelp(registry));
     //Yarik: Command for talking to npcs
@@ -58,6 +58,6 @@ class Game {
       string? line = Console.ReadLine();
       if (line!=null) registry.Dispatch(line);
     }
-    Console.WriteLine("Game Over 😥");
+    Console.WriteLine("Game Over");
   }
 }
