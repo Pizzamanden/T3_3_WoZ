@@ -167,61 +167,41 @@ class World {
         M_S6_MiniBoss.PlaceItem(Key3);
         TL_S1_MiniBoss.PlaceItem(Key4);
 
-        /*
-        //Yarik: Adding NPCs to spaces
-        List<string> dialogueListNPC1 = new List<string>
-        {
-        "\nHello, agent. I'm NPC 1. Do you want to find out more about the monster?",
-        "\nThis is the plastic monster. You can defeat him by recycling the trash he's attacking you with."
-        };
-        S_S1_Start.PlaceNPC(new NPC("NPC1", "Example description for NPC 1", dialogueListNPC1));
-        */
-
-        /*
-        // Peter: Monster adding
-        S_S1_Start.Monster = new Monster("Slime", 100, "fire");
-        */
-
-        S_S2.Monster = new Monster (
-          "Test Boss", 
-          9999999, 
-          null, 
-          "",
-          "wtf man you killed me",
-          Flags.S2_mime_dead
-        );
-        S_S2.Monster.AttackDamage = 15;
-
         entry = S_S1_Start;
 
+        // STARTZONE:
+        // Intro + S_S1_Start text
+        S_S1_Start.AddWelcomeEvent(new TextSE(StartZone_Text.S_S1_Start_1, "", "", StartZone_Text.S_S1_Start_1));
+        S_S1_Start.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_2));
+        S_S1_Start.AddWelcomeEvent(new TextSE(StartZone_Text.S_S1_Start_3, "", "", StartZone_Text.S_S1_Start_3));
+        S_S1_Start.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_4));
 
-        S_S1_Start.AddWelcomeEvent(new TextSE("Press enter to jump...", "", "", "\"Given that you're the best janitor the UN headquarters had on hand, \nI'm sure it'll be a walk in the park to you. Good luck champ.\""));
-        
+        // S_S2 text
+        S_S2.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S2_1));
 
+        // DOCKS:
+        // D_S1 text
+        D_S1.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S1_1));
 
+        // D_S2 text
+        D_S2_Combat.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S2_1));
 
-        S_S1_Start.AddWelcomeEvent(new TextSE("Press enter to test if this shit works...",
-        Flags.S1_slime_dead,
-        "",
-        "\n Display text"));
+        // D_S3 text
+        D_S3_NPC.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S3_1));
+        D_S3_NPC.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S3_2));
 
-        S_S2.AddWelcomeEvent(new TextSE("Press enter to test if this shit works too...",
-        "",
-        Flags.S1_slime_dead,
-        "\n Another Display text"));
+        // D_S4 text
+        D_S4_Combat.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S4_1));
 
+        // D_S5 text
+        D_S5.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S5_1));
 
-
-        S_S2.AddWelcomeEvent(new TextSE("Press enter to suck my nuts...",
-        Flags.S2_mime_dead,
-        "",
-        "\nsomething something you won i guess"));
-
-        S_S5.AddWelcomeEvent(new SpawnMonsterSE(Flags.S2_mime_dead, new Monster("Henrik", 20, null, "physical", "you failed", ""), S_S5));
+        // D_S6 text
+        D_S6_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S6_1));
+        D_S6_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S6_2));
     }
 
   public Space GetEntry () {
     return entry;
   }
 }
-
