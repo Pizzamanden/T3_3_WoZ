@@ -4,7 +4,6 @@
 class Node {
   protected string name;
   protected Dictionary<string, Node> edges = new Dictionary<string, Node>();
-  
   public Node (string name) {
     this.name = name;
   }
@@ -12,7 +11,9 @@ class Node {
   public String GetName () {
     return name;
   }
-  
+ public void RemoveEdge (string name) {
+    edges.Remove(name);
+  }
   public void AddEdge (string name, Node node) {
     edges.Add(name, node);
   }

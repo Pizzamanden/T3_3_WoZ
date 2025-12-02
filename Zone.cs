@@ -18,4 +18,9 @@ class Zone
             SpaceList.Add(space);
         }
     }
+
+    public List<Space> GetSpaces()
+    {
+        return SpaceList;
+    }
 }

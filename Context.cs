@@ -5,6 +5,7 @@ using System.Security;
 
 class Context {
     protected Space? current;
+    Space? previous;
     protected bool done = false;
 
     //Magnus: Inventory list to store multiple items
@@ -19,7 +20,7 @@ class Context {
 	Player.AddAttack(new Attack("torch", 5, "fire"));
   }
 
-  //Magnus: Adding a pickup up item to the inventory
+  //Magnus: Adding an item to the inventory
   public void InventoryAdd(Item item)
   {
     inventory.Add(item);
@@ -40,11 +41,23 @@ class Context {
     if (next==null) {
       Console.WriteLine("You are confused, and walk in a circle looking for '"+direction+"'. In the end you give up 😩");
     } else {
+      previous = current;
       current.Goodbye();
       current = next;
       current.Welcome();
     }
   }
+
+  public void Retreat()
+    {
+      if(current.GetName() == "TL_S1 MiniBoss")
+      {
+        previous = current!.FollowEdge("east"); 
+      }
+      current.Goodbye();
+      current = previous;
+      current.Welcome();
+    }
   
   public void MakeDone () {
     done = true;

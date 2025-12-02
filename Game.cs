@@ -23,12 +23,13 @@ class Game {
     registry.Register("explore", new CommandExploreRoom());
     //Magnus: Command for picking up items
     registry.Register("pickup", new CommandPickUp());
-        //Magnus: Command for checking your inventory
-        registry.Register("inventory", new CommandCheckInventory());
+    //Magnus: Command for checking your inventory
+    registry.Register("inventory", new CommandCheckInventory());
     registry.Register("attack", new CommandUseAttackMove());
     registry.Register("directions", new CommandDirections());
     registry.Register("rest", new CommandRest());
     registry.Register("map", new CommandMap());
+    registry.Register("retreat", new CommandRetreat());
   }
   
   static void Main (string[] args) {

@@ -82,7 +82,17 @@ class Space : Node {
   {
   	return item;
   }
-  
+  // Troels: returns the inventory of the space (either empty or with one item)
+  public List<Item> GetInventory()
+  {
+    List<Item> items = new List<Item>();
+    if (item != null)
+    {
+        items.Add(item);
+    }
+    return items;
+  }
+
   //Magnus: Picks up the item and removes it
   public Item CollectItem()
   {

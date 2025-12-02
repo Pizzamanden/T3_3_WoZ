@@ -58,9 +58,10 @@ class CommandUseAttackMove : BaseCommand, ICommand
         }
         else
         {
-            monster.OnMonsterDeath();
+            monster!.OnMonsterDeath();
+            context.Player.isInCombat  = false;
             // Peter: Drop an item if the monster should drop an item
-            context.GetCurrent().Monster.DropItem(context.GetCurrent());
+            context.GetCurrent().Monster!.DropItem(context.GetCurrent());
             // Then remove it from the Space
             context.GetCurrent().Monster = null;
         }
