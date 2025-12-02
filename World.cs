@@ -10,8 +10,11 @@ class World {
   public static Item Key2;
   public static Item Key3;
   public static Item Key4;
-  
-  public World (Registry registry) {
+  public static Item D1 = new Item("D1", "Whatever");
+  public static Item D2 = new Item("D2", "Whatever");
+  public static Item TL1 = new Item("TL1", "Whatever");
+
+    public World (Registry registry) {
 
     Zone StartZone = new Zone("Start", "Starting zone");
     Zone City = new Zone("City", "The zone with Tourism trash!");
@@ -187,6 +190,7 @@ class World {
           "wtf man you killed me",
           Flags.S2_mime_dead
         );
+        S_S2.Monster.AttackDamage = 15;
 
         entry = S_S1_Start;
 
