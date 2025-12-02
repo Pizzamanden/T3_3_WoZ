@@ -70,7 +70,7 @@ class Context {
   public void SetEntry(Space entry){
 	  this.current = entry;
   }
-
+//Troels: Method to check if the player has two specific items in their inventory to learn a new attack
 public void GetNewAttack(Item item1, Item item2, string attackName, int attackDamage, string attackType)
     {
       if(inventory.Contains(item1) && inventory.Contains(item2) && !Player.HasAttack(attackName.ToLower()))
