@@ -10,8 +10,8 @@ class World {
   public static Item Key2;
   public static Item Key3;
   public static Item Key4;
-  public static Item D1 = new Item("D1", "Whatever");
-  public static Item D2 = new Item("D2", "Whatever");
+  public static Item D1 = new Item("Chemical", "Chemical");
+  public static Item D2 = new Item("Chemical", "Chemical");
   public static Item TL1 = new Item("TL1", "Whatever");
 
     public World (Registry registry) {
@@ -166,7 +166,8 @@ class World {
         D_S6_MiniBoss.PlaceItem(Key2);
         M_S6_MiniBoss.PlaceItem(Key3);
         TL_S1_MiniBoss.PlaceItem(Key4);
-
+        D_S2_Combat.PlaceItem(D1);
+        D_S3_NPC.PlaceItem(D2);
         /*
         //Yarik: Adding NPCs to spaces
         List<string> dialogueListNPC1 = new List<string>
@@ -182,42 +183,42 @@ class World {
         S_S1_Start.Monster = new Monster("Slime", 100, "fire");
         */
 
-        S_S2.Monster = new Monster (
-          "Test Boss", 
-          9999999, 
-          null, 
-          "",
+        D_S2_Combat.Monster = new Monster (
+          "Sick customer", 
+          30, 
+          D1, 
+          "physical",
           "wtf man you killed me",
-          Flags.S2_mime_dead
+          Flags.D_S2_Combat_dead
         );
-        S_S2.Monster.AttackDamage = 15;
+        D_S2_Combat.Monster.AttackDamage = 15;
+
+        D_S4_Combat.Monster = new Monster (
+          "massive sea turtle", 
+          40, 
+          null, 
+          "Chemical",
+          "",
+          Flags.D_S4_combat_dead
+        );
+
+        D_S6_MiniBoss.Monster = new Monster (
+          "Old Fisherman", 
+          100, 
+          Key2, 
+          "physical",
+          "The storm starts to settle, as the ghostly figure fades away, and a \nkey piece drops to the ground…",
+          Flags.D_S6_combat_dead
+        );
+
+        
 
         entry = S_S1_Start;
 
 
+
         S_S1_Start.AddWelcomeEvent(new TextSE("Press enter to jump...", "", "", "\"Given that you're the best janitor the UN headquarters had on hand, \nI'm sure it'll be a walk in the park to you. Good luck champ.\""));
-        
-
-
-
-        S_S1_Start.AddWelcomeEvent(new TextSE("Press enter to test if this shit works...",
-        Flags.S1_slime_dead,
-        "",
-        "\n Display text"));
-
-        S_S2.AddWelcomeEvent(new TextSE("Press enter to test if this shit works too...",
-        "",
-        Flags.S1_slime_dead,
-        "\n Another Display text"));
-
-
-
-        S_S2.AddWelcomeEvent(new TextSE("Press enter to suck my nuts...",
-        Flags.S2_mime_dead,
-        "",
-        "\nsomething something you won i guess"));
-
-        S_S5.AddWelcomeEvent(new SpawnMonsterSE(Flags.S2_mime_dead, new Monster("Henrik", 20, null, "physical", "you failed", ""), S_S5));
+      
     }
 
   public Space GetEntry () {
