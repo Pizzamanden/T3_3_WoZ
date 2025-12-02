@@ -60,6 +60,11 @@ public class Player
         }
     }
 
+    // Mikkel: Made a full heal method
+    public void FullHeal()
+    {
+        HP = MaxHP;
+    }
 
     /*
     * metode til at tjekke, om spilleren er i live.

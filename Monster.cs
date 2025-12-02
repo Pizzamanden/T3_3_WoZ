@@ -10,12 +10,13 @@ class Monster
     public int HP { get; private set; }
     public int MaxHp { get; private set; }
     public string Weakness { get; set; } = "fire"; // Nicholas: Standard svaghed
-    public int AttackDamage { get; set; } = 10; // Nicholas: Standard angrebsskade
+    public int AttackDamage { get; set; } = 99; // Nicholas: Standard angrebsskade
 	public Item? itemToDrop;
     public string deathText = "You defeated the enemy!";
+    public string FlagToSet; // Mikkel: Monster can set a flag
 
     // Denne metode køres når et nyt Monster laves
-    public Monster(string name, int maxHp, Item? item, string weakness, string deathText)
+    public Monster(string name, int maxHp, Item? item, string weakness, string deathText, string FlagToSet)
     {
         this.Name = name;
         this.MaxHp = maxHp;
@@ -23,6 +24,7 @@ class Monster
         this.Weakness = weakness;
 		this.itemToDrop = item;
         this.deathText = deathText;
+        this.FlagToSet = FlagToSet;
     }
 
     /*
@@ -53,13 +55,18 @@ class Monster
     * metode til at tjekke, om Monstret er i live.
     * Den vil blive brugt i vores 'Game.cs' loop.
     */
- public bool IsAlive()
+    public bool IsAlive()
     {
         return HP > 0;
     }
 
-    public void OnMonsterDeath(){
+    public void OnMonsterDeath(Space space){
         Console.WriteLine($"\n{this.deathText}");
+        if (FlagToSet != "")
+        {
+            Flags.SetFlag(FlagToSet);
+        }
+        space.RunWelcomeEvents();
     }
 	
 	// Peter: Drop the set item on the monsters space

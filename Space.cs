@@ -17,22 +17,53 @@ class Space : Node {
       zone.AddSpace(this); // registrerer rummet i zonen
   }
   
+  // Mikkel: Console clear and map shows when you enter new space
   public void Welcome () {
-    this.AddWelcomeEvent(new ExitsListSE(this));
-	    
-    while(eventsWelcome.Count > 0)
-        {
-            eventsWelcome[0].Trigger();
-            eventsWelcome.RemoveAt(0);
-        }
+    if (this.name != "S1-Start")
+    {
+        Console.Clear();
+        new CommandMap().ShowMap(this);
+    }
 
+    RunWelcomeEvents();
+
+    if (this.name == "S1-Start")
+    {
+        Console.Clear();
+        new CommandMap().ShowMap(this);
+    }
+
+    if (Monster == null)
+    {
+        // ExitList(this);
+    }
+    else
+    {
+        Console.WriteLine("\nA monster threatens. You must either defeat it, or retreat, to proceede.");
+    }
   }
   
   public void Goodbye () {
 	  // Check if a goodbye event has been set
   }
   
-  
+  public void RunWelcomeEvents()
+  {
+      while(eventsWelcome.Count > 0)
+      {
+          if (eventsWelcome[0].CanRun())
+          {
+              eventsWelcome[0].Trigger();
+              eventsWelcome.RemoveAt(0);                
+          }
+          else
+          {
+              break;
+          }
+      }
+  }
+
+
   public override Space? FollowEdge (string direction) {
     return (this.HasEdge(direction) ? (Space) (base.FollowEdge(direction)!) : null);
   }
@@ -105,4 +136,13 @@ public Monster GetMonster()
   	item = null;
   	return collected;
   }
+
+  static public void ExitList(Space space)
+  {
+    HashSet<string> exits = space.GetEdges();
+		Console.WriteLine("Current options are:");
+		foreach (String exit in exits) {
+		  Console.WriteLine(" - "+exit);
+  }
+}
 }

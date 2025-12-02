@@ -213,8 +213,13 @@ class CommandMap : BaseCommand, ICommand
 
     public void Execute(Context context, string command, string[] parameters)
     {
-        string currentRoomName = context.GetCurrent().GetName();
-        Console.WriteLine($"\nYou are currently in: {currentRoomName}\n");
+        ShowMap(context.GetCurrent());
+    }
+
+    public void ShowMap(Space space)
+    {
+        string currentRoomName = space.GetName();
+        // Console.WriteLine($"\nYou are currently in: {currentRoomName}\n");
 
         MapZone currentZone =  roomToZone[currentRoomName]; 
         if (currentZone == MapZone.StartZone)
@@ -241,9 +246,5 @@ class CommandMap : BaseCommand, ICommand
         {
             Console.WriteLine("Map not available for this zone.");
         }
-
-    
-
-
     }
 }
