@@ -83,7 +83,7 @@ class TextSE : IEvent{
 	// https://stackoverflow.com/questions/8946808/can-console-clear-be-used-to-only-clear-a-line-instead-of-whole-console
 	public void Trigger(){
 		Console.WriteLine(displayText);
-		Console.Write($"\n> {actionText}");
+		Console.Write($"> {actionText}");
 		Console.ReadLine();
 		Console.WriteLine("");
 		//Console.SetCursorPosition(0, Console.CursorTop - 1);

@@ -23,6 +23,7 @@ class Space : Node {
     {
         Console.Clear();
         new CommandMap().ShowMap(this);
+        Console.WriteLine("");
     }
 
     RunWelcomeEvents();
