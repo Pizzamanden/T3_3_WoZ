@@ -183,7 +183,6 @@ class World {
           "He dies.",
           Flags.D_S2_Combat_dead
         );
-        S_S2.Monster.AttackDamage = 15;
         D_S2_Combat.Monster.AttackDamage = 15;
 
         D_S4_Combat.Monster = new Monster(
