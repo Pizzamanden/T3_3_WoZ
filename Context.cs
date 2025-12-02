@@ -1,6 +1,7 @@
 /* Context class to hold all context relevant to a session.
  */
 
+using System.Runtime.CompilerServices;
 using System.Security;
 
 class Context {
@@ -19,7 +20,6 @@ class Context {
 	Player.AddAttack(new Attack("fists", 10, "physical"));
 	Player.AddAttack(new Attack("torch", 5, "fire"));
   }
-
   //Magnus: Adding an item to the inventory
   public void InventoryAdd(Item item)
   {
@@ -70,5 +70,14 @@ class Context {
   public void SetEntry(Space entry){
 	  this.current = entry;
   }
+
+public void GetNewAttack(Item item1, Item item2, string attackName, int attackDamage, string attackType)
+    {
+      if(inventory.Contains(item1) && inventory.Contains(item2) && !Player.HasAttack(attackName.ToLower()))
+      {
+        Player.AddAttack(new Attack(attackName, attackDamage, attackType));
+        Console.WriteLine("you have learned a new attack: " + attackName + "!");
+      }
+    }
 }
 
