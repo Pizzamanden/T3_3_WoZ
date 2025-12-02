@@ -215,6 +215,9 @@ class World {
 
         entry = S_S1_Start;
 
+        // DOCKS:
+        // D_S1 text
+        D_S1.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S1_1));
 
 
         S_S1_Start.AddWelcomeEvent(new TextSE("Press enter to jump...", "", "", "\"Given that you're the best janitor the UN headquarters had on hand, \nI'm sure it'll be a walk in the park to you. Good luck champ.\""));
@@ -225,4 +228,3 @@ class World {
     return entry;
   }
 }
-
