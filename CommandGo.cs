@@ -1,6 +1,9 @@
 /* Command for transitioning between spaces
  */
 
+using System;
+using System.Collections.Generic;
+
 class CommandGo : BaseCommand, ICommand {
     public CommandGo () {
         description = "Follow an exit";
@@ -35,7 +38,26 @@ class CommandGo : BaseCommand, ICommand {
             }
         }
 
-        context.Transition(parameters[0]);
+        //Troels: Checking for keys before entering cleared zones
+        //Peter: Modified to extract the repeating code and converting it into a helper method instead
+        if (HasCleared(context, "S4 NPC", parameters[0], "north", World.Key3))
+        {
+            return;
+        }
+        if (HasCleared(context, "S4 NPC", parameters[0], "east", World.Key1))
+        {
+            return;
+        }
+        if (HasCleared(context, "S2", parameters[0], "north", World.Key2))
+        {
+            return;
+        }
+        if (HasCleared(context, "S3 NPC", parameters[0], "south", World.Key4))
+        {
+            return;
+        }
+
+
         Monster? monster = context.GetCurrent().Monster;
         if (monster != null && monster!.IsAlive())
         {
@@ -44,5 +66,25 @@ class CommandGo : BaseCommand, ICommand {
         {
             context.Player.isInCombat = false;
         }
+        context.Transition(parameters[0]);
     }
+
+    private bool HasCleared(Context context, string currentSpace, string param, string direction, Item item)
+    {
+        if (context.GetCurrent().GetName() == currentSpace && param == direction)
+        {
+            List<Item> inventory = context.GetInventory();
+            if (inventory.Contains(item))
+            {
+                Console.WriteLine(
+                            "You have cleared this zone for monsters and the cleaning crews are doing their job.");
+                    return true;
+            }
+        }
+        return false;
+        
+    }
+
+
+        
 }

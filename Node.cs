@@ -30,4 +30,3 @@ class Node {
     return edges[direction];
   }
 }
-

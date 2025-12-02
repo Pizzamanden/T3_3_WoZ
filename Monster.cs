@@ -64,7 +64,10 @@ class Monster
 	
 	// Peter: Drop the set item on the monsters space
 	public void DropItem(Space space){
-		space.PlaceItem(this.itemToDrop!);
+		if(itemToDrop != null)
+        {
+            space.PlaceItem(this.itemToDrop!);
+        }
 	}
 
 

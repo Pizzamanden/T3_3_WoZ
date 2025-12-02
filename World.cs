@@ -10,6 +10,14 @@ class World {
   public static Item Key2;
   public static Item Key3;
   public static Item Key4;
+  public static Item D1 = new Item("Chemical", "Chemical");
+  public static Item D2 = new Item("Chemical", "Chemical");
+  public static Item TL1 = new Item("Bins", "Bins");
+  //public static Item TL2 = new Item("Chemical 2", "item");
+  public static Item C1 = new Item("Chemical 2", "item");
+  public static Item C2 = new Item("Chemical 2", "item");
+  public static Item M1 = new Item("Chemical 2", "item");
+  public static Item M2 = new Item("Chemical 2", "item");
   
   public World (Registry registry) {
 
@@ -163,7 +171,15 @@ class World {
         D_S6_MiniBoss.PlaceItem(Key2);
         M_S6_MiniBoss.PlaceItem(Key3);
         TL_S1_MiniBoss.PlaceItem(Key4);
-
+        D_S2_Combat.PlaceItem(D1);
+        D_S3_NPC.PlaceItem(D2);
+        //TL_S3_Combat.PlaceItem(TL2);
+        TL_S4_NPC.PlaceItem(TL1);
+        C_S4_Combat.PlaceItem(C1);
+        C_S6_Combat.PlaceItem(C2);
+        M_S2_Combat.PlaceItem(M1);
+        M_S4_Combat.PlaceItem(M2);
+        
         /*
         //Yarik: Adding NPCs to spaces
         List<string> dialogueListNPC1 = new List<string>
@@ -178,14 +194,6 @@ class World {
         // Peter: Monster adding
         S_S1_Start.Monster = new Monster("Slime", 30, "fire");
         */
-
-        TL_S1_MiniBoss.Monster = new Monster (
-          "Test Boss", 
-          30, 
-          null, 
-          "",
-          "With the Sea Devil reduced to not much more than a puddle on the ground, \nyou reach for your walkie talkie, to report your success. \n\n\"I knew you could do it!\", the pilot yells, unnecessarily loud, \"The cleaning crews are setting foot on the island as we speak. Ready to begin cleaning this whole place up, just as you instructed. I'm coming to pick you up now...\" \n\nBefore going you grab the mop from your cleaning cart. And the last thing \nyou see, before you sweep up the remnants of the Sea Devil, is your own \nself reflection...\n\nThe End"
-        );
 
         // Mikkel: Added text, dialouge, monsters, monster-death-dialoug
         S_S1_Start.AddWelcomeEvent(new TextSE("\n\"We're about to reach Trash Island!\" the pilot says, \"I hope you're as good \nas they say you are. This won't be an easy mission. But with all that trash \ngathering like this and those monsters appearing, something bad was bound \nto happen sooner or later.\""));
@@ -244,11 +252,107 @@ class World {
         
         // Add text when combat begins...
         // Added monster and death-dialouge
+
+
+
+        D_S2_Combat.Monster = new Monster (
+          "Sick customer", 
+          20, 
+          D1, 
+          "physical",
+          "The Sick Customer has been defeated and drops a" + D1.GetName() + "."
+        );
+        D_S4_Combat.Monster = new Monster (
+          "massive sea turtle", 
+          50, 
+          D2, 
+          "Chemical",
+          "Finally freed from the nets, the turtle calms down."
+        );
+        D_S6_MiniBoss.Monster = new Monster (
+          "Old Fisherman", 
+          80, 
+          Key2, 
+          "Chemical",
+          "The storm starts to settle, as the ghostly figure fades away, and a key piece drops to the ground…"
+        );
+
+
+
+        TL_S3_Combat.Monster = new Monster (
+          "Employee", 
+          20, 
+          null, 
+          "physical",
+          "The Litter Bug has been defeated and drops a - insert chemical name here -."
+        );
+        TL_S5_Combat.Monster = new Monster (
+          "Teacup enthusiast", 
+          20, 
+          null, 
+          "Recycling",
+          "With the Smoke Monster dispersed and defeated, you take a moment to \ncatch your"
+        );
+        TL_S1_MiniBoss.Monster = new Monster (
+          "Trash Guardian", 
+          100, 
+          Key4, 
+          "Recycling",
+          "As the Trash Guardian falls, it drops a piece of the key to the tower gate."
+        );
+        
+
+
+        C_S1_MiniBoss.Monster = new Monster (
+          "Tourist monster", 
+          70, 
+          Key1, 
+          "fire",
+          "With the Tourist Monster defeated, it drops a piece of the key to the tower gate."
+        );
+        C_S4_Combat.Monster = new Monster (
+          "Plastic monster", 
+          40, 
+          C1, 
+          "Chemical",
+          "With the Plastic Monster defeated, it drops a - insert chemical name here -."
+        );
+        C_S6_Combat.Monster = new Monster (
+          "Cardboard golem", 
+          60, 
+          C2, 
+          "Chemical",
+          "The Cardboard Golem crumbles into a pile of soggy cardboard, leaving behind a - insert chemical name here -."
+        );
+
+
+        M_S2_Combat.Monster = new Monster (
+          "Smokey bandit", 
+          30, 
+          M1, 
+          "fire",
+          "The Smokey Bandit dissipates into thin air, leaving behind a - insert chemical name here -."
+        );
+        M_S4_Combat.Monster = new Monster (
+          "Cigarette zombie", 
+          50, 
+          M2, 
+          "Chemical",
+          "The Cigarette Zombie collapses, leaving behind a - insert chemical name here -."
+        );
+        M_S6_MiniBoss.Monster = new Monster (
+          "Ashtray titan", 
+          90, 
+          Key3, 
+          "fire",
+          "With the Ashtray Titan defeated, it drops a piece of the key to the tower gate."
+        );
+
         S_S6_BOSS.Monster = new Monster (
           "sea devil", 
-          30, 
+          200, 
           null, 
-          "",
+          "fire",
           "With the Sea Devil reduced to not much more than a puddle on the ground, \nyou reach for your walkie talkie, to report your success. \n\n\"I knew you could do it!\", the pilot yells, unnecessarily loud, \"The cleaning crews are setting foot on the island as we speak. Ready to begin cleaning this whole place up, just as you instructed. I'm coming to pick you up now...\" \n\nBefore going you grab the mop from your cleaning cart. And the last thing \nyou see, before you sweep up the remnants of the Sea Devil, is your own \nself reflection...\n\nThe End"
         );
     }

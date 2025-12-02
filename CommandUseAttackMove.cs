@@ -11,8 +11,9 @@ class CommandUseAttackMove : BaseCommand, ICommand
 
     public void Execute(Context context, string command, string[] parameters)
     {
+        // Troels: references the ExitsListSE to update exits after monster is defeated
+        ExitsListSE ExitsListSE = new ExitsListSE(context.GetCurrent());
         Monster? monster = context.GetCurrent().Monster;
-
         // Nicholas: Check if there is a monster to attack
         if (monster == null || !monster.IsAlive()) // When you use the command and there isn't any monster nearby
         {
@@ -58,12 +59,16 @@ class CommandUseAttackMove : BaseCommand, ICommand
         }
         else
         {
+            
             monster!.OnMonsterDeath();
             context.Player.isInCombat  = false;
             // Peter: Drop an item if the monster should drop an item
             context.GetCurrent().Monster!.DropItem(context.GetCurrent());
             // Then remove it from the Space
             context.GetCurrent().Monster = null;
+           // Troels: Update exits after monster is defeated
+            //Console.WriteLine("");
+            //ExitsListSE.Trigger();
         }
     }
 
