@@ -64,8 +64,11 @@ class World {
     Space TL_S6  = new Space(TrashLand, "TL_S6");
 
 
-    // Start zone edges
-    {
+        // Set starting space
+        entry = S_S1_Start;
+
+        // Start zone edges
+        {
         S_S1_Start.AddEdge("west", S_S2);
         S_S1_Start.AddEdge("south", S_S5);
         S_S1_Start.AddEdge("east", S_S4_NPC);
@@ -166,6 +169,40 @@ class World {
         D_S6_MiniBoss.PlaceItem(Key2);
         M_S6_MiniBoss.PlaceItem(Key3);
         TL_S1_MiniBoss.PlaceItem(Key4);
+
+
+
+
+
+        
+        D_S2_Combat.Monster = new Monster(
+          "Sick customer",
+          30,
+          D1,
+          "physical",
+          "He dies.",
+          Flags.D_S2_Combat_dead
+        );
+        S_S2.Monster.AttackDamage = 15;
+        D_S2_Combat.Monster.AttackDamage = 15;
+
+        D_S4_Combat.Monster = new Monster(
+          "massive sea turtle",
+          40,
+          null,
+          "Chemical",
+          "",
+          Flags.D_S4_combat_dead
+        );
+
+        D_S6_MiniBoss.Monster = new Monster(
+          "Old Fisherman",
+          100,
+          Key2,
+          "physical",
+          "The storm starts to settle, as the ghostly figure fades away, and a \nkey piece drops to the ground…",
+          Flags.D_S6_combat_dead
+        );
 
         entry = S_S1_Start;
 
