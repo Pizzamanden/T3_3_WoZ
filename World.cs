@@ -223,6 +223,7 @@ class World {
           "The storm starts to settle, as the ghostly figure fades away, and a \nkey piece drops to the ground…",
           Flags.D_S6_Combat_dead
         );
+        D_S6_MiniBoss.Monster.AttackDamage = 1;
 
         M_S1_NPC.PlaceNPC(new NPC(
           "Shopkeeper", 
@@ -235,7 +236,15 @@ class World {
           Flags.M_S3_Pickup_Barbie
         ));
 
-        entry = S_S1_Start;
+        // STARTZONE:
+        // Intro + S_S1_Start text
+        S_S1_TrueStart.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_1));
+        S_S1_TrueStart.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_2));
+        S_S1_TrueStart.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_3));
+        S_S1_Start.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_4));
+
+        // S_S2 text
+        S_S2.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S2_1));
 
         // DOCKS:
         // D_S1 text
