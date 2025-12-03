@@ -54,7 +54,7 @@ class Game {
         Console.WriteLine("\nYOU DIED, and wake up in the previous room full of vigour");
         continue;
       }
-      Console.Write("\n> ");
+      Console.Write("> ");
       string? line = Console.ReadLine();
       if (line!=null) registry.Dispatch(line);
     }
