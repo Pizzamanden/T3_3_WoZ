@@ -1,3 +1,5 @@
+namespace WoZ.Commands;
+using WoZ.Interfaces;
 class CommandRetreat : BaseCommand, ICommand {
     public CommandRetreat()
     {

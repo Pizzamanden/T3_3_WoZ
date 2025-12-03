@@ -1,3 +1,4 @@
+namespace WoZ.Texts;
 static class TrashLand_Text
 {
     public const string TL_S1_1 = "Rushing into the park, you go through a turnstile. Apparently the \npark security has something against cleaning carts, as a loud \nalarm starts beeping when you enter.\n";

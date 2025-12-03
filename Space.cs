@@ -1,5 +1,9 @@
 /* Space class for modeling spaces (rooms, caves, ...)
 */
+namespace WoZ;
+using WoZ.Events;
+using WoZ.Commands;
+using WoZ.Interfaces;
 
 class Space : Node {
 
@@ -19,20 +23,16 @@ class Space : Node {
   
   // Mikkel: Console clear and map shows when you enter new space
   public void Welcome () {
-    if (this.name != "S1-Start")
-    {
-        Console.Clear();
-        new CommandMap().ShowMap(this);
-        Console.WriteLine("");
-    }
+        if (this.name != "S1-TrueStart")
+        {
+            Console.Clear();
+            new CommandMap().ShowMap(this);
+            Console.WriteLine("");
+        }
 
-    RunWelcomeEvents();
+        RunWelcomeEvents();
 
-    if (this.name == "S1-Start")
-    {
-        Console.Clear();
-        new CommandMap().ShowMap(this);
-    }
+    
 
     if (Monster == null)
     {
@@ -40,7 +40,7 @@ class Space : Node {
     }
     else
     {
-        Console.WriteLine("\nA monster threatens. You must either defeat it, or retreat, to proceede.");
+        Console.WriteLine("A monster threatens. You must either defeat it, or retreat, to proceede.");
     }
   }
   
