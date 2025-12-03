@@ -13,6 +13,7 @@ class World {
   public static Item D1 = new Item("Chemical", "Chemical");
   public static Item D2 = new Item("Chemical", "Chemical");
   public static Item TL1 = new Item("TL1", "Whatever");
+  public static Item M_Barbie = new Item("Barbie", "Barbie", Flags.M_S3_Pickup_Barbie);
 
     public World (Registry registry) {
 
@@ -168,6 +169,7 @@ class World {
         TL_S1_MiniBoss.PlaceItem(Key4);
         D_S2_Combat.PlaceItem(D1);
         D_S3_NPC.PlaceItem(D2);
+        M_S3.PlaceItem(M_Barbie);
         /*
         //Yarik: Adding NPCs to spaces
         List<string> dialogueListNPC1 = new List<string>
@@ -199,7 +201,7 @@ class World {
           null, 
           "Chemical",
           "",
-          Flags.D_S4_combat_dead
+          Flags.D_S4_Combat_dead
         );
 
         D_S6_MiniBoss.Monster = new Monster (
@@ -208,10 +210,19 @@ class World {
           Key2, 
           "physical",
           "The storm starts to settle, as the ghostly figure fades away, and a \nkey piece drops to the ground…",
-          Flags.D_S6_combat_dead
+          Flags.D_S6_Combat_dead
         );
 
-        
+        M_S1_NPC.PlaceNPC(new NPC(
+          "Shopkeeper", 
+          "A weary shopkeeper stands behind a makeshift counter, surrounded by heaps of discarded plastic items. \nHis eyes reflect a mix of hope and desperation as he clutches a worn-out recycling manual.", 
+          new List<string>
+          {
+            "\n\"Ah, a fellow agent! These plastics have taken over my shop. If only someone could help me sort them out...\"",
+            "\n\"The plastic monster is wreaking havoc in this area. I've heard that recycling the trash it throws at you can weaken it.\""
+          },
+          Flags.M_S3_Pickup_Barbie
+        ));
 
         entry = S_S1_Start;
 

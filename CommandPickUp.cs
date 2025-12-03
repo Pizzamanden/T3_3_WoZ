@@ -37,7 +37,11 @@ class CommandPickUp : BaseCommand, ICommand
 		//Checks if the user's input matches the keyword
 		//If yes, the item is collected and removed from the room. 
 		if (commandInput == itemKey || commandInput == foundItem.GetName().ToLower())
-		{
+		{	
+				if (foundItem.FlagToSet != "")
+				{
+					foundItem.SetFlag(foundItem.FlagToSet);
+				}
 			context.InventoryAdd(foundItem);
 			Console.WriteLine("You have picked up \"" + foundItem.GetName() + "\".");
 			context.GetNewAttack(World.D1, World.D2, "acid", 25, "Chemical");

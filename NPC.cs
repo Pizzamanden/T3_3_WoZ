@@ -6,17 +6,27 @@ class NPC
     string description;
     List<string> dialogueList;
     int currentDialoguePrompt;
-    // public string FlagToGet; // Mikkel: Monster can set a flag
+    public string FlagToGet; // Mikkel: Monster can set a flag
+    public Item? itemToDrop;
 
     // Mikkel: Tilføjede lige noget FlagToGet, det er ikke færdigt, men det skal bruges til den npc i Mall,
     // til når du får hans item, så siger han noget andet og giver dig item der
-    public NPC(string nameval, string descriptionval, List<string> dialogueListval /*, string FlagToGet */)
+    public NPC(string nameval, string descriptionval, List<string> dialogueListval)
     {
         name = nameval;
         description = descriptionval;
         dialogueList = dialogueListval;
         currentDialoguePrompt = 0;
-        // this.FlagToGet = FlagToGet;
+        FlagToGet = "";
+    }
+    public NPC(string nameval, string descriptionval, List<string> dialogueListval , string FlagToGet, Item? item)
+    {
+        name = nameval;
+        description = descriptionval;
+        dialogueList = dialogueListval;
+        currentDialoguePrompt = 0;
+        this.FlagToGet = FlagToGet;
+        this.itemToDrop = item;
     }
 
     public string GetDialoguePrompt()
@@ -41,6 +51,13 @@ class NPC
     {
         return description;
     }
+
+	public void DropItem(Space space){
+		if(itemToDrop != null)
+        {
+            space.PlaceItem(this.itemToDrop!);
+        }
+	}
 
     /* 
 
