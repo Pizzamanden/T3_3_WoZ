@@ -1,6 +1,8 @@
 /* Command for transitioning between spaces
  */
-
+namespace WoZ.Commands;
+using WoZ;
+using WoZ.Interfaces;
 using System;
 using System.Collections.Generic;
 

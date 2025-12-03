@@ -1,5 +1,6 @@
 using System.Collections.Specialized;
-
+namespace WoZ;
+using WoZ;
 class NPC
 {
     string name;

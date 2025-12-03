@@ -1,6 +1,10 @@
 /* Main class for launching the game
  */
 using System.Text;
+namespace WoZ;
+using WoZ;
+using WoZ.Interfaces;
+using WoZ.Commands;
 
 class Game {
   static Context  context  = new Context();

@@ -1,8 +1,9 @@
 /* Context class to hold all context relevant to a session.
  */
-
+namespace WoZ;
 using System.Runtime.CompilerServices;
 using System.Security;
+using WoZ;
 
 class Context {
     protected Space? current;

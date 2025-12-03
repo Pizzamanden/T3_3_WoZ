@@ -1,6 +1,8 @@
 /* Command for talking to NPCs
 */
-
+namespace WoZ.Commands;
+using WoZ;
+using WoZ.Interfaces;
 class CommandTalk : BaseCommand, ICommand {
     public CommandTalk () {
         description = "Talk to an NPC";

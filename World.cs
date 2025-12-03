@@ -1,6 +1,9 @@
 /* World class for modeling the entire in-game world
 */
-
+namespace WoZ;
+using WoZ;
+using WoZ.Events;
+using WoZ.Texts;
 class World {
   Space entry;
   Registry? registry;

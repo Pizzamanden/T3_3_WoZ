@@ -1,5 +1,8 @@
 /* Command for displaying the map
  */
+namespace WoZ.Commands;
+using WoZ;
+using WoZ.Interfaces;
 using System;
 using System.Text;
 using System.Runtime.InteropServices;

@@ -1,5 +1,7 @@
 /* Baseclass for commands
  */
+namespace WoZ.Commands;
+using WoZ;
 
 class BaseCommand {
   protected string description = "Undocumented";

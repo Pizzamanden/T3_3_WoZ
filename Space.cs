@@ -1,6 +1,10 @@
 /* Space class for modeling spaces (rooms, caves, ...)
 */
-
+namespace WoZ;
+using WoZ;
+using WoZ.Interfaces;
+using WoZ.Events;
+using WoZ.Commands;
 class Space : Node {
 
   public Zone zone;

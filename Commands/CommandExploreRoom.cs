@@ -1,4 +1,7 @@
 //Yarik: Command to get all items and NPCs in the room
+namespace WoZ.Commands;
+using WoZ;
+using WoZ.Interfaces;
 class CommandExploreRoom : BaseCommand, ICommand
 {
     public CommandExploreRoom()

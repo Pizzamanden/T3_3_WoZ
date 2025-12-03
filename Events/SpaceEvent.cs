@@ -1,5 +1,11 @@
 // Dummy template
 using System.Text;
+namespace WoZ.Events;
+
+using WoZ;
+using WoZ.Interfaces;
+using WoZ.Commands;
+
 class DummySE : IEvent{
     public bool CanRun()
     {

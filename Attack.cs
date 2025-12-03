@@ -1,6 +1,9 @@
 /*
 	A class which symbolizes attacks.
 */
+namespace WoZ;
+using WoZ;
+
 public class Attack{
 	public string Name { get;}
 	public int Damage { get;}

@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.Win32;
-
+namespace WoZ.Commands;
+using WoZ;
+using WoZ.Interfaces;
 //Nicholas: This class contains the command to use an attack move against a monster.
 class CommandUseAttackMove : BaseCommand, ICommand
 {
