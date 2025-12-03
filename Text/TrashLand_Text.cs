@@ -29,7 +29,7 @@ static class TrashLand_Text
     public const string TL_S5_2 = "Just as you think it's about to give up, the creature begins to \nshake, and shoots out more than half its trash to reduce its size. \nResulting in you — and everything around you — getting covered \nin trash.\n\nAll that's left is a very comfortable looking monster, sitting in a \nteacup with its hands behind its head…\n";
     
     // S6 text
-    public const string TL_S6_1 = "At the end of a long day in Trash Land™ you reach the gift shop. \nThe place is full of cheap single-use souvenirs, such as keychains, \ncups and plastic toys.\n\nThe cashier leans over the counter, hand on head.\n\nYou decide to quickly leave before the place turns into another monster. \n";
+    public const string TL_S6_1 = "At the end of a long day in Trash Land™ you reach the gift shop. \nThe place is full of cheap single-use souvenirs, such as keychains, \ncups and plastic toys.\n\nThe cashier leans over the counter, resting her head in her hands.\n\nYou decide to quickly leave before the place turns into another monster. \n";
     public const string TL_S6_Talk_1 = "“I can't believe people keep buying this trash”, she says, “At least \nwe never run out of stock. Stuff keeps washing up on the shores \nnearby, so I just go out, pick it up and sell it. Pretty sure I've sold \nthis same keychain 3 times already”.";
     public const string TL_S6_Talk_2 = "“Aren't you supposed to be fixing this stuff, go away”\n";
 }

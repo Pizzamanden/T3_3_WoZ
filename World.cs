@@ -15,7 +15,7 @@ class World {
   public static Item Key4;
   public static Item D1 = new Item("D1", "Whatever");
   public static Item D2 = new Item("D2", "Whatever");
-  public static Item TL1 = new Item("TL1", "Whatever");
+  public static Item TL_Bins = new Item("Recycling bins", "Whatever");
   public static Item M_Barbie = new Item("Barbie", "Barbie", Flags.M_S3_Pickup_Barbie);
   public static Item M_Sword = new Item("Sword", "Sword");
 
@@ -69,7 +69,7 @@ class World {
     Space TL_S3_Combat  = new Space(TrashLand, "TL_S3 Combat");
     Space TL_S4_NPC  = new Space(TrashLand, "TL_S4 NPC");
     Space TL_S5_Combat  = new Space(TrashLand, "TL_S5 Combat");
-    Space TL_S6  = new Space(TrashLand, "TL_S6");
+    Space TL_S6_NPC  = new Space(TrashLand, "TL_S6 NPC");
 
 
         // Set starting space
@@ -143,14 +143,13 @@ class World {
       TL_S2.AddEdge("south", TL_S3_Combat);
       TL_S3_Combat.AddEdge("west", TL_S4_NPC);
       TL_S4_NPC.AddEdge("west", TL_S5_Combat);
-      TL_S5_Combat.AddEdge("north", TL_S6);
-      TL_S6.AddEdge("east", TL_S1_MiniBoss);
+      TL_S5_Combat.AddEdge("north", TL_S6_NPC);
+      TL_S6_NPC.AddEdge("east", TL_S1_MiniBoss);
       
     }
 
     // Connecting zones
     {
-
       //Fra Start til Docks og omvendt
       S_S2.AddEdge("north", D_S1);
       D_S1.AddEdge("south", S_S2);
@@ -196,12 +195,14 @@ class World {
         S_S1_Start.Monster = new Monster("Slime", 100, "fire");
         */
 
+        // COMBATS:
+        // Docks combats:
         D_S2_Combat.Monster = new Monster (
           "Sick customer", 
           30, 
           D1, 
           "physical",
-          "He dies.",
+          "",
           Flags.D_S2_Combat_dead
         );
         D_S2_Combat.Monster.AttackDamage = 1;
@@ -220,14 +221,48 @@ class World {
           "Old Fisherman",
           100,
           Key2,
-          "physical",
+          "Chemicals",
           "The storm starts to settle, as the ghostly figure fades away, and a \nkey piece drops to the ground…",
           Flags.D_S6_Combat_dead
         );
         D_S6_MiniBoss.Monster.AttackDamage = 1;
 
+        // Trash Land combats:
+        TL_S1_MiniBoss.Monster = new Monster(
+          "Trash Land Mascot",
+          100,
+          Key1,
+          "Recycling",
+          TrashLand_Text.TL_S1_5,
+          ""
+        );
+        TL_S1_MiniBoss.Monster.AttackDamage = 1;
+
+        TL_S3_Combat.Monster = new Monster(
+          "Trash Land Employee",
+          40,
+          null,
+          "physical",
+          "",
+          ""
+        );
+        TL_S3_Combat.Monster.AttackDamage = 1;
+
+        TL_S5_Combat.Monster = new Monster(
+          "Teacup Enthusiast",
+          40,
+          null,
+          "Recycling",
+          "",
+          ""
+        );
+        TL_S5_Combat.Monster.AttackDamage = 1;
+
+
+        // NPC's
+        // Test NPC???
         M_S1_NPC.PlaceNPC(new NPC(
-          "Samurai", 
+          "shopkeeper", 
           "A weary shopkeeper stands behind a makeshift counter, surrounded by heaps of discarded plastic items. \nHis eyes reflect a mix of hope and desperation as he clutches a worn-out recycling manual.", 
           new List<string>
           {
@@ -238,6 +273,22 @@ class World {
           null
         ));
         M_S3.AddWelcomeEvent(new SpawnItemSE(Flags.M_S3_Pickup_Barbie, M_Sword, M_S1_NPC));
+        
+        // Docks NPCs:
+
+        // Trash Land NPCs:
+        TL_S4_NPC.PlaceNPC(new NPC(
+          "Old Janitor",
+          "",
+          new List<string>
+          {
+              "\n\"When you get back to the entrance, place these bins around him. \nAny trash he summons will be collected and sorted in the different \nbins. Which allows you to damage him normally\""
+          },
+          "",
+          TL_Bins
+        ));
+        
+        
         // STARTZONE:
         // Intro + S_S1_Start text
         S_S1_TrueStart.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_1));
@@ -268,6 +319,40 @@ class World {
         // D_S6 text
         D_S6_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S6_1));
         D_S6_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S6_2));
+
+
+        // TRASH LAND:
+        // TL_S1 text (First time) 
+        TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("Press enter to turn around...", "", "", TrashLand_Text.TL_S1_1));
+        TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_2));
+        TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_3));
+        // TL_S1 text (Second time)
+        TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_4));
+        // TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_5));
+        TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_6));
+
+        // TL_S2 text
+        TL_S2.AddWelcomeEvent(new TextSE("Press enter to try cotton candy...", "", "", TrashLand_Text.TL_S2_1));
+        TL_S2.AddWelcomeEvent(new TextSE("Press enter to go back for seconds...", "", "", TrashLand_Text.TL_S2_2));
+        TL_S2.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S2_3));
+
+        // TL_S3 text 
+        TL_S3_Combat.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S3_1));
+
+        // TL_S4 text (Mangler sin NPC)
+        TL_S4_NPC.AddWelcomeEvent(new TextSE("Press enter to enter shack...", "", "", TrashLand_Text.TL_S4_1));
+        TL_S4_NPC.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S4_2));
+        TL_S4_NPC.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S4_3));
+        TL_S4_NPC.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S4_4));
+        // TL_S4_NPC.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S4_Talk));
+
+        // TL_S5 text 
+        TL_S5_Combat.AddWelcomeEvent(new TextSE("Press enter to watch...", "", "", TrashLand_Text.TL_S5_1));
+        TL_S5_Combat.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S5_2));
+
+        // TL_S6 text (Mangler sin NPC)
+        TL_S6_NPC.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S6_1));
+
     }
 
   public Space GetEntry () {
