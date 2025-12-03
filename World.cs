@@ -17,7 +17,7 @@ class World {
   public static Item D2 = new Item("D2", "Whatever");
   public static Item TL1 = new Item("TL1", "Whatever");
   public static Item M_Barbie = new Item("Barbie", "Barbie", Flags.M_S3_Pickup_Barbie);
-    public static Item M_Sword = new Item("Sword", "Sword");
+  public static Item M_Sword = new Item("Sword", "Sword");
 
     public World (Registry registry) {
 
@@ -235,9 +235,9 @@ class World {
             "\n\"The plastic monster is wreaking havoc in this area. I've heard that recycling the trash it throws at you can weaken it.\""
           },
           Flags.M_S3_Pickup_Barbie,
-          M_Sword
+          null
         ));
-
+        M_S3.AddWelcomeEvent(new SpawnItemSE(Flags.M_S3_Pickup_Barbie, M_Sword, M_S1_NPC));
         // STARTZONE:
         // Intro + S_S1_Start text
         S_S1_TrueStart.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_1));
