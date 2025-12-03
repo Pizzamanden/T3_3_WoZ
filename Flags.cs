@@ -1,5 +1,4 @@
 namespace WoZ;
-using WoZ;
 static class Flags
 {
     static private Dictionary<string, bool> flagdict = new Dictionary<string, bool>();

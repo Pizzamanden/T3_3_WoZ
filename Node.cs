@@ -1,7 +1,6 @@
 /* Node class for modeling graphs
  */
 namespace WoZ;
-using WoZ;
 class Node {
   protected string name;
   protected Dictionary<string, Node> edges = new Dictionary<string, Node>();

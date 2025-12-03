@@ -1,7 +1,6 @@
 /* Help command
  */
 namespace WoZ.Commands;
-using WoZ;
 using WoZ.Interfaces;
 class CommandHelp : BaseCommand, ICommand {
   Registry registry;

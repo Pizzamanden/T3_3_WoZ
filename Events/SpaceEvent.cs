@@ -18,6 +18,38 @@ class DummySE : IEvent{
 	}
 }
 
+
+/*
+ Event for placing items
+ */
+class SpawnItemSE : IEvent
+{
+    private string flagToCheck;
+    private Item item;
+    private Space space;
+
+    public SpawnItemSE(string flagToCheck, Item itemToSpawn, Space spaceToSpawnIn)
+    {
+        this.flagToCheck = flagToCheck;
+        this.item = itemToSpawn;
+        this.space = spaceToSpawnIn;
+    }
+
+    public bool CanRun()
+    {
+        if (flagToCheck == "")
+        {
+            return true;
+        }
+        return Flags.GetFlag(flagToCheck);
+    }
+
+    public void Trigger()
+    {
+        space.PlaceItem(item);
+    }
+}
+
 class SpawnMonsterSE : IEvent{
     private string flagToCheck;
 	private Monster monster;
@@ -60,7 +92,6 @@ class ClearConsoleSE : IEvent{
 
 /*
 	An event for displaying one (1) textblock.
-	
 */
 class TextSE : IEvent{
 	

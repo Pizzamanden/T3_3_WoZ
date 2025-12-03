@@ -1,6 +1,5 @@
 //Base class for creating items
 namespace WoZ;
-using WoZ;
 class Item
 {
 	private string name;

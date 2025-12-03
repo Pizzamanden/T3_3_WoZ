@@ -1,9 +1,9 @@
 /* World class for modeling the entire in-game world
 */
 namespace WoZ;
-using WoZ;
 using WoZ.Events;
 using WoZ.Texts;
+
 class World {
   Space entry;
   Registry? registry;
@@ -25,6 +25,9 @@ class World {
     Zone Mall = new Zone("plastic", "The plastic zone!");
     Zone TrashLand = new Zone("Zigarettes", "The zone with ziggerets!");
     Zone finalboss = new Zone("Final boss", "The final boss!");
+
+    // Fake start spot
+    Space S_S1_TrueStart = new Space(StartZone, "S1-TrueStart");
 
     // Start-zonen
     Space S_S1_Start  = new Space(StartZone, "S1-Start");
@@ -68,10 +71,11 @@ class World {
 
 
         // Set starting space
-        entry = S_S1_Start;
+        entry = S_S1_TrueStart;
 
         // Start zone edges
         {
+        S_S1_TrueStart.AddEdge("starter", S_S1_Start);
         S_S1_Start.AddEdge("west", S_S2);
         S_S1_Start.AddEdge("south", S_S5);
         S_S1_Start.AddEdge("east", S_S4_NPC);
@@ -204,13 +208,13 @@ class World {
         );
         D_S6_MiniBoss.Monster.AttackDamage = 1;
 
-        entry = S_S1_Start;
+        
 
         // STARTZONE:
         // Intro + S_S1_Start text
-        S_S1_Start.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_1));
-        S_S1_Start.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_2));
-        S_S1_Start.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_3));
+        S_S1_TrueStart.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_1));
+        S_S1_TrueStart.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_2));
+        S_S1_TrueStart.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_3));
         S_S1_Start.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_4));
 
         // S_S2 text

@@ -1,5 +1,4 @@
 namespace WoZ.Commands;
-using WoZ;
 using WoZ.Interfaces;
 class CommandDirections : BaseCommand, ICommand {
     public CommandDirections()
