@@ -1,5 +1,6 @@
 //Magnus: Implements a class for picking up items
-
+namespace WoZ.Commands;
+using WoZ.Interfaces;
 class CommandPickUp : BaseCommand, ICommand
 {
 	public CommandPickUp()

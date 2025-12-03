@@ -1,5 +1,8 @@
 /* World class for modeling the entire in-game world
 */
+namespace WoZ;
+using WoZ.Events;
+using WoZ.Texts;
 
 class World {
   Space entry;
@@ -10,8 +13,8 @@ class World {
   public static Item Key2;
   public static Item Key3;
   public static Item Key4;
-  public static Item D1 = new Item("Chemical", "Chemical");
-  public static Item D2 = new Item("Chemical", "Chemical");
+  public static Item D1 = new Item("D1", "Whatever");
+  public static Item D2 = new Item("D2", "Whatever");
   public static Item TL1 = new Item("TL1", "Whatever");
   public static Item M_Barbie = new Item("Barbie", "Barbie", Flags.M_S3_Pickup_Barbie);
 
@@ -23,6 +26,9 @@ class World {
     Zone Mall = new Zone("plastic", "The plastic zone!");
     Zone TrashLand = new Zone("Zigarettes", "The zone with ziggerets!");
     Zone finalboss = new Zone("Final boss", "The final boss!");
+
+    // Fake start spot
+    Space S_S1_TrueStart = new Space(StartZone, "S1-TrueStart");
 
     // Start-zonen
     Space S_S1_Start  = new Space(StartZone, "S1-Start");
@@ -65,8 +71,12 @@ class World {
     Space TL_S6  = new Space(TrashLand, "TL_S6");
 
 
-    // Start zone edges
-    {
+        // Set starting space
+        entry = S_S1_TrueStart;
+
+        // Start zone edges
+        {
+        S_S1_TrueStart.AddEdge("starter", S_S1_Start);
         S_S1_Start.AddEdge("west", S_S2);
         S_S1_Start.AddEdge("south", S_S5);
         S_S1_Start.AddEdge("east", S_S4_NPC);
@@ -190,24 +200,25 @@ class World {
           30, 
           D1, 
           "physical",
-          "wtf man you killed me",
+          "He dies.",
           Flags.D_S2_Combat_dead
         );
-        D_S2_Combat.Monster.AttackDamage = 15;
+        D_S2_Combat.Monster.AttackDamage = 1;
 
-        D_S4_Combat.Monster = new Monster (
-          "massive sea turtle", 
-          40, 
-          null, 
+        D_S4_Combat.Monster = new Monster(
+          "massive sea turtle",
+          40,
+          null,
           "Chemical",
           "",
           Flags.D_S4_Combat_dead
         );
+        D_S4_Combat.Monster.AttackDamage = 1;
 
-        D_S6_MiniBoss.Monster = new Monster (
-          "Old Fisherman", 
-          100, 
-          Key2, 
+        D_S6_MiniBoss.Monster = new Monster(
+          "Old Fisherman",
+          100,
+          Key2,
           "physical",
           "The storm starts to settle, as the ghostly figure fades away, and a \nkey piece drops to the ground…",
           Flags.D_S6_Combat_dead
@@ -230,9 +241,22 @@ class World {
         // D_S1 text
         D_S1.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S1_1));
 
+        // D_S2 text
+        D_S2_Combat.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S2_1));
 
-        S_S1_Start.AddWelcomeEvent(new TextSE("Press enter to jump...", "", "", "\"Given that you're the best janitor the UN headquarters had on hand, \nI'm sure it'll be a walk in the park to you. Good luck champ.\""));
-      
+        // D_S3 text
+        D_S3_NPC.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S3_1));
+        D_S3_NPC.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S3_2));
+
+        // D_S4 text
+        D_S4_Combat.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S4_1));
+
+        // D_S5 text
+        D_S5.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S5_1));
+
+        // D_S6 text
+        D_S6_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S6_1));
+        D_S6_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S6_2));
     }
 
   public Space GetEntry () {

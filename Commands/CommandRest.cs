@@ -1,6 +1,7 @@
 /* Command for replenishing HP
  */
-
+namespace WoZ.Commands;
+using WoZ.Interfaces;
 class CommandRest : BaseCommand, ICommand {
     public CommandRest()
     {

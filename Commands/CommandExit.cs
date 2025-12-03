@@ -1,6 +1,7 @@
 /* Command for exiting program
  */
-
+namespace WoZ.Commands;
+using WoZ.Interfaces;
 class CommandExit : BaseCommand, ICommand {
   public CommandExit()
   {

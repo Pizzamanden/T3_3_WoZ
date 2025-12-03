@@ -1,4 +1,5 @@
-static class Docks_Text
+namespace WoZ.Texts;
+public static class Docks_Text
 {
     public const string D_S1_1 = "You head for the docks, pinching your nose, stumbling through \na maze of nets.\n\nTwo signs catch your eye: \"Dr. Spill’s Chemicals\" to the east, \n\"Piers\" to the west.\n";
     public const string D_S2_1 = "You pass a sick-looking customer wobbling away from the doctor’s \nshop, drinking fish oil from a small glass.\n\n“Oh… OH yeah… that really hits the spot”, he says to himself, \n\"Can’t believe how hard it is to get this stuff. Used to be all over \nthe place, now I can barely get my hands on any\". \n\n\"Damn ghost fishing, it’d be so much easier to get if there weren't \nall those nets stuck to the ocean floor, killing all the fish\". Totally \nunaware of his surroundings, he walks straight into you…\n\n\"What's your problem man?! Here to steal my fish oil too?\"\n";

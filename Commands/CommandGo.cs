@@ -1,6 +1,7 @@
 /* Command for transitioning between spaces
  */
-
+namespace WoZ.Commands;
+using WoZ.Interfaces;
 using System;
 using System.Collections.Generic;
 
@@ -33,7 +34,7 @@ class CommandGo : BaseCommand, ICommand {
                   inventory.Contains(World.Key4)))
             {
                 Console.WriteLine(
-                    "You try to open the door, but it is locked. You realize you do not have all four keys yet");
+                    "You're surprised to find the gate locked… realizing you probably \nshould have paid more attention to the pilot earlier. \n. You realize you still do not have all four key parts yet");
                 return;
             }
         }

@@ -1,3 +1,5 @@
+namespace WoZ.Commands;
+using WoZ.Interfaces;
 class CommandStatus : BaseCommand, ICommand {
   public CommandStatus()
   {

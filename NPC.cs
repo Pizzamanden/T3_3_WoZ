@@ -1,3 +1,4 @@
+namespace WoZ;
 using System.Collections.Specialized;
 
 class NPC
