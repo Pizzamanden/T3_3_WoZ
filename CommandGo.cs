@@ -33,7 +33,7 @@ class CommandGo : BaseCommand, ICommand {
                   inventory.Contains(World.Key4)))
             {
                 Console.WriteLine(
-                    "You're surprised to find the gate locked… realizing you probably \nshould have paid more attention to the pilot earlier. \n. You realize you still do not have all four key parts yet");
+                    "You're surprised to find the gate locked… realizing you probably \nshould have paid more attention to the pilot earlier. \nYou realize you still do not have all four key parts yet");
                 return;
             }
         }
