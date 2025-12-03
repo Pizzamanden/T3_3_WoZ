@@ -1,3 +1,4 @@
+namespace WoZ.Texts;
 public static class Docks_Text
 {
     public const string D_S1_1 = "You head for the docks, pinching your nose, stumbling through \na maze of nets.\n\nTwo signs catch your eye: \"Dr. Spill’s Chemicals\" to the east, \n\"Piers\" to the west.\n";

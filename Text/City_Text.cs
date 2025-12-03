@@ -1,3 +1,4 @@
+namespace WoZ.Texts;
 static class City_Text
 {
     public const string C_S1_1 = "You enter a police station in chaos. Cops running from room to \nroom. The commissioner quickly greets you, and hurries you \nalong through the building. “You must be the backup we called \nfor”, he says distractedly. You don’t contradict him, as this will \nmake you look like a total badass.";

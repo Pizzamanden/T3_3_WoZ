@@ -1,5 +1,8 @@
 /* World class for modeling the entire in-game world
 */
+namespace WoZ;
+using WoZ.Events;
+using WoZ.Texts;
 
 class World {
   Space entry;
@@ -13,6 +16,8 @@ class World {
   public static Item D1 = new Item("D1", "Whatever");
   public static Item D2 = new Item("D2", "Whatever");
   public static Item TL1 = new Item("TL1", "Whatever");
+  public static Item M_Barbie = new Item("Barbie", "Barbie", Flags.M_S3_Pickup_Barbie);
+    public static Item M_Sword = new Item("Sword", "Sword");
 
     public World (Registry registry) {
 
@@ -22,6 +27,9 @@ class World {
     Zone Mall = new Zone("plastic", "The plastic zone!");
     Zone TrashLand = new Zone("Zigarettes", "The zone with ziggerets!");
     Zone finalboss = new Zone("Final boss", "The final boss!");
+
+    // Fake start spot
+    Space S_S1_TrueStart = new Space(StartZone, "S1-TrueStart");
 
     // Start-zonen
     Space S_S1_Start  = new Space(StartZone, "S1-Start");
@@ -65,10 +73,11 @@ class World {
 
 
         // Set starting space
-        entry = S_S1_Start;
+        entry = S_S1_TrueStart;
 
         // Start zone edges
         {
+        S_S1_TrueStart.AddEdge("starter", S_S1_Start);
         S_S1_Start.AddEdge("west", S_S2);
         S_S1_Start.AddEdge("south", S_S5);
         S_S1_Start.AddEdge("east", S_S4_NPC);
@@ -169,21 +178,33 @@ class World {
         D_S6_MiniBoss.PlaceItem(Key2);
         M_S6_MiniBoss.PlaceItem(Key3);
         TL_S1_MiniBoss.PlaceItem(Key4);
+        D_S2_Combat.PlaceItem(D1);
+        D_S3_NPC.PlaceItem(D2);
+        M_S3.PlaceItem(M_Barbie);
+        /*
+        //Yarik: Adding NPCs to spaces
+        List<string> dialogueListNPC1 = new List<string>
+        {
+        "\nHello, agent. I'm NPC 1. Do you want to find out more about the monster?",
+        "\nThis is the plastic monster. You can defeat him by recycling the trash he's attacking you with."
+        };
+        S_S1_Start.PlaceNPC(new NPC("NPC1", "Example description for NPC 1", dialogueListNPC1));
+        */
 
+        /*
+        // Peter: Monster adding
+        S_S1_Start.Monster = new Monster("Slime", 100, "fire");
+        */
 
-
-
-
-        
-        D_S2_Combat.Monster = new Monster(
-          "Sick customer",
-          30,
-          D1,
+        D_S2_Combat.Monster = new Monster (
+          "Sick customer", 
+          30, 
+          D1, 
           "physical",
           "He dies.",
           Flags.D_S2_Combat_dead
         );
-        D_S2_Combat.Monster.AttackDamage = 15;
+        D_S2_Combat.Monster.AttackDamage = 1;
 
         D_S4_Combat.Monster = new Monster(
           "massive sea turtle",
@@ -191,25 +212,37 @@ class World {
           null,
           "Chemical",
           "",
-          Flags.D_S4_combat_dead
+          Flags.D_S4_Combat_dead
         );
+        D_S4_Combat.Monster.AttackDamage = 1;
 
         D_S6_MiniBoss.Monster = new Monster(
           "Old Fisherman",
           100,
           Key2,
           "physical",
-          "The storm starts to settle, as the ghostly figure fades away, and a \nkey piece drops to the ground…",
-          Flags.D_S6_combat_dead
+          "The storm starts to settle, as the ghostly figure fades away, and a \nkey piece drops to the groundâ€¦",
+          Flags.D_S6_Combat_dead
         );
+        D_S6_MiniBoss.Monster.AttackDamage = 1;
 
-        entry = S_S1_Start;
+        M_S1_NPC.PlaceNPC(new NPC(
+          "Shopkeeper", 
+          "A weary shopkeeper stands behind a makeshift counter, surrounded by heaps of discarded plastic items. \nHis eyes reflect a mix of hope and desperation as he clutches a worn-out recycling manual.", 
+          new List<string>
+          {
+            "\n\"Ah, a fellow agent! These plastics have taken over my shop. If only someone could help me sort them out...\"",
+            "\n\"The plastic monster is wreaking havoc in this area. I've heard that recycling the trash it throws at you can weaken it.\""
+          },
+          Flags.M_S3_Pickup_Barbie,
+          M_Sword
+        ));
 
         // STARTZONE:
         // Intro + S_S1_Start text
-        S_S1_Start.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_1));
-        S_S1_Start.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_2));
-        S_S1_Start.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_3));
+        S_S1_TrueStart.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_1));
+        S_S1_TrueStart.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_2));
+        S_S1_TrueStart.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_3));
         S_S1_Start.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_4));
 
         // S_S2 text

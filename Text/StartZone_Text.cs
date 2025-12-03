@@ -1,3 +1,4 @@
+namespace WoZ.Texts;
 public static class StartZone_Text
 {
   public const string S_S1_Start_1 = "Welcome to \"Waves of Waste\", a narrative driven adventure game, \nmade by Magnus Lundbech, Mikkel Lindskov Petersen, Nicholas \nHeinrich Schnack, Peter Karlbye Winther, Troels Lindenskov \nMathiesen and Yaroslav Haidash, for our 1st semester project. \n\nIn this game, we use Sustainable Development Goals 14.1: \nReduce marine pollution, as the inspiration for a game where you \nvisit the Great Pacific Garbage Patch — aptly named \"Trash \nIsland\" — to defeat monsters, and learn how to properly handle \nthe different types of trash that make up the island. \n\nThis game is entirely terminal based, which means you type \ncommands into the terminal to make actions. Such as \"> go \n<direction>\" (North, South, East or West) to move around. If you’re \never confused about how to proceed, you can always type ‘help’ \ninto the terminal for a list of available commands.\n";

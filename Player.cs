@@ -1,5 +1,5 @@
-﻿using System;
-
+﻿namespace WoZ;
+using System;
 
 public class Player
 {

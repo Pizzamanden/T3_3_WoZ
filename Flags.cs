@@ -1,14 +1,17 @@
+namespace WoZ;
 static class Flags
 {
     static private Dictionary<string, bool> flagdict = new Dictionary<string, bool>();
     public const string D_S2_Combat_dead = "D_S2_combat";
-    public const string D_S4_combat_dead = "D_S4_combat";
-    public const string D_S6_combat_dead = "D_S6_combat";
+    public const string D_S4_Combat_dead = "D_S4_combat";
+    public const string D_S6_Combat_dead = "D_S6_combat";
+    public const string M_S3_Pickup_Barbie = "M_S3";
 
     static Flags(){
         flagdict.Add(D_S2_Combat_dead, false);
-        flagdict.Add(D_S4_combat_dead, false);
-        flagdict.Add(D_S6_combat_dead, false);
+        flagdict.Add(D_S4_Combat_dead, false);
+        flagdict.Add(D_S6_Combat_dead, false);
+        flagdict.Add(M_S3_Pickup_Barbie, false);
     }
 
     /*
