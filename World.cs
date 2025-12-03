@@ -207,7 +207,7 @@ class World {
         D_S2_Combat.Monster.AttackDamage = 1;
 
         D_S4_Combat.Monster = new Monster(
-          "massive sea turtle",
+          "The Massive Net Turtle",
           40,
           null,
           "Chemical",
@@ -227,7 +227,7 @@ class World {
         D_S6_MiniBoss.Monster.AttackDamage = 1;
 
         M_S1_NPC.PlaceNPC(new NPC(
-          "Shopkeeper", 
+          "Samurai", 
           "A weary shopkeeper stands behind a makeshift counter, surrounded by heaps of discarded plastic items. \nHis eyes reflect a mix of hope and desperation as he clutches a worn-out recycling manual.", 
           new List<string>
           {
