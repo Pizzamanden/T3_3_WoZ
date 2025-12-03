@@ -490,3 +490,4 @@ $RECYCLE.BIN/
 *.swp
 /obj/Debug/net8.0/cs.AssemblyInfo.cs
 /obj/Debug/net8.0/cs.AssemblyInfoInputs.cache
+.DS_Store

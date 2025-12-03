@@ -1,3 +1,4 @@
+namespace WoZ;
 class Zone
 {
 	private string name;

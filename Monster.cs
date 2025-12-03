@@ -1,4 +1,5 @@
-﻿using System;
+﻿namespace WoZ;
+using System;
 
 
 class Monster
@@ -66,7 +67,7 @@ class Monster
         {
             Flags.SetFlag(FlagToSet);
         }
-        space.RunWelcomeEvents();
+        //space.RunWelcomeEvents();
     }
 	
 	// Peter: Drop the set item on the monsters space

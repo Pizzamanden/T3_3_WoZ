@@ -1,3 +1,5 @@
+namespace WoZ.Commands;
+using WoZ.Interfaces;
 public class CommandNames
 {
     public const string CommandQuit = "quit";

@@ -1,5 +1,8 @@
 /* World class for modeling the entire in-game world
 */
+namespace WoZ;
+using WoZ.Events;
+using WoZ.Texts;
 
 class World {
   Space entry;
@@ -13,6 +16,8 @@ class World {
   public static Item D1 = new Item("D1", "Whatever");
   public static Item D2 = new Item("D2", "Whatever");
   public static Item TL1 = new Item("TL1", "Whatever");
+  public static Item M_Barbie = new Item("Barbie", "Barbie", Flags.M_S3_Pickup_Barbie);
+    public static Item M_Sword = new Item("Sword", "Sword");
 
     public World (Registry registry) {
 
@@ -22,6 +27,9 @@ class World {
     Zone Mall = new Zone("plastic", "The plastic zone!");
     Zone TrashLand = new Zone("Zigarettes", "The zone with ziggerets!");
     Zone finalboss = new Zone("Final boss", "The final boss!");
+
+    // Fake start spot
+    Space S_S1_TrueStart = new Space(StartZone, "S1-TrueStart");
 
     // Start-zonen
     Space S_S1_Start  = new Space(StartZone, "S1-Start");
@@ -64,8 +72,12 @@ class World {
     Space TL_S6  = new Space(TrashLand, "TL_S6");
 
 
-    // Start zone edges
-    {
+        // Set starting space
+        entry = S_S1_TrueStart;
+
+        // Start zone edges
+        {
+        S_S1_TrueStart.AddEdge("starter", S_S1_Start);
         S_S1_Start.AddEdge("west", S_S2);
         S_S1_Start.AddEdge("south", S_S5);
         S_S1_Start.AddEdge("east", S_S4_NPC);
@@ -166,7 +178,9 @@ class World {
         D_S6_MiniBoss.PlaceItem(Key2);
         M_S6_MiniBoss.PlaceItem(Key3);
         TL_S1_MiniBoss.PlaceItem(Key4);
-
+        D_S2_Combat.PlaceItem(D1);
+        D_S3_NPC.PlaceItem(D2);
+        M_S3.PlaceItem(M_Barbie);
         /*
         //Yarik: Adding NPCs to spaces
         List<string> dialogueListNPC1 = new List<string>
@@ -182,46 +196,81 @@ class World {
         S_S1_Start.Monster = new Monster("Slime", 100, "fire");
         */
 
-        S_S2.Monster = new Monster (
-          "Test Boss", 
-          9999999, 
-          null, 
-          "",
-          "wtf man you killed me",
-          Flags.S2_mime_dead
+        D_S2_Combat.Monster = new Monster (
+          "Sick customer", 
+          30, 
+          D1, 
+          "physical",
+          "He dies.",
+          Flags.D_S2_Combat_dead
         );
-        S_S2.Monster.AttackDamage = 15;
+        D_S2_Combat.Monster.AttackDamage = 1;
 
-        entry = S_S1_Start;
+        D_S4_Combat.Monster = new Monster(
+          "massive sea turtle",
+          40,
+          null,
+          "Chemical",
+          "",
+          Flags.D_S4_Combat_dead
+        );
+        D_S4_Combat.Monster.AttackDamage = 1;
 
+        D_S6_MiniBoss.Monster = new Monster(
+          "Old Fisherman",
+          100,
+          Key2,
+          "physical",
+          "The storm starts to settle, as the ghostly figure fades away, and a \nkey piece drops to the ground…",
+          Flags.D_S6_Combat_dead
+        );
+        D_S6_MiniBoss.Monster.AttackDamage = 1;
 
-        S_S1_Start.AddWelcomeEvent(new TextSE("Press enter to jump...", "", "", "\"Given that you're the best janitor the UN headquarters had on hand, \nI'm sure it'll be a walk in the park to you. Good luck champ.\""));
-        
+        M_S1_NPC.PlaceNPC(new NPC(
+          "Shopkeeper", 
+          "A weary shopkeeper stands behind a makeshift counter, surrounded by heaps of discarded plastic items. \nHis eyes reflect a mix of hope and desperation as he clutches a worn-out recycling manual.", 
+          new List<string>
+          {
+            "\n\"Ah, a fellow agent! These plastics have taken over my shop. If only someone could help me sort them out...\"",
+            "\n\"The plastic monster is wreaking havoc in this area. I've heard that recycling the trash it throws at you can weaken it.\""
+          },
+          Flags.M_S3_Pickup_Barbie,
+          M_Sword
+        ));
 
+        // STARTZONE:
+        // Intro + S_S1_Start text
+        S_S1_TrueStart.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_1));
+        S_S1_TrueStart.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_2));
+        S_S1_TrueStart.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_3));
+        S_S1_Start.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_4));
 
+        // S_S2 text
+        S_S2.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S2_1));
 
-        S_S1_Start.AddWelcomeEvent(new TextSE("Press enter to test if this shit works...",
-        Flags.S1_slime_dead,
-        "",
-        "\n Display text"));
+        // DOCKS:
+        // D_S1 text
+        D_S1.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S1_1));
 
-        S_S2.AddWelcomeEvent(new TextSE("Press enter to test if this shit works too...",
-        "",
-        Flags.S1_slime_dead,
-        "\n Another Display text"));
+        // D_S2 text
+        D_S2_Combat.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S2_1));
 
+        // D_S3 text
+        D_S3_NPC.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S3_1));
+        D_S3_NPC.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S3_2));
 
+        // D_S4 text
+        D_S4_Combat.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S4_1));
 
-        S_S2.AddWelcomeEvent(new TextSE("Press enter to suck my nuts...",
-        Flags.S2_mime_dead,
-        "",
-        "\nsomething something you won i guess"));
+        // D_S5 text
+        D_S5.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S5_1));
 
-        S_S5.AddWelcomeEvent(new SpawnMonsterSE(Flags.S2_mime_dead, new Monster("Henrik", 20, null, "physical", "you failed", ""), S_S5));
+        // D_S6 text
+        D_S6_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S6_1));
+        D_S6_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S6_2));
     }
 
   public Space GetEntry () {
     return entry;
   }
 }
-

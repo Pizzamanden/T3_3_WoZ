@@ -1,6 +1,10 @@
 /* Main class for launching the game
  */
 using System.Text;
+namespace WoZ;
+using WoZ.Interfaces;
+using WoZ.Commands;
+using WoZ.Events;
 
 class Game {
   static Context  context  = new Context();
@@ -42,8 +46,9 @@ class Game {
     InitRegistry();
 	  context.SetEntry(world.GetEntry());
     context.GetCurrent().Welcome();
-    
-    while (context.IsDone()==false) {
+    context.Transition("starter");
+
+        while (context.IsDone()==false) {
       if (context.Player.IsAlive() == false)
       {
         //Mikkel: Made so you respawn in previous room if character dies
@@ -54,10 +59,11 @@ class Game {
         Console.WriteLine("\nYOU DIED, and wake up in the previous room full of vigour");
         continue;
       }
-      Console.Write("\n> ");
+      Console.Write("> ");
       string? line = Console.ReadLine();
       if (line!=null) registry.Dispatch(line);
-    }
+      context.GetCurrent().RunWelcomeEvents();
+     }
     Console.WriteLine("Game Over");
   }
 }
