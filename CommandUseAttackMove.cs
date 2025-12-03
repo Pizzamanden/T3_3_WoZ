@@ -58,8 +58,9 @@ class CommandUseAttackMove : BaseCommand, ICommand
         }
         else
         {
-            // Peter: All behavior tied to dying happens in this method
-            monster.OnMonsterDeath(context);
+            monster.OnMonsterDeath();
+            // Peter: Drop an item if the monster should drop an item
+            context.GetCurrent().Monster.DropItem(context.GetCurrent());
             // Then remove it from the Space
             context.GetCurrent().Monster = null;
         }

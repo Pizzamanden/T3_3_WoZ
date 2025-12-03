@@ -12,20 +12,17 @@ class Monster
     public string Weakness { get; set; } = "fire"; // Nicholas: Standard svaghed
     public int AttackDamage { get; set; } = 10; // Nicholas: Standard angrebsskade
 	public Item? itemToDrop;
-    //public string deathText = "You defeated the enemy!";
-    public string flipOnDeath;
-
-    private List<IEvent> eventsMonsterDeath = new List<IEvent>();
+    public string deathText = "You defeated the enemy!";
 
     // Denne metode køres når et nyt Monster laves
-    public Monster(string name, int maxHp, Item item, string weakness, string flipOnDeath)
+    public Monster(string name, int maxHp, Item item, string weakness, string deathText)
     {
         this.Name = name;
         this.MaxHp = maxHp;
         this.HP = maxHp;
         this.Weakness = weakness;
 		this.itemToDrop = item;
-        this.flipOnDeath = flipOnDeath;
+        this.deathText = deathText;
     }
 
     /*
@@ -56,34 +53,20 @@ class Monster
     * metode til at tjekke, om Monstret er i live.
     * Den vil blive brugt i vores 'Game.cs' loop.
     */
-    public bool IsAlive()
+ public bool IsAlive()
     {
         return HP > 0;
     }
 
-    /* Peter
-        Method to be called when a monster dies
-        Flips any flags that have been specified
-        Triggers all events specified
-    */
-    public void OnMonsterDeath(Context context){
-        // Flags to flip when the monster dies
-        context.SetFlag(flipOnDeath);
-        // Events to fire when the monster dies
-        while(eventsMonsterDeath.Count > 0)
-        {
-            eventsMonsterDeath[0].Trigger();
-            eventsMonsterDeath.RemoveAt(0);
-        }
-        // Peter: Drop an item??
-        context.GetCurrent().PlaceItem(itemToDrop);
+    public void OnMonsterDeath(){
+        Console.WriteLine($"\n{this.deathText}");
+        
     }
+	
+	// Peter: Drop the set item on the monsters space
+	public void DropItem(Space space){
+		space.PlaceItem(this.itemToDrop);
+	}
 
-    /* Peter
-        Method for adding events to trigger for when the monster dies
-    */
-    public void AddMonsterDeathEvent(IEvent e)
-    {
-        this.eventsGoodbye.Add(e);
-    }
+
 }

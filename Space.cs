@@ -1,5 +1,4 @@
-/* 
-    Space class for modeling spaces (rooms, caves, ...)
+/* Space class for modeling spaces (rooms, caves, ...)
 */
 
 class Space : Node {
@@ -11,7 +10,6 @@ class Space : Node {
 
   private List<IEvent> eventsWelcome = new List<IEvent>();
   private List<IEvent> eventsGoodbye = new List<IEvent>();
-  
 
   public Space(Zone zone, string name) : base(name)
   {
@@ -20,20 +18,18 @@ class Space : Node {
   }
   
   public void Welcome () {
+    this.AddWelcomeEvent(new ExitsListSE(this));
+	    
     while(eventsWelcome.Count > 0)
         {
-
             eventsWelcome[0].Trigger();
             eventsWelcome.RemoveAt(0);
         }
+
   }
   
   public void Goodbye () {
-	  while(eventsGoodbye.Count > 0)
-        {
-            eventsGoodbye[0].Trigger();
-            eventsGoodbye.RemoveAt(0);
-        }
+	  // Check if a goodbye event has been set
   }
   
   

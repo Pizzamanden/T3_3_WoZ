@@ -1,9 +1,7 @@
-/*
-    Command for replenishing HP
-*/
+/* Command for replenishing HP
+ */
 
 class CommandRest : BaseCommand, ICommand {
-    
     public CommandRest()
     {
         description = "Rest to replenish HP";
