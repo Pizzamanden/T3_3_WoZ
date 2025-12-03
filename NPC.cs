@@ -6,13 +6,17 @@ class NPC
     string description;
     List<string> dialogueList;
     int currentDialoguePrompt;
+    // public string FlagToGet; // Mikkel: Monster can set a flag
 
-    public NPC(string nameval, string descriptionval, List<string> dialogueListval)
+    // Mikkel: Tilføjede lige noget FlagToGet, det er ikke færdigt, men det skal bruges til den npc i Mall,
+    // til når du får hans item, så siger han noget andet og giver dig item der
+    public NPC(string nameval, string descriptionval, List<string> dialogueListval /*, string FlagToGet */)
     {
         name = nameval;
         description = descriptionval;
         dialogueList = dialogueListval;
         currentDialoguePrompt = 0;
+        // this.FlagToGet = FlagToGet;
     }
 
     public string GetDialoguePrompt()

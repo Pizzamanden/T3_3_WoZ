@@ -12,9 +12,9 @@ class Game {
   
   private static void InitRegistry () {
     ICommand cmdExit = new CommandExit();
-    registry.Register("exit", cmdExit);
+    // registry.Register("exit", cmdExit);
     registry.Register("quit", cmdExit);
-    registry.Register("bye", cmdExit);
+    // registry.Register("bye", cmdExit);
     registry.Register("go", new CommandGo());
     registry.Register("help", new CommandHelp(registry));
     //Yarik: Command for talking to npcs
@@ -23,12 +23,15 @@ class Game {
     registry.Register("explore", new CommandExploreRoom());
     //Magnus: Command for picking up items
     registry.Register("pickup", new CommandPickUp());
-        //Magnus: Command for checking your inventory
-        registry.Register("inventory", new CommandCheckInventory());
+    //Magnus: Command for checking your inventory
+    registry.Register("inventory", new CommandCheckInventory());
     registry.Register("attack", new CommandUseAttackMove());
     registry.Register("directions", new CommandDirections());
     registry.Register("rest", new CommandRest());
     registry.Register("map", new CommandMap());
+    registry.Register("retreat", new CommandRetreat());
+    //Mikkel: Command for checking player HP
+    registry.Register("status", new CommandStatus());
   }
   
   static void Main (string[] args) {
@@ -37,20 +40,24 @@ class Game {
     
     Console.Clear();
     InitRegistry();
-	context.SetEntry(world.GetEntry());
+	  context.SetEntry(world.GetEntry());
     context.GetCurrent().Welcome();
     
     while (context.IsDone()==false) {
       if (context.Player.IsAlive() == false)
       {
-        Console.WriteLine("YOU DIED");
-        context.MakeDone();
+        //Mikkel: Made so you respawn in previous room if character dies
+        Console.Clear();
+        context.Respawn();
+        context.Player.FullHeal();
+        new CommandMap().ShowMap(context.GetCurrent());
+        Console.WriteLine("\nYOU DIED, and wake up in the previous room full of vigour");
         continue;
       }
       Console.Write("\n> ");
       string? line = Console.ReadLine();
       if (line!=null) registry.Dispatch(line);
     }
-    Console.WriteLine("Game Over 😥");
+    Console.WriteLine("Game Over");
   }
 }

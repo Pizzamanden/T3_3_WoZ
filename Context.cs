@@ -1,10 +1,12 @@
 /* Context class to hold all context relevant to a session.
  */
 
+using System.Runtime.CompilerServices;
 using System.Security;
 
 class Context {
     protected Space? current;
+    Space? previous;
     protected bool done = false;
 
     //Magnus: Inventory list to store multiple items
@@ -14,12 +16,11 @@ class Context {
   public Context () {
     Player = new Player("You", 100);
 	
-	// Peter: Add all player default attacks
-	Player.AddAttack(new Attack("fists", 10, "physical"));
-	Player.AddAttack(new Attack("torch", 5, "fire"));
+    // Peter: Add all player default attacks
+    Player.AddAttack(new Attack("fists", 10, "physical"));
+    Player.AddAttack(new Attack("torch", 5, "fire"));
   }
-
-  //Magnus: Adding a pickup up item to the inventory
+  //Magnus: Adding an item to the inventory
   public void InventoryAdd(Item item)
   {
     inventory.Add(item);
@@ -38,12 +39,30 @@ class Context {
   public void Transition (string direction) {
     Space? next = current!.FollowEdge(direction);
     if (next==null) {
-      Console.WriteLine("You are confused, and walk in a circle looking for '"+direction+"'. In the end you give up 😩");
+      Console.WriteLine("You cannot go '"+direction+"' from here.");
     } else {
+      previous = current;
       current.Goodbye();
       current = next;
       current.Welcome();
     }
+  }
+
+  public void Retreat()
+  {
+    if(current.GetName() == "TL_S1 MiniBoss")
+    {
+      previous = current!.FollowEdge("east"); 
+    }
+    current.Goodbye();
+    current = previous;
+    current.Welcome();
+  }
+
+  public void Respawn()
+  {
+    current = previous;
+    Player.isInCombat = false;
   }
   
   public void MakeDone () {
@@ -57,5 +76,14 @@ class Context {
   public void SetEntry(Space entry){
 	  this.current = entry;
   }
+//Troels: Method to check if the player has two specific items in their inventory to learn a new attack
+public void GetNewAttack(Item item1, Item item2, string attackName, int attackDamage, string attackType)
+    {
+      if(inventory.Contains(item1) && inventory.Contains(item2) && !Player.HasAttack(attackName.ToLower()))
+      {
+        Player.AddAttack(new Attack(attackName, attackDamage, attackType));
+        Console.WriteLine("you have learned a new attack: " + attackName + "!");
+      }
+    }
 }
 

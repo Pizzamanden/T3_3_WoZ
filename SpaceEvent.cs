@@ -1,11 +1,55 @@
 // Dummy template
 using System.Text;
 class DummySE : IEvent{
+    public bool CanRun()
+    {
+        return true;
+    }
+
+    // Method which does the events intended behavior
+    public void Trigger(){
+		Console.WriteLine("Dummy event");
+	}
+}
+
+class SpawnMonsterSE : IEvent{
+    private string flagToCheck;
+	private Monster monster;
+	private Space space;
+
+	public SpawnMonsterSE(string flagToCheck, Monster monsterToSpawn, Space spaceToSpawnIn) 
+    {
+        this.flagToCheck = flagToCheck;
+		this.monster = monsterToSpawn;
+		this.space = spaceToSpawnIn;
+    }
+	
+	public bool CanRun()
+    {
+        if (flagToCheck == "")
+        {
+            return true;
+        }
+        return Flags.GetFlag(flagToCheck);
+    }
+
+    public void Trigger()
+	{
+		space.Monster = monster;
+	}
+}
+
+class ClearConsoleSE : IEvent{
 	
 	// Method which does the events intended behavior
 	public void Trigger(){
 		Console.WriteLine("Dummy event");
 	}
+
+	public bool CanRun()
+    {
+        return true;
+    }
 }
 
 /*
@@ -16,22 +60,38 @@ class TextSE : IEvent{
 	
 	private string displayText;
     private string actionText;
+	private string flagToCheck;
+	private string flagToSet;
 
-    public TextSE(string displayText, string actionText = "Press enter to continue..."){
+    public TextSE(string actionText, string flagToCheck, string flagToSet, string displayText){
         this.displayText = displayText;
-		this.actionText = actionText;
+		this.actionText = (actionText == "" ? "Press enter to continue..." : actionText);
+		this.flagToCheck = flagToCheck;
+		this.flagToSet = flagToSet;
+    }
 
+	public bool CanRun()
+    {
+		if (flagToCheck == "")
+        {
+            return true;
+        }
+        return Flags.GetFlag(flagToCheck);
     }
 	
 	// Method which does the events intended behavior
 	// https://stackoverflow.com/questions/8946808/can-console-clear-be-used-to-only-clear-a-line-instead-of-whole-console
 	public void Trigger(){
 		Console.WriteLine(displayText);
-		Console.Write($"\n> {actionText}");
+		Console.Write($"> {actionText}");
 		Console.ReadLine();
 		Console.WriteLine("");
 		//Console.SetCursorPosition(0, Console.CursorTop - 1);
 		//ClearCurrentConsoleLine();
+		if (flagToSet != "")
+        {
+            Flags.SetFlag(flagToSet);
+        }
 	}
 	
 	public static void ClearCurrentConsoleLine()
@@ -60,9 +120,14 @@ class ExitsListSE : IEvent{
 		HashSet<string> exits = space.GetEdges();
 		Console.WriteLine("Current options are:");
 		foreach (String exit in exits) {
-		  Console.WriteLine(" - "+exit);
+			Console.WriteLine(" - "+exit);
 		}
 	}
+
+	public bool CanRun()
+    {
+        return true;
+    }
 }
 
 
@@ -122,23 +187,9 @@ class PickUpSE : IEvent{
 	public void Trigger(){
 		registry.GetCommand(CommandNames.CommandPickup).Execute(context, CommandNames.CommandPickup, itemName);
 	}
-}
 
-/*
-	An event which could display some monster
-	Currently it just staticly displays text, but we could always make some monster archetypes, like Slime.
-	Then you could make more clones of this class and call them DisplaySlimeEvent.
-	I donnu about the UTF8 encoding, i cannot get it to work
- */
-class DisplayMonsterSE : IEvent{
-	
-	public void Trigger(){
-		Console.OutputEncoding = Encoding.UTF8;
-		string art = @"
-dadad               dadawdwd ⠿⠿⠿⠿⠿
-daddd
-		";
-		Console.WriteLine(art);
-	}
-	
+	public bool CanRun()
+    {
+        return true;
+    }
 }
