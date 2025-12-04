@@ -19,7 +19,7 @@ class CommandMap : BaseCommand, ICommand
     }
     private readonly Dictionary<string, MapZone> roomToZone = new Dictionary<string, MapZone>
     {
-        // Towers Zone
+        // StartZone
         { "S1-Start", MapZone.StartZone },
         { "S2", MapZone.StartZone },
         { "S3 NPC", MapZone.StartZone },
@@ -28,7 +28,6 @@ class CommandMap : BaseCommand, ICommand
         { "S6-Boss", MapZone.StartZone },
 
         // City Zone
-
         { "C_S1 MiniBoss", MapZone.City },
         { "C_S2 NPC", MapZone.City },
         { "C_S3", MapZone.City },
@@ -55,11 +54,11 @@ class CommandMap : BaseCommand, ICommand
 
         // TrashLand Zone
         { "TL_S1 MiniBoss", MapZone.TrashLand },
-        { "TL_S2 ", MapZone.TrashLand },
+        { "TL_S2", MapZone.TrashLand },
         { "TL_S3 Combat", MapZone.TrashLand },
         { "TL_S4 NPC", MapZone.TrashLand },
         { "TL_S5 Combat", MapZone.TrashLand },
-        { "TL_S6", MapZone.TrashLand },
+        { "TL_S6 NPC", MapZone.TrashLand },
 
     };
     // Opdatere konsollen så den har funktion til at vise farver

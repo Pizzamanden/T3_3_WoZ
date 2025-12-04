@@ -4,7 +4,7 @@ static class TrashLand_Text
     // S1 text
     public const string TL_S1_1 = "Rushing into the park, you go through a turnstile. Apparently the \npark security has something against cleaning carts, as a loud \nalarm starts beeping as soon as you enter.\n";
     public const string TL_S1_2 = "Feeling a looming presence behind you, you turn around and see \na large, dull looking mascot. Only vaguely resembling some large \nanimal, it is made up entirely of a mixture of disposable cups, \ncandy wrappers and all kinds of other garbage.\n";
-    public const string TL_S1_3 = "Your attacks are meaningless, as the monster quickly regenerates \nusing the surrounding trash. Unable to think of a way to damage \nthe monster, you decide to flee deeper into the park...";
+    public const string TL_S1_3 = "Your attacks are meaningless, as the monster quickly regenerates \nusing the surrounding trash. Unable to think of a way to damage \nthe monster, you decide to flee deeper into the park...\n";
     public const string TL_S1_4 = "You roll your cart towards the exit. Having totally forgotten about \nthe mascot after such a lovely day, you bump straight into him on \nyour way out.\n";
     public const string TL_S1_5 = "You finally throw the last parts of the mascot into the correct bins. \nAll there's left now is a key piece on the ground.\n";
     public const string TL_S1_6 = "You contact HQ, telling them it's safe for the crew to come in and \ntake care of the rest. \n\nYou also relay the information that mixed single-use waste cannot \nbe processed efficiently without source separation.\n";

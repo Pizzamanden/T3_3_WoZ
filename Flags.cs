@@ -6,12 +6,16 @@ static class Flags
     public const string D_S4_Combat_dead = "D_S4_combat";
     public const string D_S6_Combat_dead = "D_S6_combat";
     public const string M_S3_Pickup_Barbie = "M_S3";
+    public const string TL_S1_Real_Combat = "TL_S1_real_combat";
+    public const string TL_S1_Got_Key = "TL_S1_got_key";
 
     static Flags(){
         flagdict.Add(D_S2_Combat_dead, false);
         flagdict.Add(D_S4_Combat_dead, false);
         flagdict.Add(D_S6_Combat_dead, false);
         flagdict.Add(M_S3_Pickup_Barbie, false);
+        flagdict.Add(TL_S1_Got_Key, false);
+        flagdict.Add(TL_S1_Real_Combat, false);
     }
 
     /*

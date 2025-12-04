@@ -45,7 +45,7 @@ class CommandPickUp : BaseCommand, ICommand
 				}
 			context.InventoryAdd(foundItem);
 			Console.WriteLine("You have picked up \"" + foundItem.GetName() + "\".");
-			context.GetNewAttack(World.D1, World.D2, "acid", 25, "Chemical");
+			context.GetNewAttack(World.D1, World.D2, "Acid", 25, "Chemical");
 			context.GetNewAttack(World.TL_Bins, World.TL_Bins, "Bins", 25, "Recycling");
 			context.GetNewAttack(World.M_Sword, World.M_Sword, "Sword", 35, "Sword");
 			

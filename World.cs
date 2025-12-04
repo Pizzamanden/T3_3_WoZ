@@ -15,7 +15,7 @@ class World {
   public static Item Key4;
   public static Item D1 = new Item("D1", "Whatever");
   public static Item D2 = new Item("D2", "Whatever");
-  public static Item TL_Bins = new Item("Recycling bins", "Whatever");
+  public static Item TL_Bins = new Item("bins", "bins", Flags.TL_S1_Real_Combat);
   public static Item M_Barbie = new Item("Barbie", "Barbie", Flags.M_S3_Pickup_Barbie);
   public static Item M_Sword = new Item("Sword", "Sword");
 
@@ -65,7 +65,7 @@ class World {
 
     // TrashLand-zonen
     Space TL_S1_MiniBoss  = new Space(TrashLand, "TL_S1 MiniBoss");
-    Space TL_S2  = new Space(TrashLand, "TL_S2 ");
+    Space TL_S2  = new Space(TrashLand, "TL_S2");
     Space TL_S3_Combat  = new Space(TrashLand, "TL_S3 Combat");
     Space TL_S4_NPC  = new Space(TrashLand, "TL_S4 NPC");
     Space TL_S5_Combat  = new Space(TrashLand, "TL_S5 Combat");
@@ -180,6 +180,7 @@ class World {
         D_S2_Combat.PlaceItem(D1);
         D_S3_NPC.PlaceItem(D2);
         M_S3.PlaceItem(M_Barbie);
+        TL_S4_NPC.PlaceItem(TL_Bins);
         /*
         //Yarik: Adding NPCs to spaces
         List<string> dialogueListNPC1 = new List<string>
@@ -228,11 +229,15 @@ class World {
         D_S6_MiniBoss.Monster.AttackDamage = 1;
 
         // Trash Land combats:
-        // Minibossen er ikke helt klar endnu, mangler det med første og anden combat med den
+        // Minibossen er ikke helt klar endnu, mangler det med første og anden combat med den.
+        // Skal også droppe item (key1), og det item skal sette et flag (Flags.TL_S1_Got_Key),
+        // lige nu sker der noget underligt når man prøver at pickup key, det kunne ikke finde det 
+        // item (selvom key1 dukkede op hvis man skrev explore) uanset hvad jeg skrev, og efter 
+        // det var der ikke nogen key1 i rummet hvis man skrev explore, og det var ikke i inventory
         TL_S1_MiniBoss.Monster = new Monster(
           "Trash Land Mascot",
           100,
-          Key1,
+          Key4,
           "Recycling",
           TrashLand_Text.TL_S1_5,
           ""
@@ -261,7 +266,7 @@ class World {
 
 
         // NPC's
-        // Test NPC???
+        // Test NPC:
         M_S1_NPC.PlaceNPC(new NPC(
           "shopkeeper", 
           "A weary shopkeeper stands behind a makeshift counter, surrounded by heaps of discarded plastic items. \nHis eyes reflect a mix of hope and desperation as he clutches a worn-out recycling manual.", 
@@ -277,16 +282,16 @@ class World {
         
         // Docks NPCs:
 
-        // Trash Land NPCs: (Hverken Old Janitor eller Cashier er helt klar endnu, har ikke fikset det med de press enter to... tekste)
+        // Trash Land NPCs: (Hverken Old Janitor eller Cashier er helt klar endnu, har ikke fikset det med de "press enter to..." tekste)
         TL_S4_NPC.PlaceNPC(new NPC(
           "Old Janitor",
-          "", //ved ikke helt hvad der skal stå her
+          "", 
           new List<string>
           {
               TrashLand_Text.TL_S4_Talk
           },
           "",
-          TL_Bins
+          null
         ));
 
         TL_S6_NPC.PlaceNPC(new NPC(
@@ -335,15 +340,14 @@ class World {
 
 
         // TRASH LAND: (Mikkel)
-        // Lige nu køre hele teksten i TL_S1 med det samme
-        // TL_S1 text (First time) 
+        // TL_S1 text (First time) (Mangler at fikse combat elementet af den)
         TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("Press enter to turn around...", "", "", TrashLand_Text.TL_S1_1));
         TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_2));
+        // TL_S1 text (First time, post combat) (Lige nu køre den med det samme, )
         TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_3));
         // TL_S1 text (Second time)
-        TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_4));
-        // TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_5));
-        TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_6));
+        TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.TL_S1_Real_Combat, "", TrashLand_Text.TL_S1_4));
+        TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.TL_S1_Got_Key, "", TrashLand_Text.TL_S1_6));
 
         // TL_S2 text
         TL_S2.AddWelcomeEvent(new TextSE("Press enter to try cotton candy...", "", "", TrashLand_Text.TL_S2_1));
