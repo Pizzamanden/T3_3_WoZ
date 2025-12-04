@@ -2,16 +2,16 @@ namespace WoZ.Texts;
 static class TrashLand_Text
 {
     // S1 text
-    public const string TL_S1_1 = "Rushing into the park, you go through a turnstile. Apparently the \npark security has something against cleaning carts, as a loud \nalarm starts beeping when you enter.\n";
+    public const string TL_S1_1 = "Rushing into the park, you go through a turnstile. Apparently the \npark security has something against cleaning carts, as a loud \nalarm starts beeping as soon as you enter.\n";
     public const string TL_S1_2 = "Feeling a looming presence behind you, you turn around and see \na large, dull looking mascot. Only vaguely resembling some large \nanimal, it is made up entirely of a mixture of disposable cups, \ncandy wrappers and all kinds of other garbage.\n";
-    public const string TL_S1_3 = "Your attacks are meaningless, as the monster quickly regenerates \nusing the surrounding trash. Unable to think of a way to damage \nthe monster, you decide to flee deeper into the park…";
-    public const string TL_S1_4 = "You roll your cart towards the exit. Having totally forgotten about \nthe mascot after such a lovely day, you bump straight into him on \nyour way out.";
-    public const string TL_S1_5 = "You finally throw the last parts of the mascot into the correct bins. \nAll there's left now is a key piece on the ground.";
+    public const string TL_S1_3 = "Your attacks are meaningless, as the monster quickly regenerates \nusing the surrounding trash. Unable to think of a way to damage \nthe monster, you decide to flee deeper into the park...";
+    public const string TL_S1_4 = "You roll your cart towards the exit. Having totally forgotten about \nthe mascot after such a lovely day, you bump straight into him on \nyour way out.\n";
+    public const string TL_S1_5 = "You finally throw the last parts of the mascot into the correct bins. \nAll there's left now is a key piece on the ground.\n";
     public const string TL_S1_6 = "You contact HQ, telling them it's safe for the crew to come in and \ntake care of the rest. \n\nYou also relay the information that mixed single-use waste cannot \nbe processed efficiently without source separation.\n";
     
     // S2 text
-    public const string TL_S2_1 = "You search the park for an effective weapon to use against the \nmascot.";
-    public const string TL_S2_2 = "You immediately regret your decision…\n\nContinuing on your search for the key, you can't help but shake the \nthought “there's no way the candy was THAT bad…”\n";
+    public const string TL_S2_1 = "You search the park for an effective weapon to use against the \nmascot.\n";
+    public const string TL_S2_2 = "You immediately regret your decision…\n\nContinuing on your search for the key, you can't help but shake the \nthought \"there's no way the candy was THAT bad...\"\n";
     public const string TL_S2_3 = "It was that bad…\n\nConsidering the entire place is made of garbage, you probably \nshould have seen this coming…\n";
     
     // S3 text

@@ -228,6 +228,7 @@ class World {
         D_S6_MiniBoss.Monster.AttackDamage = 1;
 
         // Trash Land combats:
+        // Minibossen er ikke helt klar endnu, mangler det med første og anden combat med den
         TL_S1_MiniBoss.Monster = new Monster(
           "Trash Land Mascot",
           100,
@@ -276,16 +277,28 @@ class World {
         
         // Docks NPCs:
 
-        // Trash Land NPCs:
+        // Trash Land NPCs: (Hverken Old Janitor eller Cashier er helt klar endnu, har ikke fikset det med de press enter to... tekste)
         TL_S4_NPC.PlaceNPC(new NPC(
           "Old Janitor",
-          "",
+          "", //ved ikke helt hvad der skal stå her
           new List<string>
           {
-              "\n\"When you get back to the entrance, place these bins around him. \nAny trash he summons will be collected and sorted in the different \nbins. Which allows you to damage him normally\""
+              TrashLand_Text.TL_S4_Talk
           },
           "",
           TL_Bins
+        ));
+
+        TL_S6_NPC.PlaceNPC(new NPC(
+          "Cashier",
+          "",
+          new List<string>
+          {
+              TrashLand_Text.TL_S6_Talk_1,
+              TrashLand_Text.TL_S6_Talk_2
+          },
+          "",
+          null
         ));
         
         
@@ -299,7 +312,7 @@ class World {
         // S_S2 text
         S_S2.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S2_1));
 
-        // DOCKS:
+        // DOCKS: (Mikkel)
         // D_S1 text
         D_S1.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S1_1));
 
@@ -321,7 +334,8 @@ class World {
         D_S6_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S6_2));
 
 
-        // TRASH LAND:
+        // TRASH LAND: (Mikkel)
+        // Lige nu køre hele teksten i TL_S1 med det samme
         // TL_S1 text (First time) 
         TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("Press enter to turn around...", "", "", TrashLand_Text.TL_S1_1));
         TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_2));
@@ -339,18 +353,17 @@ class World {
         // TL_S3 text 
         TL_S3_Combat.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S3_1));
 
-        // TL_S4 text (Mangler sin NPC)
+        // TL_S4 text 
         TL_S4_NPC.AddWelcomeEvent(new TextSE("Press enter to enter shack...", "", "", TrashLand_Text.TL_S4_1));
         TL_S4_NPC.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S4_2));
         TL_S4_NPC.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S4_3));
         TL_S4_NPC.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S4_4));
-        // TL_S4_NPC.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S4_Talk));
 
         // TL_S5 text 
         TL_S5_Combat.AddWelcomeEvent(new TextSE("Press enter to watch...", "", "", TrashLand_Text.TL_S5_1));
         TL_S5_Combat.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S5_2));
 
-        // TL_S6 text (Mangler sin NPC)
+        // TL_S6 text 
         TL_S6_NPC.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S6_1));
 
     }
