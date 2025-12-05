@@ -1,5 +1,6 @@
 ﻿namespace WoZ.Commands;
 using System;
+using System.Runtime.CompilerServices;
 using Microsoft.Win32;
 using WoZ.Interfaces;
 //Nicholas: This class contains the command to use an attack move against a monster.
@@ -35,7 +36,7 @@ class CommandUseAttackMove : BaseCommand, ICommand
         if (!context.Player.HasAttack(attackType.ToLower()))
         {
             // Attack was not found
-            Console.WriteLine("That attack could not be found.");
+            Console.WriteLine("\nThat attack could not be found.");
             listAttacks(context);
             return;
         }
@@ -77,5 +78,6 @@ class CommandUseAttackMove : BaseCommand, ICommand
             Attack attack = item.Value;
             Console.WriteLine($" - {attack.Name}, DMG: {attack.Damage}, type = {attack.Type}");
         }
+        Console.WriteLine("");
     }
 } 

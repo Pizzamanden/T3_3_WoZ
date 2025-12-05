@@ -7,13 +7,13 @@ using System.Collections.Generic;
 
 class CommandGo : BaseCommand, ICommand {
     public CommandGo () {
-        description = "Follow an exit: Type \"go <direction>\" to follow a direction.";
+        description = "Follow an exit: Type \"go <direction>\" to follow a direction.\n";
     }
 
     public void Execute(Context context, string command, string[] parameters) {
         if (context.Player.isInCombat)
         {
-            Console.WriteLine("The monster is blocking the path. Try the command <retreat> to go back.");
+            Console.WriteLine($"\n{context.GetCurrent().Monster!.Name} is blocking the path. Try the command <retreat> to go back.\n");
             return;
         }
 

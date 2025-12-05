@@ -171,7 +171,7 @@ class World {
         Key1 = new Item("Key1", "key");
         Key2 = new Item("Key2", "key");
         Key3 = new Item("Key3", "key");
-        Key4 = new Item("Key4", "key");
+        Key4 = new Item("Key4", "key", Flags.TL_S1_Got_Key);
         
         C_S1_MiniBoss.PlaceItem(Key1);
         D_S6_MiniBoss.PlaceItem(Key2);
@@ -229,11 +229,6 @@ class World {
         D_S6_MiniBoss.Monster.AttackDamage = 1;
 
         // Trash Land combats:
-        // Minibossen er ikke helt klar endnu, mangler det med første og anden combat med den.
-        // Skal også droppe item (key1), og det item skal sette et flag (Flags.TL_S1_Got_Key),
-        // lige nu sker der noget underligt når man prøver at pickup key, det kunne ikke finde det 
-        // item (selvom key1 dukkede op hvis man skrev explore) uanset hvad jeg skrev, og efter 
-        // det var der ikke nogen key1 i rummet hvis man skrev explore, og det var ikke i inventory
         TL_S1_MiniBoss.Monster = new Monster(
           "Trash Land Mascot",
           100,

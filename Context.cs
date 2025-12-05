@@ -39,7 +39,7 @@ class Context {
   public void Transition (string direction) {
     Space? next = current!.FollowEdge(direction);
     if (next==null) {
-      Console.WriteLine("You cannot go '"+direction+"' from here.");
+      Console.WriteLine("\nYou cannot go '"+direction+"' from here.\n");
     } else {
       previous = current;
       current.Goodbye();
@@ -89,7 +89,7 @@ public void GetNewAttack(Item item1, Item item2, string attackName, int attackDa
       if(inventory.Contains(item1) && inventory.Contains(item2) && !Player.HasAttack(attackName.ToLower()))
       {
         Player.AddAttack(new Attack(attackName, attackDamage, attackType));
-        Console.WriteLine("you have learned a new attack: " + attackName + "!");
+        Console.WriteLine("you have learned a new attack: " + attackName + "!\n");
       }
     }
 }

@@ -19,7 +19,7 @@ static class TrashLand_Text
     
     // S4 text
     public const string TL_S4_1 = "Walking along the edge of the park, you see an old, run down \nshack between hills of garbage. As you approach, the head of an \nold man sticks out of the shack…\n\n“Another janitor, huh?”, he says, surprised, “Didn't think they'd \nsend out any more”. You make your way closer. “Come on in and \nhave a seat, son”. \n";
-    public const string TL_S4_2 = "“They really don't tell recruits anything these days.”, he says with \nslight bitterness in his tone, “You're not the first janitor to be sent to \nthis island, as you've undoubtedly realized by now. Probably won't \nbe the last either. I was one of the first ones sent out.”";
+    public const string TL_S4_2 = "“They really don't tell recruits anything these days.”, he says with \nslight bitterness in his tone, “You're not the first janitor to be sent to \nthis island, as you've undoubtedly realized by now. Probably won't \nbe the last either. I was one of the first ones sent out.\" \n";
     public const string TL_S4_3 = "“I suppose you're stuck here too now, same way I am... That \nmascot blocks the way out. I've studied it for a while now, and \nfinally found a way to defeat it. It won't stop regenerating while \nnew trash arrives, so we have to stop it from reusing it”. He gets \nup, and walks over to an old chest in the corner of the shack.\n";
     public const string TL_S4_4 = "“I'm too old to defeat that thing”, he says, “but you aren't. To have \nany chance of escaping this place, you need to take these, and \ndefeat — not only the mascot — but that devil in the tower.”\n\nHe presents you some old recycling bins.\n";
     public const string TL_S4_Talk = "“When you get back to the entrance, place these bins around him. \nAny trash he summons will be collected and sorted in the different \nbins. Which allows you to damage him normally”\n";
@@ -30,6 +30,6 @@ static class TrashLand_Text
     
     // S6 text
     public const string TL_S6_1 = "At the end of a long day in Trash Land™ you reach the gift shop. \nThe place is full of cheap single-use souvenirs, such as keychains, \ncups and plastic toys.\n\nThe cashier leans over the counter, resting her head in her hands.\n\nYou decide to quickly leave before the place turns into another monster. \n";
-    public const string TL_S6_Talk_1 = "“I can't believe people keep buying this trash”, she says, “At least \nwe never run out of stock. Stuff keeps washing up on the shores \nnearby, so I just go out, pick it up and sell it. Pretty sure I've sold \nthis same keychain 3 times already”.";
-    public const string TL_S6_Talk_2 = "“Aren't you supposed to be fixing this stuff, go away”\n";
+    public const string TL_S6_Talk_1 = "\n\"I can't believe people keep buying this trash”, she says, “At least \nwe never run out of stock. Stuff keeps washing up on the shores \nnearby, so I just go out, pick it up and sell it. Pretty sure I've sold \nthis same keychain 3 times already”.\n";
+    public const string TL_S6_Talk_2 = "\n\"Aren't you supposed to be fixing this stuff, go away”\n";
 }

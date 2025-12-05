@@ -55,7 +55,7 @@ class Game {
         Console.Clear();
         context.Respawn();
         context.Player.FullHeal();
-        if(context!.GetCurrent().GetName() == "TL_S1 MiniBoss")
+        if(context!.GetCurrent().GetName() == "TL_S1 MiniBoss" || context!.GetCurrent().GetName() == "TL_S2")
         {
             continue;
         }
