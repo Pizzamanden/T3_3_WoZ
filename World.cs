@@ -228,36 +228,7 @@ class World {
         );
         D_S6_MiniBoss.Monster.AttackDamage = 1;
 
-        // Trash Land combats:
-        TL_S1_MiniBoss.Monster = new Monster(
-          "Trash Land Mascot",
-          100,
-          Key4,
-          "Recycling",
-          TrashLand_Text.TL_S1_5,
-          ""
-        );
-        TL_S1_MiniBoss.Monster.AttackDamage = 99;
-
-        TL_S3_Combat.Monster = new Monster(
-          "Trash Land Employee",
-          40,
-          null,
-          "physical",
-          "",
-          ""
-        );
-        TL_S3_Combat.Monster.AttackDamage = 1;
-
-        TL_S5_Combat.Monster = new Monster(
-          "Teacup Enthusiast",
-          40,
-          null,
-          "Recycling",
-          "",
-          ""
-        );
-        TL_S5_Combat.Monster.AttackDamage = 1;
+        
 
 
         // NPC's
@@ -275,31 +246,7 @@ class World {
         ));
         M_S3.AddWelcomeEvent(new SpawnItemSE(Flags.M_S3_Pickup_Barbie, M_Sword, M_S1_NPC));
         
-        // Docks NPCs:
-
-        // Trash Land NPCs: (Hverken Old Janitor eller Cashier er helt klar endnu, har ikke fikset det med de "press enter to..." tekste)
-        TL_S4_NPC.PlaceNPC(new NPC(
-          "Old Janitor",
-          "", 
-          new List<string>
-          {
-              TrashLand_Text.TL_S4_Talk,
-          },
-          "",
-          null
-        ));
-
-        TL_S6_NPC.PlaceNPC(new NPC(
-          "Cashier",
-          "",
-          new List<string>
-          {
-              TrashLand_Text.TL_S6_Talk_1,
-              TrashLand_Text.TL_S6_Talk_2
-          },
-          "",
-          null
-        ));
+        
         
         
         // STARTZONE:
@@ -334,7 +281,63 @@ class World {
         D_S6_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S6_2));
 
 
-        // TRASH LAND: (Mikkel)
+        /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - TRASH LAND - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+        // Mikkel:
+        // COMBATS:
+        TL_S1_MiniBoss.Monster = new Monster(
+          "Trash Land Mascot",
+          100,
+          Key4,
+          "Recycling",
+          TrashLand_Text.TL_S1_5,
+          ""
+        );
+        TL_S1_MiniBoss.Monster.AttackDamage = 99;
+
+        TL_S3_Combat.Monster = new Monster(
+          "Trash Land Employee",
+          40,
+          null,
+          "physical",
+          "",
+          ""
+        );
+        TL_S3_Combat.Monster.AttackDamage = 1;
+
+        TL_S5_Combat.Monster = new Monster(
+          "Teacup Enthusiast",
+          40,
+          null,
+          "Recycling",
+          "",
+          ""
+        );
+        TL_S5_Combat.Monster.AttackDamage = 1;
+
+        // NPCs:
+        TL_S4_NPC.PlaceNPC(new NPC(
+          "Old Janitor",
+          "", 
+          new List<string>
+          {
+              TrashLand_Text.TL_S4_Talk,
+          },
+          "",
+          null
+        ));
+
+        TL_S6_NPC.PlaceNPC(new NPC(
+          "Cashier",
+          "",
+          new List<string>
+          {
+              TrashLand_Text.TL_S6_Talk_1,
+              TrashLand_Text.TL_S6_Talk_2
+          },
+          "",
+          null
+        ));
+
         // TL_S1 text (First time) (Mangler at fikse combat elementet af den)
         TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("Press enter to turn around...", "", "", TrashLand_Text.TL_S1_1));
         TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_2));
@@ -366,6 +369,7 @@ class World {
         // TL_S1 text (Second time)
         TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.TL_S1_Real_Combat, "", TrashLand_Text.TL_S1_4));
         TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.TL_S1_Got_Key, "", TrashLand_Text.TL_S1_6));
+        /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - CITY - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     }
 
