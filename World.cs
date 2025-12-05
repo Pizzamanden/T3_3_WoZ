@@ -243,7 +243,9 @@ class World {
         // Zone events
         // S1, both the actual start with text crawl and the starter space one can move from
         S_S1_TrueStart.AddWelcomeEvent(new TextSE(DefAct, "", "", StartZone_Text.S_S1_Start_1));
+        S_S1_TrueStart.AddWelcomeEvent(new ClearConsoleSE(""));
         S_S1_TrueStart.AddWelcomeEvent(new TextSE(DefAct, "", "", StartZone_Text.S_S1_Start_2));
+        S_S1_TrueStart.AddWelcomeEvent(new ClearConsoleSE(""));
         S_S1_TrueStart.AddWelcomeEvent(new TextSE("jump", "", "", StartZone_Text.S_S1_Start_3));
         S_S1_Start.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_4));
 
