@@ -9,13 +9,14 @@ class World {
   Registry? registry;
 
   //Magnus: defining key fields to be used by other classes
-  public static Item Key1 = new Item("Key1", "key", Flags.Key_1_Pickup);
+  public static Item Key1 = new Item("Key1", "key", Flags.C_S1_Got_Key);
   public static Item Key2 = new Item("Key2", "key");
   public static Item Key3 = new Item("Key3", "key");
-  public static Item Key4 = new Item("Key4", "key");
+  public static Item Key4 = new Item("Key4", "key", Flags.TL_S1_Got_Key);
   public static Item D1 = new Item("D1", "Whatever1");
   public static Item D2 = new Item("D2", "Whatever2");
   public static Item TL1 = new Item("TL1", "Whatever3");
+  public static Item TL_Bins = new Item("bins", "bins", Flags.TL_S1_Real_Combat);
   public static Item M_Barbie = new Item("Barbie", "Barbie", Flags.M_S3_Pickup_Barbie);
   public static Item M_Sword = new Item("Sword", "Sword");
   public static Item C1 = new Item("LighterFluid", "LighterFluid", Flags.C_S4_LighterFluid_Pickup);
@@ -72,7 +73,7 @@ class World {
     Space TL_S3_Combat  = new Space(TrashLand, "TL_S3 Combat");
     Space TL_S4_NPC  = new Space(TrashLand, "TL_S4 NPC");
     Space TL_S5_Combat  = new Space(TrashLand, "TL_S5 Combat");
-    Space TL_S6  = new Space(TrashLand, "TL_S6");
+    Space TL_S6_NPC  = new Space(TrashLand, "TL_S6");
 
 
         // Set starting space
@@ -146,8 +147,8 @@ class World {
       TL_S2.AddEdge("south", TL_S3_Combat);
       TL_S3_Combat.AddEdge("west", TL_S4_NPC);
       TL_S4_NPC.AddEdge("west", TL_S5_Combat);
-      TL_S5_Combat.AddEdge("north", TL_S6);
-      TL_S6.AddEdge("east", TL_S1_MiniBoss);
+      TL_S5_Combat.AddEdge("north", TL_S6_NPC);
+      TL_S6_NPC.AddEdge("east", TL_S1_MiniBoss);
       
     }
 
@@ -419,10 +420,104 @@ class World {
         D_S6_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S6_1));
         D_S6_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S6_2));
 
+
+
         /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - TRASH LAND - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+        // Mikkel:
+        // COMBATS:
+        TL_S1_MiniBoss.Monster = new Monster(
+          "Trash Land Mascot",
+          100,
+          Key4,
+          "Recycling",
+          TrashLand_Text.TL_S1_5,
+          ""
+        );
+        TL_S1_MiniBoss.Monster.AttackDamage = 99;
+
+        TL_S3_Combat.Monster = new Monster(
+          "Trash Land Employee",
+          40,
+          null,
+          "physical",
+          "",
+          ""
+        );
+        TL_S3_Combat.Monster.AttackDamage = 1;
+
+        TL_S5_Combat.Monster = new Monster(
+          "Teacup Enthusiast",
+          40,
+          null,
+          "Recycling",
+          "",
+          ""
+        );
+        TL_S5_Combat.Monster.AttackDamage = 1;
+
+        // NPCs:
+        TL_S4_NPC.PlaceNPC(new NPC(
+          "Old Janitor",
+          "",
+          new List<string>
+          {
+              TrashLand_Text.TL_S4_Talk,
+          },
+          "",
+          null
+        ));
+
+        TL_S6_NPC.PlaceNPC(new NPC(
+          "Cashier",
+          "",
+          new List<string>
+          {
+              TrashLand_Text.TL_S6_Talk_1,
+              TrashLand_Text.TL_S6_Talk_2
+          },
+          "",
+          null
+        ));
+
+        // Place bins
+        TL_S4_NPC.PlaceItem(TL_Bins);
+
+        // TL_S1 text (First time) (Mangler at fikse combat elementet af den)
+        TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("Press enter to turn around...", "", "", TrashLand_Text.TL_S1_1));
+        TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_2));
+        // TL_S1 text (First time, post combat) (Lige nu køre den med det samme, )
+        TL_S1_MiniBoss.AddGoodbyeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_3));
+
+        // TL_S2 text
+        TL_S2.AddWelcomeEvent(new TextSE("Press enter to try cotton candy...", "", "", TrashLand_Text.TL_S2_1));
+        TL_S2.AddWelcomeEvent(new TextSE("Press enter to go back for seconds...", "", "", TrashLand_Text.TL_S2_2));
+        TL_S2.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S2_3));
+
+        // TL_S3 text 
+        TL_S3_Combat.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S3_1));
+
+        // TL_S4 text 
+        TL_S4_NPC.AddWelcomeEvent(new TextSE("Press enter to enter shack...", "", "", TrashLand_Text.TL_S4_1));
+        TL_S4_NPC.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S4_2));
+        TL_S4_NPC.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S4_3));
+        TL_S4_NPC.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S4_4));
+        TL_S4_NPC.AddWelcomeEvent(new UpdateMonsterDamageSE(Flags.TL_S1_Real_Combat, TL_S1_MiniBoss.Monster, 15));
+
+        // TL_S5 text 
+        TL_S5_Combat.AddWelcomeEvent(new TextSE("Press enter to watch...", "", "", TrashLand_Text.TL_S5_1));
+        TL_S5_Combat.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S5_2));
+
+        // TL_S6 text 
+        TL_S6_NPC.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S6_1));
+
+        // TL_S1 text (Second time)
+        TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.TL_S1_Real_Combat, "", TrashLand_Text.TL_S1_4));
+        TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.TL_S1_Got_Key, "", TrashLand_Text.TL_S1_6));
+
+
 
         /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - CITY - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
+        // Peter
         Monster C_S1_MiniBoss_Boss = new Monster(
             "Jack",
             1,
@@ -459,7 +554,7 @@ class World {
         // Jack dies
         C_S1_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.C_S1_MiniBoss_Boss_Dead, "", City_Text.C_S1_6));
         // Trigger when key picked up
-        C_S1_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.Key_1_Pickup, "", City_Text.C_S1_7));
+        C_S1_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.C_S1_Got_Key, "", City_Text.C_S1_7));
 
         // First diner
         C_S2_NPC.AddWelcomeEvent(new TextSE("order one glass of orange juice, pancakes with maple syrup and butter, 2 eggs, and one of their famous cherry pies", "", "", City_Text.C_S2_1));

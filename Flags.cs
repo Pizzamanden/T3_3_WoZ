@@ -28,7 +28,11 @@ static class Flags
     public const string C_S4_LighterFluid_Pickup = "C_S4_LighterFluid_Pickup"; // Needed for explosions
     public const string C_S6_Monster_Dead = "C_S6_Monster_Dead";
     public const string C_S1_MiniBoss_Boss_Dead = "C_S1_MiniBoss_Boss_Dead";
-    public const string Key_1_Pickup = "Key_1_Pickup";
+    public const string C_S1_Got_Key = "C_S1_Got_Key";
+
+    // Flags for Trash Land
+    public const string TL_S1_Real_Combat = "TL_S1_real_combat";
+    public const string TL_S1_Got_Key = "TL_S1_got_key";
 
     static Flags(){
         // Attacks flags
@@ -50,7 +54,7 @@ static class Flags
         flagdict.Add(C_S4_LighterFluid_Pickup, false);
         flagdict.Add(C_S6_Monster_Dead, false);
         flagdict.Add(C_S1_MiniBoss_Boss_Dead, false);
-        flagdict.Add(Key_1_Pickup, false);
+        flagdict.Add(C_S1_Got_Key, false);
         // Mall zone flags
         flagdict.Add(M_S3_Pickup_Barbie, false);
         flagdict.Add(M_S4_Combat_dead, false);
