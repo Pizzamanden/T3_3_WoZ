@@ -14,7 +14,7 @@ class CommandRetreat : BaseCommand, ICommand {
         } else
         {
             Monster? monster = context.GetCurrent().Monster;
-            monster.Heal();
+            monster!.Heal();
             //context.Transition(parameters[0]);
             context.Retreat();
             monster = context.GetCurrent().Monster;

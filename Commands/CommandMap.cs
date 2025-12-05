@@ -19,7 +19,7 @@ class CommandMap : BaseCommand, ICommand
     }
     private readonly Dictionary<string, MapZone> roomToZone = new Dictionary<string, MapZone>
     {
-        // Towers Zone
+        // StartZone
         { "S1-Start", MapZone.StartZone },
         { "S2", MapZone.StartZone },
         { "S3 NPC", MapZone.StartZone },
@@ -28,7 +28,6 @@ class CommandMap : BaseCommand, ICommand
         { "S6-Boss", MapZone.StartZone },
 
         // City Zone
-
         { "C_S1 MiniBoss", MapZone.City },
         { "C_S2 NPC", MapZone.City },
         { "C_S3", MapZone.City },
@@ -55,11 +54,11 @@ class CommandMap : BaseCommand, ICommand
 
         // TrashLand Zone
         { "TL_S1 MiniBoss", MapZone.TrashLand },
-        { "TL_S2 ", MapZone.TrashLand },
+        { "TL_S2", MapZone.TrashLand },
         { "TL_S3 Combat", MapZone.TrashLand },
         { "TL_S4 NPC", MapZone.TrashLand },
         { "TL_S5 Combat", MapZone.TrashLand },
-        { "TL_S6", MapZone.TrashLand },
+        { "TL_S6 NPC", MapZone.TrashLand },
 
     };
     // Opdatere konsollen så den har funktion til at vise farver
@@ -97,22 +96,23 @@ class CommandMap : BaseCommand, ICommand
     private void displayStartZoneMap(string currentRoomName)
     {
         var sb = new StringBuilder();
-        sb.AppendLine("                Welcome to the trash island                ");
-        sb.AppendLine("  -----------------------------------------------------------");
-        sb.AppendLine("  ┌──────┐     ┌──────┐     ┌────────┐     ┌──────┐");
-        sb.AppendLine("  │S3 NPC│─────│  S2  │─────│S1-Start│─────│S4 NPC│");
-        sb.AppendLine("  └──────┘     └──────┘     └────┬───┘     └──────┘");
-        sb.AppendLine("                                 │");
-        sb.AppendLine("                             ┌───┴──┐");
-        sb.AppendLine("                             │  S5  │");
-        sb.AppendLine("                             └───┬──┘");
-        sb.AppendLine("                                 │");
-        sb.AppendLine("                             ┌───┴───┐");
-        sb.AppendLine("                             │S6-Boss│");
-        sb.AppendLine("                             └───────┘");
-        sb.AppendLine("  -----------------------------------------------------------");
-        sb.AppendLine("            [Start] = Start   [Room] = Room");
-        sb.AppendLine("            [Comb] = Combat   [Boss] = Boss");
+        sb.AppendLine("                               Welcome to the trash island                ");
+        sb.AppendLine("  ---------------------------------------------------------------------------------");
+        sb.AppendLine("                 ┌──────┐     ┌──────┐     ┌────────┐     ┌──────┐");
+        sb.AppendLine("                 │S3 NPC│─────│  S2  │─────│S1-Start│─────│S4 NPC│");
+        sb.AppendLine("                 └──────┘     └──────┘     └────┬───┘     └──────┘");
+        sb.AppendLine("                                                │");
+        sb.AppendLine("                                            ┌───┴──┐");
+        sb.AppendLine("                                            │  S5  │");
+        sb.AppendLine("                                            └───┬──┘");
+        sb.AppendLine("                                                │");
+        sb.AppendLine("                                            ┌───┴───┐");
+        sb.AppendLine("                                            │S6-Boss│");
+        sb.AppendLine("                                            └───────┘");
+        sb.AppendLine("  ---------------------------------------------------------------------------------");
+        sb.AppendLine("                            [Start] = Start   [Room] = Room");
+        sb.AppendLine("                            [Comb] = Combat   [Boss] = Boss");
+        sb.AppendLine("  ---------------------------------------------------------------------------------");
 
         string mapTower = sb.ToString();
         mapTower = ColorizeRoom(mapTower, currentRoomName, 50, 255, 50);
@@ -122,22 +122,23 @@ class CommandMap : BaseCommand, ICommand
     private void displayCityZoneMap(string currentRoomName)
     {
         var sb = new StringBuilder();
-        sb.AppendLine("                Welcome to the City Zone                ");
-        sb.AppendLine("  ---------------------------------------------------------------------");
-        sb.AppendLine("                ┌──────────────┐    ┌───────────────┐");
-        sb.AppendLine("                │   C_S3       │────│ C_S4 Combat   │");
-        sb.AppendLine("                └──────┬───────┘    └───────────────┘");
-        sb.AppendLine("                       │");
-        sb.AppendLine("┌────────────────┐  ┌──┴──────────┐");
-        sb.AppendLine("│C_S1 MiniBoss   │──│  C_S2 NPC   │");
-        sb.AppendLine("└────────────────┘  └────┬────────┘");
-        sb.AppendLine("                         │");
-        sb.AppendLine("                ┌────────┴──────────┐    ┌───────────────┐");
-        sb.AppendLine("                │     C_S5          │────│ C_S6 Combat   │");
-        sb.AppendLine("                └───────────────────┘    └───────────────┘");
-        sb.AppendLine("  ---------------------------------------------------------------------");
-        sb.AppendLine("   [NPC] = Non-Player Character   [Combat] = Combat Room");
-        sb.AppendLine("   [Miniboss] = Miniboss Room");
+        sb.AppendLine("                               Welcome to the City Zone                ");
+        sb.AppendLine("  ---------------------------------------------------------------------------------");
+        sb.AppendLine("                            ┌──────────────┐    ┌───────────────┐");
+        sb.AppendLine("                            │   C_S3       │────│ C_S4 Combat   │");
+        sb.AppendLine("                            └──────┬───────┘    └───────────────┘");
+        sb.AppendLine("                                   │");
+        sb.AppendLine("            ┌────────────────┐  ┌──┴──────────┐");
+        sb.AppendLine("            │C_S1 MiniBoss   │──│  C_S2 NPC   │");
+        sb.AppendLine("            └────────────────┘  └────┬────────┘");
+        sb.AppendLine("                                     │");
+        sb.AppendLine("                            ┌────────┴──────────┐    ┌───────────────┐");
+        sb.AppendLine("                            │     C_S5          │────│ C_S6 Combat   │");
+        sb.AppendLine("                            └───────────────────┘    └───────────────┘");
+        sb.AppendLine("  ---------------------------------------------------------------------------------");
+        sb.AppendLine("              [NPC] = Non-Player Character   [Combat] = Combat Room");
+        sb.AppendLine("              [Miniboss] = Miniboss Room");
+        sb.AppendLine("  ---------------------------------------------------------------------------------");
 
         string mapCity = sb.ToString();
         mapCity = ColorizeRoom(mapCity, currentRoomName, 50, 255, 50);
@@ -147,18 +148,19 @@ class CommandMap : BaseCommand, ICommand
     private void displayDocksZoneMap(string currentRoomName)
     {
         var sb = new StringBuilder();
-        sb.AppendLine("                        Welcome to the Docks Zone                        ");
-        sb.AppendLine("  -----------------------------------------------------------------------");
-        sb.AppendLine("  ┌───────────────┐");
-        sb.AppendLine("  │D_S6 MiniBoss  │");
-        sb.AppendLine("  └──────┬────────┘");
-        sb.AppendLine("         │");
-        sb.AppendLine("┌────────┴───────┐ ┌─────────────┐ ┌──────────────┐ ┌─────────────┐ ┌────────────┐");
-        sb.AppendLine("│     D_S5       │-│D_S4 Combat  │-│    D_S1      │-│D_S2 Combat  │-│ D_S3 Npc   │");
-        sb.AppendLine("└────────────────┘ └─────────────┘ └──────────────┘ └─────────────┘ └────────────┘");
-        sb.AppendLine("  -----------------------------------------------------------------------");
-        sb.AppendLine("   [NPC] = Non-Player Character   [Combat] = Combat Room");
-        sb.AppendLine("   [MiniBoss] = MiniBoss Room");
+        sb.AppendLine("                               Welcome to the Docks Zone                        ");
+        sb.AppendLine("  ---------------------------------------------------------------------------------");
+        sb.AppendLine("   ┌───────────────┐");
+        sb.AppendLine("   │D_S6 MiniBoss  │");
+        sb.AppendLine("   └──────┬────────┘");
+        sb.AppendLine("          │");
+        sb.AppendLine("   ┌──────┴───────┐ ┌─────────────┐ ┌──────────────┐ ┌─────────────┐ ┌────────────┐");
+        sb.AppendLine("   │    D_S5      │-│D_S4 Combat  │-│    D_S1      │-│D_S2 Combat  │-│ D_S3 Npc   │");
+        sb.AppendLine("   └──────────────┘ └─────────────┘ └──────────────┘ └─────────────┘ └────────────┘");
+        sb.AppendLine("  ---------------------------------------------------------------------------------");
+        sb.AppendLine("              [NPC] = Non-Player Character   [Combat] = Combat Room");
+        sb.AppendLine("              [MiniBoss] = MiniBoss Room");
+        sb.AppendLine("  ---------------------------------------------------------------------------------");
 
         string mapDocks = sb.ToString();
         mapDocks = ColorizeRoom(mapDocks, currentRoomName, 50, 255, 50);
@@ -167,22 +169,23 @@ class CommandMap : BaseCommand, ICommand
     private void displayMallZoneMap(string currentRoomName)
     {
         var sb = new StringBuilder();
-        sb.AppendLine("                        Welcome to the Mall Zone                        ");
-        sb.AppendLine("  -----------------------------------------------------------------------");
-        sb.AppendLine("  ┌────────────┐   ┌───────────────┐");
-        sb.AppendLine("  │   M_S5     │───│M_S6 MiniBoss  │");
-        sb.AppendLine("  └─────┬──────┘   └───────────────┘");
-        sb.AppendLine("        │                  ");
-        sb.AppendLine("  ┌─────┴──────┐   ┌──────────────┐");
-        sb.AppendLine("  │M_S4 Combat │───│    M_S3      │");
-        sb.AppendLine("  └────────────┘   └──────┬───────┘");
-        sb.AppendLine("                          │");
-        sb.AppendLine("  ┌────────────┐   ┌──────┴───────┐");
-        sb.AppendLine("  │M_S1 NPC    │───│M_S2 Combat   │");
-        sb.AppendLine("  └────────────┘   └──────────────┘");
-        sb.AppendLine("  -----------------------------------------------------------------------");
-        sb.AppendLine("   [NPC] = Non-Player Character   [Combat] = Combat Room");
-        sb.AppendLine("   [MiniBoss] = MiniBoss Room");
+        sb.AppendLine("                               Welcome to the Mall Zone                        ");
+        sb.AppendLine("  ---------------------------------------------------------------------------------");
+        sb.AppendLine("                          ┌────────────┐   ┌───────────────┐");
+        sb.AppendLine("                          │   M_S5     │───│M_S6 MiniBoss  │");
+        sb.AppendLine("                          └─────┬──────┘   └───────────────┘");
+        sb.AppendLine("                                │                  ");
+        sb.AppendLine("                          ┌─────┴──────┐   ┌──────────────┐");
+        sb.AppendLine("                          │M_S4 Combat │───│    M_S3      │");
+        sb.AppendLine("                          └────────────┘   └──────┬───────┘");
+        sb.AppendLine("                                                  │");
+        sb.AppendLine("                          ┌────────────┐   ┌──────┴───────┐");
+        sb.AppendLine("                          │M_S1 NPC    │───│M_S2 Combat   │");
+        sb.AppendLine("                          └────────────┘   └──────────────┘");
+        sb.AppendLine("  ---------------------------------------------------------------------------------");
+        sb.AppendLine("                 [NPC] = Non-Player Character   [Combat] = Combat Room");
+        sb.AppendLine("                 [MiniBoss] = MiniBoss Room");
+        sb.AppendLine("  ---------------------------------------------------------------------------------");
 
         string mapMall = sb.ToString();
         mapMall = ColorizeRoom(mapMall, currentRoomName, 50, 255, 50);
@@ -192,18 +195,19 @@ class CommandMap : BaseCommand, ICommand
     private void displayTrashLandZoneMap(string currentRoomName)
     {
     var sb = new StringBuilder();
-    sb.AppendLine("                        Welcome to Trash Land                        ");
-    sb.AppendLine("  -------------------------------------------------------------------");
-    sb.AppendLine("  ┌──────────┐     ┌──────────────┐       ┌───────────┐");
-    sb.AppendLine("  │  TL_S6   │────>│TL_S1 MiniBoss│──────>│   TL_S2   │");
-    sb.AppendLine("  └─────┬────┘     └──────────────┘       └─────┬─────┘");
-    sb.AppendLine("        │                                       │     ");
-    sb.AppendLine("  ┌─────┴──────┐    ┌──────────────┐    ┌───────┴──────┐");
-    sb.AppendLine("  │TL_S5 Combat│<───│ TL_S4 NPC    │<───│TL_S3 Combat  │");
-    sb.AppendLine("  └────────────┘    └──────────────┘    └──────────────┘");
-    sb.AppendLine("  -------------------------------------------------------------------");
+    sb.AppendLine("                                 Welcome to Trash Land                        ");
+    sb.AppendLine("  ---------------------------------------------------------------------------------");
+    sb.AppendLine("                 ┌──────────┐      ┌──────────────┐      ┌───────────┐");
+    sb.AppendLine("                 │TL_S6 NPC │─────>│TL_S1 MiniBoss│─────>│   TL_S2   │");
+    sb.AppendLine("                 └─────┬────┘      └──────────────┘      └─────┬─────┘");
+    sb.AppendLine("                       │                                       │     ");
+    sb.AppendLine("                 ┌─────┴──────┐    ┌──────────────┐    ┌───────┴──────┐");
+    sb.AppendLine("                 │TL_S5 Combat│<───│ TL_S4 NPC    │<───│TL_S3 Combat  │");
+    sb.AppendLine("                 └────────────┘    └──────────────┘    └──────────────┘");
+    sb.AppendLine("  ---------------------------------------------------------------------------------");
     sb.AppendLine("   [NPC] = Non-Player Character   [Combat] = Combat Room");
     sb.AppendLine("   [MiniBoss] = MiniBoss Room");
+    sb.AppendLine("  ---------------------------------------------------------------------------------");
 
     string mapTrash = sb.ToString();
     mapTrash = ColorizeRoom(mapTrash, currentRoomName, 50, 255, 50);

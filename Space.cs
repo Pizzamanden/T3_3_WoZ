@@ -40,12 +40,23 @@ class Space : Node {
     }
     else
     {
-        Console.WriteLine("A monster threatens. You must either defeat it, or retreat, to proceede.");
+        Console.WriteLine($"{Monster.Name} threatens you. You must either defeat it, or retreat, to proceede.\n");
     }
   }
   
   public void Goodbye () {
-	  // Check if a goodbye event has been set
+	  while(eventsGoodbye.Count > 0)
+      {
+          if (eventsGoodbye[0].CanRun())
+          {
+              eventsGoodbye[0].Trigger();
+              eventsGoodbye.RemoveAt(0);                
+          }
+          else
+          {
+              break;
+          }
+      }
   }
   
   public void RunWelcomeEvents()

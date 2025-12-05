@@ -10,14 +10,14 @@ class CommandTalk : BaseCommand, ICommand {
     public void Execute (Context context, string command, string[] parameters) {
      /*   if (GuardEq(parameters, 1))
         {
-            Console.WriteLine("I don't seem to know who that is 🤔");
+            Console.WriteLine("I don't seem to know who that is");
             return;
         }*/
     
         Space current = context.GetCurrent();
         if (current.NPCCheck() == false)
         {
-            Console.WriteLine("There's noone to talk to here");
+            Console.WriteLine("There's no one to talk to here");
             return;
         }
 

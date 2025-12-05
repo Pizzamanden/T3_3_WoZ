@@ -236,3 +236,30 @@ class PickUpSE : IEvent{
         return Flags.GetFlag(flagToCheck);
     }
 }
+
+class UpdateMonsterDamageSE : IEvent{
+    private string flagToCheck;
+	private Monster monster;
+	private int newDamage;
+
+	public UpdateMonsterDamageSE(string flagToCheck, Monster monsterToUpdate, int newDamage) 
+    {
+        this.flagToCheck = flagToCheck;
+		this.monster = monsterToUpdate;
+		this.newDamage = newDamage;
+    }
+	
+	public bool CanRun()
+    {
+        if (flagToCheck == "")
+        {
+            return true;
+        }
+        return Flags.GetFlag(flagToCheck);
+    }
+
+    public void Trigger()
+	{
+		monster.AttackDamage = newDamage;
+	}
+}
