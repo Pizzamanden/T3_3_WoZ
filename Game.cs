@@ -55,9 +55,15 @@ class Game {
         Console.Clear();
         context.Respawn();
         context.Player.FullHeal();
-        new CommandMap().ShowMap(context.GetCurrent());
-        Console.WriteLine("\nYOU DIED, and wake up in the previous room full of vigour");
-        continue;
+        if(context!.GetCurrent().GetName() == "TL_S1 MiniBoss")
+        {
+            continue;
+        }
+        else
+        {
+            Console.WriteLine("YOU DIED, and wake up in the previous room full of vigour\n");
+            continue;   
+        }
       }
       Console.Write("> ");
       string? line = Console.ReadLine();

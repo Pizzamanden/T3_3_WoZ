@@ -50,18 +50,25 @@ class Context {
 
   public void Retreat()
   {
-    if(current.GetName() == "TL_S1 MiniBoss")
+    if(current!.GetName() == "TL_S1 MiniBoss")
     {
       previous = current!.FollowEdge("east"); 
     }
     current.Goodbye();
     current = previous;
-    current.Welcome();
+    current!.Welcome();
   }
 
   public void Respawn()
   {
+    if(current!.GetName() == "TL_S1 MiniBoss")
+    {
+      previous = current!.FollowEdge("east"); 
+    }
+    current.Goodbye();
+    current!.Monster!.Heal();
     current = previous;
+    current!.Welcome();
     Player.isInCombat = false;
   }
   

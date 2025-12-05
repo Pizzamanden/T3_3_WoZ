@@ -194,7 +194,7 @@ class CommandMap : BaseCommand, ICommand
     sb.AppendLine("                        Welcome to Trash Land                        ");
     sb.AppendLine("  -------------------------------------------------------------------");
     sb.AppendLine("  ┌──────────┐     ┌──────────────┐       ┌───────────┐");
-    sb.AppendLine("  │TL_S6_NPC │────>│TL_S1 MiniBoss│──────>│   TL_S2   │");
+    sb.AppendLine("  │TL_S6 NPC │────>│TL_S1 MiniBoss│──────>│   TL_S2   │");
     sb.AppendLine("  └─────┬────┘     └──────────────┘       └─────┬─────┘");
     sb.AppendLine("        │                                       │     ");
     sb.AppendLine("  ┌─────┴──────┐    ┌──────────────┐    ┌───────┴──────┐");

@@ -242,7 +242,7 @@ class World {
           TrashLand_Text.TL_S1_5,
           ""
         );
-        TL_S1_MiniBoss.Monster.AttackDamage = 1;
+        TL_S1_MiniBoss.Monster.AttackDamage = 99;
 
         TL_S3_Combat.Monster = new Monster(
           "Trash Land Employee",
@@ -288,7 +288,7 @@ class World {
           "", 
           new List<string>
           {
-              TrashLand_Text.TL_S4_Talk
+              TrashLand_Text.TL_S4_Talk,
           },
           "",
           null
@@ -344,10 +344,7 @@ class World {
         TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("Press enter to turn around...", "", "", TrashLand_Text.TL_S1_1));
         TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_2));
         // TL_S1 text (First time, post combat) (Lige nu køre den med det samme, )
-        TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_3));
-        // TL_S1 text (Second time)
-        TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.TL_S1_Real_Combat, "", TrashLand_Text.TL_S1_4));
-        TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.TL_S1_Got_Key, "", TrashLand_Text.TL_S1_6));
+        TL_S1_MiniBoss.AddGoodbyeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_3));
 
         // TL_S2 text
         TL_S2.AddWelcomeEvent(new TextSE("Press enter to try cotton candy...", "", "", TrashLand_Text.TL_S2_1));
@@ -362,6 +359,7 @@ class World {
         TL_S4_NPC.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S4_2));
         TL_S4_NPC.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S4_3));
         TL_S4_NPC.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S4_4));
+        TL_S4_NPC.AddWelcomeEvent(new UpdateMonsterDamageSE(Flags.TL_S1_Real_Combat, TL_S1_MiniBoss.Monster, 15));
 
         // TL_S5 text 
         TL_S5_Combat.AddWelcomeEvent(new TextSE("Press enter to watch...", "", "", TrashLand_Text.TL_S5_1));
@@ -369,6 +367,10 @@ class World {
 
         // TL_S6 text 
         TL_S6_NPC.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S6_1));
+
+        // TL_S1 text (Second time)
+        TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.TL_S1_Real_Combat, "", TrashLand_Text.TL_S1_4));
+        TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.TL_S1_Got_Key, "", TrashLand_Text.TL_S1_6));
 
     }
 
