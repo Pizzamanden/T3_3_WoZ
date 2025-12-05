@@ -14,11 +14,11 @@ class CommandPickUp : BaseCommand, ICommand
             return;
         }
 
-		if (GuardEq(parameters, 1)) 
+		/*if (GuardEq(parameters, 1)) 
 		{
 		Console.WriteLine("I cannot pick that up");
 		return;
-		}
+		}*/
 		//Magnus: Checks if there is an item in the current room
 		Space current = context.GetCurrent();
 		if (current.ItemCheck() == false)
@@ -32,27 +32,28 @@ class CommandPickUp : BaseCommand, ICommand
 			Console.WriteLine("You cannot pick up items while a monster is present!");
 			return;
 		}
-		string commandInput = parameters[0];
-		string itemKey = current.GetItem()!.GetKeyword();
+		//string commandInput = parameters[0];
+		//string itemKey = current.GetItem()!.GetKeyword();
 		Item foundItem = current.CollectItem();
 		//Checks if the user's input matches the keyword
 		//If yes, the item is collected and removed from the room. 
-		if (commandInput == itemKey || commandInput == foundItem.GetName().ToLower())
-		{	
+		//if (commandInput == itemKey || commandInput == foundItem.GetName().ToLower())
+		//{	
 				if (foundItem.FlagToSet != "")
 				{
 					foundItem.SetFlag(foundItem.FlagToSet);
 				}
 			context.InventoryAdd(foundItem);
 			Console.WriteLine("You have picked up \"" + foundItem.GetName() + "\".");
-			context.GetNewAttack(World.D1, World.D2, "acid", 25, "Chemical");
-			context.GetNewAttack(World.TL1, World.TL1, "Bins", 25, "Recycling");
-			context.GetNewAttack(World.M_Sword, World.M_Sword, "Sword", 35, "Sword");
+			context.GetNewAttack(World.D1, World.D2, "acid", 25, "Chemical", Flags.Got_Chemicals);
+			context.GetNewAttack(World.TL1, World.TL1, "bins", 25, "recycling", Flags.Got_Bins);
+			context.GetNewAttack(World.M_Sword, World.M_Sword, "sword", 35, "slice", Flags.Got_Sword);
+			//context.GetNewAttack(World.C1, World.C2, "lighter", 50, "fire", Flags.Got_Lighter);
 			
-		}
-		else
+		//}
+		/*else
 		{
 			Console.WriteLine("There is no such item here");
-		}
+		}*/
 	}
 }

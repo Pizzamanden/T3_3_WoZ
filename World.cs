@@ -13,11 +13,11 @@ class World {
   public static Item Key2;
   public static Item Key3;
   public static Item Key4;
-  public static Item D1 = new Item("D1", "Whatever");
-  public static Item D2 = new Item("D2", "Whatever");
+  public static Item D1 = new Item("D1", "D1");
+  public static Item D2 = new Item("D2", "D2");
   public static Item TL1 = new Item("TL1", "Whatever");
-  public static Item M_Barbie = new Item("Barbie", "Barbie", Flags.M_S3_Pickup_Barbie);
-  public static Item M_Sword = new Item("Sword", "Sword");
+  public static Item M_Barbie = new Item("barbie", "barbie", Flags.M_S3_Pickup_Barbie);
+  public static Item M_Sword = new Item("sword", "sword");
 
     public World (Registry registry) {
 
@@ -226,18 +226,7 @@ class World {
         );
         D_S6_MiniBoss.Monster.AttackDamage = 1;
 
-        M_S1_NPC.PlaceNPC(new NPC(
-          "Shopkeeper", 
-          "A weary shopkeeper stands behind a makeshift counter, surrounded by heaps of discarded plastic items. \nHis eyes reflect a mix of hope and desperation as he clutches a worn-out recycling manual.", 
-          new List<string>
-          {
-            "\n\"Ah, a fellow agent! These plastics have taken over my shop. If only someone could help me sort them out...\"",
-            "\n\"The plastic monster is wreaking havoc in this area. I've heard that recycling the trash it throws at you can weaken it.\""
-          },
-          Flags.M_S3_Pickup_Barbie,
-          null
-        ));
-        M_S3.AddWelcomeEvent(new SpawnItemSE(Flags.M_S3_Pickup_Barbie, M_Sword, M_S1_NPC));
+        
         // STARTZONE:
         // Intro + S_S1_Start text
         S_S1_TrueStart.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_1));
@@ -268,6 +257,86 @@ class World {
         // D_S6 text
         D_S6_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S6_1));
         D_S6_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S6_2));
+
+        // Troels: MALL:
+        // M_S1 text
+        M_S1_NPC.AddWelcomeEvent(new TextSE(" Press enter to show confidence in your abilities to win…", "", "", Mall_Text.M_S1_1));
+        M_S1_NPC.AddWelcomeEvent(new TextSE("Press enter to pretend to care…", "", "", Mall_Text.M_S1_2));
+        M_S1_NPC.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S1_3));
+        M_S1_NPC.AddWelcomeEvent(new TextSE("Press enter to give him the doll", Flags.M_S3_Pickup_Barbie, "", Mall_Text.M_S1_4));
+        M_S1_NPC.AddWelcomeEvent(new TextSE("", Flags.M_S3_Pickup_Barbie, "", Mall_Text.M_S1_5));
+        M_S1_NPC.AddWelcomeEvent(new SpawnItemSE(Flags.M_S3_Pickup_Barbie, M_Sword, M_S1_NPC));
+        //Adding NPC to M_S1_NPC
+        M_S1_NPC.PlaceNPC(new NPC(
+          "NPC",
+          "",
+          new List<string>
+          {
+            Mall_Text.M_S1_Talk
+          },
+          "",
+          null
+        ));
+        // M_S2 text
+        M_S2_Combat.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S2_1));
+        M_S2_Combat.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S2_2));
+        M_S2_Combat.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S2_3));
+        // M_S3 text
+        M_S3.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S3_1));
+        //Adding NPC to M_S3
+        M_S3.PlaceNPC(new NPC(
+          "NPC",
+          "",
+          new List<string>
+          {
+            Mall_Text.M_S3_Talk
+          },
+          "",
+          null
+        ));
+        // M_S4 text
+        M_S4_Combat.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S4_1));
+        M_S4_Combat.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S4_2));
+        M_S4_Combat.AddWelcomeEvent(new TextSE("", Flags.M_S4_Combat_dead, "", Mall_Text.M_S4_3));
+        // M_S5 text
+        M_S5.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S5_1));
+        // M_S6 text
+        M_S6_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S6_1));
+        M_S6_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S6_2));
+        M_S6_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.M_S6_Combat_dead, "", Mall_Text.M_S6_3));
+        M_S6_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.M_S6_Combat_dead, "", Mall_Text.M_S6_4));
+        
+        //adding monsters to mall Zone
+        M_S2_Combat.Monster = new Monster(
+          "Plastic Cook",
+          30,
+          null,
+          "physical",
+          "",
+          ""
+        );
+        M_S2_Combat.Monster.AttackDamage = 1;
+
+        M_S4_Combat.Monster = new Monster(
+          "Funko Pop fan",
+          40,
+          null,
+          "physical",
+          "",
+          Flags.M_S4_Combat_dead
+        );
+        M_S4_Combat.Monster.AttackDamage = 1;
+
+        M_S6_MiniBoss.Monster = new Monster(
+          "Plastic Monster",
+          120,
+          Key3,
+          "slice",
+          "",
+          Flags.M_S6_Combat_dead
+        );
+        M_S6_MiniBoss.Monster.AttackDamage = 10;
+
     }
 
   public Space GetEntry () {

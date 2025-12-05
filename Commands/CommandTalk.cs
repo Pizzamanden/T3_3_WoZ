@@ -8,11 +8,11 @@ class CommandTalk : BaseCommand, ICommand {
     }
     
     public void Execute (Context context, string command, string[] parameters) {
-        if (GuardEq(parameters, 1))
+     /*   if (GuardEq(parameters, 1))
         {
             Console.WriteLine("I don't seem to know who that is 🤔");
             return;
-        }
+        }*/
     
         Space current = context.GetCurrent();
         if (current.NPCCheck() == false)
@@ -21,18 +21,18 @@ class CommandTalk : BaseCommand, ICommand {
             return;
         }
 
-        string commandInput = parameters[0];
+       // string commandInput = parameters[0];
         string npcKey = current.GetNPC()!.GetName();
         //Checks if the user's input matches the keyword
         //If yes, the item is collected and removed from the room. 
-        if (commandInput == npcKey)
-        {
+       // if (commandInput == npcKey)
+        //{
             NPC currentNPC = current.GetNPC()!;
             Console.WriteLine(currentNPC.GetDialoguePrompt());
-        }
-        else
+        //}
+        /*else
         {
             Console.WriteLine("There is no such NPC here");
-        }
+        }*/
     }
 }
