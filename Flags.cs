@@ -7,11 +7,37 @@ static class Flags
     public const string D_S6_Combat_dead = "D_S6_combat";
     public const string M_S3_Pickup_Barbie = "M_S3";
 
+    
+
+    // Flags for starter zone
+    public const string S_S6_BOSS_1_Dead = "S_S6_BOSS_1_Dead";
+    public const string S_S6_BOSS_2_Dead = "S_S6_BOSS_2_Dead";
+    public const string S_S6_BOSS_3_Dead = "S_S6_BOSS_3_Dead";
+    public const string S_S6_BOSS_4_Dead = "S_S6_BOSS_4_Dead";
+
+    // Flags for City zone
+    public const string C_S4_Monster_Dead = "C_S4_Monster_Dead";
+    public const string C_S4_LighterFluid_Pickup = "C_S4_LighterFluid_Pickup"; // Needed for explosions
+    public const string C_S6_Monster_Dead = "C_S6_Monster_Dead";
+    public const string C_S1_MiniBoss_Boss_Dead = "C_S1_MiniBoss_Boss_Dead";
+    public const string Key_1_Pickup = "Key_1_Pickup";
+
     static Flags(){
         flagdict.Add(D_S2_Combat_dead, false);
         flagdict.Add(D_S4_Combat_dead, false);
         flagdict.Add(D_S6_Combat_dead, false);
         flagdict.Add(M_S3_Pickup_Barbie, false);
+        // Starter zone flags
+        flagdict.Add(S_S6_BOSS_1_Dead, false);
+        flagdict.Add(S_S6_BOSS_2_Dead, false);
+        flagdict.Add(S_S6_BOSS_3_Dead, false);
+        flagdict.Add(S_S6_BOSS_4_Dead, false);
+        // City zone flags
+        flagdict.Add(C_S4_Monster_Dead, false);
+        flagdict.Add(C_S4_LighterFluid_Pickup, false);
+        flagdict.Add(C_S6_Monster_Dead, false);
+        flagdict.Add(C_S1_MiniBoss_Boss_Dead, false);
+        flagdict.Add(Key_1_Pickup, false);
     }
 
     /*

@@ -1,10 +1,11 @@
 // Dummy template
-using System.Text;
 namespace WoZ.Events;
 
+
 using WoZ;
-using WoZ.Interfaces;
 using WoZ.Commands;
+using WoZ.Interfaces;
+using WoZ.Text;
 
 class DummySE : IEvent{
     public bool CanRun()
@@ -77,16 +78,31 @@ class SpawnMonsterSE : IEvent{
 	}
 }
 
+/*
+	An event which clears the console
+	Can take a flag to await
+ */
 class ClearConsoleSE : IEvent{
-	
-	// Method which does the events intended behavior
-	public void Trigger(){
-		Console.WriteLine("Dummy event");
+
+    private string flagToCheck;
+
+    public ClearConsoleSE(string flagToCheck)
+    {
+        this.flagToCheck = flagToCheck;
+    }
+
+    // Method which does the events intended behavior
+    public void Trigger(){
+		Console.Clear();
 	}
 
 	public bool CanRun()
     {
-        return true;
+        if (flagToCheck == "")
+        {
+            return true;
+        }
+        return Flags.GetFlag(flagToCheck);
     }
 }
 
@@ -102,7 +118,7 @@ class TextSE : IEvent{
 
     public TextSE(string actionText, string flagToCheck, string flagToSet, string displayText){
         this.displayText = displayText;
-		this.actionText = (actionText == "" ? "Press enter to continue..." : actionText);
+		this.actionText = actionText;
 		this.flagToCheck = flagToCheck;
 		this.flagToSet = flagToSet;
     }
@@ -117,26 +133,20 @@ class TextSE : IEvent{
     }
 	
 	// Method which does the events intended behavior
+	// Code which clears line (Not currently used, preserving link)
 	// https://stackoverflow.com/questions/8946808/can-console-clear-be-used-to-only-clear-a-line-instead-of-whole-console
 	public void Trigger(){
 		Console.WriteLine(displayText);
-		Console.Write($"> {actionText}");
-		Console.ReadLine();
+		if (actionText != "")
+		{
+			Console.Write($"> Press enter to {actionText}...");
+			Console.ReadLine();
+		}
 		Console.WriteLine("");
-		//Console.SetCursorPosition(0, Console.CursorTop - 1);
-		//ClearCurrentConsoleLine();
 		if (flagToSet != "")
         {
             Flags.SetFlag(flagToSet);
         }
-	}
-	
-	public static void ClearCurrentConsoleLine()
-	{
-		int currentLineCursor = Console.CursorTop;
-		Console.SetCursorPosition(0, Console.CursorTop);
-		Console.Write(new string(' ', Console.WindowWidth)); 
-		Console.SetCursorPosition(0, currentLineCursor);
 	}
 }
 
@@ -169,42 +179,31 @@ class ExitsListSE : IEvent{
 
 
 /*
-	An event which can talk to an NPC in the given space
+	An event which ends the game
+*/
+class EndGameSE : IEvent{
+	
+	private Context context;
+	private string flagToCheck;
 
-class TalkSE : IEvent{
-	
-	private Space space;
-	
-	public TalkSE(Space space){
-		this.space = space;
-	}
+	public bool CanRun()
+    {
+        if (flagToCheck == "")
+        {
+            return true;
+        }
+        return Flags.GetFlag(flagToCheck);
+    }
+
+    public EndGameSE(string flagToCheck, Context context){
+		this.context = context;
+        this.flagToCheck = flagToCheck;
+    }
 	
 	public void Trigger(){
-		if(space.HasNPC() == true){
-			space.GetNPC().Talk();
-		}
-	}
-}*/
-
-
-/*
-	An event which can fight a monster in the given space
-
-class FightSE : IEvent{
-	
-	private Space space;
-	
-	public FightSE(Space space){
-		this.space = space;
-	}
-	
-	public void Trigger(){
-		if(space.HasMonster() == true){
-			space.GetMonster().Fight();
-		}
-	}
-}*/
-
+		context.MakeDone();
+    }
+}
 
 /*
 	An event which can talk to an NPC in the given space
@@ -214,19 +213,26 @@ class PickUpSE : IEvent{
 	private Context context;
 	private Registry registry;
 	private string[] itemName = new string[1];
+	private string flagToCheck;
 	
-	public PickUpSE(Context context, Registry registry, string itemName){
+	public PickUpSE(string flagToCheck, Context context, Registry registry, string itemName){
 		this.context = context;
 		this.registry = registry;
 		this.itemName[0] = itemName;
-	}
+		this.flagToCheck = flagToCheck;
+
+    }
 	
 	public void Trigger(){
-		registry.GetCommand(CommandNames.CommandPickup).Execute(context, CommandNames.CommandPickup, itemName);
+		registry.GetCommand(CommandNames.Pickup).Execute(context, CommandNames.Pickup, itemName);
 	}
 
 	public bool CanRun()
     {
-        return true;
+        if (flagToCheck == "")
+        {
+            return true;
+        }
+        return Flags.GetFlag(flagToCheck);
     }
 }

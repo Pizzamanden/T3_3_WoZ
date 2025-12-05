@@ -11,7 +11,7 @@ class Monster
     public int HP { get; private set; }
     public int MaxHp { get; private set; }
     public string Weakness { get; set; } = "fire"; // Nicholas: Standard svaghed
-    public int AttackDamage { get; set; } = 99; // Nicholas: Standard angrebsskade
+    public int AttackDamage { get; set; } = 1; // Nicholas: Standard angrebsskade
 	public Item? itemToDrop;
     public string deathText = "You defeated the enemy!";
     public string FlagToSet; // Mikkel: Monster can set a flag

@@ -9,15 +9,18 @@ class World {
   Registry? registry;
 
   //Magnus: defining key fields to be used by other classes
-  public static Item Key1;
+  public static Item Key1 = new Item("Key1", "key", Flags.Key_1_Pickup);
   public static Item Key2;
   public static Item Key3;
   public static Item Key4;
-  public static Item D1 = new Item("D1", "Whatever");
-  public static Item D2 = new Item("D2", "Whatever");
-  public static Item TL1 = new Item("TL1", "Whatever");
+  public static Item D1 = new Item("D1", "Whatever1");
+  public static Item D2 = new Item("D2", "Whatever2");
+  public static Item TL1 = new Item("TL1", "Whatever3");
   public static Item M_Barbie = new Item("Barbie", "Barbie", Flags.M_S3_Pickup_Barbie);
   public static Item M_Sword = new Item("Sword", "Sword");
+  public static Item C1 = new Item("LighterFluid", "LighterFluid", Flags.C_S4_LighterFluid_Pickup);
+  public static Item C2 = new Item("MetalComponents", "MetalComponents");
+    public static string DefAct = "continue";
 
     public World (Registry registry) {
 
@@ -169,15 +172,14 @@ class World {
     }
     
         //Magnus: Adding keys and weapons to spaces
-        Key1 = new Item("Key1", "key");
         Key2 = new Item("Key2", "key");
         Key3 = new Item("Key3", "key");
         Key4 = new Item("Key4", "key");
         
-        C_S1_MiniBoss.PlaceItem(Key1);
-        D_S6_MiniBoss.PlaceItem(Key2);
-        M_S6_MiniBoss.PlaceItem(Key3);
-        TL_S1_MiniBoss.PlaceItem(Key4);
+        S_S1_Start.PlaceItem(Key1); // Yoink
+        S_S2.PlaceItem(Key2); // Yoink
+        S_S3_NPC.PlaceItem(Key3); // Yoink
+        S_S4_NPC.PlaceItem(Key4); // Yoink
         D_S2_Combat.PlaceItem(D1);
         D_S3_NPC.PlaceItem(D2);
         M_S3.PlaceItem(M_Barbie);
@@ -237,18 +239,90 @@ class World {
           Flags.M_S3_Pickup_Barbie,
           null
         ));
+
         M_S3.AddWelcomeEvent(new SpawnItemSE(Flags.M_S3_Pickup_Barbie, M_Sword, M_S1_NPC));
         // STARTZONE:
-        // Intro + S_S1_Start text
-        S_S1_TrueStart.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_1));
-        S_S1_TrueStart.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_2));
-        S_S1_TrueStart.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_3));
+
+        Monster S_S6_BOSS_1 = new Monster(
+          "Octopus of the nets",
+          1,
+          null,
+          "physical",
+          "The octopus slumps down. In a few moments it disappears.",
+          Flags.S_S6_BOSS_1_Dead
+        );
+
+        Monster S_S6_BOSS_2 = new Monster(
+          "Vending machine of the cups",
+          1,
+          null,
+          "physical",
+          "The vending machine falls over backwards. In a few moments it disappears.",
+          Flags.S_S6_BOSS_2_Dead
+        ); 
+
+        Monster S_S6_BOSS_3 = new Monster(
+          "Giant dragon of the plastics",
+          1,
+          null,
+          "physical",
+          "The giant dragon roars, and then collapses. In a few moments it disappears.",
+          Flags.S_S6_BOSS_3_Dead
+        ); 
+
+        Monster S_S6_BOSS_4 = new Monster(
+          "Small army of the cigarettes",
+          1,
+          null,
+          "physical",
+          "",
+          Flags.S_S6_BOSS_4_Dead
+        );
+
+
+        /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - STARTER - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+        S_S1_TrueStart.AddWelcomeEvent(new TextSE(DefAct, "", "", StartZone_Text.S_S1_Start_1));
+        S_S1_TrueStart.AddWelcomeEvent(new TextSE(DefAct, "", "", StartZone_Text.S_S1_Start_2));
+        S_S1_TrueStart.AddWelcomeEvent(new TextSE("jump", "", "", StartZone_Text.S_S1_Start_3));
         S_S1_Start.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_4));
 
         // S_S2 text
         S_S2.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S2_1));
 
-        // DOCKS:
+        // S_S3
+        S_S3_NPC.AddWelcomeEvent(new TextSE("skip line", "", "", StartZone_Text.S_S3_1));
+        S_S3_NPC.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S3_2));
+
+        // S_S4
+        S_S3_NPC.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S4_1));
+
+        // S_S5
+        S_S5.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S5_1));
+
+        // S_S6
+        S_S6_BOSS.Monster = S_S6_BOSS_1; // Set first boss
+        S_S6_BOSS.AddWelcomeEvent(new TextSE("search for an elevator", "", "", StartZone_Text.S_S6_1));
+        S_S6_BOSS.AddWelcomeEvent(new TextSE("sigh in disappointment", "", "", StartZone_Text.S_S6_2));
+        S_S6_BOSS.AddWelcomeEvent(new TextSE("prepare to fight", "", "", StartZone_Text.S_S6_3));
+        S_S6_BOSS.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S6_4));
+
+        
+        // First boss dies, event then spawn
+        S_S6_BOSS.AddWelcomeEvent(new TextSE("gather yourself for another fight", Flags.S_S6_BOSS_1_Dead, "", StartZone_Text.S_S6_5));
+        S_S6_BOSS.AddWelcomeEvent(new SpawnMonsterSE(Flags.S_S6_BOSS_1_Dead, S_S6_BOSS_2, S_S6_BOSS));
+        // Second boss dies, event then spawn third boss
+        S_S6_BOSS.AddWelcomeEvent(new SpawnMonsterSE(Flags.S_S6_BOSS_2_Dead, S_S6_BOSS_3, S_S6_BOSS));
+        S_S6_BOSS.AddWelcomeEvent(new TextSE("endure just a little longer", Flags.S_S6_BOSS_2_Dead, "", StartZone_Text.S_S6_6));
+        // Third boss dies, event then spawn
+        S_S6_BOSS.AddWelcomeEvent(new TextSE("realize this will be the last", Flags.S_S6_BOSS_3_Dead, "", StartZone_Text.S_S6_7));
+        S_S6_BOSS.AddWelcomeEvent(new SpawnMonsterSE(Flags.S_S6_BOSS_3_Dead, S_S6_BOSS_4, S_S6_BOSS));
+        // You won!
+        S_S6_BOSS.AddWelcomeEvent(new TextSE("be glad that it's over", Flags.S_S6_BOSS_4_Dead, "", StartZone_Text.S_S6_8));
+        S_S6_BOSS.AddWelcomeEvent(new TextSE("end this", Flags.S_S6_BOSS_4_Dead, "", StartZone_Text.S_S6_9));
+        // TODO: set EndGameSE event here
+
+
+        /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - DOCKS - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
         // D_S1 text
         D_S1.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S1_1));
 
@@ -268,9 +342,96 @@ class World {
         // D_S6 text
         D_S6_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S6_1));
         D_S6_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S6_2));
+
+
+        /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - CITY - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+        Monster C_S1_MiniBoss_Boss = new Monster(
+            "Jack",
+            1,
+            Key1,
+            "fire",
+            "bleugh",
+            Flags.C_S1_MiniBoss_Boss_Dead
+        );
+        Monster C_S4_Combat_Monster = new Monster(
+            "Crazy guy",
+            1,
+            C1,
+            "fire",
+            "bleugh",
+            Flags.C_S4_Monster_Dead
+        );
+        Monster C_S6_Combat_Monster = new Monster(
+            "Sulphur",
+            1,
+            C2,
+            "fire",
+            "bleugh",
+            Flags.C_S6_Monster_Dead
+        );
+
+        // Normal events for S1
+        C_S1_MiniBoss.AddWelcomeEvent(new TextSE(DefAct, "", "", City_Text.C_S1_1));
+        C_S1_MiniBoss.AddWelcomeEvent(new TextSE("stay silent", "", "", City_Text.C_S1_2));
+        C_S1_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", City_Text.C_S1_3));
+        // Space with Jack, spawn him when Flags.C_S6_Monster_Dead has been set
+        C_S1_MiniBoss.AddWelcomeEvent(new TextSE("give a cheesy one-liner", Flags.C_S6_Monster_Dead, "", City_Text.C_S1_4));
+        C_S1_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.C_S6_Monster_Dead, "", City_Text.C_S1_5));
+        C_S1_MiniBoss.AddWelcomeEvent(new SpawnMonsterSE(Flags.C_S6_Monster_Dead, C_S1_MiniBoss_Boss, C_S1_MiniBoss));
+        // Jack dies
+        C_S1_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.C_S1_MiniBoss_Boss_Dead, "", City_Text.C_S1_6));
+        // Trigger when key picked up
+        C_S1_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.Key_1_Pickup, "", City_Text.C_S1_7));
+
+        // First diner
+        C_S2_NPC.AddWelcomeEvent(new TextSE("order one glass of orange juice, pancakes with maple syrup and butter, 2 eggs, and one of their famous cherry pies", "", "", City_Text.C_S2_1));
+        C_S2_NPC.AddWelcomeEvent(new TextSE("thank him", "", "", City_Text.C_S2_2));
+        C_S2_NPC.AddWelcomeEvent(new TextSE("", "", "", City_Text.C_S2_3));
+        // Second diner
+        C_S2_NPC.AddWelcomeEvent(new TextSE("offer him some coffee as well", Flags.C_S4_Monster_Dead, "", City_Text.C_S2_4));
+        C_S2_NPC.AddWelcomeEvent(new TextSE("express your happiness for him", Flags.C_S4_Monster_Dead, "", City_Text.C_S2_5));
+        C_S2_NPC.AddWelcomeEvent(new TextSE("take your leave", Flags.C_S4_Monster_Dead, "", City_Text.C_S2_6));
+        //Third diner
+        C_S2_NPC.AddWelcomeEvent(new TextSE("approach", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_7));
+        C_S2_NPC.AddWelcomeEvent(new TextSE("clutch his hands tightly", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_8));
+        C_S2_NPC.AddWelcomeEvent(new TextSE("promise him he’s gonna be alright", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_9));
+        C_S2_NPC.AddWelcomeEvent(new TextSE("curse Jack the cigarette guys name into the air while the camera — from a birds eye view — zooms slowly away", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_10));
+
+        // C_S3
+        C_S3.AddWelcomeEvent(new TextSE("listen in", "", "", City_Text.C_S3_1));
+        C_S3.AddWelcomeEvent(new TextSE("make your way to the lieutenant in charge", "", "", City_Text.C_S3_2));
+        C_S3.AddWelcomeEvent(new TextSE("", "", "", City_Text.C_S3_3));
+
+        // Water treatment facility events
+        C_S4_Combat.Monster = C_S4_Combat_Monster;
+        C_S4_Combat.AddWelcomeEvent(new TextSE("tell him to stand down", "", "", City_Text.C_S4_1));
+        C_S4_Combat.AddWelcomeEvent(new TextSE("", "", "", City_Text.C_S4_2));
+        // After combat
+        C_S4_Combat.AddWelcomeEvent(new TextSE("", Flags.C_S4_Monster_Dead, "", City_Text.C_S4_3));
+        C_S4_Combat.AddGoodbyeEvent(new TextSE("put on sunglasses", Flags.C_S4_LighterFluid_Pickup, "", City_Text.C_S4_4));
+
+        // C_S5
+        // Beach event which always happens
+        C_S5.AddWelcomeEvent(new TextSE("enjoy the \"fresh\" air", "", "", City_Text.C_S5_Beach));
+        C_S5.AddWelcomeEvent(new TextSE("", Flags.C_S4_Monster_Dead, "", City_Text.C_S5_1));
+        // Beach event which always happens
+        C_S6_Combat.AddWelcomeEvent(new TextSE("continue your walk on the beach", "", "", City_Text.C_S6_Beach));
+        // These events happen when Flags.C_S4_Monster_Dead is set
+        C_S6_Combat.AddWelcomeEvent(new SpawnMonsterSE(Flags.C_S4_Monster_Dead, C_S6_Combat_Monster, C_S6_Combat));
+        C_S6_Combat.AddWelcomeEvent(new TextSE("", Flags.C_S4_Monster_Dead, "", City_Text.C_S6_1));
+        C_S6_Combat.AddWelcomeEvent(new TextSE("", Flags.C_S4_Monster_Dead, "", City_Text.C_S6_2));
+        C_S6_Combat.AddWelcomeEvent(new TextSE("", Flags.C_S4_Monster_Dead, "", City_Text.C_S6_3));
+        // He dies
+        C_S6_Combat.AddWelcomeEvent(new TextSE("", Flags.C_S6_Monster_Dead, "", City_Text.C_S6_4));
+
     }
 
-  public Space GetEntry () {
+    public Space GetEntry () {
     return entry;
   }
+
+
+
+
 }
