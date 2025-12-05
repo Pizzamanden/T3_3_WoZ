@@ -1,5 +1,7 @@
 /* Command for displaying the map
  */
+namespace WoZ.Commands;
+using WoZ.Interfaces;
 using System;
 using System.Text;
 using System.Runtime.InteropServices;
@@ -249,8 +251,13 @@ class CommandMap : BaseCommand, ICommand
     // Execute metoden til at vise kortet baseret på den nuværende zone
     public void Execute(Context context, string command, string[] parameters)
     {
-        string currentRoomName = context.GetCurrent().GetName();
-        Console.WriteLine($"\nYou are currently in: {currentRoomName}\n");
+        ShowMap(context.GetCurrent());
+    }
+
+    public void ShowMap(Space space)
+    {
+        string currentRoomName = space.GetName();
+        // Console.WriteLine($"\nYou are currently in: {currentRoomName}\n");
 
         MapZone currentZone =  roomToZone[currentRoomName]; 
         if (currentZone == MapZone.StartZone)
@@ -277,9 +284,5 @@ class CommandMap : BaseCommand, ICommand
         {
             Console.WriteLine("Map not available for this zone.");
         }
-
-    
-
-
     }
 }

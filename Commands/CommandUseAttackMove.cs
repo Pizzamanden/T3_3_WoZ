@@ -1,6 +1,7 @@
-﻿using System;
+﻿namespace WoZ.Commands;
+using System;
 using Microsoft.Win32;
-
+using WoZ.Interfaces;
 //Nicholas: This class contains the command to use an attack move against a monster.
 class CommandUseAttackMove : BaseCommand, ICommand
 {
@@ -58,7 +59,7 @@ class CommandUseAttackMove : BaseCommand, ICommand
         }
         else
         {
-            monster!.OnMonsterDeath();
+            monster!.OnMonsterDeath(context.GetCurrent());
             context.Player.isInCombat  = false;
             // Peter: Drop an item if the monster should drop an item
             context.GetCurrent().Monster!.DropItem(context.GetCurrent());

@@ -1,0 +1,35 @@
+namespace WoZ.Texts;
+static class TrashLand_Text
+{
+    // S1 text
+    public const string TL_S1_1 = "Rushing into the park, you go through a turnstile. Apparently the \npark security has something against cleaning carts, as a loud \nalarm starts beeping when you enter.\n";
+    public const string TL_S1_2 = "Feeling a looming presence behind you, you turn around and see \na large, dull looking mascot. Only vaguely resembling some large \nanimal, it is made up entirely of a mixture of disposable cups, \ncandy wrappers and all kinds of other garbage.\n";
+    public const string TL_S1_3 = "Your attacks are meaningless, as the monster quickly regenerates \nusing the surrounding trash. Unable to think of a way to damage \nthe monster, you decide to flee deeper into the park…";
+    public const string TL_S1_4 = "You roll your cart towards the exit. Having totally forgotten about \nthe mascot after such a lovely day, you bump straight into him on \nyour way out.";
+    public const string TL_S1_5 = "You finally throw the last parts of the mascot into the correct bins. \nAll there's left now is a key piece on the ground.";
+    public const string TL_S1_6 = "You contact HQ, telling them it's safe for the crew to come in and \ntake care of the rest. \n\nYou also relay the information that mixed single-use waste cannot \nbe processed efficiently without source separation.\n";
+    
+    // S2 text
+    public const string TL_S2_1 = "You search the park for an effective weapon to use against the \nmascot.";
+    public const string TL_S2_2 = "You immediately regret your decision…\n\nContinuing on your search for the key, you can't help but shake the \nthought “there's no way the candy was THAT bad…”\n";
+    public const string TL_S2_3 = "It was that bad…\n\nConsidering the entire place is made of garbage, you probably \nshould have seen this coming…\n";
+    
+    // S3 text
+    public const string TL_S3_1 = "After a long wait in line, it's finally your turn on the roller coaster. \nAs you're about to sit in the cart, a hand pulls you back.\n\nYou turn around, and see an employee, made of fast-food \npackaging, pointing angrily to a sign that says 'You must be this \ntall to ride' written with plastic straws. \n\nThe measurement is clearly wrong, but he lifts the sign higher \nanyway, smiling at you with a mocking grimace on his face.\n";
+    
+    // S4 text
+    public const string TL_S4_1 = "Walking along the edge of the park, you see an old, run down \nshack between hills of garbage. As you approach, the head of an \nold man sticks out of the shack…\n\n“Another janitor, huh?”, he says, surprised, “Didn't think they'd \nsend out any more”. You make your way closer. “Come on in and \nhave a seat, son”. \n";
+    public const string TL_S4_2 = "“They really don't tell recruits anything these days.”, he says with \nslight bitterness in his tone, “You're not the first janitor to be sent to \nthis island, as you've undoubtedly realized by now. Probably won't \nbe the last either. I was one of the first ones sent out.”";
+    public const string TL_S4_3 = "“I suppose you're stuck here too now, same way I am... That \nmascot blocks the way out. I've studied it for a while now, and \nfinally found a way to defeat it. It won't stop regenerating while \nnew trash arrives, so we have to stop it from reusing it”. He gets \nup, and walks over to an old chest in the corner of the shack.\n";
+    public const string TL_S4_4 = "“I'm too old to defeat that thing”, he says, “but you aren't. To have \nany chance of escaping this place, you need to take these, and \ndefeat — not only the mascot — but that devil in the tower.”\n\nHe presents you some old recycling bins.\n";
+    public const string TL_S4_Talk = "“When you get back to the entrance, place these bins around him. \nAny trash he summons will be collected and sorted in the different \nbins. Which allows you to damage him normally”\n";
+    
+    // S5 text
+    public const string TL_S5_1 = "With the newly acquired recycling bins in hand, you hurry along to \nthe next ride. On your way, you see a large monster, made of \nplastic plates, knives and forks, on a teacup carousel. It has \ngathered so much trash that it can barely squeeze itself into the \nride.\n";
+    public const string TL_S5_2 = "Just as you think it's about to give up, the creature begins to \nshake, and shoots out more than half its trash to reduce its size. \nResulting in you — and everything around you — getting covered \nin trash.\n\nAll that's left is a very comfortable looking monster, sitting in a \nteacup with its hands behind its head…\n";
+    
+    // S6 text
+    public const string TL_S6_1 = "At the end of a long day in Trash Land™ you reach the gift shop. \nThe place is full of cheap single-use souvenirs, such as keychains, \ncups and plastic toys.\n\nThe cashier leans over the counter, hand on head.\n\nYou decide to quickly leave before the place turns into another monster. \n";
+    public const string TL_S6_Talk_1 = "“I can't believe people keep buying this trash”, she says, “At least \nwe never run out of stock. Stuff keeps washing up on the shores \nnearby, so I just go out, pick it up and sell it. Pretty sure I've sold \nthis same keychain 3 times already”.";
+    public const string TL_S6_Talk_2 = "“Aren't you supposed to be fixing this stuff, go away”\n";
+}

@@ -1,5 +1,8 @@
 /* World class for modeling the entire in-game world
 */
+namespace WoZ;
+using WoZ.Events;
+using WoZ.Texts;
 
 class World {
   Space entry;
@@ -10,8 +13,13 @@ class World {
   public static Item Key2;
   public static Item Key3;
   public static Item Key4;
-  
-  public World (Registry registry) {
+  public static Item D1 = new Item("D1", "Whatever");
+  public static Item D2 = new Item("D2", "Whatever");
+  public static Item TL1 = new Item("TL1", "Whatever");
+  public static Item M_Barbie = new Item("Barbie", "Barbie", Flags.M_S3_Pickup_Barbie);
+  public static Item M_Sword = new Item("Sword", "Sword");
+
+    public World (Registry registry) {
 
     Zone StartZone = new Zone("Start", "Starting zone");
     Zone City = new Zone("City", "The zone with Tourism trash!");
@@ -19,6 +27,9 @@ class World {
     Zone Mall = new Zone("plastic", "The plastic zone!");
     Zone TrashLand = new Zone("Zigarettes", "The zone with ziggerets!");
     Zone finalboss = new Zone("Final boss", "The final boss!");
+
+    // Fake start spot
+    Space S_S1_TrueStart = new Space(StartZone, "S1-TrueStart");
 
     // Start-zonen
     Space S_S1_Start  = new Space(StartZone, "S1-Start");
@@ -61,8 +72,12 @@ class World {
     Space TL_S6  = new Space(TrashLand, "TL_S6");
 
 
-    // Start zone edges
-    {
+        // Set starting space
+        entry = S_S1_TrueStart;
+
+        // Start zone edges
+        {
+        S_S1_TrueStart.AddEdge("starter", S_S1_Start);
         S_S1_Start.AddEdge("west", S_S2);
         S_S1_Start.AddEdge("south", S_S5);
         S_S1_Start.AddEdge("east", S_S4_NPC);
@@ -163,7 +178,9 @@ class World {
         D_S6_MiniBoss.PlaceItem(Key2);
         M_S6_MiniBoss.PlaceItem(Key3);
         TL_S1_MiniBoss.PlaceItem(Key4);
-
+        D_S2_Combat.PlaceItem(D1);
+        D_S3_NPC.PlaceItem(D2);
+        M_S3.PlaceItem(M_Barbie);
         /*
         //Yarik: Adding NPCs to spaces
         List<string> dialogueListNPC1 = new List<string>
@@ -176,85 +193,84 @@ class World {
 
         /*
         // Peter: Monster adding
-        S_S1_Start.Monster = new Monster("Slime", 30, "fire");
+        S_S1_Start.Monster = new Monster("Slime", 100, "fire");
         */
 
-        TL_S1_MiniBoss.Monster = new Monster (
-          "Test Boss", 
+        D_S2_Combat.Monster = new Monster (
+          "Sick customer", 
           30, 
-          null, 
-          "",
-          "With the Sea Devil reduced to not much more than a puddle on the ground, \nyou reach for your walkie talkie, to report your success. \n\n\"I knew you could do it!\", the pilot yells, unnecessarily loud, \"The cleaning crews are setting foot on the island as we speak. Ready to begin cleaning this whole place up, just as you instructed. I'm coming to pick you up now...\" \n\nBefore going you grab the mop from your cleaning cart. And the last thing \nyou see, before you sweep up the remnants of the Sea Devil, is your own \nself reflection...\n\nThe End"
+          D1, 
+          "physical",
+          "He dies.",
+          Flags.D_S2_Combat_dead
         );
+        D_S2_Combat.Monster.AttackDamage = 1;
 
-        // Mikkel: Added text, dialouge, monsters, monster-death-dialoug
-        S_S1_Start.AddWelcomeEvent(new TextSE("\n\"We're about to reach Trash Island!\" the pilot says, \"I hope you're as good \nas they say you are. This won't be an easy mission. But with all that trash \ngathering like this and those monsters appearing, something bad was bound \nto happen sooner or later.\""));
-        S_S1_Start.AddWelcomeEvent(new TextSE("\"It's too dangerous for our cleaning crew to step foot on the island as is. \nAnd even if they could, they wouldn't even know how to handle all that trash.\""));
-        S_S1_Start.AddWelcomeEvent(new TextSE("\"That's why we need an expert like you, to swoop in, eliminate those \nmonsters and figure out a proper way to handle the trash in the process. \nThen our team can take care of the rest.\""));
-        S_S1_Start.AddWelcomeEvent(new TextSE("\"See that big Tower to the south? According to our intel, that's where the one \nresponsible resides. It doesn't matter how many other monsters you defeat, \nif you don't take care of the one in that tower, more of those things will just appear...\""));
-        S_S1_Start.AddWelcomeEvent(new TextSE("\"You can't just waltz on in however, the gate is locked and you'll need 4 parts of a key, each given to one of the 4 Trash Guardians.\""));
-        S_S1_Start.AddWelcomeEvent(new TextSE("\"Given that you're the best janitor the UN headquarters had on hand, \nI'm sure it'll be a walk in the park to you. Good luck champ.\"", "Press enter to jump..."));
-
-        S_S1_Start.AddWelcomeEvent(new TextSE("You land in a big pile of trash, saving both yourself and your cleaning cart \nfrom an early GAME OVER screen. The only tools at your disposal are the \nusual cleaning supplies you have in your cart, as well as a walkie talkie."));
-        this.entry = S_S1_Start;
-
-
-
-        S_S2.AddWelcomeEvent(new TextSE("\nOn your way west, you pass by the island docks to your north. The sudden \nsmell of rotting fish comes across you like a wave."));
-
-
-
-
-        S_S3_NPC.AddWelcomeEvent(new TextSE("\nAs you continue along the road west, you're surprised to find a long line of \npeople in front of you. Looking for where the line starts, you face south, and \nwonder how the travel poster neglected to make any mention of the theme \npark located on the island.", "Press enter to skip line..."));
-        S_S3_NPC.AddWelcomeEvent(new TextSE("As you pass the people in line, you notice that they aren't people at all. \nLooking like the insides of trash bins that came to life. These monsters \nresemble large, dull minded tourists, fit with dirty clothes and hats."));
-
-
-        S_S4_NPC.AddWelcomeEvent(new TextSE("\nYou reach a town. Passing buildings made of wet cardboard, streets of \nbroken glass, and a large statue of what you thought might resemble some \nweird wet creature."));
-        // S_S4_NPC NPC dialouge
-        List<string> dialogueListNPC3 = new List<string>
-        {
-            "\nDespite not seeing anyone in the vicinity, you still give the <talk> command \na try. Only to hear a devilish voice, coming from the statue.",
-            "\nPretending that didn't scare you a little. The statue tells you about the town. \nExplaining that loud commotion has been heard coming from the mall to the \nnorth. As well as thick white smoke, rising from dark alleyways to the east."
-        };
-
-        S_S4_NPC.PlaceNPC(new NPC("voice", "Example description for NPC 1", dialogueListNPC3));
-
-
-
-
-        
-
-        S_S5.AddWelcomeEvent(new TextSE("\nIn front of you stands a large tower. As you walk up to its gate, you see 4 \nkey slots in the door. "));
-        // Add text if try to enter tower, without full key
-
-        S_S6_BOSS.AddWelcomeEvent(new TextSE("\nAfter placing all 4 key pieces in their respective slots. You hear a loud clicking sound, followed by the gate, slowly opening.", "Press enter to enter tower..."));
-        S_S6_BOSS.AddWelcomeEvent(new TextSE("Inside the tower, you're met with a large set of stairs.", "Press enter to search for an elevator..."));
-        S_S6_BOSS.AddWelcomeEvent(new TextSE("You're in luck! You find an elevator in a side room, and it's almost entirely \nwhole. Only missing a side door, a couple of buttons, and a long cable, \nreaching all the way to the top of the tower...", "Press enter to sigh in disappointment..."));
-        S_S6_BOSS.AddWelcomeEvent(new TextSE("After spending 30 minutes pushing your cart up the stairs. You reach the top \nroom and enter. In front of you sits a large, humanoid creature, made entirely \nof water..."));
-        // S_S6_BOSS NPC dialouge
-        List<string> dialogueListNPC6 = new List<string>
-        {
-            "\nThe creature announces itself as the Sea Devil. A manifestation of the \noceans anger itself. It's intent on enacting revenge on the humans that \ncontinue to poison it.",
-            "\nDeciding to gather up all the trash in the oceans, forming it into a single land \nmass. It plans to build an army of monsters, made out of the exact same \ntrash that the humans polluted it with. To destroy human kind."
-        };
-
-        S_S6_BOSS.PlaceNPC(new NPC("devil", "Example description for NPC 1", dialogueListNPC6));
-        // Add text when combat begins...
-        // Add text doing combat...
-        
-        // Add text when combat begins...
-        // Added monster and death-dialouge
-        S_S6_BOSS.Monster = new Monster (
-          "sea devil", 
-          30, 
-          null, 
+        D_S4_Combat.Monster = new Monster(
+          "massive sea turtle",
+          40,
+          null,
+          "Chemical",
           "",
-          "With the Sea Devil reduced to not much more than a puddle on the ground, \nyou reach for your walkie talkie, to report your success. \n\n\"I knew you could do it!\", the pilot yells, unnecessarily loud, \"The cleaning crews are setting foot on the island as we speak. Ready to begin cleaning this whole place up, just as you instructed. I'm coming to pick you up now...\" \n\nBefore going you grab the mop from your cleaning cart. And the last thing \nyou see, before you sweep up the remnants of the Sea Devil, is your own \nself reflection...\n\nThe End"
+          Flags.D_S4_Combat_dead
         );
+        D_S4_Combat.Monster.AttackDamage = 1;
+
+        D_S6_MiniBoss.Monster = new Monster(
+          "Old Fisherman",
+          100,
+          Key2,
+          "physical",
+          "The storm starts to settle, as the ghostly figure fades away, and a \nkey piece drops to the ground…",
+          Flags.D_S6_Combat_dead
+        );
+        D_S6_MiniBoss.Monster.AttackDamage = 1;
+
+        M_S1_NPC.PlaceNPC(new NPC(
+          "Shopkeeper", 
+          "A weary shopkeeper stands behind a makeshift counter, surrounded by heaps of discarded plastic items. \nHis eyes reflect a mix of hope and desperation as he clutches a worn-out recycling manual.", 
+          new List<string>
+          {
+            "\n\"Ah, a fellow agent! These plastics have taken over my shop. If only someone could help me sort them out...\"",
+            "\n\"The plastic monster is wreaking havoc in this area. I've heard that recycling the trash it throws at you can weaken it.\""
+          },
+          Flags.M_S3_Pickup_Barbie,
+          null
+        ));
+        M_S3.AddWelcomeEvent(new SpawnItemSE(Flags.M_S3_Pickup_Barbie, M_Sword, M_S1_NPC));
+        // STARTZONE:
+        // Intro + S_S1_Start text
+        S_S1_TrueStart.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_1));
+        S_S1_TrueStart.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_2));
+        S_S1_TrueStart.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_3));
+        S_S1_Start.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_4));
+
+        // S_S2 text
+        S_S2.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S2_1));
+
+        // DOCKS:
+        // D_S1 text
+        D_S1.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S1_1));
+
+        // D_S2 text
+        D_S2_Combat.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S2_1));
+
+        // D_S3 text
+        D_S3_NPC.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S3_1));
+        D_S3_NPC.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S3_2));
+
+        // D_S4 text
+        D_S4_Combat.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S4_1));
+
+        // D_S5 text
+        D_S5.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S5_1));
+
+        // D_S6 text
+        D_S6_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S6_1));
+        D_S6_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S6_2));
     }
 
   public Space GetEntry () {
     return entry;
   }
 }
-

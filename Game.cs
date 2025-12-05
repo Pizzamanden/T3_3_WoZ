@@ -1,6 +1,10 @@
 /* Main class for launching the game
  */
 using System.Text;
+namespace WoZ;
+using WoZ.Interfaces;
+using WoZ.Commands;
+using WoZ.Events;
 
 class Game {
   static Context  context  = new Context();
@@ -12,9 +16,9 @@ class Game {
   
   private static void InitRegistry () {
     ICommand cmdExit = new CommandExit();
-    registry.Register("exit", cmdExit);
+    // registry.Register("exit", cmdExit);
     registry.Register("quit", cmdExit);
-    registry.Register("bye", cmdExit);
+    // registry.Register("bye", cmdExit);
     registry.Register("go", new CommandGo());
     registry.Register("help", new CommandHelp(registry));
     //Yarik: Command for talking to npcs
@@ -30,6 +34,8 @@ class Game {
     registry.Register("rest", new CommandRest());
     registry.Register("map", new CommandMap());
     registry.Register("retreat", new CommandRetreat());
+    //Mikkel: Command for checking player HP
+    registry.Register("status", new CommandStatus());
   }
   
   static void Main (string[] args) {
@@ -38,20 +44,26 @@ class Game {
     
     Console.Clear();
     InitRegistry();
-	context.SetEntry(world.GetEntry());
+	  context.SetEntry(world.GetEntry());
     context.GetCurrent().Welcome();
-    
-    while (context.IsDone()==false) {
+    context.Transition("starter");
+
+        while (context.IsDone()==false) {
       if (context.Player.IsAlive() == false)
       {
-        Console.WriteLine("YOU DIED");
-        context.MakeDone();
+        //Mikkel: Made so you respawn in previous room if character dies
+        Console.Clear();
+        context.Respawn();
+        context.Player.FullHeal();
+        new CommandMap().ShowMap(context.GetCurrent());
+        Console.WriteLine("\nYOU DIED, and wake up in the previous room full of vigour");
         continue;
       }
-      Console.Write("\n> ");
+      Console.Write("> ");
       string? line = Console.ReadLine();
       if (line!=null) registry.Dispatch(line);
-    }
-    Console.WriteLine("Game Over 😥");
+      context.GetCurrent().RunWelcomeEvents();
+     }
+    Console.WriteLine("Game Over");
   }
 }

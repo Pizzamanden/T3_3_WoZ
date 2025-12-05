@@ -1,4 +1,6 @@
 //Magnus: Class for checking your inventory
+namespace WoZ.Commands;
+using WoZ.Interfaces;
 class CommandCheckInventory : BaseCommand, ICommand
 {
     public CommandCheckInventory()

@@ -1,5 +1,9 @@
 /* Space class for modeling spaces (rooms, caves, ...)
 */
+namespace WoZ;
+using WoZ.Events;
+using WoZ.Commands;
+using WoZ.Interfaces;
 
 class Space : Node {
 
@@ -17,22 +21,50 @@ class Space : Node {
       zone.AddSpace(this); // registrerer rummet i zonen
   }
   
+  // Mikkel: Console clear and map shows when you enter new space
   public void Welcome () {
-    this.AddWelcomeEvent(new ExitsListSE(this));
-	    
-    while(eventsWelcome.Count > 0)
+        if (this.name != "S1-TrueStart")
         {
-            eventsWelcome[0].Trigger();
-            eventsWelcome.RemoveAt(0);
+            Console.Clear();
+            new CommandMap().ShowMap(this);
+            Console.WriteLine("");
         }
 
+        RunWelcomeEvents();
+
+    
+
+    if (Monster == null)
+    {
+        // ExitList(this);
+    }
+    else
+    {
+        Console.WriteLine("A monster threatens. You must either defeat it, or retreat, to proceede.");
+    }
   }
   
   public void Goodbye () {
 	  // Check if a goodbye event has been set
   }
   
-  
+  public void RunWelcomeEvents()
+  {
+      while(eventsWelcome.Count > 0)
+      {
+          if (eventsWelcome[0].CanRun())
+          {
+              eventsWelcome[0].Trigger();
+              eventsWelcome.RemoveAt(0);                
+          }
+          else
+          {
+              break;
+          }
+      }
+  }
+
+
   public override Space? FollowEdge (string direction) {
     return (this.HasEdge(direction) ? (Space) (base.FollowEdge(direction)!) : null);
   }
@@ -92,6 +124,11 @@ class Space : Node {
     }
     return items;
   }
+// Troels: returns the monster in the space
+public Monster GetMonster()
+    {
+        return Monster!;
+    }
 
   //Magnus: Picks up the item and removes it
   public Item CollectItem()
@@ -100,4 +137,13 @@ class Space : Node {
   	item = null;
   	return collected;
   }
+
+  static public void ExitList(Space space)
+  {
+    HashSet<string> exits = space.GetEdges();
+		Console.WriteLine("Current options are:");
+		foreach (String exit in exits) {
+		  Console.WriteLine(" - "+exit);
+  }
+}
 }

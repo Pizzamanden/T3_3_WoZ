@@ -1,6 +1,7 @@
 /* Command registry
  */
-
+namespace WoZ;
+using WoZ.Interfaces;
 class Registry {
   Context context;
   ICommand fallback;
