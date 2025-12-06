@@ -17,8 +17,8 @@ class Context {
     Player = new Player("You", 100);
 	
     // Peter: Add all player default attacks
-    Player.AddAttack(new Attack("fists", 20, "physical"));
-    Player.AddAttack(new Attack("torch", 50, "fire"));
+    Player.AddAttack(new Attack("fists", 20, 30, "physical"));
+    Player.AddAttack(new Attack("torch", 50, 70, "fire"));
   }
   //Magnus: Adding an item to the inventory
   public void InventoryAdd(Item item)
@@ -81,7 +81,7 @@ public void GetNewAttack(Item item1, Item item2, string attackName, int attackDa
     {
       if(inventory.Contains(item1) && inventory.Contains(item2) && !Player.HasAttack(attackName.ToLower()) && Flags.GetFlag(flag) == false)
       {
-        Player.AddAttack(new Attack(attackName, attackDamage, attackType));
+        Player.AddAttack(new Attack(attackName, attackDamage, attackDamage, attackType));
         Console.WriteLine("you have learned a new attack: " + attackName + "!");
         Flags.SetFlag(flag);
       }
