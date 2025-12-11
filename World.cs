@@ -176,6 +176,20 @@ class World {
 
         
 
+        M_S1_NPC.PlaceNPC(new NPC(
+          "Shopkeeper", 
+          "A weary shopkeeper stands behind a makeshift counter, surrounded by heaps of discarded plastic items. \nHis eyes reflect a mix of hope and desperation as he clutches a worn-out recycling manual.", 
+          new List<string>
+          {
+            "\n\"Ah, a fellow agent! These plastics have taken over my shop. If only someone could help me sort them out...\"",
+            "\n\"The plastic monster is wreaking havoc in this area. I've heard that recycling the trash it throws at you can weaken it.\""
+          },
+          Flags.M_S3_Pickup_Barbie,
+          null
+        ));
+
+        M_S3.AddWelcomeEvent(new SpawnItemSE(Flags.M_S3_Pickup_Barbie, M_Sword, M_S1_NPC));
+
 
 
 
@@ -217,17 +231,6 @@ class World {
           Flags.S_S6_BOSS_4_Dead
         );
 
-        S_S4_NPC.PlaceNPC(new NPC(
-          "Wet creature statue",
-          "The statue is silent... like a statue should be.",
-          new List<string>
-          {
-            StartZone_Text.S_S4_Talk
-          },
-          "",
-          null
-        ));
-
         // Zone events
         // S1, both the actual start with text crawl and the starter space one can move from
         S_S1_TrueStart.AddWelcomeEvent(new TextSE(DefAct, "", "", StartZone_Text.S_S1_Start_1));
@@ -244,7 +247,7 @@ class World {
         S_S3_NPC.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S3_2));
 
         // S_S4
-        S_S4_NPC.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S4_1));
+        S_S3_NPC.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S4_1));
 
         // S_S5
         S_S5.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S5_1));
@@ -255,6 +258,7 @@ class World {
         S_S6_BOSS.AddWelcomeEvent(new TextSE("sigh in disappointment", "", "", StartZone_Text.S_S6_2));
         S_S6_BOSS.AddWelcomeEvent(new TextSE("prepare to fight", "", "", StartZone_Text.S_S6_3));
         S_S6_BOSS.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S6_4));
+
         
         // First boss dies, event then spawn
         S_S6_BOSS.AddWelcomeEvent(new TextSE("gather yourself for another fight", Flags.S_S6_BOSS_1_Dead, "", StartZone_Text.S_S6_5));
@@ -293,7 +297,6 @@ class World {
         // M_S4 text
         M_S4_Combat.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S4_1));
         M_S4_Combat.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S4_2));
-        // Text for after combat
         M_S4_Combat.AddWelcomeEvent(new TextSE("", Flags.M_S4_Combat_dead, "", Mall_Text.M_S4_3));
 
         // M_S5 text
@@ -302,7 +305,6 @@ class World {
         // M_S6 text
         M_S6_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S6_1));
         M_S6_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S6_2));
-        // Text for after combat
         M_S6_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.M_S6_Combat_dead, "", Mall_Text.M_S6_3));
         M_S6_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.M_S6_Got_Key, "", Mall_Text.M_S6_4));
 
@@ -504,7 +506,7 @@ class World {
         TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("turn around", "", "", TrashLand_Text.TL_S1_1));
         TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_2));
         // TL_S1 text (First time, post combat) (Lige nu køre den med det samme, )
-        TL_S1_MiniBoss.AddGoodbyeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_3));
+        TL_S1_MiniBoss.AddGoodbyeEvent(new TextSE("", "", Flags.TL_S1_First_Encounter, TrashLand_Text.TL_S1_3));
 
         // TL_S2 text
         TL_S2.AddWelcomeEvent(new TextSE("try cotton candy", "", "", TrashLand_Text.TL_S2_1));

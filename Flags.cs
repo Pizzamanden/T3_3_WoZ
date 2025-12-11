@@ -35,6 +35,7 @@ static class Flags
     public const string C_S1_Got_Key = "C_S1_Got_Key";
 
     // Flags for Trash Land
+    public const string TL_S1_First_Encounter = "TL_S1_first_encounter";
     public const string TL_S1_Real_Combat = "TL_S1_real_combat";
     public const string TL_S1_Got_Key = "TL_S1_got_key";
 
