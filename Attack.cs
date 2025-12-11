@@ -5,12 +5,14 @@ namespace WoZ;
 
 public class Attack{
 	public string Name { get;}
-	public int Damage { get;}
+	public int MinDamage { get;}
+	public int MaxDamage { get;}
 	public string Type { get;}
 	
-	public Attack(string name, int damage, string type){
+	public Attack(string name, int minDamage, int maxDamage, string type){
 		this.Name = name;
-		this.Damage = damage;
+		this.MinDamage = minDamage;
+		this.MaxDamage = maxDamage;
 		this.Type = type;
 	}
 }

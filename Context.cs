@@ -17,8 +17,7 @@ class Context {
     Player = new Player("You", 100);
 	
     // Peter: Add all player default attacks
-    Player.AddAttack(new Attack("fists", 20, "physical"));
-    Player.AddAttack(new Attack("torch", 50, "fire"));
+    Player.AddAttack(new Attack("mop", 80, 100, "physical"));
   }
   //Magnus: Adding an item to the inventory
   public void InventoryAdd(Item item)
@@ -61,7 +60,14 @@ class Context {
 
   public void Respawn()
   {
+    if(current!.GetName() == "TL_S1 MiniBoss")
+    {
+      previous = current!.FollowEdge("east"); 
+    }
+    current.Goodbye();
+    current!.Monster!.Heal();
     current = previous;
+    current!.Welcome();
     Player.isInCombat = false;
   }
   
@@ -77,12 +83,12 @@ class Context {
 	  this.current = entry;
   }
 //Troels: Method to check if the player has two specific items in their inventory to learn a new attack
-public void GetNewAttack(Item item1, Item item2, string attackName, int attackDamage, string attackType, string flag)
+public void GetNewAttack(Item item1, Item item2, string attackName, int minDamage, int maxDamage, string attackType, string flag)
     {
       if(inventory.Contains(item1) && inventory.Contains(item2) && !Player.HasAttack(attackName.ToLower()) && Flags.GetFlag(flag) == false)
       {
-        Player.AddAttack(new Attack(attackName, attackDamage, attackType));
-        Console.WriteLine("you have learned a new attack: " + attackName + "!");
+        Player.AddAttack(new Attack(attackName, minDamage, maxDamage, attackType));
+        Console.WriteLine("You have learned a new attack: " + attackName + "!");
         Flags.SetFlag(flag);
       }
     }
