@@ -13,7 +13,7 @@ class CommandGo : BaseCommand, ICommand {
     public void Execute(Context context, string command, string[] parameters) {
         if (context.Player.isInCombat)
         {
-            Console.WriteLine($"\n{context.GetCurrent().Monster!.Name} is blocking the path. Try the command <retreat> to go back.\n");
+            Console.WriteLine($"\n{context.GetCurrent().Monster!.Name} is blocking the path. Try the command <retreat> to go back, or <attack> to list all available attacks.\n");
             return;
         }
 
@@ -33,8 +33,8 @@ class CommandGo : BaseCommand, ICommand {
                   inventory.Contains(World.Key3) &&
                   inventory.Contains(World.Key4)))
             {
-                Console.WriteLine( //Hej Peter, hvis du ser det her er du løbet ind i et problem hvor denne tekst dukker op to gange. Du har sikkert ikke kunne finde ud af hvorfor, og har ledt i et stykke tid, som opbakning har jeg efterladt et besked til dig i bunden af dette dokument... ~ Mikkel
-                    "You're surprised to find the gate locked… realizing you probably \nshould have paid more attention to the pilot earlier. \nYou realize you still do not have all four key parts yet");
+                Console.WriteLine( 
+                    "You're surprised to find the gate locked… realizing you probably \nshould have paid more attention to the pilot earlier. \nYou realize you still do not have all four key parts yet\n");
                 return;
             }
         }
@@ -85,7 +85,4 @@ class CommandGo : BaseCommand, ICommand {
         return false;
         
     }
-
-
-        
-} // https://www.youtube.com/watch?v=TDik1UDl-Vg  
+}
