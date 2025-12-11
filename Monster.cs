@@ -49,7 +49,7 @@ class Monster
     public void Heal()
     {
         HP = MaxHp;
-        Console.WriteLine($"You fled the battle! {Name} is now fully recovered. HP is now {HP}/{MaxHp}.");
+        Console.WriteLine($"You fled the battle! {Name} is now fully recovered. HP is now {HP}/{MaxHp}.\n");
     }
     
      /*

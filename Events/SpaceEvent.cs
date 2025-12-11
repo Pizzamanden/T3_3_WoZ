@@ -7,12 +7,12 @@ using WoZ.Text;
 /*
     Larger class for all space events.
     These events are triggered in spaces, and can have various effects such as spawning items or monsters, clearing the console, displaying text, etc.
- */
+*/
 
 /*
     Event for placing items
     Can take a flag to await
- */
+*/
 class SpawnItemSE : IEvent
 {
     private string flagToCheck;
@@ -41,6 +41,10 @@ class SpawnItemSE : IEvent
     }
 }
 
+/*
+    Event for spawning monsters
+    Can take a flag to await
+ */
 class SpawnMonsterSE : IEvent{
     private string flagToCheck;
 	private Monster monster;
@@ -262,35 +266,4 @@ class EndGameSE : IEvent{
 	public void Trigger(){
 		context.MakeDone();
     }
-}
-
-/*
-    An event which updates a monster's damage
-    Can take a flag to await
-*/
-class UpdateMonsterDamageSE : IEvent{
-    private string flagToCheck;
-	private Monster monster;
-	private int newDamage;
-
-	public UpdateMonsterDamageSE(string flagToCheck, Monster monsterToUpdate, int newDamage) 
-    {
-        this.flagToCheck = flagToCheck;
-		this.monster = monsterToUpdate;
-		this.newDamage = newDamage;
-    }
-	
-	public bool CanRun()
-    {
-        if (flagToCheck == "")
-        {
-            return true;
-        }
-        return Flags.GetFlag(flagToCheck);
-    }
-
-    public void Trigger()
-	{
-		monster.AttackDamage = newDamage;
-	}
 }

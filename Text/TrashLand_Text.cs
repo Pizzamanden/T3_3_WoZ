@@ -30,6 +30,6 @@ static class TrashLand_Text
     
     // S6 text
     public const string TL_S6_1 = "At the end of a long day in Trash Land™ you reach the gift shop. \nThe place is full of cheap single-use souvenirs, such as keychains, \ncups and plastic toys.\n\nThe cashier leans over the counter, resting her head in her hands.\n\nYou decide to quickly leave before the place turns into another monster. ";
-    public const string TL_S6_Talk_1 = "\n\"I can't believe people keep buying this trash”, she says, “At least \nwe never run out of stock. Stuff keeps washing up on the shores \nnearby, so I just go out, pick it up and sell it. Pretty sure I've sold \nthis same keychain 3 times already”.";
-    public const string TL_S6_Talk_2 = "\n\"Aren't you supposed to be fixing this stuff, go away”";
+    public const string TL_S6_Talk_1 = "\"I can't believe people keep buying this trash”, she says, “At least \nwe never run out of stock. Stuff keeps washing up on the shores \nnearby, so I just go out, pick it up and sell it. Pretty sure I've sold \nthis same keychain 3 times already”.";
+    public const string TL_S6_Talk_2 = "\"Aren't you supposed to be fixing this stuff, go away”";
 }

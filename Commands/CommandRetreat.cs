@@ -1,4 +1,7 @@
 namespace WoZ.Commands;
+
+using System;
+using WoZ;
 using WoZ.Interfaces;
 class CommandRetreat : BaseCommand, ICommand {
     public CommandRetreat()
@@ -14,10 +17,16 @@ class CommandRetreat : BaseCommand, ICommand {
         } else
         {
             Monster? monster = context.GetCurrent().Monster;
-            monster!.Heal();
-            //context.Transition(parameters[0]);
-            context.Retreat();
-            monster = context.GetCurrent().Monster;
+            if(context.GetCurrent().GetName() == "TL1" && !Flags.GetFlag(Flags.TL_S1_Second_Encounter))
+            {
+                monster!.Heal();
+                context.Retreat();
+            } else
+            {
+                context.Retreat();
+                monster!.Heal();
+            }
+            
         }
     }
 }

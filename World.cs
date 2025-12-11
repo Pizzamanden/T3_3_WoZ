@@ -533,7 +533,6 @@ class World {
         TL_S4.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S4_2));
         TL_S4.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S4_3));
         TL_S4.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S4_4));
-        TL_S4.AddWelcomeEvent(new UpdateMonsterDamageSE(Flags.TL_S1_Real_Combat, TL_S1.Monster, 15));
 
         // TL_S5 text 
         TL_S5.AddWelcomeEvent(new TextSE("watch", "", "", TrashLand_Text.TL_S5_1));
