@@ -10,7 +10,7 @@ class Game {
   static Context  context  = new Context();
   static ICommand fallback = new CommandUnknown();
   static Registry registry = new Registry(context, fallback);
-  static World    world    = new World(registry);
+  static World    world    = new World(context);
   
   
   

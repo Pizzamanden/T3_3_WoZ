@@ -6,7 +6,6 @@ using WoZ.Texts;
 
 class World {
   Space entry;
-  Registry? registry;
 
   //Magnus: defining key fields to be used by other classes
   public static Item Key1 = new Item("Key1", "key", Flags.C_S1_Got_Key);
@@ -24,7 +23,7 @@ class World {
   public static Item C2 = new Item("MetalComponents", "MetalComponents");
     public static string DefAct = "continue";
 
-    public World (Registry registry) {
+    public World (Context context) {
 
     Zone StartZone = new Zone("Start", "Starting zone");
     Zone City = new Zone("City", "The zone with Tourism trash!");
@@ -110,7 +109,6 @@ class World {
       C_S6_Combat.AddEdge("west", C_S5);
     }   
 
-
  
     // Docks zone edges
     {
@@ -126,7 +124,6 @@ class World {
       D_S6_MiniBoss.AddEdge("south", D_S5);
     }
       
-
 
     // Mall zone edges
     {
@@ -275,6 +272,8 @@ class World {
         S_S6_BOSS.AddWelcomeEvent(new TextSE("be glad that it's over", Flags.S_S6_BOSS_4_Dead, "", StartZone_Text.S_S6_8));
         S_S6_BOSS.AddWelcomeEvent(new TextSE("end this", Flags.S_S6_BOSS_4_Dead, "", StartZone_Text.S_S6_9));
         // TODO: set EndGameSE event here
+        S_S6_BOSS.AddWelcomeEvent(new EndGameSE(Flags.S_S6_BOSS_4_Dead, context));
+
 
         /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - MALL - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
         // Troels made this:
