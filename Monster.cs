@@ -62,7 +62,10 @@ class Monster
     }
 
     public void OnMonsterDeath(Space space){
-        Console.WriteLine($"\n{this.deathText}");
+        if(deathText != "")
+        {
+            Console.WriteLine("\n" + deathText);
+        }
         if (FlagToSet != "")
         {
             Flags.SetFlag(FlagToSet);

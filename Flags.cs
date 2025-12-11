@@ -35,6 +35,7 @@ static class Flags
     public const string C_S1_Got_Key = "C_S1_Got_Key";
 
     // Flags for Trash Land
+    public const string TL_S1_Second_Encounter = "TL_S1_second_encounter";
     public const string TL_S1_Real_Combat = "TL_S1_real_combat";
     public const string TL_S1_Got_Key = "TL_S1_got_key";
 
@@ -65,6 +66,10 @@ static class Flags
         flagdict.Add(M_S4_Combat_dead, false);
         flagdict.Add(M_S6_Combat_dead, false);
         flagdict.Add(M_S6_Got_Key, false);
+        // Trash Land flags
+        flagdict.Add(TL_S1_Second_Encounter, false);
+        flagdict.Add(TL_S1_Real_Combat, false);
+        flagdict.Add(TL_S1_Got_Key, false);
     }
 
     /*

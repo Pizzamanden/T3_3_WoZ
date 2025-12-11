@@ -54,16 +54,15 @@ class Game {
           //Mikkel: Made so you respawn in previous room if character dies
           Console.Clear();
           context.Respawn();
-          context.Player.FullHeal();
-          if(context!.GetCurrent().GetName() == "TL_S1 MiniBoss" || context!.GetCurrent().GetName() == "TL_S2")
+          context.Player.Heal(false);
+          if(context!.GetCurrent().GetName() == "TL2" && !Flags.GetFlag(Flags.TL_S1_Second_Encounter))
           {
               continue;
-          }
-          else
+          } else
           {
-              Console.WriteLine("YOU DIED, and wake up in the previous room full of vigour\n");
-              continue;   
+            Console.WriteLine("YOU DIED, and wake up in the previous room full of vigour\n");
           }
+          
         }
         // Mikkel: Prints pickup and or talk hints, if current space needs them
         Space current = context.GetCurrent();
@@ -71,6 +70,7 @@ class Game {
         Space.PickupHint(current.GetItem()!);
         Console.Write("> ");
         string? line = Console.ReadLine();
+        Console.WriteLine("");
         if (line!=null) registry.Dispatch(line);
         context.GetCurrent().RunWelcomeEvents();
       }

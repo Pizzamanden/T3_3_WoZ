@@ -1,7 +1,7 @@
 // Dummy template
 namespace WoZ.Events;
 
-
+using System;
 using WoZ;
 using WoZ.Commands;
 using WoZ.Interfaces;
@@ -107,6 +107,71 @@ class ClearConsoleSE : IEvent{
 }
 
 /*
+	An event which clears the console
+	Can take a flag to await
+ */
+class RefreshScreenSE : IEvent
+{
+
+    private string flagToCheck;
+    private Space space;
+
+    public RefreshScreenSE(string flagToCheck, Space space)
+    {
+        this.flagToCheck = flagToCheck;
+        this.space = space; 
+    }
+
+    // Method which does the events intended behavior
+    public void Trigger()
+    {
+        Console.Clear();
+        new CommandMap().ShowMap(space);
+        Console.WriteLine("");
+    }
+
+    public bool CanRun()
+    {
+        if (flagToCheck == "")
+        {
+            return true;
+        }
+        return Flags.GetFlag(flagToCheck);
+    }
+}
+
+class MonsterAlertSE : IEvent
+{
+
+    private string flagToCheck;
+    private Space space;
+
+    public MonsterAlertSE(string flagToCheck, Space space)
+    {
+        this.flagToCheck = flagToCheck;
+        this.space = space;
+    }
+
+    // Method which does the events intended behavior
+    public void Trigger()
+    {
+        if(space.Monster != null)
+        {
+            space.PrintMonsterAlert();
+        }
+    }
+
+    public bool CanRun()
+    {
+        if (flagToCheck == "")
+        {
+            return true;
+        }
+        return Flags.GetFlag(flagToCheck);
+    }
+}
+
+/*
 	An event for displaying one (1) textblock.
 */
 class TextSE : IEvent{
@@ -136,13 +201,13 @@ class TextSE : IEvent{
 	// Code which clears line (Not currently used, preserving link)
 	// https://stackoverflow.com/questions/8946808/can-console-clear-be-used-to-only-clear-a-line-instead-of-whole-console
 	public void Trigger(){
-		Console.WriteLine(displayText);
+		Console.WriteLine(displayText + "\n");
 		if (actionText != "")
 		{
 			Console.Write($"> Press enter to {actionText}...");
 			Console.ReadLine();
+            Console.WriteLine("");
 		}
-		Console.WriteLine("");
 		if (flagToSet != "")
         {
             Flags.SetFlag(flagToSet);

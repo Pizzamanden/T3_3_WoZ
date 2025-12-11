@@ -17,7 +17,7 @@ class CommandUseAttackMove : BaseCommand, ICommand
         Monster? monster = context.GetCurrent().Monster;
 
         // Nicholas: Check if there is a monster to attack
-        if (monster == null || !monster.IsAlive()) // When you use the command and there isn't any monster nearby
+        if (!context.IsInCombat()) // When you use the command and there isn't any monster nearby
         {
             Console.WriteLine("There is no enemy to attack here.");
             return;
@@ -37,13 +37,13 @@ class CommandUseAttackMove : BaseCommand, ICommand
         if (!context.Player.HasAttack(attackType.ToLower()))
         {
             // Attack was not found
-            Console.WriteLine("\nThat attack could not be found.");
+            Console.WriteLine("That attack could not be found.");
             listAttacks(context);
             return;
         }
         Attack attack = context.Player.AttackList[attackType.ToLower()];
 
-        Console.WriteLine($"\nYou use {attack.Name} against {monster.Name}!");
+        Console.WriteLine($"You use {attack.Name} against {monster.Name}!");
 
         if (attack.Type == monster.Weakness)
         { // Monster is weak to this!
@@ -64,7 +64,6 @@ class CommandUseAttackMove : BaseCommand, ICommand
         else
         {
             monster!.OnMonsterDeath(context.GetCurrent());
-            context.Player.isInCombat  = false;
             // Peter: Drop an item if the monster should drop an item
             context.GetCurrent().Monster!.DropItem(context.GetCurrent());
             // Then remove it from the Space
@@ -81,6 +80,5 @@ class CommandUseAttackMove : BaseCommand, ICommand
             Attack attack = item.Value;
             Console.WriteLine($" - {attack.Name}, DMG: {attack.MinDamage}-{attack.MaxDamage}, type = {attack.Type}");
         }
-        Console.WriteLine("");
     }
 } 

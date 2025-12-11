@@ -8,9 +8,9 @@ class CommandRetreat : BaseCommand, ICommand {
     public void Execute (Context context, string command, string[] parameters) {
         Player player = context.Player;
 
-        if (!player.isInCombat)
+        if (!context.IsInCombat())
         {
-            Console.WriteLine("You are not currently in combat. You don't need to retreat.");
+            Console.WriteLine("You are not currently in combat. You don't need to retreat.\n");
         } else
         {
             Monster? monster = context.GetCurrent().Monster;
@@ -18,13 +18,6 @@ class CommandRetreat : BaseCommand, ICommand {
             //context.Transition(parameters[0]);
             context.Retreat();
             monster = context.GetCurrent().Monster;
-            if (monster != null && monster!.IsAlive())
-            {
-                context.Player.isInCombat = true;
-            } else
-            {
-                context.Player.isInCombat = false;
-            }
         }
     }
 }

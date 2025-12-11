@@ -14,7 +14,6 @@ public class Player
 	
 	public Dictionary<string, Attack> AttackList { get; set;} = new Dictionary<string, Attack>();
 
-    public bool isInCombat = false;
 
     // --- CONSTRUCTOR ---
     // Denne metode kører, når en ny Player laves
@@ -23,7 +22,6 @@ public class Player
         this.Name = name;
         this.MaxHP = maxhp;
         this.HP = maxhp; // Nicholas: Start med fuldt liv
-        this.isInCombat = isInCombat;
     }
 
 
@@ -43,27 +41,15 @@ public class Player
         }
 
         // Giver feedback til konsollen
-        Console.WriteLine($"{Name} take {amount} damage! HP is now {HP}/{MaxHP}.\n");
+        Console.WriteLine($"{Name} take {amount} damage! HP is now {HP}/{MaxHP}.");
     }
 
-    public void Heal(int amount)
+    // Mikkel: giver nu fuld hp
+    public void Heal(bool display = true)
     {
-        if (HP + amount >= MaxHP)
-        {
-            HP = MaxHP;
-            Console.WriteLine($"\n{Name} are now fully rested. HP is now {HP}/{MaxHP}.");
-        }
-        else
-        {
-            HP += amount;
-            Console.WriteLine($"\n{Name} rests for an hour and replenishes {amount} HP! HP is now {HP}/{MaxHP}.");
-        }
-    }
-
-    // Mikkel: Made a full heal method
-    public void FullHeal()
-    {
+        
         HP = MaxHP;
+        if(display) Console.WriteLine($"{Name} is now fully rested. HP is now {HP}/{MaxHP}.");
     }
 
     /*

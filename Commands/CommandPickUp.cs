@@ -8,11 +8,6 @@ class CommandPickUp : BaseCommand, ICommand
 		description = "Picks up an item";
 	}
 	public void Execute (Context context, string command, string[] parameters) {
-        if (context.Player.isInCombat)
-        {
-            Console.WriteLine("You don't have time to pick anything up.");
-            return;
-        }
 
 		/*if (GuardEq(parameters, 1)) 
 		{
@@ -27,7 +22,7 @@ class CommandPickUp : BaseCommand, ICommand
 			return;
 		}
 		//Troels: Checks if there is a monster in the room and if it's alive
-		if (current.GetMonster() != null && current.GetMonster().IsAlive())
+		if (context.IsInCombat())
 		{
 			Console.WriteLine("You cannot pick up items while a monster is present!");
 			return;
@@ -45,10 +40,10 @@ class CommandPickUp : BaseCommand, ICommand
 				}
 			context.InventoryAdd(foundItem);
 			Console.WriteLine("You have picked up \"" + foundItem.GetName() + "\".");
-			context.GetNewAttack(World.D_Chemicals, World.D_Chemicals, "acid", 25, 30,"Chemical", "");
+			context.GetNewAttack(World.D_Chemicals, World.D_Chemicals, "acid", 25, 30,"chemical", "");
 			context.GetNewAttack(World.TL_Bins, World.TL_Bins, "bins", 25, 30,"recycling", Flags.Got_Bins);
 			context.GetNewAttack(World.M_Sword, World.M_Sword, "sword", 35, 40,"slice", Flags.Got_Sword);
-			context.GetNewAttack(World.C1, World.C2, "lighter", 50, 60, "fire", Flags.Got_Lighter);
+			context.GetNewAttack(World.C1, World.C2, "lighter", 50, 60, "fire", Flags.Got_Lighter, World.C3);
 			
 		//}
 		/*else

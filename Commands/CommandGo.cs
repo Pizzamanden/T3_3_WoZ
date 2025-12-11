@@ -7,13 +7,13 @@ using System.Collections.Generic;
 
 class CommandGo : BaseCommand, ICommand {
     public CommandGo () {
-        description = "Follow an exit: Type \"go <direction>\" to follow a direction.\n";
+        description = "Follow an exit: Type \"go <direction>\" to follow a direction.";
     }
 
     public void Execute(Context context, string command, string[] parameters) {
-        if (context.Player.isInCombat)
+        if (context.IsInCombat())
         {
-            Console.WriteLine($"\n{context.GetCurrent().Monster!.Name} is blocking the path. Try the command <retreat> to go back, or <attack> to list all available attacks.\n");
+            Console.WriteLine($"{context.GetCurrent().Monster!.Name} is blocking the path. Try the command <retreat> to go back, or <attack> to list all available attacks.\n");
             return;
         }
 
@@ -24,7 +24,7 @@ class CommandGo : BaseCommand, ICommand {
         }
         
         //Checking for keys before entering the tower section of the map
-        if (context.GetCurrent().GetName() == "S5" && parameters[0] == "south")
+        /*if (context.GetCurrent().GetName() == "S5" && parameters[0] == "south")
         {
             List<Item> inventory = context.GetInventory();
 
@@ -34,18 +34,18 @@ class CommandGo : BaseCommand, ICommand {
                   inventory.Contains(World.Key4)))
             {
                 Console.WriteLine( 
-                    "You're surprised to find the gate locked… realizing you probably \nshould have paid more attention to the pilot earlier. \nYou realize you still do not have all four key parts yet\n");
+                    "You're surprised to find the gate locked… realizing you probably \nshould have paid more attention to the pilot earlier. \nYou realize you still do not have all four key parts yet");
                 return;
             }
-        }
+        }*/
 
         //Troels: Checking for keys before entering cleared zones
         //Peter: Modified to extract the repeating code and converting it into a helper method instead
-        if (HasCleared(context, "S4 NPC", parameters[0], "north", World.Key3))
+        if (HasCleared(context, "S4", parameters[0], "north", World.Key3))
         {
             return;
         }
-        if (HasCleared(context, "S4 NPC", parameters[0], "east", World.Key1))
+        if (HasCleared(context, "S4", parameters[0], "east", World.Key1))
         {
             return;
         }
@@ -53,21 +53,13 @@ class CommandGo : BaseCommand, ICommand {
         {
             return;
         }
-        if (HasCleared(context, "S3 NPC", parameters[0], "south", World.Key4))
+        if (HasCleared(context, "S3", parameters[0], "south", World.Key4))
         {
             return;
         }
 
         context.Transition(parameters[0]);
         Monster? monster = context.GetCurrent().Monster;
-        if (monster != null && monster!.IsAlive())
-        {
-            context.Player.isInCombat = true;
-        } else
-        {
-            context.Player.isInCombat = false;
-        }
-
     }
 
     private bool HasCleared(Context context, string currentSpace, string param, string direction, Item item)
@@ -78,7 +70,7 @@ class CommandGo : BaseCommand, ICommand {
             if (inventory.Contains(item))
             {
                 Console.WriteLine(
-                            "You have cleared this zone for monsters and the cleaning crews are doing their job.");
+                            "You have cleared this zone for monsters and the cleaning crews are doing their job.\n");
                     return true;
             }
         }

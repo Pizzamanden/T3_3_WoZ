@@ -18,6 +18,7 @@ class World {
   public static Item D_Chemicals = new Item("Chemical", "Chemical", Flags.Got_Chemicals);
   public static Item C1 = new Item("LighterFluid", "LighterFluid", Flags.C_S4_LighterFluid_Pickup);
   public static Item C2 = new Item("MetalComponents", "MetalComponents");
+    public static Item C3 = new Item("LighterParts", "LighterParts");
     public static string DefAct = "continue";
 
     public World (Context context) {
@@ -65,12 +66,12 @@ class World {
     Space M_S6  = new Space(Mall, "M6");
 
     // TrashLand-zonen
-    Space TL_S1  = new Space(TrashLand, "TL1");
-    Space TL_S2 = new Space(TrashLand, "TL2");
-    Space TL_S3  = new Space(TrashLand, "TL3");
-    Space TL_S4  = new Space(TrashLand, "TL4");
-    Space TLS5  = new Space(TrashLand, "TL5");
-    Space TL_S6  = new Space(TrashLand, "TL6");
+    Space TL_S1_MiniBoss  = new Space(TrashLand, "TL_S1 MiniBoss");
+    Space TL_S2 = new Space(TrashLand, "TL_S2");
+    Space TL_S3_Combat  = new Space(TrashLand, "TL_S3 Combat");
+    Space TL_S4_NPC  = new Space(TrashLand, "TL_S4 NPC");
+    Space TL_S5_Combat  = new Space(TrashLand, "TL_S5 Combat");
+    Space TL_S6_NPC  = new Space(TrashLand, "TL_S6");
 
 
         // Set starting space
@@ -141,9 +142,14 @@ class World {
       TL_S1.AddEdge("east", TL_S2);
       TL_S2.AddEdge("south", TL_S3);
       TL_S3.AddEdge("west", TL_S4);
-      TL_S4.AddEdge("west", TLS5);
-      TLS5.AddEdge("north", TL_S6);
+      TL_S3.AddEdge("north", TL_S2);
+      TL_S4.AddEdge("west", TL_S5);
+      TL_S4.AddEdge("east", TL_S3);
+      TL_S5.AddEdge("north", TL_S6);
+      TL_S5.AddEdge("east", TL_S4);
       TL_S6.AddEdge("east", TL_S1);
+      TL_S6.AddEdge("south", TL_S5);
+
       
     }
 
@@ -167,11 +173,7 @@ class World {
       C_S1.AddEdge("west", S_S4);
     }
     
-        //Magnus: Adding keys and weapons to spaces
-        S_S1_Start.PlaceItem(Key1); // Yoink'ed by Peter for testing of starter zone
-        S_S2.PlaceItem(Key2); // Yoink'ed by Peter for testing of starter zone
-        S_S3.PlaceItem(Key3); // Yoink'ed by Peter for testing of starter zone
-        S_S4.PlaceItem(Key4); // Yoink'ed by Peter for testing of starter zone
+        //Magnus: Adding items to spaces
         M_S3.PlaceItem(M_Barbie);
 
 
@@ -182,7 +184,7 @@ class World {
           1,
           null,
           "chemical",
-          "The octopus slumps down. After a few moments it disappears.",
+          "",
           Flags.S_S6_BOSS_1_Dead
         );
 
@@ -191,7 +193,7 @@ class World {
           1,
           null,
           "recycling",
-          "The vending machine falls over backwards. After a few moments it disappears.",
+          "",
           Flags.S_S6_BOSS_2_Dead
         );
 
@@ -200,12 +202,12 @@ class World {
           1,
           null,
           "slice",
-          "The giant dragon roars, and then collapses. After a few moments it disappears.",
+          "",
           Flags.S_S6_BOSS_3_Dead
         );
 
         Monster S_S6_BOSS_4 = new Monster(
-          "Cigaret Army",
+          "Cigarette Army",
           1,
           null,
           "fire",
@@ -251,17 +253,28 @@ class World {
         S_S6.AddWelcomeEvent(new TextSE("sigh in disappointment", "", "", StartZone_Text.S_S6_2));
         S_S6.AddWelcomeEvent(new TextSE("prepare to fight", "", "", StartZone_Text.S_S6_3));
         S_S6.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S6_4));
-        
+
         // First boss dies, event then spawn
+        S_S6.AddWelcomeEvent(new RefreshScreenSE(Flags.S_S6_BOSS_1_Dead, S_S6));
+        S_S6.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S6_BossDeath_1));
         S_S6.AddWelcomeEvent(new TextSE("gather yourself for another fight", Flags.S_S6_BOSS_1_Dead, "", StartZone_Text.S_S6_5));
         S_S6.AddWelcomeEvent(new SpawnMonsterSE(Flags.S_S6_BOSS_1_Dead, S_S6_BOSS_2, S_S6));
+        S_S6.AddWelcomeEvent(new MonsterAlertSE("", S_S6));
         // Second boss dies, event then spawn third boss
-        S_S6.AddWelcomeEvent(new SpawnMonsterSE(Flags.S_S6_BOSS_2_Dead, S_S6_BOSS_3, S_S6));
+        S_S6.AddWelcomeEvent(new RefreshScreenSE(Flags.S_S6_BOSS_2_Dead, S_S6));
+        S_S6.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S6_BossDeath_2));
         S_S6.AddWelcomeEvent(new TextSE("endure just a little longer", Flags.S_S6_BOSS_2_Dead, "", StartZone_Text.S_S6_6));
+        S_S6.AddWelcomeEvent(new SpawnMonsterSE(Flags.S_S6_BOSS_2_Dead, S_S6_BOSS_3, S_S6));
+        S_S6.AddWelcomeEvent(new MonsterAlertSE("", S_S6));
         // Third boss dies, event then spawn
+        S_S6.AddWelcomeEvent(new RefreshScreenSE(Flags.S_S6_BOSS_3_Dead, S_S6));
+        S_S6.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S6_BossDeath_3));
         S_S6.AddWelcomeEvent(new TextSE("realize this will be the last", Flags.S_S6_BOSS_3_Dead, "", StartZone_Text.S_S6_7));
         S_S6.AddWelcomeEvent(new SpawnMonsterSE(Flags.S_S6_BOSS_3_Dead, S_S6_BOSS_4, S_S6));
+        S_S6.AddWelcomeEvent(new MonsterAlertSE("", S_S6));
         // You won!
+        S_S6.AddWelcomeEvent(new RefreshScreenSE(Flags.S_S6_BOSS_4_Dead, S_S6));
+        S_S6.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S6_BossDeath_4));
         S_S6.AddWelcomeEvent(new TextSE("be glad that it's over", Flags.S_S6_BOSS_4_Dead, "", StartZone_Text.S_S6_8));
         S_S6.AddWelcomeEvent(new TextSE("end this", Flags.S_S6_BOSS_4_Dead, "", StartZone_Text.S_S6_9));
         // TODO: set EndGameSE event here
@@ -459,7 +472,7 @@ class World {
         );
         TL_S3.Monster.AttackDamage = 1;
 
-        TLS5.Monster = new Monster(
+        TL_S5.Monster = new Monster(
           "Teacup Enthusiast",
           40,
           null,
@@ -467,7 +480,7 @@ class World {
           "",
           ""
         );
-        TLS5.Monster.AttackDamage = 1;
+        TL_S5.Monster.AttackDamage = 1;
 
         // NPCs:
         TL_S4.PlaceNPC(new NPC(
@@ -500,7 +513,7 @@ class World {
         TL_S1.AddWelcomeEvent(new TextSE("turn around", "", "", TrashLand_Text.TL_S1_1));
         TL_S1.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_2));
         // TL_S1 text (First time, post combat) (Lige nu køre den med det samme, )
-        TL_S1.AddGoodbyeEvent(new TextSE("", "", Flags.TL_S1_First_Encounter, TrashLand_Text.TL_S1_3));
+        TL_S1.AddGoodbyeEvent(new TextSE("fly you fool", "", "", TrashLand_Text.TL_S1_3));
 
         // TL_S2 text
         TL_S2.AddWelcomeEvent(new TextSE("try cotton candy", "", "", TrashLand_Text.TL_S2_1));
@@ -508,7 +521,7 @@ class World {
         TL_S2.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S2_3));
 
         // TL_S3 text 
-        TL_S3.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S3_1));
+        TL_S3.AddWelcomeEvent(new TextSE("", "", Flags.TL_S1_Second_Encounter, TrashLand_Text.TL_S3_1));
 
         // TL_S4 text 
         TL_S4.AddWelcomeEvent(new TextSE("enter shack", "", "", TrashLand_Text.TL_S4_1));
@@ -518,8 +531,8 @@ class World {
         TL_S4.AddWelcomeEvent(new UpdateMonsterDamageSE(Flags.TL_S1_Real_Combat, TL_S1.Monster, 15));
 
         // TL_S5 text 
-        TLS5.AddWelcomeEvent(new TextSE("watch", "", "", TrashLand_Text.TL_S5_1));
-        TLS5.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S5_2));
+        TL_S5.AddWelcomeEvent(new TextSE("watch", "", "", TrashLand_Text.TL_S5_1));
+        TL_S5.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S5_2));
 
         // TL_S6 text 
         TL_S6.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S6_1));
@@ -532,6 +545,8 @@ class World {
 
         /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - CITY - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
         // Peter
+
+        // Monsters
         Monster C_S1_MiniBoss_Boss = new Monster(
             "Jack",
             1,
@@ -557,6 +572,32 @@ class World {
             Flags.C_S6_Monster_Dead
         );
 
+        // NPCs
+        C_S2.PlaceNPC(new NPC(
+          "Ivan",
+          "Still dead...",
+          new List<string>
+          {
+            City_Text.C_S2_Talk,
+          },
+          "",
+          null
+        ));
+
+        C_S5.PlaceNPC(new NPC(
+          "Frail man",
+          "\"It could all heal, we would only need to take small steps at a steady pace.\"",
+          new List<string>
+          {
+            City_Text.C_S5_talk_1,
+            City_Text.C_S5_talk_2,
+            City_Text.C_S5_talk_3,
+          },
+          "",
+          null
+        ));
+
+
         // Normal events for S1
         C_S1.AddWelcomeEvent(new TextSE(DefAct, "", "", City_Text.C_S1_1));
         C_S1.AddWelcomeEvent(new TextSE("stay silent", "", "", City_Text.C_S1_2));
@@ -581,8 +622,9 @@ class World {
         //Third diner
         C_S2.AddWelcomeEvent(new TextSE("approach", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_7));
         C_S2.AddWelcomeEvent(new TextSE("clutch his hands tightly", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_8));
-        C_S2.AddWelcomeEvent(new TextSE("promise him he's gonna be alright", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_9));
+        C_S2.AddWelcomeEvent(new TextSE("promise him he’s gonna be alright", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_9));
         C_S2.AddWelcomeEvent(new TextSE("curse Jack the cigarette guys name into the air while the camera — from a birds eye view — zooms slowly away", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_10));
+        C_S2.AddWelcomeEvent(new SpawnItemSE(Flags.C_S6_Monster_Dead, C3, C_S2));
 
         // C_S3
         C_S3.AddWelcomeEvent(new TextSE("listen in", "", "", City_Text.C_S3_1));
