@@ -8,7 +8,8 @@ using WoZ.Interfaces;
 using WoZ.Text;
 
 /*
- Event for placing items
+    Event for placing items
+    Can take a flag to await
  */
 class SpawnItemSE : IEvent
 {
@@ -127,6 +128,10 @@ class RefreshScreenSE : IEvent
     }
 }
 
+/*
+    An event which displays the monster alert for a space
+    Can take a flag to await
+ */
 class MonsterAlertSE : IEvent
 {
 
@@ -160,6 +165,7 @@ class MonsterAlertSE : IEvent
 
 /*
 	An event for displaying one (1) textblock.
+    Can take a flag to await
 */
 class TextSE : IEvent{
 	
@@ -184,9 +190,7 @@ class TextSE : IEvent{
         return Flags.GetFlag(flagToCheck);
     }
 	
-	// Method which does the events intended behavior
-	// Code which clears line (Not currently used, preserving link)
-	// https://stackoverflow.com/questions/8946808/can-console-clear-be-used-to-only-clear-a-line-instead-of-whole-console
+	// Method from interface which does the events intended behavior
 	public void Trigger(){
 		Console.WriteLine(displayText + "\n");
 		if (actionText != "")
@@ -232,6 +236,7 @@ class ExitsListSE : IEvent{
 
 /*
 	An event which ends the game
+    Can take a flag to await
 */
 class EndGameSE : IEvent{
 	
@@ -258,37 +263,9 @@ class EndGameSE : IEvent{
 }
 
 /*
-	An event which can talk to an NPC in the given space
+    An event which updates a monster's damage
+    Can take a flag to await
 */
-class PickUpSE : IEvent{
-	
-	private Context context;
-	private Registry registry;
-	private string[] itemName = new string[1];
-	private string flagToCheck;
-	
-	public PickUpSE(string flagToCheck, Context context, Registry registry, string itemName){
-		this.context = context;
-		this.registry = registry;
-		this.itemName[0] = itemName;
-		this.flagToCheck = flagToCheck;
-
-    }
-	
-	public void Trigger(){
-		registry.GetCommand(CommandNames.Pickup).Execute(context, CommandNames.Pickup, itemName);
-	}
-
-	public bool CanRun()
-    {
-        if (flagToCheck == "")
-        {
-            return true;
-        }
-        return Flags.GetFlag(flagToCheck);
-    }
-}
-
 class UpdateMonsterDamageSE : IEvent{
     private string flagToCheck;
 	private Monster monster;

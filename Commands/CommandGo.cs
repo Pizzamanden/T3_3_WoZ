@@ -24,7 +24,7 @@ class CommandGo : BaseCommand, ICommand {
         }
         
         //Checking for keys before entering the tower section of the map
-        /*if (context.GetCurrent().GetName() == "S5" && parameters[0] == "south")
+        if(context.GetCurrent().GetName() == "S5" && parameters[0] == "south")
         {
             List<Item> inventory = context.GetInventory();
 
@@ -37,7 +37,7 @@ class CommandGo : BaseCommand, ICommand {
                     "You're surprised to find the gate locked... realizing you probably \nshould have paid more attention to the pilot earlier. \nYou realize you still do not have all four key parts yet");
                 return;
             }
-        }*/
+        }
 
         //Troels: Checking for keys before entering cleared zones
         //Peter: Modified to extract the repeating code and converting it into a helper method instead

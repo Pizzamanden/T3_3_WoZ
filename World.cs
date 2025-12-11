@@ -554,7 +554,7 @@ class World {
         // Monsters
         Monster C_S1_MiniBoss_Boss = new Monster(
             "Jack the Cigarette Guy",
-            1,
+            50,
             Key1,
             "fire",
             "",

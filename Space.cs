@@ -138,6 +138,7 @@ class Space : Node {
   {
   	return item;
   }
+
   // Troels: returns the inventory of the space (either empty or with one item)
   public List<Item> GetInventory()
   {
@@ -148,11 +149,6 @@ class Space : Node {
     }
     return items;
   }
-// Troels: returns the monster in the space
-public Monster GetMonster()
-    {
-        return Monster!;
-    }
 
   //Magnus: Picks up the item and removes it
   public Item CollectItem()
