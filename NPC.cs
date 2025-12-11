@@ -31,10 +31,15 @@ class NPC
         this.itemToDrop = item;
     }
 
+    public bool HasMoreDialouge()
+    {
+        return currentDialoguePrompt < dialogueList.Count;   
+    }
+
     public string GetDialoguePrompt()
     {
         string currentPrompt = "";
-        if (currentDialoguePrompt < dialogueList.Count)
+        if (HasMoreDialouge())
         {
             currentPrompt = dialogueList[currentDialoguePrompt];
         } else

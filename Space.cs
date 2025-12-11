@@ -167,4 +167,19 @@ public Monster GetMonster()
 		  Console.WriteLine(" - "+exit);
   }
 }
+
+static public void PickupHint(Item item)
+  {
+    if (item != null){
+    Console.WriteLine($"You should probably <pickup> the {item.GetName()}...\n");
+    }
+  }
+
+static public void TalkHint(NPC npc)
+  {
+    if (npc != null && npc.HasMoreDialouge())
+    {
+      Console.WriteLine($"Seems like {npc.GetName()} wants to <talk>...\n");
+    }
+  }
 }

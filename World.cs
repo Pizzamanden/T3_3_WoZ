@@ -66,12 +66,12 @@ class World {
     Space M_S6  = new Space(Mall, "M6");
 
     // TrashLand-zonen
-    Space TL_S1  = new Space(TrashLand, "TL1");
-    Space TL_S2  = new Space(TrashLand, "TL2");
-    Space TL_S3  = new Space(TrashLand, "TL3");
-    Space TL_S4  = new Space(TrashLand, "TL4");
-    Space TL_S5  = new Space(TrashLand, "TL5");
-    Space TL_S6  = new Space(TrashLand, "TL6");
+    Space TL_S1 = new Space(TrashLand, "TL1");
+    Space TL_S2 = new Space(TrashLand, "TL2");
+    Space TL_S3 = new Space(TrashLand, "TL3");
+    Space TL_S4 = new Space(TrashLand, "TL4");
+    Space TL_S5 = new Space(TrashLand, "TL5");
+    Space TL_S6 = new Space(TrashLand, "TL6");
 
 
         // Set starting space
@@ -398,7 +398,7 @@ class World {
         
         // Monsters
         D_S2.Monster = new Monster(
-          "Sick customer",
+          "Sick Customer",
           30,
           null,
           "chemical",
@@ -408,7 +408,7 @@ class World {
         D_S2.Monster.AttackDamage = 20;
 
         D_S4.Monster = new Monster(
-          "Massive sea turtle",
+          "Massive Net Turtle",
           40,
           null,
           "chemical",
@@ -429,7 +429,7 @@ class World {
         
         //adding NPCS
         D_S3.PlaceNPC(new NPC(
-          "Shop Keep",
+          "Dr. Spill",
           "♪Chemicals break ghost fishing gear♪",
           new List<string>
           {
@@ -440,7 +440,7 @@ class World {
         ));
         D_S5.PlaceNPC(new NPC(
           "Diver",
-          "Stupid ghost fishing gear. It is everywhere.",
+          "Stupid ghost fishing gear. It's everywhere.",
           new List<string>
           {
             Docks_Text.D_S5_Talk
