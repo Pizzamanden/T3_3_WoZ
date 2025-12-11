@@ -81,6 +81,5 @@ class CommandUseAttackMove : BaseCommand, ICommand
             Attack attack = item.Value;
             Console.WriteLine($" - {attack.Name}, DMG: {attack.MinDamage}-{attack.MaxDamage}, type = {attack.Type}");
         }
-        Console.WriteLine("");
     }
 } 

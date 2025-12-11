@@ -136,7 +136,7 @@ class TextSE : IEvent{
 	// Code which clears line (Not currently used, preserving link)
 	// https://stackoverflow.com/questions/8946808/can-console-clear-be-used-to-only-clear-a-line-instead-of-whole-console
 	public void Trigger(){
-		Console.WriteLine(displayText);
+		Console.WriteLine(displayText + "\n");
 		if (actionText != "")
 		{
 			Console.Write($"> Press enter to {actionText}...");
