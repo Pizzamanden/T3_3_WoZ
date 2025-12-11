@@ -48,28 +48,28 @@ class Game {
     context.GetCurrent().Welcome();
     context.Transition("starter");
 
-        while (context.IsDone()==false) {
-      if (context.Player.IsAlive() == false)
-      {
-        //Mikkel: Made so you respawn in previous room if character dies
-        Console.Clear();
-        context.Respawn();
-        context.Player.FullHeal();
-        if(context!.GetCurrent().GetName() == "TL_S1 MiniBoss" || context!.GetCurrent().GetName() == "TL_S2")
+      while (context.IsDone()==false) {
+        if (context.Player.IsAlive() == false)
         {
-            continue;
+          //Mikkel: Made so you respawn in previous room if character dies
+          Console.Clear();
+          context.Respawn();
+          context.Player.FullHeal();
+          if(context!.GetCurrent().GetName() == "TL_S1 MiniBoss" || context!.GetCurrent().GetName() == "TL_S2")
+          {
+              continue;
+          }
+          else
+          {
+              Console.WriteLine("YOU DIED, and wake up in the previous room full of vigour\n");
+              continue;   
+          }
         }
-        else
-        {
-            Console.WriteLine("YOU DIED, and wake up in the previous room full of vigour\n");
-            continue;   
-        }
+        Console.Write("> ");
+        string? line = Console.ReadLine();
+        if (line!=null) registry.Dispatch(line);
+        context.GetCurrent().RunWelcomeEvents();
       }
-      Console.Write("> ");
-      string? line = Console.ReadLine();
-      if (line!=null) registry.Dispatch(line);
-      context.GetCurrent().RunWelcomeEvents();
-     }
     Console.WriteLine("Game Over");
   }
 }

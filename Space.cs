@@ -40,7 +40,7 @@ class Space : Node {
     }
     else
     {
-        Console.WriteLine($"{Monster.Name} threatens you. You must either defeat it, or retreat, to proceede.\n");
+        Console.WriteLine($"{Monster.Name} threatens you. Defeat it to proceed, or retreat for now.\n");
     }
   }
   

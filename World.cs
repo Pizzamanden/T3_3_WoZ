@@ -69,7 +69,7 @@ class World {
 
     // TrashLand-zonen
     Space TL_S1_MiniBoss  = new Space(TrashLand, "TL_S1 MiniBoss");
-    Space TL_S2  = new Space(TrashLand, "TL_S2 ");
+    Space TL_S2 = new Space(TrashLand, "TL_S2");
     Space TL_S3_Combat  = new Space(TrashLand, "TL_S3 Combat");
     Space TL_S4_NPC  = new Space(TrashLand, "TL_S4 NPC");
     Space TL_S5_Combat  = new Space(TrashLand, "TL_S5 Combat");
