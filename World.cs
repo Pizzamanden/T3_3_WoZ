@@ -221,7 +221,7 @@ class World {
         S_S6_BOSS_4.AttackDamage = 5;
 
         S_S4.PlaceNPC(new NPC(
-          "Wet creature statue",
+          "Statue",
           "The statue is silent... like a statue should be.",
           new List<string>
           {
@@ -553,8 +553,8 @@ class World {
 
         // Monsters
         Monster C_S1_MiniBoss_Boss = new Monster(
-            "Jack",
-            50,
+            "Jack the Cigarette Guy",
+            1,
             Key1,
             "fire",
             "",
@@ -585,7 +585,7 @@ class World {
 
         // NPCs
         C_S2.PlaceNPC(new NPC(
-          "Ivan",
+          "Ivan Nalive",
           "Still dead...",
           new List<string>
           {
@@ -633,7 +633,7 @@ class World {
         //Third diner
         C_S2.AddWelcomeEvent(new TextSE("approach", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_7));
         C_S2.AddWelcomeEvent(new TextSE("clutch his hands tightly", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_8));
-        C_S2.AddWelcomeEvent(new TextSE("promise him he’s gonna be alright", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_9));
+        C_S2.AddWelcomeEvent(new TextSE("promise him he's gonna be alright", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_9));
         C_S2.AddWelcomeEvent(new TextSE("curse Jack the cigarette guys name into the air while the camera — from a birds eye view — zooms slowly away", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_10));
         C_S2.AddWelcomeEvent(new SpawnItemSE(Flags.C_S6_Monster_Dead, C3, C_S2));
 
