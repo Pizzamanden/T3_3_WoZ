@@ -16,6 +16,11 @@ class CommandTalk : BaseCommand, ICommand {
         }*/
     
         Space current = context.GetCurrent();
+        if (current.GetName() == "C2" && !Flags.GetFlag(Flags.C_S6_Monster_Dead))
+        {
+            Console.WriteLine("\"See you later, my friend\"");
+            return;
+        }
         if (current.NPCCheck() == false)
         {
             Console.WriteLine("There's no one to talk to here");
