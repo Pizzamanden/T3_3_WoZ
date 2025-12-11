@@ -315,7 +315,7 @@ class World {
           "",
           new List<string>
           {
-            Mall_Text.M_S3_Talk
+            Mall_Text.M_S1_NPC
           },
           "",
           null
@@ -325,7 +325,7 @@ class World {
           "",
           new List<string>
           {
-            Mall_Text.M_S1_Talk
+            Mall_Text.M_S3_Talk
           },
           "",
           null
