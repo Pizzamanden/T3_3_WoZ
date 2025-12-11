@@ -14,7 +14,7 @@ class CommandRest : BaseCommand, ICommand {
             return;
         } else
         {
-            context.Player.Heal(10);
+            context.Player.Heal(100);
         }
     }
 }

@@ -6,6 +6,7 @@ using WoZ.Interfaces;
 //Nicholas: This class contains the command to use an attack move against a monster.
 class CommandUseAttackMove : BaseCommand, ICommand
 {
+    private static Random randomDamage = new Random();
     public CommandUseAttackMove()
     {
         description = "Use an attack move in the current location.";
@@ -50,8 +51,10 @@ class CommandUseAttackMove : BaseCommand, ICommand
         }
 
         // Nicholas: The monster is attacked and it reports back how much HP the monster has left
-        monster.TakeDamage(attack.Damage * (attack.Type == monster.Weakness ? 2 : 1));
-
+        int baseDamage = randomDamage.Next(attack.MinDamage, attack.MaxDamage + 1);
+        int finalDamage = baseDamage * (attack.Type == monster.Weakness ? 2 : 1);
+        monster.TakeDamage(finalDamage);
+        
         // Nicholas: The monster strikes back if it is still alive
         if (monster.IsAlive())
         {
@@ -76,7 +79,7 @@ class CommandUseAttackMove : BaseCommand, ICommand
         foreach (KeyValuePair<string, Attack> item in context.Player.AttackList)
         {
             Attack attack = item.Value;
-            Console.WriteLine($" - {attack.Name}, DMG: {attack.Damage}, type = {attack.Type}");
+            Console.WriteLine($" - {attack.Name}, DMG: {attack.MinDamage}-{attack.MaxDamage}, type = {attack.Type}");
         }
         Console.WriteLine("");
     }

@@ -13,7 +13,7 @@ class CommandGo : BaseCommand, ICommand {
     public void Execute(Context context, string command, string[] parameters) {
         if (context.Player.isInCombat)
         {
-            Console.WriteLine($"\n{context.GetCurrent().Monster!.Name} is blocking the path. Try the command <retreat> to go back.\n");
+            Console.WriteLine($"\n{context.GetCurrent().Monster!.Name} is blocking the path. Try the command <retreat> to go back, or <attack> to list all available attacks.\n");
             return;
         }
 
@@ -34,7 +34,7 @@ class CommandGo : BaseCommand, ICommand {
                   inventory.Contains(World.Key4)))
             {
                 Console.WriteLine( 
-                    "You're surprised to find the gate locked… realizing you probably \nshould have paid more attention to the pilot earlier. \nYou realize you still do not have all four key parts yet");
+                    "You're surprised to find the gate locked… realizing you probably \nshould have paid more attention to the pilot earlier. \nYou realize you still do not have all four key parts yet\n");
                 return;
             }
         }
@@ -85,7 +85,4 @@ class CommandGo : BaseCommand, ICommand {
         return false;
         
     }
-
-
-        
-} 
+}
