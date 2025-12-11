@@ -12,7 +12,7 @@ class World {
   public static Item Key2 = new Item("Key2", "key", Flags.D_S6_Got_Key);
   public static Item Key3 = new Item("Key3", "key", Flags.M_S6_Got_Key);
   public static Item Key4 = new Item("Key4", "key", Flags.TL_S1_Got_Key);
-  public static Item TL_Bins = new Item("bins", "bins", Flags.TL_S1_Real_Combat);
+  public static Item TL_Bins = new Item("Bins", "Bins", Flags.TL_S1_Real_Combat);
   public static Item M_Barbie = new Item("Barbie", "Barbie", Flags.M_S3_Pickup_Barbie);
   public static Item M_Sword = new Item("Sword", "Sword");
   public static Item D_Chemicals = new Item("Chemical", "Chemical", Flags.Got_Chemicals);
@@ -70,7 +70,7 @@ class World {
     Space TL_S3_Combat  = new Space(TrashLand, "TL_S3 Combat");
     Space TL_S4_NPC  = new Space(TrashLand, "TL_S4 NPC");
     Space TL_S5_Combat  = new Space(TrashLand, "TL_S5 Combat");
-    Space TL_S6_NPC  = new Space(TrashLand, "TL_S6");
+    Space TL_S6_NPC  = new Space(TrashLand, "TL_S6 NPC");
 
 
         // Set starting space
@@ -185,7 +185,7 @@ class World {
           "Octopus",
           1,
           null,
-          "physical",
+          "chemical",
           "The octopus slumps down. After a few moments it disappears.",
           Flags.S_S6_BOSS_1_Dead
         );
@@ -194,7 +194,7 @@ class World {
           "Vending Machine",
           1,
           null,
-          "physical",
+          "recycling",
           "The vending machine falls over backwards. After a few moments it disappears.",
           Flags.S_S6_BOSS_2_Dead
         );
@@ -203,7 +203,7 @@ class World {
           "Dragon",
           1,
           null,
-          "physical",
+          "slice",
           "The giant dragon roars, and then collapses. After a few moments it disappears.",
           Flags.S_S6_BOSS_3_Dead
         );
@@ -212,7 +212,7 @@ class World {
           "Cigaret Army",
           1,
           null,
-          "physical",
+          "fire",
           "",
           Flags.S_S6_BOSS_4_Dead
         );
@@ -308,18 +308,18 @@ class World {
 
         //adding NPCS
         M_S1_NPC.PlaceNPC(new NPC(
-          "NPC",
-          "",
+          "Samurai",
+          "Get me the item further up and you can have the sword *more fake snoring*",
           new List<string>
           {
-            Mall_Text.M_S1_Talk
+            Mall_Text.M_S1_Talk_1
           },
           "",
           null
         ));
         M_S3.PlaceNPC(new NPC(
-          "NPC",
-          "",
+          "Old woman",
+          "*Cough*",
           new List<string>
           {
             Mall_Text.M_S3_Talk
@@ -333,7 +333,7 @@ class World {
           "Plastic Cook",
           30,
           null,
-          "physical",
+          "slice",
           "",
           ""
         );
@@ -343,7 +343,7 @@ class World {
           "Funko Pop fan",
           40,
           null,
-          "physical",
+          "slice",
           "",
           Flags.M_S4_Combat_dead
         );
@@ -392,7 +392,7 @@ class World {
           "Sick customer",
           30,
           null,
-          "physical",
+          "chemical",
           "As you land the final hit, the sick customer collapses.",
           Flags.D_S2_Combat_dead
         );
@@ -402,7 +402,7 @@ class World {
           "Massive sea turtle",
           40,
           null,
-          "Chemical",
+          "chemical",
           "",
           Flags.D_S4_Combat_dead
         );
@@ -412,7 +412,7 @@ class World {
           "Old Fisherman",
           100,
           Key2,
-          "Chemical",
+          "chemical",
           "",
           Flags.D_S6_Combat_dead
         );
@@ -420,8 +420,8 @@ class World {
         
         //adding NPCS
         D_S3_NPC.PlaceNPC(new NPC(
-          "NPC",
-          "",
+          "Shop Keep",
+          "♪Chemicals break ghost fishing gear♪",
           new List<string>
           {
             Docks_Text.D_S3_Talk 
@@ -430,8 +430,8 @@ class World {
           null
         ));
         D_S5.PlaceNPC(new NPC(
-          "NPC",
-          "",
+          "Diver",
+          "Stupid ghost fishing gear. It is everywhere.",
           new List<string>
           {
             Docks_Text.D_S5_Talk
@@ -447,7 +447,7 @@ class World {
           "Trash Land Mascot",
           100,
           Key4,
-          "Recycling",
+          "recycling",
           TrashLand_Text.TL_S1_5,
           ""
         );
@@ -457,7 +457,7 @@ class World {
           "Trash Land Employee",
           40,
           null,
-          "physical",
+          "recycling",
           "",
           ""
         );
@@ -467,7 +467,7 @@ class World {
           "Teacup Enthusiast",
           40,
           null,
-          "Recycling",
+          "recycling",
           "",
           ""
         );
@@ -476,7 +476,7 @@ class World {
         // NPCs:
         TL_S4_NPC.PlaceNPC(new NPC(
           "Old Janitor",
-          "",
+          "You're our only hope.",
           new List<string>
           {
               TrashLand_Text.TL_S4_Talk,
@@ -487,7 +487,7 @@ class World {
 
         TL_S6_NPC.PlaceNPC(new NPC(
           "Cashier",
-          "",
+          "\"I'm not going to sell you anything.\"",
           new List<string>
           {
               TrashLand_Text.TL_S6_Talk_1,

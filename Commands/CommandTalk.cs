@@ -2,6 +2,7 @@
 */
 namespace WoZ.Commands;
 using WoZ.Interfaces;
+using WoZ.Texts;
 class CommandTalk : BaseCommand, ICommand {
     public CommandTalk () {
         description = "Talk to an NPC";
@@ -27,7 +28,14 @@ class CommandTalk : BaseCommand, ICommand {
         //If yes, the item is collected and removed from the room. 
        // if (commandInput == npcKey)
         //{
-            NPC currentNPC = current.GetNPC()!;
+        //Magnus: Special case for the Samurai in Mall after the Barbie Doll has been picked up
+        if (current.GetName() == "M_S1 NPC" && Flags.GetFlag(Flags.M_S3_Pickup_Barbie))
+        {
+            Console.WriteLine(Mall_Text.M_S1_Talk_2);
+            return;
+        }
+
+        NPC currentNPC = current.GetNPC()!;
             Console.WriteLine(currentNPC.GetDialoguePrompt());
         //}
         /*else
