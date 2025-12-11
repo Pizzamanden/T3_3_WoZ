@@ -15,7 +15,6 @@ class World {
   public static Item Key4 = new Item("Key4", "key", Flags.TL_S1_Got_Key);
   public static Item D1 = new Item("D1", "Whatever1");
   public static Item D2 = new Item("D2", "Whatever2");
-  public static Item TL1 = new Item("TL1", "Whatever3");
   public static Item TL_Bins = new Item("bins", "bins", Flags.TL_S1_Real_Combat);
   public static Item M_Barbie = new Item("Barbie", "Barbie", Flags.M_S3_Pickup_Barbie);
   public static Item M_Sword = new Item("Sword", "Sword");
