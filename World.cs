@@ -320,7 +320,7 @@ class World {
           "",
           new List<string>
           {
-            Mall_Text.M_S1_NPC
+            Mall_Text.M_S1_Talk
           },
           "",
           null
