@@ -18,6 +18,7 @@ class World {
   public static Item D_Chemicals = new Item("Chemical", "Chemical", Flags.Got_Chemicals);
   public static Item C1 = new Item("LighterFluid", "LighterFluid", Flags.C_S4_LighterFluid_Pickup);
   public static Item C2 = new Item("MetalComponents", "MetalComponents");
+    public static Item C3 = new Item("LighterParts", "LighterParts");
     public static string DefAct = "continue";
 
     public World (Context context) {
@@ -544,6 +545,8 @@ class World {
 
         /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - CITY - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
         // Peter
+
+        // Monsters
         Monster C_S1_MiniBoss_Boss = new Monster(
             "Jack",
             1,
@@ -568,6 +571,32 @@ class World {
             "bleugh",
             Flags.C_S6_Monster_Dead
         );
+
+        // NPCs
+        C_S2.PlaceNPC(new NPC(
+          "Ivan",
+          "Still dead...",
+          new List<string>
+          {
+            City_Text.C_S2_Talk,
+          },
+          "",
+          null
+        ));
+
+        C_S5.PlaceNPC(new NPC(
+          "Frail man",
+          "\"It could all heal, we would only need to take small steps at a steady pace.\"",
+          new List<string>
+          {
+            City_Text.C_S5_talk_1,
+            City_Text.C_S5_talk_2,
+            City_Text.C_S5_talk_3,
+          },
+          "",
+          null
+        ));
+
 
         // Normal events for S1
         C_S1.AddWelcomeEvent(new TextSE(DefAct, "", "", City_Text.C_S1_1));
@@ -595,16 +624,7 @@ class World {
         C_S2.AddWelcomeEvent(new TextSE("clutch his hands tightly", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_8));
         C_S2.AddWelcomeEvent(new TextSE("promise him he’s gonna be alright", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_9));
         C_S2.AddWelcomeEvent(new TextSE("curse Jack the cigarette guys name into the air while the camera — from a birds eye view — zooms slowly away", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_10));
-        C_S2.PlaceNPC(new NPC(
-          "Ivan",
-          "Still dead...",
-          new List<string>
-          {
-            City_Text.C_S2_Talk,
-          },
-          "",
-          null
-        ));
+        C_S2.AddWelcomeEvent(new SpawnItemSE(Flags.C_S6_Monster_Dead, C3, C_S2));
 
         // C_S3
         C_S3.AddWelcomeEvent(new TextSE("listen in", "", "", City_Text.C_S3_1));

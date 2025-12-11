@@ -34,12 +34,15 @@ static class City_Text
     public const string C_S4_1 = "You push open the sliding doors to the building. Inside sits a large \nmonster on a throne of thousands of cigarette butts. In his hand \nhe holds lighter fuel.";
     public const string C_S4_2 = "“If you try anything funny, I'll dump my entire stockpile into the \nwater tank!\", or something along those lines, his mouth is filled \nwith still burning cigarettes, making it kinda hard to understand \nwhat he is saying.\n\nYou wonder if something already is in the water, making everyone \nact crazy in these parts. Nonetheless, you decide to take action.";
     // S4: After win
-    public const string C_S4_3 = "With the monster defeated, you decide you should take some of \nthe lighter fuel with you, as a souvenir.";
+    public const string C_S4_3 = "With the monster defeated, you decide taking some of \nthe lighter fuel with you could be a good idea.";
     // S4: Leaving after collecting item
     public const string C_S4_4 = "Whilst leaving the building, the police start swarming in, confident \nafter your victory. You wonder if leaving all that lighter fuel behind \nwith the pile of flammable material was a bad idea, but you \nquickly dismiss the thought.\n\nWhile walking away, the building \nsuddenly explodes behind you, all of it happening in slow motion. Epic \nwin!";
     // S5
     public const string C_S5_Beach = "Ready for a nice day on the beach, you step on something, and \nhear a crush beneath your feet. The entire beach is covered with \ncigarettes, making up almost as much of the beach as the sand. ";
     public const string C_S5_1 = "A loud voice can be heard from a distance, “Come on come all! \nAny who dares challenge me! The great champion “SULFUR THE \nBURN” will suffer! my! burn!";
+    public const string C_S5_talk_1 = "Text1";
+    public const string C_S5_talk_2 = "Text2";
+    public const string C_S5_talk_3 = "Text3";
     // S6
     public const string C_S6_Beach = "This part of the beach is a little nicer than the previous part, but there's still cigarette butts everywhere.";
     public const string C_S6_1 = "You make your way closer to the loud announcement, barely dodging the previous \nchallenger flying towards you after being punched out of the area. \n\nThe champion lights a cigarette, \"Another one for the pile”, he \nsays with a smirk. He inhales the entire cigarette in one go, \nbefore throwing it on the ground.";

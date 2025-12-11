@@ -95,9 +95,9 @@ class Context {
 	  this.current = entry;
   }
 //Troels: Method to check if the player has two specific items in their inventory to learn a new attack
-public void GetNewAttack(Item item1, Item item2, string attackName, int minDamage, int maxDamage, string attackType, string flag)
+public void GetNewAttack(Item item1, Item item2, string attackName, int minDamage, int maxDamage, string attackType, string flag, Item item3 = null)
     {
-      if(inventory.Contains(item1) && inventory.Contains(item2) && !Player.HasAttack(attackName.ToLower()) && Flags.GetFlag(flag) == false)
+      if(inventory.Contains(item1) && inventory.Contains(item2) && !Player.HasAttack(attackName.ToLower()) && Flags.GetFlag(flag) == false && (inventory.Contains(item3) || item3 == null))
       {
         Player.AddAttack(new Attack(attackName, minDamage, maxDamage, attackType));
         Console.WriteLine("You have learned a new attack: " + attackName + "!");
