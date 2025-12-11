@@ -10,7 +10,7 @@ class CommandRetreat : BaseCommand, ICommand {
 
         if (!player.isInCombat)
         {
-            Console.WriteLine("You are not currently in combat. You don't need to retreat.");
+            Console.WriteLine("You are not currently in combat. You don't need to retreat.\n");
         } else
         {
             Monster? monster = context.GetCurrent().Monster;

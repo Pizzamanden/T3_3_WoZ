@@ -500,10 +500,10 @@ class World {
         TL_S1.AddWelcomeEvent(new TextSE("turn around", "", "", TrashLand_Text.TL_S1_1));
         TL_S1.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_2));
         // TL_S1 text (First time, post combat) (Lige nu køre den med det samme, )
-        TL_S1.AddGoodbyeEvent(new TextSE("", "", Flags.TL_S1_First_Encounter, TrashLand_Text.TL_S1_3));
+        TL_S1.AddGoodbyeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_3));
 
         // TL_S2 text
-        TL_S2.AddWelcomeEvent(new TextSE("try cotton candy", "", "", TrashLand_Text.TL_S2_1));
+        TL_S2.AddWelcomeEvent(new TextSE("try cotton candy", "", Flags.TL_S1_First_Encounter, TrashLand_Text.TL_S2_1));
         TL_S2.AddWelcomeEvent(new TextSE("go back for seconds", "", "", TrashLand_Text.TL_S2_2));
         TL_S2.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S2_3));
 

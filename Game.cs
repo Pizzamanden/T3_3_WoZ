@@ -54,16 +54,12 @@ class Game {
           //Mikkel: Made so you respawn in previous room if character dies
           Console.Clear();
           context.Respawn();
-          context.Player.FullHeal();
-          if(context!.GetCurrent().GetName() == "TL_S2" && !Flags.GetFlag(Flags.TL_S1_First_Encounter))
+          context.Player.Heal();
+          if(context!.GetCurrent().GetName() == "TL2" && !Flags.GetFlag(Flags.TL_S1_First_Encounter))
           {
               continue;
           }
-          else
-          {
-              Console.WriteLine("YOU DIED, and wake up in the previous room full of vigour\n");
-              continue;   
-          }
+          Console.WriteLine("YOU DIED, and wake up in the previous room full of vigour\n");
         }
         Console.Write("> ");
         string? line = Console.ReadLine();
