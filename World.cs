@@ -633,7 +633,7 @@ class World {
         //Third diner
         C_S2.AddWelcomeEvent(new TextSE("approach", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_7));
         C_S2.AddWelcomeEvent(new TextSE("clutch his hands tightly", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_8));
-        C_S2.AddWelcomeEvent(new TextSE("promise him he’s gonna be alright", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_9));
+        C_S2.AddWelcomeEvent(new TextSE("promise him he's gonna be alright", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_9));
         C_S2.AddWelcomeEvent(new TextSE("curse Jack the cigarette guys name into the air while the camera — from a birds eye view — zooms slowly away", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_10));
         C_S2.AddWelcomeEvent(new SpawnItemSE(Flags.C_S6_Monster_Dead, C3, C_S2));
 
