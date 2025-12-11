@@ -167,15 +167,9 @@ static public void PickupHint(Item item)
 
 static public void TalkHint(NPC npc)
   {
-    if (npc != null){
-      if(npc.GetName() != "Ivan" || npc.GetName() != "Dr. Spill")
-      {
-       Console.WriteLine($"Maybe you would like to <talk> to the {npc.GetName()}...\n");
-      }
-      else
-      {
-        Console.WriteLine($"Maybe you would like to <talk> to {npc.GetName()}...\n");
-      }
+    if (npc != null && npc.HasMoreDialouge())
+    {
+      Console.WriteLine($"Seems like {npc.GetName()} wants to <talk>...\n");
     }
   }
 }

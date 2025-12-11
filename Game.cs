@@ -65,6 +65,10 @@ class Game {
               continue;   
           }
         }
+        // Mikkel: Prints pickup and or talk hints, if current space needs them
+        Space current = context.GetCurrent();
+        Space.TalkHint(current.GetNPC()!);
+        Space.PickupHint(current.GetItem()!);
         Console.Write("> ");
         string? line = Console.ReadLine();
         if (line!=null) registry.Dispatch(line);
