@@ -8,7 +8,7 @@ class CommandRest : BaseCommand, ICommand {
         description = "Rest to replenish HP";
     }
     public void Execute (Context context, string command, string[] parameters) {
-        if (context.Player.isInCombat)
+        if (context.IsInCombat())
         {
             Console.WriteLine("You can't rest when a monster is nearby.");
             return;

@@ -8,11 +8,6 @@ class CommandPickUp : BaseCommand, ICommand
 		description = "Picks up an item";
 	}
 	public void Execute (Context context, string command, string[] parameters) {
-        if (context.Player.isInCombat)
-        {
-            Console.WriteLine("You don't have time to pick anything up.");
-            return;
-        }
 
 		/*if (GuardEq(parameters, 1)) 
 		{
@@ -27,7 +22,7 @@ class CommandPickUp : BaseCommand, ICommand
 			return;
 		}
 		//Troels: Checks if there is a monster in the room and if it's alive
-		if (current.GetMonster() != null && current.GetMonster().IsAlive())
+		if (context.IsInCombat())
 		{
 			Console.WriteLine("You cannot pick up items while a monster is present!");
 			return;
