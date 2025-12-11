@@ -177,7 +177,7 @@ class CommandMap : BaseCommand, ICommand
         sb.AppendLine("   └──────┬────────┘");
         sb.AppendLine("          │");
         sb.AppendLine("   ┌──────┴───────┐ ┌─────────────┐ ┌──────────────┐ ┌─────────────┐ ┌────────────┐");
-        sb.AppendLine("   │    D_S5      │-│D_S4 Combat  │-│    D_S1      │-│D_S2 Combat  │-│ D_S3 Npc   │");
+        sb.AppendLine("   │     D_S5     │-│ D_S4 Combat │-│     D_S1     │-│ D_S2 Combat │-│  D_S3 Npc  │");
         sb.AppendLine("   └──────────────┘ └─────────────┘ └──────────────┘ └─────────────┘ └────────────┘");
         sb.AppendLine("                                           ↓");
         sb.AppendLine("---------------------------------------------------------------------------------");
@@ -201,15 +201,15 @@ class CommandMap : BaseCommand, ICommand
         sb.AppendLine("                               Welcome to the Mall Zone                        ");
         sb.AppendLine("---------------------------------------------------------------------------------");
         sb.AppendLine("                          ┌────────────┐   ┌───────────────┐");
-        sb.AppendLine("                          │   M_S5     │───│M_S6 MiniBoss  │");
+        sb.AppendLine("                          │    M_S5    │───│ M_S6 MiniBoss │");
         sb.AppendLine("                          └─────┬──────┘   └───────────────┘");
         sb.AppendLine("                                │                  ");
         sb.AppendLine("                          ┌─────┴──────┐   ┌──────────────┐");
-        sb.AppendLine("                          │M_S4 Combat │───│    M_S3      │");
+        sb.AppendLine("                          │ M_S4 Combat│───│     M_S3     │");
         sb.AppendLine("                          └────────────┘   └──────┬───────┘");
         sb.AppendLine("                                                  │");
         sb.AppendLine("                          ┌────────────┐   ┌──────┴───────┐");
-        sb.AppendLine("                          │M_S1 NPC    │───│M_S2 Combat   │");
+        sb.AppendLine("                          │  M_S1 NPC  │───│  M_S2 Combat │");
         sb.AppendLine("                          └────────────┘   └──────────────┘");
         sb.AppendLine("                                ↓");
         sb.AppendLine("---------------------------------------------------------------------------------");

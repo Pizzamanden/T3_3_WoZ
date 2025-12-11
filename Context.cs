@@ -60,7 +60,14 @@ class Context {
 
   public void Respawn()
   {
+    if(current!.GetName() == "TL_S1 MiniBoss")
+    {
+      previous = current!.FollowEdge("east"); 
+    }
+    current.Goodbye();
+    current!.Monster!.Heal();
     current = previous;
+    current!.Welcome();
     Player.isInCombat = false;
   }
   
