@@ -36,7 +36,7 @@ static class City_Text
     // S4: After win
     public const string C_S4_3 = "With the monster defeated, you decide taking some of \nthe lighter fuel with you could be a good idea.";
     // S4: Leaving after collecting item
-    public const string C_S4_4 = "Whilst leaving the building, the police start swarming in, confident \nafter your victory. You wonder if leaving all that lighter fuel behind \nwith the pile of flammable material was a bad idea, but you \nquickly dismiss the thought.\n\nWhile walking away, the building \nsuddenly explodes behind you, all of it happening in slow motion. Epic \nwin!";
+    public const string C_S4_4 = "Whilst leaving the building, the police start swarming in, confident \nafter your victory. You wonder if leaving all that lighter fuel behind \nwith the pile of flammable material was a bad idea, but you \nquickly dismiss the thought.\n\nWhile walking away, the building suddenly explodes \nbehind you, all of it happening in slow motion. \nEpic win!";
     // S5
     public const string C_S5_Beach = "Ready for a nice day on the beach, you step on something, and \nhear a crush beneath your feet. The entire beach is covered with \ncigarettes, making up almost as much of the beach as the sand. ";
     public const string C_S5_1 = "A loud voice can be heard from a distance, “Come on come all! \nAny who dares challenge me! The great champion “SULFUR THE \nBURN” will suffer! my! burn!";
