@@ -2,9 +2,12 @@ namespace WoZ;
 static class Flags
 {
     static private Dictionary<string, bool> flagdict = new Dictionary<string, bool>();
+    
+    // Flags for dock zone
     public const string D_S2_Combat_dead = "D_S2_combat";
     public const string D_S4_Combat_dead = "D_S4_combat";
     public const string D_S6_Combat_dead = "D_S6_combat";
+    public const string D_S6_Got_Key = "D_S6_Got_Key";
 
     // Flag for items
     public const string Got_Sword = "Got_Sword";
@@ -16,6 +19,7 @@ static class Flags
     public const string M_S3_Pickup_Barbie = "M_S3";
     public const string M_S4_Combat_dead = "M_S4_combat";
     public const string M_S6_Combat_dead = "M_S6_combat";
+    public const string M_S6_Got_Key = "M_S6_Got_Key";
 
     // Flags for starter zone
     public const string S_S6_BOSS_1_Dead = "S_S6_BOSS_1_Dead";
@@ -44,6 +48,7 @@ static class Flags
         flagdict.Add(D_S2_Combat_dead, false);
         flagdict.Add(D_S4_Combat_dead, false);
         flagdict.Add(D_S6_Combat_dead, false);
+        flagdict.Add(D_S6_Got_Key, false);
         // Starter zone flags
         flagdict.Add(S_S6_BOSS_1_Dead, false);
         flagdict.Add(S_S6_BOSS_2_Dead, false);
@@ -59,6 +64,7 @@ static class Flags
         flagdict.Add(M_S3_Pickup_Barbie, false);
         flagdict.Add(M_S4_Combat_dead, false);
         flagdict.Add(M_S6_Combat_dead, false);
+        flagdict.Add(M_S6_Got_Key, false);
     }
 
     /*
