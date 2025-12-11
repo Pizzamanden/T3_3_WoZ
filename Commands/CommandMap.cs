@@ -173,11 +173,11 @@ class CommandMap : BaseCommand, ICommand
         sb.AppendLine("                               Welcome to the Docks Zone                        ");
         sb.AppendLine("---------------------------------------------------------------------------------");
         sb.AppendLine("   ┌───────────────┐");
-        sb.AppendLine("   │D_S6 MiniBoss  │");
+        sb.AppendLine("   │ D_S6 MiniBoss │");
         sb.AppendLine("   └──────┬────────┘");
         sb.AppendLine("          │");
         sb.AppendLine("   ┌──────┴───────┐ ┌─────────────┐ ┌──────────────┐ ┌─────────────┐ ┌────────────┐");
-        sb.AppendLine("   │    D_S5      │-│D_S4 Combat  │-│    D_S1      │-│D_S2 Combat  │-│ D_S3 Npc   │");
+        sb.AppendLine("   │  D_S5 NPC    │-│ D_S4 Combat │-│     D_S1     │-│ D_S2 Combat │-│  D_S3 NPC  │");
         sb.AppendLine("   └──────────────┘ └─────────────┘ └──────────────┘ └─────────────┘ └────────────┘");
         sb.AppendLine("                                           ↓");
         sb.AppendLine("---------------------------------------------------------------------------------");

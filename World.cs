@@ -341,7 +341,7 @@ class World {
           "Plastic Cook",
           30,
           null,
-          "physical",
+          "physical", 
           "",
           ""
         );
