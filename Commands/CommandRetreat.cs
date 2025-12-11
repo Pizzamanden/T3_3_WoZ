@@ -8,7 +8,7 @@ class CommandRetreat : BaseCommand, ICommand {
     public void Execute (Context context, string command, string[] parameters) {
         Player player = context.Player;
 
-        if (context.IsInCombat())
+        if (!context.IsInCombat())
         {
             Console.WriteLine("You are not currently in combat. You don't need to retreat.\n");
         } else
