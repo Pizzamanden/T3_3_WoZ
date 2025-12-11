@@ -66,12 +66,12 @@ class World {
     Space M_S6  = new Space(Mall, "M6");
 
     // TrashLand-zonen
-    Space TL_S1  = new Space(TrashLand, "TL1");
-    Space TL_S2  = new Space(TrashLand, "TL2");
-    Space TL_S3  = new Space(TrashLand, "TL3");
-    Space TL_S4  = new Space(TrashLand, "TL4");
-    Space TL_S5  = new Space(TrashLand, "TL5");
-    Space TL_S6  = new Space(TrashLand, "TL6");
+    Space TL_S1 = new Space(TrashLand, "TL1");
+    Space TL_S2 = new Space(TrashLand, "TL2");
+    Space TL_S3 = new Space(TrashLand, "TL3");
+    Space TL_S4 = new Space(TrashLand, "TL4");
+    Space TL_S5 = new Space(TrashLand, "TL5");
+    Space TL_S6 = new Space(TrashLand, "TL6");
 
 
         // Set starting space
@@ -398,7 +398,7 @@ class World {
         
         // Monsters
         D_S2.Monster = new Monster(
-          "Sick customer",
+          "Sick Customer",
           30,
           null,
           "chemical",
