@@ -48,7 +48,7 @@ class CommandPickUp : BaseCommand, ICommand
 			context.GetNewAttack(World.D_Chemicals, World.D_Chemicals, "acid", 25, 30,"Chemical", "");
 			context.GetNewAttack(World.TL_Bins, World.TL_Bins, "bins", 25, 30,"recycling", Flags.Got_Bins);
 			context.GetNewAttack(World.M_Sword, World.M_Sword, "sword", 35, 40,"slice", Flags.Got_Sword);
-			//context.GetNewAttack(World.C1, World.C2, "lighter", 50, 60, "fire", Flags.Got_Lighter);
+			context.GetNewAttack(World.C1, World.C2, "lighter", 50, 60, "fire", Flags.Got_Lighter);
 			
 		//}
 		/*else

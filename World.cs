@@ -587,6 +587,16 @@ class World {
         C_S2_NPC.AddWelcomeEvent(new TextSE("clutch his hands tightly", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_8));
         C_S2_NPC.AddWelcomeEvent(new TextSE("promise him he’s gonna be alright", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_9));
         C_S2_NPC.AddWelcomeEvent(new TextSE("curse Jack the cigarette guys name into the air while the camera — from a birds eye view — zooms slowly away", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_10));
+        C_S2_NPC.PlaceNPC(new NPC(
+          "Ivan",
+          "Still dead...",
+          new List<string>
+          {
+            City_Text.C_S2_Talk,
+          },
+          "",
+          null
+        ));
 
         // C_S3
         C_S3.AddWelcomeEvent(new TextSE("listen in", "", "", City_Text.C_S3_1));
@@ -614,7 +624,7 @@ class World {
         C_S6_Combat.AddWelcomeEvent(new TextSE("", Flags.C_S4_Monster_Dead, "", City_Text.C_S6_3));
         // He dies
         C_S6_Combat.AddWelcomeEvent(new TextSE("", Flags.C_S6_Monster_Dead, "", City_Text.C_S6_4));
-
+        
     }
 
     public Space GetEntry () {
