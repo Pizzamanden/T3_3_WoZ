@@ -205,7 +205,7 @@ class World {
         /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - STARTER - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
         // Monsters
         Monster S_S6_BOSS_1 = new Monster(
-          "Octopus of the nets",
+          "Octopus",
           1,
           null,
           "physical",
@@ -214,7 +214,7 @@ class World {
         );
 
         Monster S_S6_BOSS_2 = new Monster(
-          "Vending machine of the cups",
+          "Vending Machine",
           1,
           null,
           "physical",
@@ -223,7 +223,7 @@ class World {
         );
 
         Monster S_S6_BOSS_3 = new Monster(
-          "Giant dragon of the plastics",
+          "Dragon",
           1,
           null,
           "physical",
@@ -232,7 +232,7 @@ class World {
         );
 
         Monster S_S6_BOSS_4 = new Monster(
-          "Small army of the cigarettes",
+          "Cigaret Army",
           1,
           null,
           "physical",
@@ -285,16 +285,16 @@ class World {
         /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - MALL - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
         // Troels made this:
         // M_S1 text
-        M_S1_NPC.AddWelcomeEvent(new TextSE(" Press enter to show confidence in your abilities to win…", "", "", Mall_Text.M_S1_1));
-        M_S1_NPC.AddWelcomeEvent(new TextSE("Press enter to pretend to care…", "", "", Mall_Text.M_S1_2));
+        M_S1_NPC.AddWelcomeEvent(new TextSE("pretend you didn't see him", "", "", Mall_Text.M_S1_1));
+        M_S1_NPC.AddWelcomeEvent(new TextSE("Pretend to care", "", "", Mall_Text.M_S1_2));
         M_S1_NPC.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S1_3));
-        M_S1_NPC.AddWelcomeEvent(new TextSE("Press enter to give him the doll", Flags.M_S3_Pickup_Barbie, "", Mall_Text.M_S1_4));
+        M_S1_NPC.AddWelcomeEvent(new TextSE("Give him the doll", Flags.M_S3_Pickup_Barbie, "", Mall_Text.M_S1_4));
         M_S1_NPC.AddWelcomeEvent(new TextSE("", Flags.M_S3_Pickup_Barbie, "", Mall_Text.M_S1_5));
         M_S1_NPC.AddWelcomeEvent(new SpawnItemSE(Flags.M_S3_Pickup_Barbie, M_Sword, M_S1_NPC));
         
         // M_S2 text
-        M_S2_Combat.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S2_1));
-        M_S2_Combat.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S2_2));
+        M_S2_Combat.AddWelcomeEvent(new TextSE("Continue onwards from the food court", "", "", Mall_Text.M_S2_1));
+        M_S2_Combat.AddWelcomeEvent(new TextSE("Cough loudly and clutch your chest", "", "", Mall_Text.M_S2_2));
         M_S2_Combat.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S2_3));
 
         // M_S3 text
@@ -567,7 +567,7 @@ class World {
         //Third diner
         C_S2_NPC.AddWelcomeEvent(new TextSE("approach", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_7));
         C_S2_NPC.AddWelcomeEvent(new TextSE("clutch his hands tightly", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_8));
-        C_S2_NPC.AddWelcomeEvent(new TextSE("promise him he’s gonna be alright", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_9));
+        C_S2_NPC.AddWelcomeEvent(new TextSE("promise him he's gonna be alright", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_9));
         C_S2_NPC.AddWelcomeEvent(new TextSE("curse Jack the cigarette guys name into the air while the camera — from a birds eye view — zooms slowly away", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_10));
 
         // C_S3
