@@ -506,7 +506,7 @@ class World {
         TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("turn around", "", "", TrashLand_Text.TL_S1_1));
         TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_2));
         // TL_S1 text (First time, post combat) (Lige nu køre den med det samme, )
-        TL_S1_MiniBoss.AddGoodbyeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_3));
+        TL_S1_MiniBoss.AddGoodbyeEvent(new TextSE("", "", Flags.TL_S1_First_Encounter, TrashLand_Text.TL_S1_3));
 
         // TL_S2 text
         TL_S2.AddWelcomeEvent(new TextSE("try cotton candy", "", "", TrashLand_Text.TL_S2_1));

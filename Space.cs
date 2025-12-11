@@ -32,8 +32,6 @@ class Space : Node {
 
         RunWelcomeEvents();
 
-    
-
         if (Monster == null)
         {
             // ExitList(this);

@@ -49,7 +49,7 @@ class Context {
 
   public void Retreat()
   {
-    if(current.GetName() == "TL_S1 MiniBoss")
+    if(current.GetName() == "TL_S1 MiniBoss" && !Flags.GetFlag(Flags.TL_S1_First_Encounter))
     {
       previous = current!.FollowEdge("east"); 
     }
@@ -60,7 +60,7 @@ class Context {
 
   public void Respawn()
   {
-    if(current!.GetName() == "TL_S1 MiniBoss")
+    if(current!.GetName() == "TL_S1 MiniBoss" && !Flags.GetFlag(Flags.TL_S1_First_Encounter))
     {
       previous = current!.FollowEdge("east"); 
     }
