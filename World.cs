@@ -183,7 +183,7 @@ class World {
           1,
           null,
           "chemical",
-          "The octopus slumps down. After a few moments it disappears.",
+          "",
           Flags.S_S6_BOSS_1_Dead
         );
 
@@ -192,7 +192,7 @@ class World {
           1,
           null,
           "recycling",
-          "The vending machine falls over backwards. After a few moments it disappears.",
+          "",
           Flags.S_S6_BOSS_2_Dead
         );
 
@@ -201,7 +201,7 @@ class World {
           1,
           null,
           "slice",
-          "The giant dragon roars, and then collapses. After a few moments it disappears.",
+          "",
           Flags.S_S6_BOSS_3_Dead
         );
 
@@ -252,17 +252,28 @@ class World {
         S_S6.AddWelcomeEvent(new TextSE("sigh in disappointment", "", "", StartZone_Text.S_S6_2));
         S_S6.AddWelcomeEvent(new TextSE("prepare to fight", "", "", StartZone_Text.S_S6_3));
         S_S6.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S6_4));
-        
+
         // First boss dies, event then spawn
+        S_S6.AddWelcomeEvent(new RefreshScreenSE(Flags.S_S6_BOSS_1_Dead, S_S6));
+        S_S6.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S6_BossDeath_1));
         S_S6.AddWelcomeEvent(new TextSE("gather yourself for another fight", Flags.S_S6_BOSS_1_Dead, "", StartZone_Text.S_S6_5));
         S_S6.AddWelcomeEvent(new SpawnMonsterSE(Flags.S_S6_BOSS_1_Dead, S_S6_BOSS_2, S_S6));
+        S_S6.AddWelcomeEvent(new MonsterAlertSE("", S_S6));
         // Second boss dies, event then spawn third boss
-        S_S6.AddWelcomeEvent(new SpawnMonsterSE(Flags.S_S6_BOSS_2_Dead, S_S6_BOSS_3, S_S6));
+        S_S6.AddWelcomeEvent(new RefreshScreenSE(Flags.S_S6_BOSS_2_Dead, S_S6));
+        S_S6.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S6_BossDeath_2));
         S_S6.AddWelcomeEvent(new TextSE("endure just a little longer", Flags.S_S6_BOSS_2_Dead, "", StartZone_Text.S_S6_6));
+        S_S6.AddWelcomeEvent(new SpawnMonsterSE(Flags.S_S6_BOSS_2_Dead, S_S6_BOSS_3, S_S6));
+        S_S6.AddWelcomeEvent(new MonsterAlertSE("", S_S6));
         // Third boss dies, event then spawn
+        S_S6.AddWelcomeEvent(new RefreshScreenSE(Flags.S_S6_BOSS_3_Dead, S_S6));
+        S_S6.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S6_BossDeath_3));
         S_S6.AddWelcomeEvent(new TextSE("realize this will be the last", Flags.S_S6_BOSS_3_Dead, "", StartZone_Text.S_S6_7));
         S_S6.AddWelcomeEvent(new SpawnMonsterSE(Flags.S_S6_BOSS_3_Dead, S_S6_BOSS_4, S_S6));
+        S_S6.AddWelcomeEvent(new MonsterAlertSE("", S_S6));
         // You won!
+        S_S6.AddWelcomeEvent(new RefreshScreenSE(Flags.S_S6_BOSS_4_Dead, S_S6));
+        S_S6.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S6_BossDeath_4));
         S_S6.AddWelcomeEvent(new TextSE("be glad that it's over", Flags.S_S6_BOSS_4_Dead, "", StartZone_Text.S_S6_8));
         S_S6.AddWelcomeEvent(new TextSE("end this", Flags.S_S6_BOSS_4_Dead, "", StartZone_Text.S_S6_9));
         // TODO: set EndGameSE event here
@@ -501,15 +512,15 @@ class World {
         TL_S1.AddWelcomeEvent(new TextSE("turn around", "", "", TrashLand_Text.TL_S1_1));
         TL_S1.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_2));
         // TL_S1 text (First time, post combat) (Lige nu køre den med det samme, )
-        TL_S1.AddGoodbyeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_3));
+        TL_S1.AddGoodbyeEvent(new TextSE("fly you fool", "", "", TrashLand_Text.TL_S1_3));
 
         // TL_S2 text
-        TL_S2.AddWelcomeEvent(new TextSE("try cotton candy", "", Flags.TL_S1_First_Encounter, TrashLand_Text.TL_S2_1));
+        TL_S2.AddWelcomeEvent(new TextSE("try cotton candy", "", "", TrashLand_Text.TL_S2_1));
         TL_S2.AddWelcomeEvent(new TextSE("go back for seconds", "", "", TrashLand_Text.TL_S2_2));
         TL_S2.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S2_3));
 
         // TL_S3 text 
-        TL_S3.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S3_1));
+        TL_S3.AddWelcomeEvent(new TextSE("", "", Flags.TL_S1_Second_Encounter, TrashLand_Text.TL_S3_1));
 
         // TL_S4 text 
         TL_S4.AddWelcomeEvent(new TextSE("enter shack", "", "", TrashLand_Text.TL_S4_1));

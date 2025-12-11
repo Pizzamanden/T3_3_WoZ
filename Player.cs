@@ -14,7 +14,6 @@ public class Player
 	
 	public Dictionary<string, Attack> AttackList { get; set;} = new Dictionary<string, Attack>();
 
-    public bool isInCombat = false;
 
     // --- CONSTRUCTOR ---
     // Denne metode kører, når en ny Player laves
@@ -23,7 +22,6 @@ public class Player
         this.Name = name;
         this.MaxHP = maxhp;
         this.HP = maxhp; // Nicholas: Start med fuldt liv
-        this.isInCombat = isInCombat;
     }
 
 
@@ -47,11 +45,11 @@ public class Player
     }
 
     // Mikkel: giver nu fuld hp
-    public void Heal()
+    public void Heal(bool display = true)
     {
         
         HP = MaxHP;
-        Console.WriteLine($"{Name} are now fully rested. HP is now {HP}/{MaxHP}.");
+        if(display) Console.WriteLine($"{Name} is now fully rested. HP is now {HP}/{MaxHP}.");
     }
 
     /*

@@ -1,7 +1,7 @@
 // Dummy template
 namespace WoZ.Events;
 
-
+using System;
 using WoZ;
 using WoZ.Commands;
 using WoZ.Interfaces;
@@ -97,6 +97,71 @@ class ClearConsoleSE : IEvent{
 	}
 
 	public bool CanRun()
+    {
+        if (flagToCheck == "")
+        {
+            return true;
+        }
+        return Flags.GetFlag(flagToCheck);
+    }
+}
+
+/*
+	An event which clears the console
+	Can take a flag to await
+ */
+class RefreshScreenSE : IEvent
+{
+
+    private string flagToCheck;
+    private Space space;
+
+    public RefreshScreenSE(string flagToCheck, Space space)
+    {
+        this.flagToCheck = flagToCheck;
+        this.space = space; 
+    }
+
+    // Method which does the events intended behavior
+    public void Trigger()
+    {
+        Console.Clear();
+        new CommandMap().ShowMap(space);
+        Console.WriteLine("");
+    }
+
+    public bool CanRun()
+    {
+        if (flagToCheck == "")
+        {
+            return true;
+        }
+        return Flags.GetFlag(flagToCheck);
+    }
+}
+
+class MonsterAlertSE : IEvent
+{
+
+    private string flagToCheck;
+    private Space space;
+
+    public MonsterAlertSE(string flagToCheck, Space space)
+    {
+        this.flagToCheck = flagToCheck;
+        this.space = space;
+    }
+
+    // Method which does the events intended behavior
+    public void Trigger()
+    {
+        if(space.Monster != null)
+        {
+            space.PrintMonsterAlert();
+        }
+    }
+
+    public bool CanRun()
     {
         if (flagToCheck == "")
         {

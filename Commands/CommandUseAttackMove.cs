@@ -17,7 +17,7 @@ class CommandUseAttackMove : BaseCommand, ICommand
         Monster? monster = context.GetCurrent().Monster;
 
         // Nicholas: Check if there is a monster to attack
-        if (monster == null || !monster.IsAlive()) // When you use the command and there isn't any monster nearby
+        if (!context.IsInCombat()) // When you use the command and there isn't any monster nearby
         {
             Console.WriteLine("There is no enemy to attack here.");
             return;
@@ -64,7 +64,6 @@ class CommandUseAttackMove : BaseCommand, ICommand
         else
         {
             monster!.OnMonsterDeath(context.GetCurrent());
-            context.Player.isInCombat  = false;
             // Peter: Drop an item if the monster should drop an item
             context.GetCurrent().Monster!.DropItem(context.GetCurrent());
             // Then remove it from the Space

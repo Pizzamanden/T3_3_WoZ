@@ -9,7 +9,7 @@ class CommandCheckInventory : BaseCommand, ICommand
     }
     public void Execute(Context context, string command, string[] parameters)
     {
-        if (context.Player.isInCombat)
+        if (context.IsInCombat())
         {
             Console.WriteLine("You don't have time to check your inventory.");
             return;

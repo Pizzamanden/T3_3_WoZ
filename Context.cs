@@ -53,7 +53,7 @@ class Context {
 
   public void Retreat()
   {
-    if(current.GetName() == "TL1" && !Flags.GetFlag(Flags.TL_S1_First_Encounter))
+    if(current.GetName() == "TL1" && !Flags.GetFlag(Flags.TL_S1_Second_Encounter))
     {
       previous = current!.FollowEdge("east"); 
     }
@@ -64,7 +64,7 @@ class Context {
 
   public void Respawn()
   {
-    if(current!.GetName() == "TL1" && !Flags.GetFlag(Flags.TL_S1_First_Encounter))
+    if(current!.GetName() == "TL1" && !Flags.GetFlag(Flags.TL_S1_Second_Encounter))
     {
       previous = current!.FollowEdge("east"); 
     }
@@ -72,12 +72,20 @@ class Context {
     current!.Monster!.Heal();
     current = previous;
     current!.Welcome();
-    Player.isInCombat = false;
   }
   
   public void MakeDone () {
     done = true;
   }
+
+    public bool IsInCombat() {
+        if(current!.Monster != null && current!.Monster!.IsAlive()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
   
   public bool IsDone () {
     return done;
