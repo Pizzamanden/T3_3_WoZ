@@ -51,7 +51,7 @@ class Space : Node {
         monsterText = monsterText.PadLeft(borderLength - padding - 2, '-').PadRight(borderLength - 2, '-');
         monsterText = "!" + monsterText + "!";
         Console.WriteLine(monsterText);
-        Console.WriteLine("Type \"attack\" to list all available attacks.\n");
+        Console.WriteLine("Type <attack> to list all available attacks.\n");
     }
   
   public void Goodbye () {
