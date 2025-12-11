@@ -106,26 +106,25 @@ class CommandMap : BaseCommand, ICommand
     private void displayStartZoneMap(string currentRoomName)
     {
         var sb = new StringBuilder();
-        sb.AppendLine("                               Welcome to Trash Island                ");
-        sb.AppendLine("---------------------------------------------------------------------------------");
-        sb.AppendLine("                                 ↑                            ↑");
-        sb.AppendLine("                 ┌──────┐     ┌──────┐     ┌────────┐     ┌──────┐");
-        sb.AppendLine("                 │  S3  │─────│  S2  │─────│S1-Start│─────│  S4  │ →");
-        sb.AppendLine("                 └──────┘     └──────┘     └────┬───┘     └──────┘");
-        sb.AppendLine("                    ↓                           │");
-        sb.AppendLine("                                            ┌───┴──┐");
-        sb.AppendLine("                                            │  S5  │");
-        sb.AppendLine("                                            └───┬──┘");
-        sb.AppendLine("                                                │");
-        sb.AppendLine("                                            ┌───┴───┐");
-        sb.AppendLine("                                            │   S6  │");
-        sb.AppendLine("                                            └───────┘");
-        sb.AppendLine("---------------------------------------------------------------------------------");
-        sb.AppendLine("[NPC]           = Non-Player Character — Maybe they'd like to talk!");
-        sb.AppendLine("S_ C_ TL_ D_ M_ = Space Number");
-        sb.AppendLine("[Directions]    North ↑    West ←    East →    South ↓");
-        sb.AppendLine("<help>          = For a list of available commands");
-        sb.AppendLine("---------------------------------------------------------------------------------");
+        sb.AppendLine("                             Welcome to Trash Island                             ");
+        sb.AppendLine("─────────────────────────────────────────────────────────────────────────────────");
+        sb.AppendLine("                             ↑                                   ↑               ");
+        sb.AppendLine("    ┌─────────────┐   ┌──────┴──────┐   ┌─────────────┐   ┌──────┴──────┐        ");
+        sb.AppendLine("    │     S3      │───│     S2      │───│   S1-Start  │───│     S4      │——→     ");
+        sb.AppendLine("    └──────┬──────┘   └─────────────┘   └──────┬──────┘   └─────────────┘        ");
+        sb.AppendLine("           ↓                                   │                                 ");
+        sb.AppendLine("                                        ┌──────┴──────┐                          ");
+        sb.AppendLine("                                        │     S5      │                          ");
+        sb.AppendLine("                                        └──────┬──────┘                          ");
+        sb.AppendLine("                                               │                                 ");
+        sb.AppendLine("                                        ┌──────┴──────┐                          ");
+        sb.AppendLine("                                        │     S6      │                          ");
+        sb.AppendLine("                                        └─────────────┘                          ");     
+        sb.AppendLine("─────────────────────────────────────────────────────────────────────────────────");
+        // sb.AppendLine("                     S_ C_ TL_ D_ M_    =    Space Number                        ");
+        sb.AppendLine("                        <Directions>    =    North ↑  West ←  East →  South ↓    ");
+        sb.AppendLine("                              <help>    =    Command list                        ");
+        sb.AppendLine("─────────────────────────────────────────────────────────────────────────────────");
 
 
         // Generer kortet som en streng og farvelægger det nuværende rum
@@ -139,25 +138,25 @@ class CommandMap : BaseCommand, ICommand
     private void displayCityZoneMap(string currentRoomName)
     {
         var sb = new StringBuilder();
-        sb.AppendLine("                               Welcome to the City Zone                ");
-        sb.AppendLine("---------------------------------------------------------------------------------");
-        sb.AppendLine("                            ┌──────────────┐    ┌──────────────┐");
-        sb.AppendLine("                            │      C3      │────│      C4      │");
-        sb.AppendLine("                            └──────┬───────┘    └──────────────┘");
-        sb.AppendLine("                                   │");
-        sb.AppendLine("            ┌────────────────┐  ┌──┴──────────┐");
-        sb.AppendLine("          ← │       C1       │──│     C2      │");
-        sb.AppendLine("            └────────────────┘  └────┬────────┘");
-        sb.AppendLine("                                     │");
-        sb.AppendLine("                             ┌───────┴──────┐    ┌──────────────┐");
-        sb.AppendLine("                             │       C5     │────│      C6      │");
-        sb.AppendLine("                             └──────────────┘    └──────────────┘");
-        sb.AppendLine("---------------------------------------------------------------------------------");
-        sb.AppendLine("[NPC]           = Non-Player Character — Maybe they'd like to talk!");
-        sb.AppendLine("S_ C_ TL_ D_ M_ = Space Number");
-        sb.AppendLine("[Directions]    North ↑    West ←    East →    South ↓");
-        sb.AppendLine("<help>          = For a list of available commands");
-        sb.AppendLine("---------------------------------------------------------------------------------");
+        sb.AppendLine("                               Welcome to the City                               ");
+        sb.AppendLine("─────────────────────────────────────────────────────────────────────────────────");
+        sb.AppendLine("                                  ┌─────────────┐   ┌─────────────┐              ");
+        sb.AppendLine("                                  │     C3      │───│     C4      │              ");
+        sb.AppendLine("                                  └──────┬──────┘   └─────────────┘              ");
+        sb.AppendLine("                                         │                                       ");
+        sb.AppendLine("                ┌─────────────┐   ┌──────┴──────┐                                ");
+        sb.AppendLine("             ←——│     C1      │───│     C2      │                                "); 
+        sb.AppendLine("                └─────────────┘   └──────┬──────┘                                ");
+        sb.AppendLine("                                         │                                       ");
+        sb.AppendLine("                                  ┌──────┴──────┐   ┌─────────────┐              ");
+        sb.AppendLine("                                  │     C5      │───│     C6      │              ");
+        sb.AppendLine("                                  └─────────────┘   └─────────────┘              ");
+        sb.AppendLine("                                                                                 ");
+        sb.AppendLine("─────────────────────────────────────────────────────────────────────────────────");
+        // sb.AppendLine("                     S_ C_ TL_ D_ M_    =    Space Number                        ");
+        sb.AppendLine("                        <Directions>    =    North ↑  West ←  East →  South ↓    ");
+        sb.AppendLine("                              <help>    =    Command list                        ");
+        sb.AppendLine("─────────────────────────────────────────────────────────────────────────────────");
 
         // Generer kortet som en streng og farvelægger det nuværende rum
         string mapCity = sb.ToString();
@@ -170,22 +169,25 @@ class CommandMap : BaseCommand, ICommand
     private void displayDocksZoneMap(string currentRoomName)
     {
         var sb = new StringBuilder();
-        sb.AppendLine("                               Welcome to the Docks Zone                        ");
-        sb.AppendLine("---------------------------------------------------------------------------------");
-        sb.AppendLine("   ┌──────────────┐");
-        sb.AppendLine("   │      D6      │");
-        sb.AppendLine("   └──────┬───────┘");
-        sb.AppendLine("          │");
-        sb.AppendLine("   ┌──────┴───────┐ ┌─────────────┐ ┌──────────────┐ ┌─────────────┐ ┌────────────┐");
-        sb.AppendLine("   │      D5      │-│     D4      │-│     D1       │-│     D2      │-│     D3     │");
-        sb.AppendLine("   └──────────────┘ └─────────────┘ └──────────────┘ └─────────────┘ └────────────┘");
-        sb.AppendLine("                                           ↓");
-        sb.AppendLine("---------------------------------------------------------------------------------");
-        sb.AppendLine("[NPC]           = Non-Player Character — Maybe they'd like to talk!");
-        sb.AppendLine("S_ C_ TL_ D_ M_ = Space Number");
-        sb.AppendLine("[Directions]    North ↑    West ←    East →    South ↓");
-        sb.AppendLine("<help>          = For a list of available commands");
-        sb.AppendLine("---------------------------------------------------------------------------------");
+        sb.AppendLine("                              Welcome to the Docks                               ");
+        sb.AppendLine("─────────────────────────────────────────────────────────────────────────────────");
+        sb.AppendLine("                                                                                 ");
+        sb.AppendLine("                                                                                 ");
+        sb.AppendLine(" ┌─────────────┐                                                                 ");
+        sb.AppendLine(" │     D6      │                                                                 ");
+        sb.AppendLine(" └──────┬──────┘                                                                 ");
+        sb.AppendLine("        │                                                                        ");
+        sb.AppendLine(" ┌──────┴──────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ");
+        sb.AppendLine(" │     D5      │-│     D4      │-│     D1      │-│     D2      │-│     D3      │ ");
+        sb.AppendLine(" └─────────────┘ └─────────────┘ └──────┬──────┘ └─────────────┘ └─────────────┘ ");
+        sb.AppendLine("                                        ↓                                        ");
+        sb.AppendLine("                                                                                 ");
+        sb.AppendLine("                                                                                 ");
+        sb.AppendLine("─────────────────────────────────────────────────────────────────────────────────");
+        // sb.AppendLine("                     S_ C_ TL_ D_ M_    =    Space Number                        ");
+        sb.AppendLine("                        <Directions>    =    North ↑  West ←  East →  South ↓    ");
+        sb.AppendLine("                              <help>    =    Command list                        ");
+        sb.AppendLine("─────────────────────────────────────────────────────────────────────────────────");
 
 
         // Generer kortet som en streng og farvelægger det nuværende rum
@@ -198,26 +200,25 @@ class CommandMap : BaseCommand, ICommand
     private void displayMallZoneMap(string currentRoomName)
     {
         var sb = new StringBuilder();
-        sb.AppendLine("                               Welcome to the Mall Zone                        ");
-        sb.AppendLine("---------------------------------------------------------------------------------");
-        sb.AppendLine("                          ┌────────────┐   ┌───────────────┐");
-        sb.AppendLine("                          │     M5     │───│      M6       │");
-        sb.AppendLine("                          └─────┬──────┘   └───────────────┘");
-        sb.AppendLine("                                │                  ");
-        sb.AppendLine("                          ┌─────┴──────┐   ┌──────────────┐");
-        sb.AppendLine("                          │    M4      │───│      M3      │");
-        sb.AppendLine("                          └────────────┘   └──────┬───────┘");
-        sb.AppendLine("                                                  │");
-        sb.AppendLine("                          ┌────────────┐   ┌──────┴───────┐");
-        sb.AppendLine("                          │     M1     │───│      M2      │");
-        sb.AppendLine("                          └────────────┘   └──────────────┘");
-        sb.AppendLine("                                ↓");
-        sb.AppendLine("---------------------------------------------------------------------------------");
-        sb.AppendLine("[NPC]           = Non-Player Character — Maybe they'd like to talk!");
-        sb.AppendLine("S_ C_ TL_ D_ M_ = Space Number");
-        sb.AppendLine("[Directions]    North ↑    West ←    East →    South ↓");
-        sb.AppendLine("<help>          = For a list of available commands");
-        sb.AppendLine("---------------------------------------------------------------------------------");
+        sb.AppendLine("                               Welcome to the Mall                               ");
+        sb.AppendLine("─────────────────────────────────────────────────────────────────────────────────");
+        sb.AppendLine("                        ┌─────────────┐   ┌─────────────┐                        ");
+        sb.AppendLine("                        │     M5      │───│     M6      │                        ");
+        sb.AppendLine("                        └──────┬──────┘   └─────────────┘                        ");
+        sb.AppendLine("                               │                                                 ");
+        sb.AppendLine("                        ┌──────┴──────┐   ┌─────────────┐                        ");
+        sb.AppendLine("                        │     M4      │───│     M3      │                        ");
+        sb.AppendLine("                        └─────────────┘   └──────┬──────┘                        ");
+        sb.AppendLine("                                                 │                               ");
+        sb.AppendLine("                        ┌─────────────┐   ┌──────┴──────┐                        ");
+        sb.AppendLine("                        │     M1      │───│     M2      │                        ");
+        sb.AppendLine("                        └──────┬──────┘   └─────────────┘                        ");
+        sb.AppendLine("                               ↓                                                 ");
+        sb.AppendLine("─────────────────────────────────────────────────────────────────────────────────");
+        // sb.AppendLine("                     S_ C_ TL_ D_ M_    =    Space Number                        ");
+        sb.AppendLine("                        <Directions>    =    North ↑  West ←  East →  South ↓    ");
+        sb.AppendLine("                              <help>    =    Command list                        ");
+        sb.AppendLine("─────────────────────────────────────────────────────────────────────────────────");
 
 
         // Generer kortet som en streng og farvelægger det nuværende rum
@@ -229,23 +230,26 @@ class CommandMap : BaseCommand, ICommand
     // Metode til at vise kortet for TrashLand Zone
     private void displayTrashLandZoneMap(string currentRoomName)
     {
-    var sb = new StringBuilder();
-    sb.AppendLine("                                 Welcome to Trash Land                        ");
-    sb.AppendLine("---------------------------------------------------------------------------------");
-    sb.AppendLine("                                          ↑");
-    sb.AppendLine("                 ┌──────────┐      ┌──────────────┐      ┌───────────┐");
-    sb.AppendLine("                 │    TL6   │──────│     TL1      │─────>│    TL2    │");
-    sb.AppendLine("                 └─────┬────┘      └──────────────┘      └─────┬─────┘");
-    sb.AppendLine("                       │                                       │");
-    sb.AppendLine("                 ┌─────┴──────┐    ┌──────────────┐    ┌───────┴──────┐");
-    sb.AppendLine("                 │    TL5     │────│     TL4      │────│      TL3     │");
-    sb.AppendLine("                 └────────────┘    └──────────────┘    └──────────────┘");
-    sb.AppendLine("---------------------------------------------------------------------------------");
-    sb.AppendLine("[NPC]           = Non-Player Character — Maybe they'd like to talk!");
-    sb.AppendLine("S_ C_ TL_ D_ M_ = Space Number");
-    sb.AppendLine("[Directions]    North ↑    West ←    East →    South ↓");
-    sb.AppendLine("<help>          = For a list of available commands");
-    sb.AppendLine("---------------------------------------------------------------------------------");
+        var sb = new StringBuilder();
+        sb.AppendLine("                              Welcome to Trash Land                              ");
+        sb.AppendLine("─────────────────────────────────────────────────────────────────────────────────");
+        sb.AppendLine("                                                                                 ");
+        sb.AppendLine("                                                                                 ");
+        sb.AppendLine("                                        ↑                                        ");
+        sb.AppendLine("               ┌─────────────┐   ┌──────┴──────┐   ┌─────────────┐               ");
+        sb.AppendLine("               │     TL6     │───│     TL1     │——→│     TL2     │               ");
+        sb.AppendLine("               └──────┬──────┘   └─────────────┘   └──────┬──────┘               ");
+        sb.AppendLine("                      │                                   │                      ");
+        sb.AppendLine("               ┌──────┴──────┐   ┌─────────────┐   ┌──────┴──────┐               ");
+        sb.AppendLine("               │     TL5     │───│     TL4     │───│     TL3     │               ");
+        sb.AppendLine("               └─────────────┘   └─────────────┘   └─────────────┘               ");
+        sb.AppendLine("                                                                                 ");
+        sb.AppendLine("                                                                                 ");
+        sb.AppendLine("─────────────────────────────────────────────────────────────────────────────────");
+        // sb.AppendLine("                     S_ C_ TL_ D_ M_    =    Space Number                        ");
+        sb.AppendLine("                        <Directions>    =    North ↑  West ←  East →  South ↓    ");
+        sb.AppendLine("                              <help>    =    Command list                        ");
+        sb.AppendLine("─────────────────────────────────────────────────────────────────────────────────");
 
 
         // Generer kortet som en streng og farvelægger det nuværende rum
