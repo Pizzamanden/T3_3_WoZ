@@ -66,6 +66,10 @@ static class Flags
         flagdict.Add(M_S4_Combat_dead, false);
         flagdict.Add(M_S6_Combat_dead, false);
         flagdict.Add(M_S6_Got_Key, false);
+        // Trash Land flags
+        flagdict.Add(TL_S1_First_Encounter, false);
+        flagdict.Add(TL_S1_Real_Combat, false);
+        flagdict.Add(TL_S1_Got_Key, false);
     }
 
     /*

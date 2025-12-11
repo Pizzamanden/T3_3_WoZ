@@ -38,7 +38,7 @@ class Context {
   public void Transition (string direction) {
     Space? next = current!.FollowEdge(direction);
     if (next==null) {
-      Console.WriteLine("You cannot go '"+direction+"' from here.");
+      Console.WriteLine("You cannot go '"+direction+"' from here.\n");
     } else {
       previous = current;
       current.Goodbye();
@@ -49,7 +49,7 @@ class Context {
 
   public void Retreat()
   {
-    if(current.GetName() == "TL_S1 MiniBoss" && !Flags.GetFlag(Flags.TL_S1_First_Encounter))
+    if(current.GetName() == "TL1" && !Flags.GetFlag(Flags.TL_S1_First_Encounter))
     {
       previous = current!.FollowEdge("east"); 
     }
@@ -60,7 +60,7 @@ class Context {
 
   public void Respawn()
   {
-    if(current!.GetName() == "TL_S1 MiniBoss" && !Flags.GetFlag(Flags.TL_S1_First_Encounter))
+    if(current!.GetName() == "TL1" && !Flags.GetFlag(Flags.TL_S1_First_Encounter))
     {
       previous = current!.FollowEdge("east"); 
     }

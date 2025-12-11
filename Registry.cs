@@ -21,7 +21,7 @@ class Registry {
     string command = elements[0];
     string[] parameters = GetParameters(elements);
     (commands.ContainsKey(command) ? GetCommand(command) : fallback).Execute(context, command, parameters);
-    if (command != "go")
+    if (command != "go" && command != "retreat")
     {
         Console.WriteLine(""); 
     }
