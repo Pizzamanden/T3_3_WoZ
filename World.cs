@@ -354,7 +354,7 @@ class World {
         M_S4_Combat.Monster.AttackDamage = 1;
 
         M_S6_MiniBoss.Monster = new Monster(
-          "Plastic Monster",
+          "Action Man and Bottle Boy",
           120,
           Key3,
           "slice",
