@@ -289,7 +289,7 @@ class World {
         /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - MALL - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
         // Troels made this:
         // M_S1 text
-        M_S1.AddWelcomeEvent(new TextSE("show confidence in your abilities to win", "", "", Mall_Text.M_S1_1));
+        M_S1.AddWelcomeEvent(new TextSE("pretend you didn't see him", "", "", Mall_Text.M_S1_1));
         M_S1.AddWelcomeEvent(new TextSE("pretend to care", "", "", Mall_Text.M_S1_2));
         M_S1.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S1_3));
         M_S1.AddWelcomeEvent(new TextSE("give him the doll", Flags.M_S3_Pickup_Barbie, "", Mall_Text.M_S1_4));
@@ -298,7 +298,7 @@ class World {
         
         // M_S2 text
         M_S2.AddWelcomeEvent(new TextSE("continue onwards from the food court", "", "", Mall_Text.M_S2_1));
-        M_S2.AddWelcomeEvent(new TextSE("cough loudly and clutch your chest", "", "", Mall_Text.M_S2_2));
+        M_S2.AddWelcomeEvent(new TextSE("pretend to find it appealing", "", "", Mall_Text.M_S2_2));
         M_S2.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S2_3));
 
         // M_S3 text
@@ -332,7 +332,7 @@ class World {
           null
         ));
         M_S3.PlaceNPC(new NPC(
-          "Old woman",
+          "old lady",
           "*Cough*",
           new List<string>
           {
@@ -354,7 +354,7 @@ class World {
         M_S2.Monster.AttackDamage = 15;
 
         M_S4.Monster = new Monster(
-          "Funko Pop fan",
+          "Funko Pop Fan",
           50,
           null,
           "slice",
