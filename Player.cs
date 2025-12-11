@@ -51,7 +51,7 @@ public class Player
     {
         
         HP = MaxHP;
-        Console.WriteLine($"{Name} is now fully rested. HP is now {HP}/{MaxHP}.");
+        Console.WriteLine($"{Name} are now fully rested. HP is now {HP}/{MaxHP}.");
     }
 
     /*

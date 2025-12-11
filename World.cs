@@ -66,10 +66,10 @@ class World {
 
     // TrashLand-zonen
     Space TL_S1  = new Space(TrashLand, "TL1");
-    Space TL_S2 = new Space(TrashLand, "TL2");
+    Space TL_S2  = new Space(TrashLand, "TL2");
     Space TL_S3  = new Space(TrashLand, "TL3");
     Space TL_S4  = new Space(TrashLand, "TL4");
-    Space TLS5  = new Space(TrashLand, "TL5");
+    Space TL_S5  = new Space(TrashLand, "TL5");
     Space TL_S6  = new Space(TrashLand, "TL6");
 
 
@@ -141,9 +141,14 @@ class World {
       TL_S1.AddEdge("east", TL_S2);
       TL_S2.AddEdge("south", TL_S3);
       TL_S3.AddEdge("west", TL_S4);
-      TL_S4.AddEdge("west", TLS5);
-      TLS5.AddEdge("north", TL_S6);
+      TL_S3.AddEdge("north", TL_S2);
+      TL_S4.AddEdge("west", TL_S5);
+      TL_S4.AddEdge("east", TL_S3);
+      TL_S5.AddEdge("north", TL_S6);
+      TL_S5.AddEdge("east", TL_S4);
       TL_S6.AddEdge("east", TL_S1);
+      TL_S6.AddEdge("south", TL_S5);
+
       
     }
 
@@ -459,7 +464,7 @@ class World {
         );
         TL_S3.Monster.AttackDamage = 1;
 
-        TLS5.Monster = new Monster(
+        TL_S5.Monster = new Monster(
           "Teacup Enthusiast",
           40,
           null,
@@ -467,7 +472,7 @@ class World {
           "",
           ""
         );
-        TLS5.Monster.AttackDamage = 1;
+        TL_S5.Monster.AttackDamage = 1;
 
         // NPCs:
         TL_S4.PlaceNPC(new NPC(
@@ -518,8 +523,8 @@ class World {
         TL_S4.AddWelcomeEvent(new UpdateMonsterDamageSE(Flags.TL_S1_Real_Combat, TL_S1.Monster, 15));
 
         // TL_S5 text 
-        TLS5.AddWelcomeEvent(new TextSE("watch", "", "", TrashLand_Text.TL_S5_1));
-        TLS5.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S5_2));
+        TL_S5.AddWelcomeEvent(new TextSE("watch", "", "", TrashLand_Text.TL_S5_1));
+        TL_S5.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S5_2));
 
         // TL_S6 text 
         TL_S6.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S6_1));
