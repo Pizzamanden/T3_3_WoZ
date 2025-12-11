@@ -1,17 +1,28 @@
 namespace WoZ.Texts;
 public static class Docks_Text
 {
+    // D1 text
     public const string D_S1_1 = "You head for the docks, pinching your nose, stumbling through \na maze of nets.\n\nTwo signs catch your eye: \"Dr. Spill's Chemicals\" to the east, \n\"Piers\" to the west.";
-    public const string D_S2_1 = "You pass a sick-looking customer wobbling away from the doctor's \nshop, drinking fish oil from a small glass.\n\n“Oh… OH yeah… that really hits the spot”, he says to himself, \n\"Can't believe how hard it is to get this stuff. Used to be all over \nthe place, now I can barely get my hands on any\". \n\n\"Damn ghost fishing, it'd be so much easier to get if there weren't \nall those nets stuck to the ocean floor, killing all the fish\". Totally \nunaware of his surroundings, he walks straight into you...\n\n\"What's your problem man?! Here to steal my fish oil too?\"";
+    
+    // D2 text
+    public const string D_S2_1 = "You pass a sick-looking customer wobbling away from the doctor's \nshop, drinking fish oil from a small glass.\n\n“Oh... OH yeah... that really hits the spot”, he says to himself, \n\"Can't believe how hard it is to get this stuff. Used to be all over \nthe place, now I can barely get my hands on any\". \n\n\"Damn ghost fishing, it'd be so much easier to get if there weren't \nall those nets stuck to the ocean floor, killing all the fish\". Totally \nunaware of his surroundings, he walks straight into you...\n\n\"What's your problem man?! Here to steal my fish oil too?\"";
+    
+    // D3 text
     public const string D_S3_1 = "You enter the shop, only to find the most obnoxious doctor you've \never met. \n\n“Well hALLOOOO there!”, he says with a grin — a little too wide \nfor his face, “HOW may I be of HELP to you today, good sir?”";
-    public const string D_S3_2 = "As you're about to ask which kinds of medicine he has for sale, but \nbarely get past “Wha…”, before he interrupts you.\n\n“♪ WE'VE, GOT… ♪”, he starts singing a full song about all kinds \nof irrelevant chemicals. Ending the song with “♪ and if you happen \nto come across any ghost fishing gear you need to break down we \nuse a process called 'depolymerization' which is kinda hard to \nexplain but I've got some chemicals here for you that you can \nuse♪”, all in a single breath.\n\n";
+    public const string D_S3_2 = "As you're about to ask which kinds of medicine he has for sale, but \nbarely get past “Wha...”, before he interrupts you.\n\n“♪ WE'VE, GOT... ♪”, he starts singing a full song about all kinds \nof irrelevant chemicals. Ending the song with “♪ and if you happen \nto come across any ghost fishing gear you need to break down we \nuse a process called 'depolymerization' which is kinda hard to \nexplain but I've got some chemicals here for you that you can \nuse♪”, all in a single breath.\n\n";
     public const string D_S3_Talk = "Before you leave, you ask if he can sing that song for you one last \ntime. He sings: “♪Chemicals break ghost fishing gear♪”. You can't \nbelieve how well written it is.";
+    
+    // D4 text
     public const string D_S4_1 = "Halfway across the harbor, a massive sea turtle erupts from the \nwater, crushing parts of the dock. It struggles to move due to being \ntangled in countless fishing nets.\n\nIn a blind rage, the turtle starts chasing you.";
     public const string D_S4_2 = "Finally freed from the nets, the turtle calms down. ";
+    
+    // D5 text
     public const string D_S5_1 = "As you approach the pier, you smell something fishy from up \nahead, almost distracting you from the diver coming out of the \nwater near you.";
     public const string D_S5_Talk = "“It's pretty bad down there. All kinds of trash, but especially those \nnets cover the bottom like a blanket. We need a way to break \ndown those fibers”.";
-    public const string D_S6_1 = "At the end of the pier, a huge ghostly fisherman sits hunched over. \nParts of his once human body have morphed into fishing gear — \nhis long beard tangled into ropes, clothes woven from nets, and \nhundreds of fishing lines stretching from him into the ocean.\n\nYou hear faint words coming from the man. “nevermore…”, his \ndeep voice sounds otherworldly, like waves against rocky shores.";
+    
+    // D6 text
+    public const string D_S6_1 = "At the end of the pier, a huge ghostly fisherman sits hunched over. \nParts of his once human body have morphed into fishing gear — \nhis long beard tangled into ropes, clothes woven from nets, and \nhundreds of fishing lines stretching from him into the ocean.\n\nYou hear faint words coming from the man. “nevermore...”, his \ndeep voice sounds otherworldly, like waves against rocky shores.";
     public const string D_S6_2 = "He rises slowly, towering over you despite the lines dragging him \ndown. He lets out an agonising roar. The sky darkens, bringing \npouring rain and howling winds with it.\n\nHe turns around to face you, and the flashes of light from the \nthunder gives you your first real glimpse at his face. The torment \nof his agony shows clear in his hurt eyes, buried deep beneath the \nold fishing gear that envelops his body.";
-    public const string D_S6_3 = "The storm starts to settle, as the ghostly figure fades away, and a \nkey piece drops to the ground…";
+    public const string D_S6_3 = "The storm starts to settle, as the ghostly figure fades away, and a \nkey piece drops to the ground...";
     public const string D_S6_4 = "You contact HQ, telling them it's safe for the crew to come in and \ntake care of the rest. \n\nYou also relay the information that chemical recycling is effective \nagainst ghost nets.";
 } 
