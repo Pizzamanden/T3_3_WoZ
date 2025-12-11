@@ -343,7 +343,7 @@ class World {
           30,
           null,
           "slice",
-          "",
+          "The Plastic Cook dissolves into tiny pieces of plastic.",
           ""
         );
         M_S2.Monster.AttackDamage = 1;
@@ -467,7 +467,7 @@ class World {
           40,
           null,
           "recycling",
-          "",
+          "The employee falls apart into separate pieces of trash.",
           ""
         );
         TL_S3.Monster.AttackDamage = 1;
@@ -477,7 +477,7 @@ class World {
           40,
           null,
           "recycling",
-          "",
+          "You throw the final pieces of the monster into your newly acquired bins.",
           ""
         );
         TL_S5.Monster.AttackDamage = 1;
@@ -552,7 +552,7 @@ class World {
             1,
             Key1,
             "fire",
-            "bleugh",
+            "",
             Flags.C_S1_MiniBoss_Boss_Dead
         );
         Monster C_S4_Combat_Monster = new Monster(
@@ -560,7 +560,7 @@ class World {
             1,
             C1,
             "fire",
-            "bleugh",
+            "",
             Flags.C_S4_Monster_Dead
         );
         Monster C_S6_Combat_Monster = new Monster(
@@ -568,7 +568,7 @@ class World {
             1,
             C2,
             "fire",
-            "bleugh",
+            "",
             Flags.C_S6_Monster_Dead
         );
 

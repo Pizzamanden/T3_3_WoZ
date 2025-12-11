@@ -19,7 +19,7 @@ static class Mall_Text
     public const string M_S5_1 = "You finally reach the top. It seems to be entirely dedicated to a \nlarge toy store that just opened up. Giant sale signs, and \ncommercials featuring barbie dolls, action figures, and even beach \nand bath toys."; 
     public const string M_S6_1 = "You enter the toy store proper, and are immediately met with two \ntough looking customers, looking as if they are ready for a fight.";
     public const string M_S6_2 = "The two announce themselves as Action Man and Bottle Boy. The \nformer resembles an 8 foot tall amalgamation of different action \nfigures. While the latter looked more like a small boy, made up of \nold plastic bottles, with two googly eyes on his head.";
-    public const string M_S6_3 = "With the monsters finally defeated. You see a key piece sticking \nout from inside Bottle Boy's bottle cap.";
+    public const string M_S6_3 = "As you finish shredding the monsters, you see a key piece sticking \nout from inside Bottle Boy's bottle cap.";
     public const string M_S6_4 = "You contact HQ, telling them it's safe for the crew to come in and \ntake care of the rest. \n\nYou also relay the information that mechanical recycling is \neffective against plastic.";
 
 }
