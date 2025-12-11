@@ -283,8 +283,8 @@ class World {
         /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - MALL - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
         // Troels made this:
         // M_S1 text
-        M_S1_NPC.AddWelcomeEvent(new TextSE("show confidence in your abilities to win…", "", "", Mall_Text.M_S1_1));
-        M_S1_NPC.AddWelcomeEvent(new TextSE("pretend to care…", "", "", Mall_Text.M_S1_2));
+        M_S1_NPC.AddWelcomeEvent(new TextSE("show confidence in your abilities to win", "", "", Mall_Text.M_S1_1));
+        M_S1_NPC.AddWelcomeEvent(new TextSE("pretend to care", "", "", Mall_Text.M_S1_2));
         M_S1_NPC.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S1_3));
         M_S1_NPC.AddWelcomeEvent(new TextSE("give him the doll", Flags.M_S3_Pickup_Barbie, "", Mall_Text.M_S1_4));
         M_S1_NPC.AddWelcomeEvent(new TextSE("", Flags.M_S3_Pickup_Barbie, "", Mall_Text.M_S1_5));
@@ -507,28 +507,28 @@ class World {
         TL_S4_NPC.PlaceItem(TL_Bins);
 
         // TL_S1 text (First time) (Mangler at fikse combat elementet af den)
-        TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("turn around...", "", "", TrashLand_Text.TL_S1_1));
+        TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("turn around", "", "", TrashLand_Text.TL_S1_1));
         TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_2));
         // TL_S1 text (First time, post combat) (Lige nu køre den med det samme, )
         TL_S1_MiniBoss.AddGoodbyeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_3));
 
         // TL_S2 text
-        TL_S2.AddWelcomeEvent(new TextSE("try cotton candy...", "", "", TrashLand_Text.TL_S2_1));
-        TL_S2.AddWelcomeEvent(new TextSE("go back for seconds...", "", "", TrashLand_Text.TL_S2_2));
+        TL_S2.AddWelcomeEvent(new TextSE("try cotton candy", "", "", TrashLand_Text.TL_S2_1));
+        TL_S2.AddWelcomeEvent(new TextSE("go back for seconds", "", "", TrashLand_Text.TL_S2_2));
         TL_S2.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S2_3));
 
         // TL_S3 text 
         TL_S3_Combat.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S3_1));
 
         // TL_S4 text 
-        TL_S4_NPC.AddWelcomeEvent(new TextSE("enter shack...", "", "", TrashLand_Text.TL_S4_1));
+        TL_S4_NPC.AddWelcomeEvent(new TextSE("enter shack", "", "", TrashLand_Text.TL_S4_1));
         TL_S4_NPC.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S4_2));
         TL_S4_NPC.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S4_3));
         TL_S4_NPC.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S4_4));
         TL_S4_NPC.AddWelcomeEvent(new UpdateMonsterDamageSE(Flags.TL_S1_Real_Combat, TL_S1_MiniBoss.Monster, 15));
 
         // TL_S5 text 
-        TL_S5_Combat.AddWelcomeEvent(new TextSE("watch...", "", "", TrashLand_Text.TL_S5_1));
+        TL_S5_Combat.AddWelcomeEvent(new TextSE("watch", "", "", TrashLand_Text.TL_S5_1));
         TL_S5_Combat.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S5_2));
 
         // TL_S6 text 
