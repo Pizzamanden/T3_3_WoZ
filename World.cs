@@ -19,6 +19,7 @@ class World {
   public static Item TL_Bins = new Item("bins", "bins", Flags.TL_S1_Real_Combat);
   public static Item M_Barbie = new Item("Barbie", "Barbie", Flags.M_S3_Pickup_Barbie);
   public static Item M_Sword = new Item("Sword", "Sword");
+  public static Item D_Chemicals = new Item("Chemicals", "Chemicals");
   public static Item C1 = new Item("LighterFluid", "LighterFluid", Flags.C_S4_LighterFluid_Pickup);
   public static Item C2 = new Item("MetalComponents", "MetalComponents");
     public static string DefAct = "continue";
@@ -376,7 +377,7 @@ class World {
         D_S2_Combat.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S2_1));
 
         // D_S3 text
-        D_S3_NPC.AddWelcomeEvent(new TextSE("buy medicine...\n", "", "", Docks_Text.D_S3_1));
+        D_S3_NPC.AddWelcomeEvent(new TextSE("buy medicine", "", "", Docks_Text.D_S3_1));
         D_S3_NPC.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S3_2));
 
         // D_S4 text
@@ -387,12 +388,15 @@ class World {
         D_S5.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S5_1));
 
         // D_S6 text
-        D_S6_MiniBoss.AddWelcomeEvent(new TextSE("approach him...", "", "", Docks_Text.D_S6_1));
+        D_S6_MiniBoss.AddWelcomeEvent(new TextSE("approach him", "", "", Docks_Text.D_S6_1));
         D_S6_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S6_2));
         D_S6_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.D_S6_Combat_dead, "", Docks_Text.D_S6_3));
         D_S6_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.D_S6_Got_Key, "", Docks_Text.D_S6_4));
 
-// Monsters
+        // Place weapon (Chemicals
+        D_S3_NPC.PlaceItem(D_Chemicals);
+        
+        // Monsters
         D_S2_Combat.Monster = new Monster(
           "Sick customer",
           30,
