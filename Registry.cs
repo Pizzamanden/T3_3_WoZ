@@ -21,6 +21,7 @@ class Registry {
     string command = elements[0];
     string[] parameters = GetParameters(elements);
     (commands.ContainsKey(command) ? GetCommand(command) : fallback).Execute(context, command, parameters);
+    Console.WriteLine("");
   }
   
   public ICommand GetCommand (string commandName) {

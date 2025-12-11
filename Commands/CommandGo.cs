@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 class CommandGo : BaseCommand, ICommand {
     public CommandGo () {
-        description = "Follow an exit: Type \"go <direction>\" to follow a direction.\n";
+        description = "Follow an exit: Type \"go <direction>\" to follow a direction.";
     }
 
     public void Execute(Context context, string command, string[] parameters) {

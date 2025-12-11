@@ -283,8 +283,8 @@ class World {
         M_S1_NPC.AddWelcomeEvent(new SpawnItemSE(Flags.M_S3_Pickup_Barbie, M_Sword, M_S1_NPC));
         
         // M_S2 text
-        M_S2_Combat.AddWelcomeEvent(new TextSE("continue onwards from the food court", "", "", Mall_Text.M_S2_1));
-        M_S2_Combat.AddWelcomeEvent(new TextSE("cough loudly and clutch your chest", "", "", Mall_Text.M_S2_2));
+        M_S2_Combat.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S2_1));
+        M_S2_Combat.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S2_2));
         M_S2_Combat.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S2_3));
 
         // M_S3 text

@@ -141,8 +141,8 @@ class TextSE : IEvent{
 		{
 			Console.Write($"> Press enter to {actionText}...");
 			Console.ReadLine();
+            Console.WriteLine("");
 		}
-		Console.WriteLine("");
 		if (flagToSet != "")
         {
             Flags.SetFlag(flagToSet);

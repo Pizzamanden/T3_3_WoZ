@@ -109,9 +109,9 @@ class CommandMap : BaseCommand, ICommand
         sb.AppendLine("                               Welcome to Trash Island                ");
         sb.AppendLine("---------------------------------------------------------------------------------");
         sb.AppendLine("                                 ↑                            ↑");
-        sb.AppendLine("                 ┌──────┐     ┌──────┐     ┌────────┐     ┌──────┐");
-        sb.AppendLine("                 │S3 NPC│─────│  S2  │─────│S1-Start│─────│S4 NPC│ →");
-        sb.AppendLine("                 └──────┘     └──────┘     └────┬───┘     └──────┘");
+        sb.AppendLine("                 ┌──────┐     ┌──┴───┐     ┌────────┐     ┌───┴──┐");
+        sb.AppendLine("                 │S3 NPC│─────│  S2  │─────│S1-Start│─────│S4 NPC│──>");
+        sb.AppendLine("                 └──┬───┘     └──────┘     └────┬───┘     └──────┘");
         sb.AppendLine("                    ↓                           │");
         sb.AppendLine("                                            ┌───┴──┐");
         sb.AppendLine("                                            │  S5  │");
@@ -229,29 +229,29 @@ class CommandMap : BaseCommand, ICommand
     // Metode til at vise kortet for TrashLand Zone
     private void displayTrashLandZoneMap(string currentRoomName)
     {
-    var sb = new StringBuilder();
-    sb.AppendLine("                                 Welcome to Trash Land                        ");
-    sb.AppendLine("---------------------------------------------------------------------------------");
-    sb.AppendLine("                                          ↑");
-    sb.AppendLine("                 ┌──────────┐      ┌──────────────┐      ┌───────────┐");
-    sb.AppendLine("                 │TL_S6 NPC │─────>│TL_S1 MiniBoss│─────>│   TL_S2   │");
-    sb.AppendLine("                 └─────┬────┘      └──────────────┘      └─────┬─────┘");
-    sb.AppendLine("                       │                                       │     ");
-    sb.AppendLine("                 ┌─────┴──────┐    ┌──────────────┐    ┌───────┴──────┐");
-    sb.AppendLine("                 │TL_S5 Combat│<───│ TL_S4 NPC    │<───│TL_S3 Combat  │");
-    sb.AppendLine("                 └────────────┘    └──────────────┘    └──────────────┘");
-    sb.AppendLine("---------------------------------------------------------------------------------");
-    sb.AppendLine("[NPC]           = Non-Player Character — Maybe they'd like to talk!");
-    sb.AppendLine("S_ C_ TL_ D_ M_ = Space Number");
-    sb.AppendLine("[Directions]    North ↑    West ←    East →    South ↓");
-    sb.AppendLine("<help>          = For a list of available commands");
-    sb.AppendLine("---------------------------------------------------------------------------------");
+        var sb = new StringBuilder();
+        sb.AppendLine("                                 Welcome to Trash Land                        ");
+        sb.AppendLine("---------------------------------------------------------------------------------");
+        sb.AppendLine("                                          ↑");
+        sb.AppendLine("                 ┌──────────┐      ┌──────────────┐      ┌───────────┐");
+        sb.AppendLine("                 │TL_S6 NPC │─────>│TL_S1 MiniBoss│─────>│   TL_S2   │");
+        sb.AppendLine("                 └─────┬────┘      └──────────────┘      └─────┬─────┘");
+        sb.AppendLine("                       │                                       │     ");
+        sb.AppendLine("                 ┌─────┴──────┐    ┌──────────────┐    ┌───────┴──────┐");
+        sb.AppendLine("                 │TL_S5 Combat│<───│ TL_S4 NPC    │<───│TL_S3 Combat  │");
+        sb.AppendLine("                 └────────────┘    └──────────────┘    └──────────────┘");
+        sb.AppendLine("---------------------------------------------------------------------------------");
+        sb.AppendLine("[NPC]           = Non-Player Character — Maybe they'd like to talk!");
+        sb.AppendLine("S_ C_ TL_ D_ M_ = Space Number");
+        sb.AppendLine("[Directions]    North ↑    West ←    East →    South ↓");
+        sb.AppendLine("<help>          = For a list of available commands");
+        sb.AppendLine("---------------------------------------------------------------------------------");
 
 
-    // Generer kortet som en streng og farvelægger det nuværende rum
-    string mapTrash = sb.ToString();
-    mapTrash = ColorizeRoom(mapTrash, currentRoomName, 50, 255, 50);
-    Console.Write(mapTrash);
+        // Generer kortet som en streng og farvelægger det nuværende rum
+        string mapTrash = sb.ToString();
+        mapTrash = ColorizeRoom(mapTrash, currentRoomName, 50, 255, 50);
+        Console.Write(mapTrash);
     }
 
 

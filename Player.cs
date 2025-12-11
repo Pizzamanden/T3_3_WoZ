@@ -51,12 +51,12 @@ public class Player
         if (HP + amount >= MaxHP)
         {
             HP = MaxHP;
-            Console.WriteLine($"\n{Name} are now fully rested. HP is now {HP}/{MaxHP}.");
+            Console.WriteLine($"\n{Name} are now fully rested. HP is now {HP}/{MaxHP}.\n");
         }
         else
         {
             HP += amount;
-            Console.WriteLine($"\n{Name} rests for an hour and replenishes {amount} HP! HP is now {HP}/{MaxHP}.");
+            Console.WriteLine($"\n{Name} rests for an hour and replenishes {amount} HP! HP is now {HP}/{MaxHP}.\n");
         }
     }
 

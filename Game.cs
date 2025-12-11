@@ -67,6 +67,7 @@ class Game {
         }
         Console.Write("> ");
         string? line = Console.ReadLine();
+        Console.WriteLine("");
         if (line!=null) registry.Dispatch(line);
         context.GetCurrent().RunWelcomeEvents();
       }

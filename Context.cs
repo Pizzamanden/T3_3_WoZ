@@ -17,7 +17,7 @@ class Context {
     Player = new Player("You", 100);
 	
     // Peter: Add all player default attacks
-    Player.AddAttack(new Attack("mop", 80, 100, "physical"));
+    Player.AddAttack(new Attack("mop", 2, 40, "physical"));
   }
   //Magnus: Adding an item to the inventory
   public void InventoryAdd(Item item)

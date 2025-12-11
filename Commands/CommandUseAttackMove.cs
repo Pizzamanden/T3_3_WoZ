@@ -37,13 +37,13 @@ class CommandUseAttackMove : BaseCommand, ICommand
         if (!context.Player.HasAttack(attackType.ToLower()))
         {
             // Attack was not found
-            Console.WriteLine("\nThat attack could not be found.");
+            Console.WriteLine("That attack could not be found.");
             listAttacks(context);
             return;
         }
         Attack attack = context.Player.AttackList[attackType.ToLower()];
 
-        Console.WriteLine($"\nYou use {attack.Name} against {monster.Name}!");
+        Console.WriteLine($"You use {attack.Name} against {monster.Name}!");
 
         if (attack.Type == monster.Weakness)
         { // Monster is weak to this!
