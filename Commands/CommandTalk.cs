@@ -16,6 +16,7 @@ class CommandTalk : BaseCommand, ICommand {
         }*/
     
         Space current = context.GetCurrent();
+        //Magnus: Special case to make sure Ivan NPC talk doesn't trigger too early
         if (current.GetName() == "C2" && !Flags.GetFlag(Flags.C_S6_Monster_Dead))
         {
             Console.WriteLine("Ivan smiles at you. \"See you later, my friend\" he says.");
