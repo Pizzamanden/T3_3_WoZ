@@ -174,24 +174,6 @@ class World {
         S_S4.PlaceItem(Key4); // Yoink'ed by Peter for testing of starter zone
         M_S3.PlaceItem(M_Barbie);
 
-        
-
-        M_S1_NPC.PlaceNPC(new NPC(
-          "Shopkeeper", 
-          "A weary shopkeeper stands behind a makeshift counter, surrounded by heaps of discarded plastic items. \nHis eyes reflect a mix of hope and desperation as he clutches a worn-out recycling manual.", 
-          new List<string>
-          {
-            "\n\"Ah, a fellow agent! These plastics have taken over my shop. If only someone could help me sort them out...\"",
-            "\n\"The plastic monster is wreaking havoc in this area. I've heard that recycling the trash it throws at you can weaken it.\""
-          },
-          Flags.M_S3_Pickup_Barbie,
-          null
-        ));
-
-        M_S3.AddWelcomeEvent(new SpawnItemSE(Flags.M_S3_Pickup_Barbie, M_Sword, M_S1_NPC));
-
-
-
 
         /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - STARTER - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
         // Monsters
@@ -322,9 +304,6 @@ class World {
 
         //adding NPCS
         M_S1.PlaceNPC(new NPC(
-          "NPC",
-          "",
-        M_S1_NPC.PlaceNPC(new NPC(
           "Samurai",
           "Get me the item further up and you can have the sword *more fake snoring*",
           new List<string>
@@ -436,7 +415,7 @@ class World {
         D_S6.Monster.AttackDamage = 30;
         
         //adding NPCS
-        D_S3_NPC.PlaceNPC(new NPC(
+        D_S3.PlaceNPC(new NPC(
           "Shop Keep",
           "♪Chemicals break ghost fishing gear♪",
           new List<string>
@@ -521,8 +500,7 @@ class World {
         TL_S1.AddWelcomeEvent(new TextSE("turn around", "", "", TrashLand_Text.TL_S1_1));
         TL_S1.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_2));
         // TL_S1 text (First time, post combat) (Lige nu køre den med det samme, )
-        TL_S1_MiniBoss.AddGoodbyeEvent(new TextSE("", "", Flags.TL_S1_First_Encounter, TrashLand_Text.TL_S1_3));
-        TL_S1.AddGoodbyeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_3));
+        TL_S1.AddGoodbyeEvent(new TextSE("", "", Flags.TL_S1_First_Encounter, TrashLand_Text.TL_S1_3));
 
         // TL_S2 text
         TL_S2.AddWelcomeEvent(new TextSE("try cotton candy", "", "", TrashLand_Text.TL_S2_1));
