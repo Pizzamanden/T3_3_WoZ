@@ -309,7 +309,7 @@ class World {
         //adding NPCS
         M_S1_NPC.PlaceNPC(new NPC(
           "Samurai",
-          "",
+          "Get me the item further up and you can have the sword *more fake snoring*",
           new List<string>
           {
             Mall_Text.M_S1_Talk_1
