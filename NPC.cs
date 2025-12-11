@@ -55,29 +55,10 @@ class NPC
         return name;
     }
 
-    /*public string GetDescription()
-    {
-        return description;
-    }*/
-
 	public void DropItem(Space space){
 		if(itemToDrop != null)
         {
             space.PlaceItem(this.itemToDrop!);
         }
 	}
-
-    /* 
-
-    Example use:
-
-    List<string> dialogueListNPC1 = new List<string>
-    {
-        $"Hello, agent. I'm NPC 1. Do you want to find out more about the monster?",
-        "This is the plastic monster. You can defeat him by recycling the trash he's attacking you with."
-    };
-
-    NPC npc1 = new NPC("NPC 1", "Example description for NPC 1", dialogueListNPC1);
-
-    */
 }

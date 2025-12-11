@@ -54,7 +54,7 @@ class Space : Node {
         monsterText = monsterText.PadLeft(borderLength - padding - 2, '-').PadRight(borderLength - 2, '-');
         monsterText = "!" + monsterText + "!";
         Console.WriteLine(monsterText);
-        Console.WriteLine("Type \"attack\" to list all available attacks.\n");
+        Console.WriteLine("Type <attack> to list all available attacks.\n");
     }
   
   public void Goodbye () {
@@ -138,6 +138,7 @@ class Space : Node {
   {
   	return item;
   }
+
   // Troels: returns the inventory of the space (either empty or with one item)
   public List<Item> GetInventory()
   {
@@ -148,11 +149,6 @@ class Space : Node {
     }
     return items;
   }
-// Troels: returns the monster in the space
-public Monster GetMonster()
-    {
-        return Monster!;
-    }
 
   //Magnus: Picks up the item and removes it
   public Item CollectItem()

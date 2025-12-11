@@ -221,7 +221,7 @@ class World {
         S_S6_BOSS_4.AttackDamage = 5;
 
         S_S4.PlaceNPC(new NPC(
-          "Wet creature statue",
+          "Statue",
           "The statue is silent... like a statue should be.",
           new List<string>
           {
@@ -553,7 +553,7 @@ class World {
 
         // Monsters
         Monster C_S1_MiniBoss_Boss = new Monster(
-            "Jack",
+            "Jack the Cigarette Guy",
             50,
             Key1,
             "fire",
@@ -585,7 +585,7 @@ class World {
 
         // NPCs
         C_S2.PlaceNPC(new NPC(
-          "Ivan",
+          "Ivan Nalive",
           "Still dead...",
           new List<string>
           {
