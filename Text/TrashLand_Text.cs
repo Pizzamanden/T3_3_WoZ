@@ -10,7 +10,7 @@ static class TrashLand_Text
     public const string TL_S1_6 = "You contact HQ, telling them it's safe for the crew to come in and \ntake care of the rest. \n\nYou also relay the information that mixed single-use waste cannot \nbe processed efficiently without source separation.";
     
     // S2 text
-    public const string TL_S2_1 = "You search the park for an effective weapon to use against the \nmascot.";
+    public const string TL_S2_1 = "You search the park for an effective weapon to use against the \nmascot. You are immediatly distracted by a nearby vendor selling cotton candy.";
     public const string TL_S2_2 = "You immediately regret your decision…\n\nContinuing on your search for the key, you can't help but shake the \nthought \"there's no way the candy was THAT bad...\"";
     public const string TL_S2_3 = "It was that bad…\n\nConsidering the entire place is made of garbage, you probably \nshould have seen this coming…";
     

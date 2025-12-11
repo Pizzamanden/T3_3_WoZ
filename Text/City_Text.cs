@@ -13,7 +13,7 @@ static class City_Text
     // S1: Key is picked up
     public const string C_S1_7 = "You take the key piece and contact HQ, telling them it's safe for \nthe crew to come in, and take care of the rest. \n\nYou also relay the information that thermal destruction is effective \nagainst cigarette waste.";
     // S2
-    public const string C_S2_1 = "You enter a diner, and sit down by the counter. “What do ya \nwant”, the lady asks, in a monotone tone.\n";
+    public const string C_S2_1 = "You enter a diner, and sit down by the counter. “What do ya \nwant”, the lady asks, in a monotone tone.";
     public const string C_S2_2 = "“One coffee, black, coming right up”, she replies.\n\n“She'll still charge you for the whole thing you know”, the guy \nsitting next to you says. “She always does this. The trick is to only \never order the coffee. But don't worry big guy, this one's on me”, \nhe says with a smile on his face.";
     public const string C_S2_3 = "“Don't mention it, it's the least I could do”, he answers, “You're the \nnew guy right? Here to help us out? Well, let me help you out first, \nby giving you a lay of the land”\n\n“You'll find this standoff north of here. I hear it's getting pretty \nserious up there”\n\n“The beach is south of here. It's usually pretty nice this time of \nyear, but ever since that gang member showed up it's been \nnothing but trouble.”";
     // S2: Second visit

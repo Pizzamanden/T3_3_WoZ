@@ -177,7 +177,7 @@ static public void PickupHint(Item item)
 
 static public void TalkHint(NPC npc)
   {
-    if (npc != null && npc.HasMoreDialouge())
+    if (npc != null && npc.HasMoreDialouge() && (npc.GetName() != "Ivan" && !Flags.GetFlag(Flags.C_S6_Monster_Dead)))
     {
       Console.WriteLine($"Seems like {npc.GetName()} wants to <talk>...\n");
     }
