@@ -96,19 +96,19 @@ class CommandMap : BaseCommand, ICommand
     private void displayStartZoneMap(string currentRoomName)
     {
         var sb = new StringBuilder();
-        sb.AppendLine("                               Welcome to the trash island                ");
+        sb.AppendLine("                             Welcome to the trash island                ");
         sb.AppendLine("  ---------------------------------------------------------------------------------");
-        sb.AppendLine("                 ┌──────┐     ┌──────┐     ┌────────┐     ┌──────┐");
-        sb.AppendLine("                 │S3 NPC│─────│  S2  │─────│S1-Start│─────│S4 NPC│");
-        sb.AppendLine("                 └──────┘     └──────┘     └────┬───┘     └──────┘");
-        sb.AppendLine("                                                │");
-        sb.AppendLine("                                            ┌───┴──┐");
-        sb.AppendLine("                                            │  S5  │");
-        sb.AppendLine("                                            └───┬──┘");
-        sb.AppendLine("                                                │");
-        sb.AppendLine("                                            ┌───┴───┐");
-        sb.AppendLine("                                            │S6-Boss│");
-        sb.AppendLine("                                            └───────┘");
+        sb.AppendLine("                 ┌────────┐    ┌────────┐    ┌────────┐    ┌────────┐");
+        sb.AppendLine("                 │ S3 NPC │────│   S2   │────│S1-Start│────│ S4 NPC │");
+        sb.AppendLine("                 └────────┘    └────────┘    └────┬───┘    └────────┘");
+        sb.AppendLine("                                                  │");
+        sb.AppendLine("                                             ┌────┴───┐");
+        sb.AppendLine("                                             │   S5   │");
+        sb.AppendLine("                                             └────┬───┘");
+        sb.AppendLine("                                                  │");
+        sb.AppendLine("                                             ┌────┴───┐");
+        sb.AppendLine("                                             │ S6-Boss│");
+        sb.AppendLine("                                             └────────┘");
         sb.AppendLine("  ---------------------------------------------------------------------------------");
         sb.AppendLine("                            [Start] = Start   [Room] = Room");
         sb.AppendLine("                            [Comb] = Combat   [Boss] = Boss");
