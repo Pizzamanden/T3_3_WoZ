@@ -312,7 +312,7 @@ class World {
           "",
           new List<string>
           {
-            Mall_Text.M_S1_Talk
+            Mall_Text.M_S1_Talk_1
           },
           "",
           null
