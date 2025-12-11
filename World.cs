@@ -205,7 +205,7 @@ class World {
         );
 
         Monster S_S6_BOSS_4 = new Monster(
-          "Cigaret Army",
+          "Cigarette Army",
           1,
           null,
           "fire",
