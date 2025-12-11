@@ -1,11 +1,13 @@
-// Dummy template
 namespace WoZ.Events;
-
 using System;
 using WoZ;
 using WoZ.Commands;
 using WoZ.Interfaces;
 using WoZ.Text;
+/*
+    Larger class for all space events.
+    These events are triggered in spaces, and can have various effects such as spawning items or monsters, clearing the console, displaying text, etc.
+ */
 
 /*
     Event for placing items
