@@ -19,7 +19,7 @@ class World {
   public static Item TL_Bins = new Item("bins", "bins", Flags.TL_S1_Real_Combat);
   public static Item M_Barbie = new Item("Barbie", "Barbie", Flags.M_S3_Pickup_Barbie);
   public static Item M_Sword = new Item("Sword", "Sword");
-  public static Item D_Chemicals = new Item("Chemicals", "Chemicals");
+  public static Item D_Chemicals = new Item("Chemical", "Chemical", Flags.Got_Chemicals);
   public static Item C1 = new Item("LighterFluid", "LighterFluid", Flags.C_S4_LighterFluid_Pickup);
   public static Item C2 = new Item("MetalComponents", "MetalComponents");
     public static string DefAct = "continue";
@@ -174,14 +174,10 @@ class World {
     }
     
         //Magnus: Adding keys and weapons to spaces
-        
-        
         S_S1_Start.PlaceItem(Key1); // Yoink'ed by Peter for testing of starter zone
         S_S2.PlaceItem(Key2); // Yoink'ed by Peter for testing of starter zone
         S_S3_NPC.PlaceItem(Key3); // Yoink'ed by Peter for testing of starter zone
         S_S4_NPC.PlaceItem(Key4); // Yoink'ed by Peter for testing of starter zone
-        D_S2_Combat.PlaceItem(D1);
-        D_S3_NPC.PlaceItem(D2);
         M_S3.PlaceItem(M_Barbie);
 
         
@@ -370,6 +366,7 @@ class World {
         M_S6_MiniBoss.Monster.AttackDamage = 10;
 
         /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - DOCKS - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+        //Magnus:
         // D_S1 text
         D_S1.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S1_1));
 
@@ -393,14 +390,14 @@ class World {
         D_S6_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.D_S6_Combat_dead, "", Docks_Text.D_S6_3));
         D_S6_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.D_S6_Got_Key, "", Docks_Text.D_S6_4));
 
-        // Place weapon (Chemicals
+        // Place weapon (Chemicals)
         D_S3_NPC.PlaceItem(D_Chemicals);
         
         // Monsters
         D_S2_Combat.Monster = new Monster(
           "Sick customer",
           30,
-          D1,
+          null,
           "physical",
           "As you land the final hit, the sick customer collapses.",
           Flags.D_S2_Combat_dead
