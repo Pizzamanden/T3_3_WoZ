@@ -6,24 +6,21 @@ using WoZ.Texts;
 
 class World {
   Space entry;
-  Registry? registry;
 
   //Magnus: defining key fields to be used by other classes
   public static Item Key1 = new Item("Key1", "key", Flags.C_S1_Got_Key);
-  public static Item Key2 = new Item("Key2", "key");
-  public static Item Key3 = new Item("Key3", "key");
+  public static Item Key2 = new Item("Key2", "key", Flags.D_S6_Got_Key);
+  public static Item Key3 = new Item("Key3", "key", Flags.M_S6_Got_Key);
   public static Item Key4 = new Item("Key4", "key", Flags.TL_S1_Got_Key);
-  public static Item D1 = new Item("D1", "Whatever1");
-  public static Item D2 = new Item("D2", "Whatever2");
-  public static Item TL1 = new Item("TL1", "Whatever3");
   public static Item TL_Bins = new Item("bins", "bins", Flags.TL_S1_Real_Combat);
   public static Item M_Barbie = new Item("Barbie", "Barbie", Flags.M_S3_Pickup_Barbie);
   public static Item M_Sword = new Item("Sword", "Sword");
+  public static Item D_Chemicals = new Item("Chemical", "Chemical", Flags.Got_Chemicals);
   public static Item C1 = new Item("LighterFluid", "LighterFluid", Flags.C_S4_LighterFluid_Pickup);
   public static Item C2 = new Item("MetalComponents", "MetalComponents");
     public static string DefAct = "continue";
 
-    public World (Registry registry) {
+    public World (Context context) {
 
     Zone StartZone = new Zone("Start", "Starting zone");
     Zone City = new Zone("City", "The zone with Tourism trash!");
@@ -69,7 +66,7 @@ class World {
 
     // TrashLand-zonen
     Space TL_S1_MiniBoss  = new Space(TrashLand, "TL_S1 MiniBoss");
-    Space TL_S2  = new Space(TrashLand, "TL_S2 ");
+    Space TL_S2 = new Space(TrashLand, "TL_S2");
     Space TL_S3_Combat  = new Space(TrashLand, "TL_S3 Combat");
     Space TL_S4_NPC  = new Space(TrashLand, "TL_S4 NPC");
     Space TL_S5_Combat  = new Space(TrashLand, "TL_S5 Combat");
@@ -109,7 +106,6 @@ class World {
       C_S6_Combat.AddEdge("west", C_S5);
     }   
 
-
  
     // Docks zone edges
     {
@@ -125,7 +121,6 @@ class World {
       D_S6_MiniBoss.AddEdge("south", D_S5);
     }
       
-
 
     // Mall zone edges
     {
@@ -173,31 +168,13 @@ class World {
     }
     
         //Magnus: Adding keys and weapons to spaces
-        
-        
         S_S1_Start.PlaceItem(Key1); // Yoink'ed by Peter for testing of starter zone
         S_S2.PlaceItem(Key2); // Yoink'ed by Peter for testing of starter zone
         S_S3_NPC.PlaceItem(Key3); // Yoink'ed by Peter for testing of starter zone
         S_S4_NPC.PlaceItem(Key4); // Yoink'ed by Peter for testing of starter zone
-        D_S2_Combat.PlaceItem(D1);
-        D_S3_NPC.PlaceItem(D2);
         M_S3.PlaceItem(M_Barbie);
 
         
-
-        M_S1_NPC.PlaceNPC(new NPC(
-          "Shopkeeper", 
-          "A weary shopkeeper stands behind a makeshift counter, surrounded by heaps of discarded plastic items. \nHis eyes reflect a mix of hope and desperation as he clutches a worn-out recycling manual.", 
-          new List<string>
-          {
-            "\n\"Ah, a fellow agent! These plastics have taken over my shop. If only someone could help me sort them out...\"",
-            "\n\"The plastic monster is wreaking havoc in this area. I've heard that recycling the trash it throws at you can weaken it.\""
-          },
-          Flags.M_S3_Pickup_Barbie,
-          null
-        ));
-
-        M_S3.AddWelcomeEvent(new SpawnItemSE(Flags.M_S3_Pickup_Barbie, M_Sword, M_S1_NPC));
 
 
 
@@ -209,7 +186,7 @@ class World {
           1,
           null,
           "physical",
-          "The octopus slumps down. In a few moments it disappears.",
+          "The octopus slumps down. After a few moments it disappears.",
           Flags.S_S6_BOSS_1_Dead
         );
 
@@ -218,7 +195,7 @@ class World {
           1,
           null,
           "physical",
-          "The vending machine falls over backwards. In a few moments it disappears.",
+          "The vending machine falls over backwards. After a few moments it disappears.",
           Flags.S_S6_BOSS_2_Dead
         );
 
@@ -227,7 +204,7 @@ class World {
           1,
           null,
           "physical",
-          "The giant dragon roars, and then collapses. In a few moments it disappears.",
+          "The giant dragon roars, and then collapses. After a few moments it disappears.",
           Flags.S_S6_BOSS_3_Dead
         );
 
@@ -240,9 +217,21 @@ class World {
           Flags.S_S6_BOSS_4_Dead
         );
 
+        S_S4_NPC.PlaceNPC(new NPC(
+          "Wet creature statue",
+          "The statue is silent... like a statue should be.",
+          new List<string>
+          {
+            StartZone_Text.S_S4_Talk
+          },
+          "",
+          null
+        ));
+
         // Zone events
         // S1, both the actual start with text crawl and the starter space one can move from
         S_S1_TrueStart.AddWelcomeEvent(new TextSE(DefAct, "", "", StartZone_Text.S_S1_Start_1));
+        S_S1_TrueStart.AddWelcomeEvent(new ClearConsoleSE(""));
         S_S1_TrueStart.AddWelcomeEvent(new TextSE(DefAct, "", "", StartZone_Text.S_S1_Start_2));
         S_S1_TrueStart.AddWelcomeEvent(new TextSE("jump", "", "", StartZone_Text.S_S1_Start_3));
         S_S1_Start.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S1_Start_4));
@@ -255,7 +244,7 @@ class World {
         S_S3_NPC.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S3_2));
 
         // S_S4
-        S_S3_NPC.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S4_1));
+        S_S4_NPC.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S4_1));
 
         // S_S5
         S_S5.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S5_1));
@@ -266,7 +255,6 @@ class World {
         S_S6_BOSS.AddWelcomeEvent(new TextSE("sigh in disappointment", "", "", StartZone_Text.S_S6_2));
         S_S6_BOSS.AddWelcomeEvent(new TextSE("prepare to fight", "", "", StartZone_Text.S_S6_3));
         S_S6_BOSS.AddWelcomeEvent(new TextSE("", "", "", StartZone_Text.S_S6_4));
-
         
         // First boss dies, event then spawn
         S_S6_BOSS.AddWelcomeEvent(new TextSE("gather yourself for another fight", Flags.S_S6_BOSS_1_Dead, "", StartZone_Text.S_S6_5));
@@ -281,20 +269,22 @@ class World {
         S_S6_BOSS.AddWelcomeEvent(new TextSE("be glad that it's over", Flags.S_S6_BOSS_4_Dead, "", StartZone_Text.S_S6_8));
         S_S6_BOSS.AddWelcomeEvent(new TextSE("end this", Flags.S_S6_BOSS_4_Dead, "", StartZone_Text.S_S6_9));
         // TODO: set EndGameSE event here
+        S_S6_BOSS.AddWelcomeEvent(new EndGameSE(Flags.S_S6_BOSS_4_Dead, context));
+
 
         /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - MALL - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
         // Troels made this:
         // M_S1 text
-        M_S1_NPC.AddWelcomeEvent(new TextSE(" Press enter to show confidence in your abilities to win…", "", "", Mall_Text.M_S1_1));
-        M_S1_NPC.AddWelcomeEvent(new TextSE("Press enter to pretend to care…", "", "", Mall_Text.M_S1_2));
+        M_S1_NPC.AddWelcomeEvent(new TextSE("show confidence in your abilities to win", "", "", Mall_Text.M_S1_1));
+        M_S1_NPC.AddWelcomeEvent(new TextSE("pretend to care", "", "", Mall_Text.M_S1_2));
         M_S1_NPC.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S1_3));
-        M_S1_NPC.AddWelcomeEvent(new TextSE("Press enter to give him the doll", Flags.M_S3_Pickup_Barbie, "", Mall_Text.M_S1_4));
+        M_S1_NPC.AddWelcomeEvent(new TextSE("give him the doll", Flags.M_S3_Pickup_Barbie, "", Mall_Text.M_S1_4));
         M_S1_NPC.AddWelcomeEvent(new TextSE("", Flags.M_S3_Pickup_Barbie, "", Mall_Text.M_S1_5));
         M_S1_NPC.AddWelcomeEvent(new SpawnItemSE(Flags.M_S3_Pickup_Barbie, M_Sword, M_S1_NPC));
         
         // M_S2 text
-        M_S2_Combat.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S2_1));
-        M_S2_Combat.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S2_2));
+        M_S2_Combat.AddWelcomeEvent(new TextSE("continue onwards from the food court", "", "", Mall_Text.M_S2_1));
+        M_S2_Combat.AddWelcomeEvent(new TextSE("cough loudly and clutch your chest", "", "", Mall_Text.M_S2_2));
         M_S2_Combat.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S2_3));
 
         // M_S3 text
@@ -303,6 +293,7 @@ class World {
         // M_S4 text
         M_S4_Combat.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S4_1));
         M_S4_Combat.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S4_2));
+        // Text for after combat
         M_S4_Combat.AddWelcomeEvent(new TextSE("", Flags.M_S4_Combat_dead, "", Mall_Text.M_S4_3));
 
         // M_S5 text
@@ -311,26 +302,27 @@ class World {
         // M_S6 text
         M_S6_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S6_1));
         M_S6_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S6_2));
+        // Text for after combat
         M_S6_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.M_S6_Combat_dead, "", Mall_Text.M_S6_3));
-        M_S6_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.M_S6_Combat_dead, "", Mall_Text.M_S6_4));
+        M_S6_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.M_S6_Got_Key, "", Mall_Text.M_S6_4));
 
         //adding NPCS
-        M_S3.PlaceNPC(new NPC(
-          "NPC",
-          "",
-          new List<string>
-          {
-            Mall_Text.M_S3_Talk
-          },
-          "",
-          null
-        ));
         M_S1_NPC.PlaceNPC(new NPC(
           "NPC",
           "",
           new List<string>
           {
             Mall_Text.M_S1_Talk
+          },
+          "",
+          null
+        ));
+        M_S3.PlaceNPC(new NPC(
+          "NPC",
+          "",
+          new List<string>
+          {
+            Mall_Text.M_S3_Talk
           },
           "",
           null
@@ -358,7 +350,7 @@ class World {
         M_S4_Combat.Monster.AttackDamage = 1;
 
         M_S6_MiniBoss.Monster = new Monster(
-          "Plastic Monster",
+          "Action Man and Bottle Boy",
           120,
           Key3,
           "slice",
@@ -368,38 +360,7 @@ class World {
         M_S6_MiniBoss.Monster.AttackDamage = 10;
 
         /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - DOCKS - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-        // Monsters
-        D_S2_Combat.Monster = new Monster(
-          "Sick customer",
-          30,
-          D1,
-          "physical",
-          "He dies.",
-          Flags.D_S2_Combat_dead
-        );
-        D_S2_Combat.Monster.AttackDamage = 1;
-
-        D_S4_Combat.Monster = new Monster(
-          "massive sea turtle",
-          40,
-          null,
-          "Chemical",
-          "",
-          Flags.D_S4_Combat_dead
-        );
-        D_S4_Combat.Monster.AttackDamage = 1;
-
-        D_S6_MiniBoss.Monster = new Monster(
-          "Old Fisherman",
-          100,
-          Key2,
-          "physical",
-          "The storm starts to settle, as the ghostly figure fades away, and a \nkey piece drops to the ground…",
-          Flags.D_S6_Combat_dead
-        );
-        D_S6_MiniBoss.Monster.AttackDamage = 1;
-
-
+        //Magnus:
         // D_S1 text
         D_S1.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S1_1));
 
@@ -407,20 +368,77 @@ class World {
         D_S2_Combat.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S2_1));
 
         // D_S3 text
-        D_S3_NPC.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S3_1));
+        D_S3_NPC.AddWelcomeEvent(new TextSE("buy medicine", "", "", Docks_Text.D_S3_1));
         D_S3_NPC.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S3_2));
 
         // D_S4 text
         D_S4_Combat.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S4_1));
+        D_S4_Combat.AddWelcomeEvent(new TextSE("", Flags.D_S4_Combat_dead, "", Docks_Text.D_S4_2));
 
         // D_S5 text
         D_S5.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S5_1));
 
         // D_S6 text
-        D_S6_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S6_1));
+        D_S6_MiniBoss.AddWelcomeEvent(new TextSE("approach him", "", "", Docks_Text.D_S6_1));
         D_S6_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", Docks_Text.D_S6_2));
+        D_S6_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.D_S6_Combat_dead, "", Docks_Text.D_S6_3));
+        D_S6_MiniBoss.AddWelcomeEvent(new TextSE("", Flags.D_S6_Got_Key, "", Docks_Text.D_S6_4));
 
+        // Place weapon (Chemicals)
+        D_S3_NPC.PlaceItem(D_Chemicals);
+        
+        // Monsters
+        D_S2_Combat.Monster = new Monster(
+          "Sick customer",
+          30,
+          null,
+          "physical",
+          "As you land the final hit, the sick customer collapses.",
+          Flags.D_S2_Combat_dead
+        );
+        D_S2_Combat.Monster.AttackDamage = 20;
 
+        D_S4_Combat.Monster = new Monster(
+          "Massive sea turtle",
+          40,
+          null,
+          "Chemical",
+          "",
+          Flags.D_S4_Combat_dead
+        );
+        D_S4_Combat.Monster.AttackDamage = 20;
+
+        D_S6_MiniBoss.Monster = new Monster(
+          "Old Fisherman",
+          100,
+          Key2,
+          "Chemical",
+          "",
+          Flags.D_S6_Combat_dead
+        );
+        D_S6_MiniBoss.Monster.AttackDamage = 30;
+        
+        //adding NPCS
+        D_S3_NPC.PlaceNPC(new NPC(
+          "NPC",
+          "",
+          new List<string>
+          {
+            Docks_Text.D_S3_Talk 
+          },
+          "",
+          null
+        ));
+        D_S5.PlaceNPC(new NPC(
+          "NPC",
+          "",
+          new List<string>
+          {
+            Docks_Text.D_S5_Talk
+          },
+          "",
+          null
+        ));
 
         /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - TRASH LAND - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
         // Mikkel:
@@ -483,28 +501,28 @@ class World {
         TL_S4_NPC.PlaceItem(TL_Bins);
 
         // TL_S1 text (First time) (Mangler at fikse combat elementet af den)
-        TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("Press enter to turn around...", "", "", TrashLand_Text.TL_S1_1));
+        TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("turn around", "", "", TrashLand_Text.TL_S1_1));
         TL_S1_MiniBoss.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_2));
         // TL_S1 text (First time, post combat) (Lige nu køre den med det samme, )
         TL_S1_MiniBoss.AddGoodbyeEvent(new TextSE("", "", "", TrashLand_Text.TL_S1_3));
 
         // TL_S2 text
-        TL_S2.AddWelcomeEvent(new TextSE("Press enter to try cotton candy...", "", "", TrashLand_Text.TL_S2_1));
-        TL_S2.AddWelcomeEvent(new TextSE("Press enter to go back for seconds...", "", "", TrashLand_Text.TL_S2_2));
+        TL_S2.AddWelcomeEvent(new TextSE("try cotton candy", "", "", TrashLand_Text.TL_S2_1));
+        TL_S2.AddWelcomeEvent(new TextSE("go back for seconds", "", "", TrashLand_Text.TL_S2_2));
         TL_S2.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S2_3));
 
         // TL_S3 text 
         TL_S3_Combat.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S3_1));
 
         // TL_S4 text 
-        TL_S4_NPC.AddWelcomeEvent(new TextSE("Press enter to enter shack...", "", "", TrashLand_Text.TL_S4_1));
+        TL_S4_NPC.AddWelcomeEvent(new TextSE("enter shack", "", "", TrashLand_Text.TL_S4_1));
         TL_S4_NPC.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S4_2));
         TL_S4_NPC.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S4_3));
         TL_S4_NPC.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S4_4));
         TL_S4_NPC.AddWelcomeEvent(new UpdateMonsterDamageSE(Flags.TL_S1_Real_Combat, TL_S1_MiniBoss.Monster, 15));
 
         // TL_S5 text 
-        TL_S5_Combat.AddWelcomeEvent(new TextSE("Press enter to watch...", "", "", TrashLand_Text.TL_S5_1));
+        TL_S5_Combat.AddWelcomeEvent(new TextSE("watch", "", "", TrashLand_Text.TL_S5_1));
         TL_S5_Combat.AddWelcomeEvent(new TextSE("", "", "", TrashLand_Text.TL_S5_2));
 
         // TL_S6 text 
