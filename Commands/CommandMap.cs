@@ -22,43 +22,43 @@ class CommandMap : BaseCommand, ICommand
         // StartZone
         { "S1-Start", MapZone.StartZone },
         { "S2", MapZone.StartZone },
-        { "S3 NPC", MapZone.StartZone },
-        { "S4 NPC", MapZone.StartZone },
+        { "S3", MapZone.StartZone },
+        { "S4", MapZone.StartZone },
         { "S5", MapZone.StartZone },
-        { "S6-Boss", MapZone.StartZone },
+        { "S6", MapZone.StartZone },
 
         // City Zone
-        { "C_S1 MiniBoss", MapZone.City },
-        { "C_S2 NPC", MapZone.City },
-        { "C_S3", MapZone.City },
-        { "C_S4 Combat", MapZone.City },
-        { "C_S5", MapZone.City },
-        { "C_S6 Combat", MapZone.City },
+        { "C1", MapZone.City },
+        { "C2", MapZone.City },
+        { "C3", MapZone.City },
+        { "C4", MapZone.City },
+        { "C5", MapZone.City },
+        { "C6", MapZone.City },
 
 
         // Docks Zone
-        { "D_S1", MapZone.Docks },
-        { "D_S2 Combat", MapZone.Docks },
-        { "D_S3 Npc", MapZone.Docks },
-        { "D_S4 Combat", MapZone.Docks },
-        { "D_S5", MapZone.Docks },
-        { "D_S6 MiniBoss", MapZone.Docks },
+        { "D1", MapZone.Docks },
+        { "D2", MapZone.Docks },
+        { "D3", MapZone.Docks },
+        { "D4", MapZone.Docks },
+        { "D5", MapZone.Docks },
+        { "D6", MapZone.Docks },
 
         // Mall Zone
-        { "M_S1 NPC", MapZone.Mall },
-        { "M_S2 Combat", MapZone.Mall },
-        { "M_S3", MapZone.Mall },
-        { "M_S4 Combat", MapZone.Mall },
-        { "M_S5", MapZone.Mall },
-        { "M_S6 MiniBoss", MapZone.Mall },
+        { "M1", MapZone.Mall },
+        { "M2", MapZone.Mall },
+        { "M3", MapZone.Mall },
+        { "M4", MapZone.Mall },
+        { "M5", MapZone.Mall },
+        { "M6", MapZone.Mall },
 
         // TrashLand Zone
-        { "TL_S1 MiniBoss", MapZone.TrashLand },
-        { "TL_S2", MapZone.TrashLand },
-        { "TL_S3 Combat", MapZone.TrashLand },
-        { "TL_S4 NPC", MapZone.TrashLand },
-        { "TL_S5 Combat", MapZone.TrashLand },
-        { "TL_S6 NPC", MapZone.TrashLand },
+        { "TL1", MapZone.TrashLand },
+        { "TL2", MapZone.TrashLand },
+        { "TL3", MapZone.TrashLand },
+        { "TL4", MapZone.TrashLand },
+        { "TL5", MapZone.TrashLand },
+        { "TL6", MapZone.TrashLand },
 
     };
     // Opdatere konsollen så den har funktion til at vise farver
@@ -109,16 +109,16 @@ class CommandMap : BaseCommand, ICommand
         sb.AppendLine("                               Welcome to Trash Island                ");
         sb.AppendLine("---------------------------------------------------------------------------------");
         sb.AppendLine("                                 ↑                            ↑");
-        sb.AppendLine("                 ┌──────┐     ┌──┴───┐     ┌────────┐     ┌───┴──┐");
-        sb.AppendLine("                 │S3 NPC│─────│  S2  │─────│S1-Start│─────│S4 NPC│──>");
-        sb.AppendLine("                 └──┬───┘     └──────┘     └────┬───┘     └──────┘");
+        sb.AppendLine("                 ┌──────┐     ┌──────┐     ┌────────┐     ┌──────┐");
+        sb.AppendLine("                 │  S3  │─────│  S2  │─────│S1-Start│─────│  S4  │ →");
+        sb.AppendLine("                 └──────┘     └──────┘     └────┬───┘     └──────┘");
         sb.AppendLine("                    ↓                           │");
         sb.AppendLine("                                            ┌───┴──┐");
         sb.AppendLine("                                            │  S5  │");
         sb.AppendLine("                                            └───┬──┘");
         sb.AppendLine("                                                │");
         sb.AppendLine("                                            ┌───┴───┐");
-        sb.AppendLine("                                            │S6-Boss│");
+        sb.AppendLine("                                            │   S6  │");
         sb.AppendLine("                                            └───────┘");
         sb.AppendLine("---------------------------------------------------------------------------------");
         sb.AppendLine("[NPC]           = Non-Player Character — Maybe they'd like to talk!");
@@ -141,17 +141,17 @@ class CommandMap : BaseCommand, ICommand
         var sb = new StringBuilder();
         sb.AppendLine("                               Welcome to the City Zone                ");
         sb.AppendLine("---------------------------------------------------------------------------------");
-        sb.AppendLine("                            ┌──────────────┐    ┌───────────────┐");
-        sb.AppendLine("                            │   C_S3       │────│ C_S4 Combat   │");
-        sb.AppendLine("                            └──────┬───────┘    └───────────────┘");
+        sb.AppendLine("                            ┌──────────────┐    ┌──────────────┐");
+        sb.AppendLine("                            │      C3      │────│      C4      │");
+        sb.AppendLine("                            └──────┬───────┘    └──────────────┘");
         sb.AppendLine("                                   │");
         sb.AppendLine("            ┌────────────────┐  ┌──┴──────────┐");
-        sb.AppendLine("          ← │C_S1 MiniBoss   │──│  C_S2 NPC   │");
+        sb.AppendLine("          ← │       C1       │──│     C2      │");
         sb.AppendLine("            └────────────────┘  └────┬────────┘");
         sb.AppendLine("                                     │");
-        sb.AppendLine("                            ┌────────┴──────────┐    ┌───────────────┐");
-        sb.AppendLine("                            │     C_S5          │────│ C_S6 Combat   │");
-        sb.AppendLine("                            └───────────────────┘    └───────────────┘");
+        sb.AppendLine("                             ┌───────┴──────┐    ┌──────────────┐");
+        sb.AppendLine("                             │       C5     │────│      C6      │");
+        sb.AppendLine("                             └──────────────┘    └──────────────┘");
         sb.AppendLine("---------------------------------------------------------------------------------");
         sb.AppendLine("[NPC]           = Non-Player Character — Maybe they'd like to talk!");
         sb.AppendLine("S_ C_ TL_ D_ M_ = Space Number");
@@ -172,12 +172,12 @@ class CommandMap : BaseCommand, ICommand
         var sb = new StringBuilder();
         sb.AppendLine("                               Welcome to the Docks Zone                        ");
         sb.AppendLine("---------------------------------------------------------------------------------");
-        sb.AppendLine("   ┌───────────────┐");
-        sb.AppendLine("   │D_S6 MiniBoss  │");
-        sb.AppendLine("   └──────┬────────┘");
+        sb.AppendLine("   ┌──────────────┐");
+        sb.AppendLine("   │      D6      │");
+        sb.AppendLine("   └──────┬───────┘");
         sb.AppendLine("          │");
         sb.AppendLine("   ┌──────┴───────┐ ┌─────────────┐ ┌──────────────┐ ┌─────────────┐ ┌────────────┐");
-        sb.AppendLine("   │     D_S5     │-│ D_S4 Combat │-│     D_S1     │-│ D_S2 Combat │-│  D_S3 Npc  │");
+        sb.AppendLine("   │      D5      │-│     D4      │-│     D1       │-│     D2      │-│     D3     │");
         sb.AppendLine("   └──────────────┘ └─────────────┘ └──────────────┘ └─────────────┘ └────────────┘");
         sb.AppendLine("                                           ↓");
         sb.AppendLine("---------------------------------------------------------------------------------");
@@ -201,15 +201,15 @@ class CommandMap : BaseCommand, ICommand
         sb.AppendLine("                               Welcome to the Mall Zone                        ");
         sb.AppendLine("---------------------------------------------------------------------------------");
         sb.AppendLine("                          ┌────────────┐   ┌───────────────┐");
-        sb.AppendLine("                          │    M_S5    │───│ M_S6 MiniBoss │");
+        sb.AppendLine("                          │     M5     │───│      M6       │");
         sb.AppendLine("                          └─────┬──────┘   └───────────────┘");
         sb.AppendLine("                                │                  ");
         sb.AppendLine("                          ┌─────┴──────┐   ┌──────────────┐");
-        sb.AppendLine("                          │ M_S4 Combat│───│     M_S3     │");
+        sb.AppendLine("                          │    M4      │───│      M3      │");
         sb.AppendLine("                          └────────────┘   └──────┬───────┘");
         sb.AppendLine("                                                  │");
         sb.AppendLine("                          ┌────────────┐   ┌──────┴───────┐");
-        sb.AppendLine("                          │  M_S1 NPC  │───│  M_S2 Combat │");
+        sb.AppendLine("                          │     M1     │───│      M2      │");
         sb.AppendLine("                          └────────────┘   └──────────────┘");
         sb.AppendLine("                                ↓");
         sb.AppendLine("---------------------------------------------------------------------------------");
@@ -229,23 +229,23 @@ class CommandMap : BaseCommand, ICommand
     // Metode til at vise kortet for TrashLand Zone
     private void displayTrashLandZoneMap(string currentRoomName)
     {
-        var sb = new StringBuilder();
-        sb.AppendLine("                                 Welcome to Trash Land                        ");
-        sb.AppendLine("---------------------------------------------------------------------------------");
-        sb.AppendLine("                                          ↑");
-        sb.AppendLine("                 ┌──────────┐      ┌──────────────┐      ┌───────────┐");
-        sb.AppendLine("                 │TL_S6 NPC │─────>│TL_S1 MiniBoss│─────>│   TL_S2   │");
-        sb.AppendLine("                 └─────┬────┘      └──────────────┘      └─────┬─────┘");
-        sb.AppendLine("                       │                                       │     ");
-        sb.AppendLine("                 ┌─────┴──────┐    ┌──────────────┐    ┌───────┴──────┐");
-        sb.AppendLine("                 │TL_S5 Combat│<───│ TL_S4 NPC    │<───│TL_S3 Combat  │");
-        sb.AppendLine("                 └────────────┘    └──────────────┘    └──────────────┘");
-        sb.AppendLine("---------------------------------------------------------------------------------");
-        sb.AppendLine("[NPC]           = Non-Player Character — Maybe they'd like to talk!");
-        sb.AppendLine("S_ C_ TL_ D_ M_ = Space Number");
-        sb.AppendLine("[Directions]    North ↑    West ←    East →    South ↓");
-        sb.AppendLine("<help>          = For a list of available commands");
-        sb.AppendLine("---------------------------------------------------------------------------------");
+    var sb = new StringBuilder();
+    sb.AppendLine("                                 Welcome to Trash Land                        ");
+    sb.AppendLine("---------------------------------------------------------------------------------");
+    sb.AppendLine("                                          ↑");
+    sb.AppendLine("                 ┌──────────┐      ┌──────────────┐      ┌───────────┐");
+    sb.AppendLine("                 │    TL6   │──────│     TL1      │─────>│    TL2    │");
+    sb.AppendLine("                 └─────┬────┘      └──────────────┘      └─────┬─────┘");
+    sb.AppendLine("                       │                                       │");
+    sb.AppendLine("                 ┌─────┴──────┐    ┌──────────────┐    ┌───────┴──────┐");
+    sb.AppendLine("                 │    TL5     │────│     TL4      │────│      TL3     │");
+    sb.AppendLine("                 └────────────┘    └──────────────┘    └──────────────┘");
+    sb.AppendLine("---------------------------------------------------------------------------------");
+    sb.AppendLine("[NPC]           = Non-Player Character — Maybe they'd like to talk!");
+    sb.AppendLine("S_ C_ TL_ D_ M_ = Space Number");
+    sb.AppendLine("[Directions]    North ↑    West ←    East →    South ↓");
+    sb.AppendLine("<help>          = For a list of available commands");
+    sb.AppendLine("---------------------------------------------------------------------------------");
 
 
         // Generer kortet som en streng og farvelægger det nuværende rum

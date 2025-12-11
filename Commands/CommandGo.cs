@@ -41,11 +41,11 @@ class CommandGo : BaseCommand, ICommand {
 
         //Troels: Checking for keys before entering cleared zones
         //Peter: Modified to extract the repeating code and converting it into a helper method instead
-        if (HasCleared(context, "S4 NPC", parameters[0], "north", World.Key3))
+        if (HasCleared(context, "S4", parameters[0], "north", World.Key3))
         {
             return;
         }
-        if (HasCleared(context, "S4 NPC", parameters[0], "east", World.Key1))
+        if (HasCleared(context, "S4", parameters[0], "east", World.Key1))
         {
             return;
         }
@@ -53,7 +53,7 @@ class CommandGo : BaseCommand, ICommand {
         {
             return;
         }
-        if (HasCleared(context, "S3 NPC", parameters[0], "south", World.Key4))
+        if (HasCleared(context, "S3", parameters[0], "south", World.Key4))
         {
             return;
         }
