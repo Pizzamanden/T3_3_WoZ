@@ -29,7 +29,7 @@ class CommandTalk : BaseCommand, ICommand {
        // if (commandInput == npcKey)
         //{
         //Magnus: Special case for the Samurai in Mall after the Barbie Doll has been picked up
-        if (current.GetName() == "M_S1 NPC" && Flags.GetFlag(Flags.M_S3_Pickup_Barbie))
+        if (current.GetName() == "M1" && Flags.GetFlag(Flags.M_S3_Pickup_Barbie))
         {
             Console.WriteLine(Mall_Text.M_S1_Talk_2);
             return;
