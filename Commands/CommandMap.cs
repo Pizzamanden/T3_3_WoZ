@@ -107,7 +107,7 @@ class CommandMap : BaseCommand, ICommand
     {
         var sb = new StringBuilder();
         sb.AppendLine("                               Welcome to Trash Island                ");
-        sb.AppendLine("  ---------------------------------------------------------------------------------");
+        sb.AppendLine("---------------------------------------------------------------------------------");
         sb.AppendLine("                                 ↑                            ↑");
         sb.AppendLine("                 ┌──────┐     ┌──────┐     ┌────────┐     ┌──────┐");
         sb.AppendLine("                 │S3 NPC│─────│  S2  │─────│S1-Start│─────│S4 NPC│ →");
@@ -120,11 +120,13 @@ class CommandMap : BaseCommand, ICommand
         sb.AppendLine("                                            ┌───┴───┐");
         sb.AppendLine("                                            │S6-Boss│");
         sb.AppendLine("                                            └───────┘");
-        sb.AppendLine("  ---------------------------------------------------------------------------------");
-        sb.AppendLine("  [NPC] = Non-Player Character (Hint: You can use the ");
-        sb.AppendLine("  ''Talk'' command to speak with the Non-Player-Character ");  
-        sb.AppendLine("   Maybe they'd like to talk!");
-        sb.AppendLine("  ---------------------------------------------------------------------------------");
+        sb.AppendLine("---------------------------------------------------------------------------------");
+        sb.AppendLine("[NPC]           = Non-Player Character — Maybe they'd like to talk!");
+        sb.AppendLine("S_ C_ TL_ D_ M_ = Space Number");
+        sb.AppendLine("[Directions]    North ↑    West ←    East →    South ↓");
+        sb.AppendLine("<help>          = For a list of available commands");
+        sb.AppendLine("---------------------------------------------------------------------------------");
+
 
         // Generer kortet som en streng og farvelægger det nuværende rum
 
@@ -138,7 +140,7 @@ class CommandMap : BaseCommand, ICommand
     {
         var sb = new StringBuilder();
         sb.AppendLine("                               Welcome to the City Zone                ");
-        sb.AppendLine("  ---------------------------------------------------------------------------------");
+        sb.AppendLine("---------------------------------------------------------------------------------");
         sb.AppendLine("                            ┌──────────────┐    ┌───────────────┐");
         sb.AppendLine("                            │   C_S3       │────│ C_S4 Combat   │");
         sb.AppendLine("                            └──────┬───────┘    └───────────────┘");
@@ -150,11 +152,12 @@ class CommandMap : BaseCommand, ICommand
         sb.AppendLine("                            ┌────────┴──────────┐    ┌───────────────┐");
         sb.AppendLine("                            │     C_S5          │────│ C_S6 Combat   │");
         sb.AppendLine("                            └───────────────────┘    └───────────────┘");
-        sb.AppendLine("  ---------------------------------------------------------------------------------");
-        sb.AppendLine("  [NPC] = Non-Player Character (Hint: You can use the ");
-        sb.AppendLine("  ''Talk'' command to speak with the Non-Player-Character ");  
-        sb.AppendLine("   Maybe they'd like to talk!");
-        sb.AppendLine("  ---------------------------------------------------------------------------------");
+        sb.AppendLine("---------------------------------------------------------------------------------");
+        sb.AppendLine("[NPC]           = Non-Player Character — Maybe they'd like to talk!");
+        sb.AppendLine("S_ C_ TL_ D_ M_ = Space Number");
+        sb.AppendLine("[Directions]    North ↑    West ←    East →    South ↓");
+        sb.AppendLine("<help>          = For a list of available commands");
+        sb.AppendLine("---------------------------------------------------------------------------------");
 
         // Generer kortet som en streng og farvelægger det nuværende rum
         string mapCity = sb.ToString();
@@ -168,7 +171,7 @@ class CommandMap : BaseCommand, ICommand
     {
         var sb = new StringBuilder();
         sb.AppendLine("                               Welcome to the Docks Zone                        ");
-        sb.AppendLine("  ---------------------------------------------------------------------------------");
+        sb.AppendLine("---------------------------------------------------------------------------------");
         sb.AppendLine("   ┌───────────────┐");
         sb.AppendLine("   │D_S6 MiniBoss  │");
         sb.AppendLine("   └──────┬────────┘");
@@ -177,11 +180,13 @@ class CommandMap : BaseCommand, ICommand
         sb.AppendLine("   │    D_S5      │-│D_S4 Combat  │-│    D_S1      │-│D_S2 Combat  │-│ D_S3 Npc   │");
         sb.AppendLine("   └──────────────┘ └─────────────┘ └──────────────┘ └─────────────┘ └────────────┘");
         sb.AppendLine("                                           ↓");
-        sb.AppendLine("  ---------------------------------------------------------------------------------");
-        sb.AppendLine("  [NPC] = Non-Player Character (Hint: You can use the ");
-        sb.AppendLine("  ''Talk'' command to speak with the Non-Player-Character ");  
-        sb.AppendLine("   Maybe they'd like to talk!");
-        sb.AppendLine("  ---------------------------------------------------------------------------------");
+        sb.AppendLine("---------------------------------------------------------------------------------");
+        sb.AppendLine("[NPC]           = Non-Player Character — Maybe they'd like to talk!");
+        sb.AppendLine("S_ C_ TL_ D_ M_ = Space Number");
+        sb.AppendLine("[Directions]    North ↑    West ←    East →    South ↓");
+        sb.AppendLine("<help>          = For a list of available commands");
+        sb.AppendLine("---------------------------------------------------------------------------------");
+
 
         // Generer kortet som en streng og farvelægger det nuværende rum
         string mapDocks = sb.ToString();
@@ -194,7 +199,7 @@ class CommandMap : BaseCommand, ICommand
     {
         var sb = new StringBuilder();
         sb.AppendLine("                               Welcome to the Mall Zone                        ");
-        sb.AppendLine("  ---------------------------------------------------------------------------------");
+        sb.AppendLine("---------------------------------------------------------------------------------");
         sb.AppendLine("                          ┌────────────┐   ┌───────────────┐");
         sb.AppendLine("                          │   M_S5     │───│M_S6 MiniBoss  │");
         sb.AppendLine("                          └─────┬──────┘   └───────────────┘");
@@ -207,11 +212,13 @@ class CommandMap : BaseCommand, ICommand
         sb.AppendLine("                          │M_S1 NPC    │───│M_S2 Combat   │");
         sb.AppendLine("                          └────────────┘   └──────────────┘");
         sb.AppendLine("                                ↓");
-        sb.AppendLine("  ---------------------------------------------------------------------------------");
-        sb.AppendLine("  [NPC] = Non-Player Character (Hint: You can use the ");
-        sb.AppendLine("  ''Talk'' command to speak with the Non-Player-Character ");  
-        sb.AppendLine("   Maybe they'd like to talk!");
-        sb.AppendLine("  ---------------------------------------------------------------------------------");
+        sb.AppendLine("---------------------------------------------------------------------------------");
+        sb.AppendLine("[NPC]           = Non-Player Character — Maybe they'd like to talk!");
+        sb.AppendLine("S_ C_ TL_ D_ M_ = Space Number");
+        sb.AppendLine("[Directions]    North ↑    West ←    East →    South ↓");
+        sb.AppendLine("<help>          = For a list of available commands");
+        sb.AppendLine("---------------------------------------------------------------------------------");
+
 
         // Generer kortet som en streng og farvelægger det nuværende rum
         string mapMall = sb.ToString();
@@ -224,7 +231,7 @@ class CommandMap : BaseCommand, ICommand
     {
     var sb = new StringBuilder();
     sb.AppendLine("                                 Welcome to Trash Land                        ");
-    sb.AppendLine("  ---------------------------------------------------------------------------------");
+    sb.AppendLine("---------------------------------------------------------------------------------");
     sb.AppendLine("                                          ↑");
     sb.AppendLine("                 ┌──────────┐      ┌──────────────┐      ┌───────────┐");
     sb.AppendLine("                 │TL_S6 NPC │─────>│TL_S1 MiniBoss│─────>│   TL_S2   │");
@@ -233,11 +240,13 @@ class CommandMap : BaseCommand, ICommand
     sb.AppendLine("                 ┌─────┴──────┐    ┌──────────────┐    ┌───────┴──────┐");
     sb.AppendLine("                 │TL_S5 Combat│<───│ TL_S4 NPC    │<───│TL_S3 Combat  │");
     sb.AppendLine("                 └────────────┘    └──────────────┘    └──────────────┘");
-    sb.AppendLine("  ---------------------------------------------------------------------------------");
-    sb.AppendLine("  [NPC] = Non-Player Character (Hint: You can use the ");
-    sb.AppendLine("  ''Talk'' command to speak with the Non-Player-Character ");  
-    sb.AppendLine("   Maybe they'd like to talk!");
-    sb.AppendLine("  ---------------------------------------------------------------------------------");
+    sb.AppendLine("---------------------------------------------------------------------------------");
+    sb.AppendLine("[NPC]           = Non-Player Character — Maybe they'd like to talk!");
+    sb.AppendLine("S_ C_ TL_ D_ M_ = Space Number");
+    sb.AppendLine("[Directions]    North ↑    West ←    East →    South ↓");
+    sb.AppendLine("<help>          = For a list of available commands");
+    sb.AppendLine("---------------------------------------------------------------------------------");
+
 
     // Generer kortet som en streng og farvelægger det nuværende rum
     string mapTrash = sb.ToString();
