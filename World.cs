@@ -150,7 +150,7 @@ class World {
       TL_S6.AddEdge("east", TL_S1);
       TL_S6.AddEdge("south", TL_S5);
 
-      
+
     }
 
     // Connecting zones
@@ -591,7 +591,7 @@ class World {
           {
             City_Text.C_S5_talk_1,
             City_Text.C_S5_talk_2,
-            City_Text.C_S5_talk_3,
+            City_Text.C_S5_talk_3
           },
           "",
           null

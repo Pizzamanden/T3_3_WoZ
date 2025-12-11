@@ -42,7 +42,10 @@ class Space : Node {
         }
   }
 
-  public void PrintMonsterAlert()
+    /*Peter
+     * Method to print monster alert when entering a space with a monster, or when a monster spawns in the space
+     */
+    public void PrintMonsterAlert()
     {
         // Print the current monster and a little extra decoration
         int borderLength = "---------------------------------------------------------------------------------".Length;
@@ -177,7 +180,9 @@ static public void PickupHint(Item item)
 
 static public void TalkHint(NPC npc)
   {
-    if (npc != null && npc.HasMoreDialouge() && (npc.GetName() != "Ivan" && !Flags.GetFlag(Flags.C_S6_Monster_Dead)))
+    if (npc != null && npc.HasMoreDialouge() &&
+            (npc.GetName() != "Ivan" && !Flags.GetFlag(Flags.C_S6_Monster_Dead)) &&
+            (npc.GetName() != "Samurai" && !Flags.GetFlag(Flags.M_S3_Pickup_Barbie)))
     {
       Console.WriteLine($"Seems like {npc.GetName()} wants to <talk>...\n");
     }
