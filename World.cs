@@ -172,11 +172,7 @@ class World {
       C_S1.AddEdge("west", S_S4);
     }
     
-        //Magnus: Adding keys and weapons to spaces
-        S_S1_Start.PlaceItem(Key1); // Yoink'ed by Peter for testing of starter zone
-        S_S2.PlaceItem(Key2); // Yoink'ed by Peter for testing of starter zone
-        S_S3.PlaceItem(Key3); // Yoink'ed by Peter for testing of starter zone
-        S_S4.PlaceItem(Key4); // Yoink'ed by Peter for testing of starter zone
+        //Magnus: Adding items to spaces
         M_S3.PlaceItem(M_Barbie);
 
 
