@@ -318,7 +318,7 @@ class World {
           null
         ));
         M_S3.PlaceNPC(new NPC(
-          "NPC",
+          "Dr. Spill",
           "",
           new List<string>
           {

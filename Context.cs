@@ -44,6 +44,8 @@ class Context {
       current.Goodbye();
       current = next;
       current.Welcome();
+      Space.PickupHint(current.GetItem()!);
+      Space.TalkHint(current.GetNPC()!);
     }
   }
 
