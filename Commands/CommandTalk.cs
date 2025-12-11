@@ -9,11 +9,6 @@ class CommandTalk : BaseCommand, ICommand {
     }
     
     public void Execute (Context context, string command, string[] parameters) {
-     /*   if (GuardEq(parameters, 1))
-        {
-            Console.WriteLine("I don't seem to know who that is");
-            return;
-        }*/
     
         Space current = context.GetCurrent();
         //Magnus: Special case to make sure Ivan NPC talk doesn't trigger too early
@@ -27,26 +22,16 @@ class CommandTalk : BaseCommand, ICommand {
             Console.WriteLine("There's no one to talk to here");
             return;
         }
-
-       // string commandInput = parameters[0];
         string npcKey = current.GetNPC()!.GetName();
-        //Checks if the user's input matches the keyword
-        //If yes, the item is collected and removed from the room. 
-       // if (commandInput == npcKey)
-        //{
+
         //Magnus: Special case for the Samurai in Mall after the Barbie Doll has been picked up
         if (current.GetName() == "M1" && Flags.GetFlag(Flags.M_S3_Pickup_Barbie))
         {
             Console.WriteLine(Mall_Text.M_S1_Talk_2);
             return;
         }
-
+        // Get their dialogue
         NPC currentNPC = current.GetNPC()!;
-            Console.WriteLine(currentNPC.GetDialoguePrompt());
-        //}
-        /*else
-        {
-            Console.WriteLine("There is no such NPC here");
-        }*/
+        Console.WriteLine(currentNPC.GetDialoguePrompt());
     }
 }

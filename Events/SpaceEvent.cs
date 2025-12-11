@@ -7,19 +7,6 @@ using WoZ.Commands;
 using WoZ.Interfaces;
 using WoZ.Text;
 
-class DummySE : IEvent{
-    public bool CanRun()
-    {
-        return true;
-    }
-
-    // Method which does the events intended behavior
-    public void Trigger(){
-		Console.WriteLine("Dummy event");
-	}
-}
-
-
 /*
  Event for placing items
  */
