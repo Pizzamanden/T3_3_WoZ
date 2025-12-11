@@ -40,10 +40,10 @@ class CommandPickUp : BaseCommand, ICommand
 				}
 			context.InventoryAdd(foundItem);
 			Console.WriteLine("You have picked up \"" + foundItem.GetName() + "\".");
-			context.GetNewAttack(World.D_Chemicals, World.D_Chemicals, "acid", 25, 30,"chemical", "");
-			context.GetNewAttack(World.TL_Bins, World.TL_Bins, "bins", 25, 30,"recycling", Flags.Got_Bins);
-			context.GetNewAttack(World.M_Sword, World.M_Sword, "sword", 35, 40,"slice", Flags.Got_Sword);
-			context.GetNewAttack(World.C1, World.C2, "lighter", 50, 60, "fire", Flags.Got_Lighter, World.C3);
+			context.GetNewAttack(World.D_Chemicals, World.D_Chemicals, "acid", 7, 10,"chemical", "");
+			context.GetNewAttack(World.TL_Bins, World.TL_Bins, "bins", 8, 10,"recycling", Flags.Got_Bins);
+			context.GetNewAttack(World.M_Sword, World.M_Sword, "sword", 8, 9,"slice", Flags.Got_Sword);
+			context.GetNewAttack(World.C1, World.C2, "lighter", 5, 12, "fire", Flags.Got_Lighter, World.C3);
 			
 		//}
 		/*else

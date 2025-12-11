@@ -181,39 +181,44 @@ class World {
         // Monsters
         Monster S_S6_BOSS_1 = new Monster(
           "Octopus",
-          1,
+          32,
           null,
           "chemical",
           "",
           Flags.S_S6_BOSS_1_Dead
         );
+        S_S6_BOSS_1.AttackDamage = 15;
+
 
         Monster S_S6_BOSS_2 = new Monster(
           "Vending Machine",
-          1,
+          30,
           null,
           "recycling",
           "",
           Flags.S_S6_BOSS_2_Dead
         );
+        S_S6_BOSS_2.AttackDamage = 12;
 
         Monster S_S6_BOSS_3 = new Monster(
           "Dragon",
-          1,
+          26,
           null,
           "slice",
           "",
           Flags.S_S6_BOSS_3_Dead
         );
+        S_S6_BOSS_3.AttackDamage = 10;
 
         Monster S_S6_BOSS_4 = new Monster(
           "Cigarette Army",
-          1,
+          22,
           null,
           "fire",
           "",
           Flags.S_S6_BOSS_4_Dead
         );
+        S_S6_BOSS_4.AttackDamage = 5;
 
         S_S4.PlaceNPC(new NPC(
           "Wet creature statue",
@@ -340,33 +345,33 @@ class World {
         //adding monsters to mall Zone
         M_S2.Monster = new Monster(
           "Plastic Cook",
-          30,
+          15,
           null,
           "slice",
           "The Plastic Cook dissolves into tiny pieces of plastic.",
           ""
         );
-        M_S2.Monster.AttackDamage = 1;
+        M_S2.Monster.AttackDamage = 15;
 
         M_S4.Monster = new Monster(
           "Funko Pop fan",
-          40,
+          50,
           null,
           "slice",
           "",
           Flags.M_S4_Combat_dead
         );
-        M_S4.Monster.AttackDamage = 1;
+        M_S4.Monster.AttackDamage = 15;
 
         M_S6.Monster = new Monster(
           "Action Man and Bottle Boy",
-          120,
+          90,
           Key3,
           "slice",
           "",
           Flags.M_S6_Combat_dead
         );
-        M_S6.Monster.AttackDamage = 10;
+        M_S6.Monster.AttackDamage = 15;
 
         /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - DOCKS - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
         //Magnus:
@@ -405,11 +410,11 @@ class World {
           "As you land the final hit, the sick customer collapses.",
           Flags.D_S2_Combat_dead
         );
-        D_S2.Monster.AttackDamage = 20;
+        D_S2.Monster.AttackDamage = 3;
 
         D_S4.Monster = new Monster(
           "Massive Net Turtle",
-          40,
+          60,
           null,
           "chemical",
           "",
@@ -425,7 +430,7 @@ class World {
           "",
           Flags.D_S6_Combat_dead
         );
-        D_S6.Monster.AttackDamage = 30;
+        D_S6.Monster.AttackDamage = 15;
         
         //adding NPCS
         D_S3.PlaceNPC(new NPC(
@@ -454,23 +459,23 @@ class World {
         // COMBATS:
         TL_S1.Monster = new Monster(
           "Trash Land Mascot",
-          100,
+          130,
           Key4,
           "recycling",
           TrashLand_Text.TL_S1_5,
           ""
         );
-        TL_S1.Monster.AttackDamage = 99;
+        TL_S1.Monster.AttackDamage = 10;
 
         TL_S3.Monster = new Monster(
           "Trash Land Employee",
-          40,
+          12,
           null,
           "recycling",
           "The employee falls apart into separate pieces of trash.",
           ""
         );
-        TL_S3.Monster.AttackDamage = 1;
+        TL_S3.Monster.AttackDamage = 5;
 
         TL_S5.Monster = new Monster(
           "Teacup Enthusiast",
@@ -480,7 +485,7 @@ class World {
           "You throw the final pieces of the monster into your newly acquired bins.",
           ""
         );
-        TL_S5.Monster.AttackDamage = 1;
+        TL_S5.Monster.AttackDamage = 20;
 
         // NPCs:
         TL_S4.PlaceNPC(new NPC(
@@ -549,20 +554,24 @@ class World {
         // Monsters
         Monster C_S1_MiniBoss_Boss = new Monster(
             "Jack",
-            1,
+            50,
             Key1,
             "fire",
             "",
             Flags.C_S1_MiniBoss_Boss_Dead
         );
+        C_S1_MiniBoss_Boss.AttackDamage = 30;
+
         Monster C_S4_Combat_Monster = new Monster(
             "Crazy guy",
-            1,
+            30,
             C1,
             "fire",
             "",
             Flags.C_S4_Monster_Dead
         );
+        C_S4_Combat_Monster.AttackDamage = 10;
+
         Monster C_S6_Combat_Monster = new Monster(
             "Sulphur",
             1,
@@ -571,6 +580,8 @@ class World {
             "",
             Flags.C_S6_Monster_Dead
         );
+        C_S6_Combat_Monster.AttackDamage = 0;
+
 
         // NPCs
         C_S2.PlaceNPC(new NPC(
