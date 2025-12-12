@@ -181,7 +181,7 @@ class World {
         // Monsters
         Monster S_S6_BOSS_1 = new Monster(
           "Octopus",
-          32,
+          44,
           null,
           "chemical",
           "",
@@ -192,7 +192,7 @@ class World {
 
         Monster S_S6_BOSS_2 = new Monster(
           "Vending Machine",
-          30,
+          46,
           null,
           "recycling",
           "",
@@ -202,7 +202,7 @@ class World {
 
         Monster S_S6_BOSS_3 = new Monster(
           "Dragon",
-          26,
+          42,
           null,
           "slice",
           "",
@@ -212,7 +212,7 @@ class World {
 
         Monster S_S6_BOSS_4 = new Monster(
           "Cigarette Army",
-          22,
+          28,
           null,
           "fire",
           "",
