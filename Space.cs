@@ -177,9 +177,9 @@ class Space : Node {
     static public void TalkHint(NPC npc)
     {
         if(npc == null) return;
-        bool ivanTalk = (npc.HasMoreDialouge() && npc.GetName() == "Ivan" && Flags.GetFlag(Flags.C_S6_Monster_Dead));
+        bool ivanTalk = (npc.HasMoreDialouge() && npc.GetName() == "Ivan Nalive" && Flags.GetFlag(Flags.C_S6_Monster_Dead));
         bool samuraiTalk = (npc.HasMoreDialouge() && npc.GetName() == "Samurai" && Flags.GetFlag(Flags.M_S3_Pickup_Barbie));
-        if ((npc.GetName() != "Ivan" && npc.GetName() != "Samurai" && npc.HasMoreDialouge()) || ivanTalk || samuraiTalk)
+        if ((npc.GetName() != "Ivan Nalive" && npc.GetName() != "Samurai" && npc.HasMoreDialouge()) || ivanTalk || samuraiTalk)
         {
           Console.WriteLine($"Seems like {npc.GetName()} wants to <talk>...\n");
         }
