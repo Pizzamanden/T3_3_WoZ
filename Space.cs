@@ -32,11 +32,7 @@ class Space : Node {
 
         RunWelcomeEvents();
 
-        if (Monster == null)
-        {
-            // ExitList(this);
-        }
-        else
+        if (Monster != null)
         {
             PrintMonsterAlert();
         }
@@ -49,7 +45,7 @@ class Space : Node {
     {
         // Print the current monster and a little extra decoration
         int borderLength = "---------------------------------------------------------------------------------".Length;
-        string monsterText = $"{Monster.Name} threatens you. Defeat it to proceed, or retreat for now";
+        string monsterText = $"{Monster!.Name} threatens you. Defeat it to proceed, or retreat for now";
         int padding = ((borderLength - monsterText.Length) / 2);
         monsterText = monsterText.PadLeft(borderLength - padding - 2, '-').PadRight(borderLength - 2, '-');
         monsterText = "!" + monsterText + "!";

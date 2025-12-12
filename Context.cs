@@ -50,13 +50,13 @@ class Context {
 
   public void Retreat()
   {
-    if(current.GetName() == "TL1" && !Flags.GetFlag(Flags.TL_S1_Second_Encounter))
+    if(current!.GetName() == "TL1" && !Flags.GetFlag(Flags.TL_S1_Second_Encounter))
     {
       previous = current!.FollowEdge("east"); 
     }
-    current.Goodbye();
+    current!.Goodbye();
     current = previous;
-    current.Welcome();
+    current!.Welcome();
   }
 
   public void Respawn()
@@ -92,9 +92,9 @@ class Context {
 	  this.current = entry;
   }
 //Troels: Method to check if the player has two specific items in their inventory to learn a new attack
-public void GetNewAttack(Item item1, Item item2, string attackName, int minDamage, int maxDamage, string attackType, string flag, Item item3 = null)
+public void GetNewAttack(Item item1, Item item2, string attackName, int minDamage, int maxDamage, string attackType, string flag, Item? item3 = null)
     {
-      if(inventory.Contains(item1) && inventory.Contains(item2) && !Player.HasAttack(attackName.ToLower()) && Flags.GetFlag(flag) == false && (inventory.Contains(item3) || item3 == null))
+      if(inventory.Contains(item1) && inventory.Contains(item2) && !Player.HasAttack(attackName.ToLower()) && Flags.GetFlag(flag) == false && (item3 == null || inventory.Contains(item3)))
       {
         Player.AddAttack(new Attack(attackName, minDamage, maxDamage, attackType));
         Console.WriteLine("You have learned a new attack: " + attackName + "!");

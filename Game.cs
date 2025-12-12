@@ -40,7 +40,6 @@ class Game {
   
   static void Main (string[] args) {
 	Console.OutputEncoding = Encoding.UTF8;
-    // Console.WriteLine("");
     
     Console.Clear();
     InitRegistry();
@@ -52,7 +51,7 @@ class Game {
         if (context.Player.IsAlive() == false)
         {
           //Mikkel: Made so you respawn in previous room if character dies
-          Console.Clear();
+          
           context.Respawn();
           context.Player.Heal(false);
           if(context!.GetCurrent().GetName() == "TL2" && !Flags.GetFlag(Flags.TL_S1_Second_Encounter))

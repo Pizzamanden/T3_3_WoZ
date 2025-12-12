@@ -43,7 +43,7 @@ class CommandUseAttackMove : BaseCommand, ICommand
         }
         Attack attack = context.Player.AttackList[attackType.ToLower()];
 
-        Console.WriteLine($"You use {attack.Name} against {monster.Name}!");
+        Console.WriteLine($"You use {attack.Name} against {monster!.Name}!");
 
         if (attack.Type == monster.Weakness)
         { // Monster is weak to this!
