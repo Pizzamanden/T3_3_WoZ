@@ -9,7 +9,7 @@ public static class Docks_Text
     
     // D3 text
     public const string D_S3_1 = "You enter the shop, only to find the most obnoxious doctor you've \never met. \n\n“Well hALLOOOO there!”, he says with a grin — a little too wide \nfor his face, “HOW may I be of HELP to you today, good sir?”";
-    public const string D_S3_2 = "As you're about to ask which kinds of medicine he has for sale, but \nbarely get past “Wha...”, before he interrupts you.\n\n“♪ WE'VE, GOT... ♪”, he starts singing a full song about all kinds \nof irrelevant chemicals. Ending the song with “♪ and if you happen \nto come across any ghost fishing gear you need to break down we \nuse a process called 'depolymerization' which is kinda hard to \nexplain but I've got some chemicals here for you that you can \nuse♪”, all in a single breath.\n\n";
+    public const string D_S3_2 = "As you're about to ask which kinds of medicine he has for sale, but \nbarely get past “Wha...”, before he interrupts you.\n\n“♪ WE'VE, GOT... ♪”, he starts singing a full song about all kinds \nof irrelevant chemicals. Ending the song with “♪ and if you happen \nto come across any ghost fishing gear you need to break down we \nuse a process called 'depolymerization' which is kinda hard to \nexplain but I've got some chemicals here for you that you can \nuse♪”, all in a single breath.";
     public const string D_S3_Talk = "Before you leave, you ask if he can sing that song for you one last \ntime. He sings: “♪Chemicals break ghost fishing gear♪”. You can't \nbelieve how well written it is.";
     
     // D4 text

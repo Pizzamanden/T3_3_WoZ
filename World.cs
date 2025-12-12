@@ -298,6 +298,7 @@ class World {
         
         // M_S2 text
         M_S2.AddWelcomeEvent(new TextSE("continue onwards from the food court", "", "", Mall_Text.M_S2_1));
+        M_S2.AddWelcomeEvent(new TextSE("pretend you find it appealing", "", "", Mall_Text.M_S2_2));
         M_S2.AddWelcomeEvent(new TextSE("pretend to find it appealing", "", "", Mall_Text.M_S2_2));
         M_S2.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S2_3));
 
@@ -413,8 +414,8 @@ class World {
         D_S2.Monster.AttackDamage = 3;
 
         D_S4.Monster = new Monster(
-          "Massive Net Turtle",
-          60,
+          "The Massive Net Turtle",
+          40,
           null,
           "chemical",
           "",
@@ -572,7 +573,7 @@ class World {
         C_S4_Combat_Monster.AttackDamage = 10;
 
         Monster C_S6_Combat_Monster = new Monster(
-            "Sulphur",
+            "Sulfur",
             1,
             C2,
             "fire",
@@ -657,8 +658,8 @@ class World {
         C_S6.AddWelcomeEvent(new TextSE("continue your walk on the beach", "", "", City_Text.C_S6_Beach));
         // These events happen when Flags.C_S4_Monster_Dead is set
         C_S6.AddWelcomeEvent(new SpawnMonsterSE(Flags.C_S4_Monster_Dead, C_S6_Combat_Monster, C_S6));
-        C_S6.AddWelcomeEvent(new TextSE("", Flags.C_S4_Monster_Dead, "", City_Text.C_S6_1));
-        C_S6.AddWelcomeEvent(new TextSE("", Flags.C_S4_Monster_Dead, "", City_Text.C_S6_2));
+        C_S6.AddWelcomeEvent(new TextSE(DefAct, Flags.C_S4_Monster_Dead, "", City_Text.C_S6_1));
+        C_S6.AddWelcomeEvent(new TextSE(DefAct, Flags.C_S4_Monster_Dead, "", City_Text.C_S6_2));
         C_S6.AddWelcomeEvent(new TextSE("", Flags.C_S4_Monster_Dead, "", City_Text.C_S6_3));
         // He dies
         C_S6.AddWelcomeEvent(new TextSE("", Flags.C_S6_Monster_Dead, "", City_Text.C_S6_4));
