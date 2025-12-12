@@ -326,7 +326,7 @@ class World {
           "Get me the item further up and you can have the sword *more fake snoring*",
           new List<string>
           {
-            Mall_Text.M_S1_Talk_1
+            Mall_Text.M_S1_Talk_2
           },
           "",
           null
@@ -584,7 +584,7 @@ class World {
 
         // NPCs
         C_S2.PlaceNPC(new NPC(
-          "Ivan Nalive",
+          "Ivan",
           "Still dead...",
           new List<string>
           {
@@ -622,7 +622,7 @@ class World {
         C_S1.AddWelcomeEvent(new TextSE("", Flags.C_S1_Got_Key, "", City_Text.C_S1_7));
 
         // First diner
-        C_S2.AddWelcomeEvent(new TextSE("order one glass of orange juice, pancakes with maple syrup and butter, 2 eggs, and one of their famous cherry pies", "", "", City_Text.C_S2_1));
+        C_S2.AddWelcomeEvent(new TextSE("order one glass of orange juice, \npancakes with maple syrup and butter, \n2 eggs, and one of their famous cherry pies", "", "", City_Text.C_S2_1));
         C_S2.AddWelcomeEvent(new TextSE("thank him", "", "", City_Text.C_S2_2));
         C_S2.AddWelcomeEvent(new TextSE("", "", "", City_Text.C_S2_3));
         // Second diner
@@ -633,7 +633,7 @@ class World {
         C_S2.AddWelcomeEvent(new TextSE("approach", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_7));
         C_S2.AddWelcomeEvent(new TextSE("clutch his hands tightly", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_8));
         C_S2.AddWelcomeEvent(new TextSE("promise him he's gonna be alright", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_9));
-        C_S2.AddWelcomeEvent(new TextSE("curse Jack the cigarette guys name into the air while the camera — from a birds eye view — zooms slowly away", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_10));
+        C_S2.AddWelcomeEvent(new TextSE("curse Jack the cigarette guys name into the air while the camera \n— from a birds eye view — zooms slowly away", Flags.C_S6_Monster_Dead, "", City_Text.C_S2_10));
         C_S2.AddWelcomeEvent(new SpawnItemSE(Flags.C_S6_Monster_Dead, C3, C_S2));
 
         // C_S3
