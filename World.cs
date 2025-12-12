@@ -298,7 +298,6 @@ class World {
         
         // M_S2 text
         M_S2.AddWelcomeEvent(new TextSE("continue onwards from the food court", "", "", Mall_Text.M_S2_1));
-        M_S2.AddWelcomeEvent(new TextSE("pretend you find it appealing", "", "", Mall_Text.M_S2_2));
         M_S2.AddWelcomeEvent(new TextSE("pretend to find it appealing", "", "", Mall_Text.M_S2_2));
         M_S2.AddWelcomeEvent(new TextSE("", "", "", Mall_Text.M_S2_3));
 
